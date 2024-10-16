@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-    SessionManager server(8080, 4);  // 使用8080端口和4个线程的线程池
+    SessionManager server(8080, 4);
     server.startListening();
+    server.run();
     return 0;
 }
