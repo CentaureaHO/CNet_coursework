@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 
 #include <server/net/session_listener.h>
 using namespace std;
@@ -32,7 +33,7 @@ void SessionListener::remove_connection(bool hasRegistered)
 
 bool SessionListener::checkName()
 {
-    static string acc = "accepted", rej = "rejected";
+    static string rej          = "rejected";
     char          buffer[1024] = {0};
     while (true)
     {
@@ -50,8 +51,11 @@ bool SessionListener::checkName()
         buffer[valread] = '\0';
 
         nickname = buffer;
-        if (nickname != "prev" && manager->addClient(nickname, &client_info))
+        if (manager->addClient(nickname, &client_info))
         {
+            stringstream ss;
+            ss << "accepted " << assigned_port;
+            string acc = ss.str();
             send(client_info.c_socket, acc.c_str(), acc.size(), 0);
             return true;
         }

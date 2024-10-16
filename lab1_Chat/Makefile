@@ -24,7 +24,8 @@ ifeq ($(OS),Windows_NT)
     SERVER_SOURCES := src/server/main.cpp src/server/net/message_dispatcher.cpp src/server/net/session_listener.cpp src/server/net/session_manager.cpp
     CLIENT_SOURCES := src/client/main.cpp
 else
-    # LDFLAGS :=
+	INCLUDES = -I./$(INCLUDE_DIR) -I./utils/include
+    LDFLAGS := -L./utils/lib -lftxui-component -lftxui-dom -lftxui-screen -lncurses
     MKDIR := mkdir -p
     RMDIR := rm -rf
     RM := rm -f
@@ -40,6 +41,7 @@ COMMON_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(COMMON_SOURCES:.cpp=.
 SERVER_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(SERVER_SOURCES:.cpp=.o))
 CLIENT_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(CLIENT_SOURCES:.cpp=.o))
 
+TEST_SOURCES := test.cpp
 TEST_EXEC = test
 
 .PHONY: all
@@ -66,9 +68,9 @@ client: $(COMMON_OBJECTS) $(CLIENT_OBJECTS)
 	$(CXX) $(COMMON_OBJECTS) $(CLIENT_OBJECTS) -o $(BIN_DIR)/$(CLIENT) $(CXXFLAGS) $(LDFLAGS)
 
 .PHONY: test
-test: $(COMMON_OBJECTS)
-	$(MKDIR) $(BIN_DIR)
-	$(CXX) $(COMMON_OBJECTS) test.cpp -o $(TEST_EXEC) $(CXXFLAGS) $(LDFLAGS)
+test: $(TEST_SOURCES) $(COMMON_OBJECTS)
+$(TEST_EXEC): $(TEST_SOURCES) $(COMMON_OBJECTS)
+	$(CXX) $(COMMON_OBJECTS) $(TEST_SOURCES) -o $(TEST_EXEC) $(CXXFLAGS) $(LDFLAGS)
 
 .PHONY: clean
 clean:

@@ -59,6 +59,8 @@ void SessionManager::run()
 
 void SessionManager::accept_connection(SOCKET client_socket, const string& client_ip, int client_port)
 {
+    static string acc = "notfull";
+    send(client_socket, acc.c_str(), acc.size(), 0);
     WriteGuard guard = listener_lock.write();
     listener_pool.EnQueue([this, client_socket, client_ip, client_port]() {
         SessionListener listener(client_socket, client_port, client_ip, this);
@@ -68,7 +70,7 @@ void SessionManager::accept_connection(SOCKET client_socket, const string& clien
 
 void SessionManager::reject_connection(SOCKET client_socket)
 {
-    static string rej = "Connection reached maximum capacity. Please try again later.";
+    static string rej = "full";
     send(client_socket, rej.c_str(), rej.size(), 0);
     CLOSE_SOCKET(client_socket);
 }

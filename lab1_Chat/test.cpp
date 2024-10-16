@@ -1,55 +1,29 @@
-#include <iostream>
-#include <cstring>
-#include "include/common/net/socket_defs.h"
+#include <ftxui/component/component.hpp>           // for Menu
+#include <ftxui/component/screen_interactive.hpp>  // for ScreenInteractive
+#include <ftxui/dom/elements.hpp>                  // for text, Element, hbox, vbox, gauge
+#include <ftxui/screen/color.hpp>                  // for Color, Color::Red, Color::Blue
 
 int main()
 {
-    SocketInitializer::getInstance();
+    using namespace ftxui;
 
-    SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock == INVALID_SOCKET)
-    {
-        std::cerr << "Socket creation error" << std::endl;
-        return -1;
-    }
+    // 定义一个简单的 UI 布局
+    auto screen   = ScreenInteractive::TerminalOutput();
+    auto renderer = Renderer([] {
+        return vbox({
+            hbox({
+                text("Label 1") | border,
+                text("Label 2") | border | flex,
+                text("Label 3") | border | flex,
+            }),
+            gauge(0.3) | color(Color::Red),
+            gauge(0.6) | color(Color::Blue),
+            gauge(0.9) | color(Color::Green),
+        });
+    });
 
-    sockaddr_in serv_addr;
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port   = htons(8080);
-
-    if (inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0)
-    {
-        std::cerr << "Invalid address/ Address not supported" << std::endl;
-        return -1;
-    }
-
-    if (connect(sock, (sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
-    {
-        std::cerr << "Connection Failed" << std::endl;
-        return -1;
-    }
-
-    std::cout << "Connected to server successfully" << std::endl;
-
-    char buffer[1024] = {0};
-    std::string message = "prev";
-    while(true)
-    {
-        send(sock, message.c_str(), message.size(), 0);
-        int valread = recv(sock, buffer, 1024, 0);
-        buffer[valread] = '\0';
-        std::cout << buffer << std::endl;
-        if (std::string(buffer) == "accepted")
-        {
-            break;
-        }
-        std::cin >> message;
-    }
-
-    int a = 0;
-    std::cin >> a;
-
-    CLOSE_SOCKET(sock);
+    // 启动屏幕并展示界面
+    screen.Loop(renderer);
 
     return 0;
 }
