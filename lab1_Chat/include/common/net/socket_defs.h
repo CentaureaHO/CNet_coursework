@@ -32,4 +32,6 @@ class SocketInitializer
     static SocketInitializer& getInstance();
 };
 
+SOCKET bindFreePort(int start_port, int& assigned_port);
+
 #endif

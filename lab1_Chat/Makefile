@@ -15,34 +15,38 @@ WERROR_FLAGS := -Wall -Wextra -Wpedantic -Werror
 WARNINGS_IGNORE := -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-value
 
 ifeq ($(OS),Windows_NT)
-    LDFLAGS := -lws2_32
+    LDFLAGS := -lws2_32 -lpthread
     MKDIR := powershell -Command "New-Item -ItemType Directory -Force"
     RMDIR := powershell -Command "Remove-Item -Recurse -Force"
     RM := del /Q
     SEP := /
-    SOURCES := src/common/net/socket_defs.cpp src/common/console/utf8_console.cpp
+    COMMON_SOURCES := src/common/net/socket_defs.cpp src/common/console/utf8_console.cpp src/common/thread/pool.cpp src/common/thread/lock.cpp
+    SERVER_SOURCES := src/server/main.cpp src/server/net/message_dispatcher.cpp src/server/net/session_listener.cpp src/server/net/session_manager.cpp
+    CLIENT_SOURCES := src/client/main.cpp
 else
     # LDFLAGS :=
     MKDIR := mkdir -p
     RMDIR := rm -rf
     RM := rm -f
     SEP := /
-    SOURCES := $(shell find $(SRC_DIR) -name '*.cpp' -o -name '*.c')
+    COMMON_SOURCES := $(shell find $(SRC_DIR)/common -name '*.cpp' -o -name '*.c')
+    SERVER_SOURCES := $(shell find $(SRC_DIR)/server -name '*.cpp' -o -name '*.c')
+    CLIENT_SOURCES := $(shell find $(SRC_DIR)/client -name '*.cpp' -o -name '*.c')
 endif
 
 CXXFLAGS = $(CXX_STANDARD) $(INCLUDES) $(WERROR_FLAGS) $(DBGFLAGS) $(WARNINGS_IGNORE)
 
-TEST_SRC := test.cpp
-TEST_EXEC := test
+COMMON_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(COMMON_SOURCES:.cpp=.o))
+SERVER_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(SERVER_SOURCES:.cpp=.o))
+CLIENT_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(CLIENT_SOURCES:.cpp=.o))
 
-OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(SOURCES:.cpp=.o))
-# OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(OBJECTS:.c=.o))
+TEST_EXEC = test
 
 .PHONY: all
-all: obj
+all: obj server client
 
 .PHONY: obj
-obj: $(OBJECTS)
+obj: $(COMMON_OBJECTS) $(SERVER_OBJECTS) $(CLIENT_OBJECTS)
 $(OBJ_DIR)$(SEP)%.o: $(SRC_DIR)$(SEP)%.cpp
 	$(MKDIR) $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -51,10 +55,20 @@ $(OBJ_DIR)$(SEP)%.o: $(SRC_DIR)$(SEP)%.c
 	$(MKDIR) $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-.PHONY: test
-test: $(OBJECTS)
+.PHONY: server
+server: $(COMMON_OBJECTS) $(SERVER_OBJECTS)
 	$(MKDIR) $(BIN_DIR)
-	$(CXX) $(OBJECTS) $(TEST_SRC) -o $(TEST_EXEC) $(CXXFLAGS) $(LDFLAGS)
+	$(CXX) $(COMMON_OBJECTS) $(SERVER_OBJECTS) -o $(BIN_DIR)/$(SERVER) $(CXXFLAGS) $(LDFLAGS)
+
+.PHONY: client
+client: $(COMMON_OBJECTS) $(CLIENT_OBJECTS)
+	$(MKDIR) $(BIN_DIR)
+	$(CXX) $(COMMON_OBJECTS) $(CLIENT_OBJECTS) -o $(BIN_DIR)/$(CLIENT) $(CXXFLAGS) $(LDFLAGS)
+
+.PHONY: test
+test: $(COMMON_OBJECTS)
+	$(MKDIR) $(BIN_DIR)
+	$(CXX) $(COMMON_OBJECTS) test.cpp -o $(TEST_EXEC) $(CXXFLAGS) $(LDFLAGS)
 
 .PHONY: clean
 clean:
@@ -64,4 +78,6 @@ clean:
 
 .PHONY: print-objects
 print-objects:
-	@echo OBJECTS: $(SOURCES)
+	@echo COMMON_OBJECTS: $(COMMON_OBJECTS)
+	@echo SERVER_OBJECTS: $(SERVER_OBJECTS)
+	@echo CLIENT_OBJECTS: $(CLIENT_OBJECTS)
