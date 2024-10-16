@@ -1,6 +1,8 @@
 #include <server/net/session_manager.h>
 #include <server/net/session_listener.h>
+#include <server/net/message_dispatcher.h>
 #include <iostream>
+#include <thread>
 
 using namespace std;
 
@@ -29,6 +31,8 @@ void SessionManager::startListening()
 
 void SessionManager::run()
 {
+    thread messageSender(MessageDispatcher::dispatchMessages);
+    messageSender.detach();
     while (true)
     {
         sockaddr_in client_addr;
@@ -63,7 +67,7 @@ void SessionManager::accept_connection(SOCKET client_socket, const string& clien
     send(client_socket, acc.c_str(), acc.size(), 0);
     WriteGuard guard = listener_lock.write();
     listener_pool.EnQueue([this, client_socket, client_ip, client_port]() {
-        SessionListener listener(client_socket, client_port, client_ip, this);
+        SessionListener listener(client_socket, client_port, client_ip, 2048, this);
         listener.run();
     });
 }

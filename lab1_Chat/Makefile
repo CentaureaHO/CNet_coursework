@@ -25,7 +25,7 @@ ifeq ($(OS),Windows_NT)
     CLIENT_SOURCES := src/client/main.cpp
 else
 	INCLUDES = -I./$(INCLUDE_DIR) -I./utils/include
-    LDFLAGS := -L./utils/lib -lftxui-component -lftxui-dom -lftxui-screen -lncurses
+    LDFLAGS := -L./utils/lib
     MKDIR := mkdir -p
     RMDIR := rm -rf
     RM := rm -f

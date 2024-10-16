@@ -15,13 +15,15 @@ class SessionListener
     bool            init_success;
     ClientInfo      client_info;
     std::string     nickname;
+    char*           buffer;
+    unsigned int    buffer_size;
 
     void remove_connection(bool hasRegistered = true);
     bool checkName();
 
   public:
     SessionListener(
-        SOCKET client_socket_, int client_port_, std::string client_addr_, SessionManager* manager_ = nullptr);
+        SOCKET client_socket_, int client_port_, std::string client_addr_, unsigned int buffer_size_, SessionManager* manager_ = nullptr);
     ~SessionListener();
 
     void run();

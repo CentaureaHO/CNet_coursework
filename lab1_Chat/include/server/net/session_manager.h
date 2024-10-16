@@ -4,6 +4,7 @@
 #include <mutex>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 #include <common/thread/pool.h>
 #include <common/thread/lock.h>
@@ -16,14 +17,25 @@ struct ClientInfo
     SOCKET           c_socket;
     int              c_port;
     std::string      c_addr;
+    std::string      c_nickname;
     SessionListener* c_session;
 
-    ClientInfo() : c_socket(INVALID_SOCKET), c_port(0), c_addr(""), c_session(nullptr) {}
+    ClientInfo() : c_socket(INVALID_SOCKET), c_port(0), c_addr(""), c_nickname(""), c_session(nullptr) {}
 };
+
+struct GroupInfo
+{
+    std::string              group_name;
+    std::vector<ClientInfo*> members;
+};
+
+class MessageDispatcher;
 
 class SessionManager
 {
   private:
+    friend class SessionListener;
+
     SOCKET server_socket;
     int    server_port;
 
@@ -50,6 +62,8 @@ class SessionManager
     bool addClient(const std::string& nickname, ClientInfo* client_info);
     bool removeClient(const std::string& nickname);
     void subListener();
+
+    ClientInfo& getClient(const std::string& nickname) { return *clients[nickname]; }
 };
 
 #endif
