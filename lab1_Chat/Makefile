@@ -1,4 +1,5 @@
-INCLUDE_DIR := include
+INCLUDE_DIR := ./include ../utils/include
+LIB_DIR := ../utils/lib
 SRC_DIR := src
 OBJ_DIR := obj
 BIN_DIR := bin
@@ -7,7 +8,7 @@ SERVER := server
 CLIENT := client
 CXX ?= g++
 
-INCLUDES = -I./$(INCLUDE_DIR)
+INCLUDES = -I./include -I../utils/include
 
 CXX_STANDARD = -std=c++17
 DBGFLAGS = -g
@@ -15,7 +16,7 @@ WERROR_FLAGS := -Wall -Wextra -Wpedantic -Werror
 WARNINGS_IGNORE := -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-value
 
 ifeq ($(OS),Windows_NT)
-    LDFLAGS := -lws2_32 -lpthread
+    LDFLAGS := $(addprefix -L,$(LIB_DIR)) -lws2_32 -lpthread -lftxui-component-w -lftxui-dom-w -lftxui-screen-w
     MKDIR := powershell -Command "New-Item -ItemType Directory -Force"
     RMDIR := powershell -Command "Remove-Item -Recurse -Force"
     RM := del /Q
@@ -24,8 +25,7 @@ ifeq ($(OS),Windows_NT)
     SERVER_SOURCES := src/server/main.cpp src/server/net/message_dispatcher.cpp src/server/net/session_listener.cpp src/server/net/session_manager.cpp
     CLIENT_SOURCES := src/client/main.cpp
 else
-	INCLUDES = -I./$(INCLUDE_DIR) -I./utils/include
-    LDFLAGS := -L./utils/lib
+    LDFLAGS := $(addprefix -L,$(LIB_DIR)) -lftxui-component-l -lftxui-dom-l -lftxui-screen-l
     MKDIR := mkdir -p
     RMDIR := rm -rf
     RM := rm -f

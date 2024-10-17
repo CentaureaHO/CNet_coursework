@@ -1,72 +1,49 @@
-#include <iostream>
-#include <cstring>
-#include <sstream>
-#include "include/common/net/socket_defs.h"
+// Copyright 2020 Arthur Sonzogni. All rights reserved.
+// Use of this source code is governed by the MIT license that can be found in
+// the LICENSE file.
+#include <array>                                  // for array
+#include <cmath>                                  // for sin
+#include <ftxui/component/component_base.hpp>     // for ComponentBase
+#include <ftxui/component/component_options.hpp>  // for SliderOption
+#include <ftxui/dom/direction.hpp>  // for Direction, Direction::Up
+#include <ftxui/dom/elements.hpp>   // for size, GREATER_THAN, HEIGHT
+#include <ftxui/util/ref.hpp>       // for ConstRef, Ref
+#include <memory>                   // for shared_ptr, __shared_ptr_access
 
-int main()
-{
-    SocketInitializer::getInstance();
+#include "ftxui/component/captured_mouse.hpp"  // for ftxui
+#include "ftxui/component/component.hpp"  // for Horizontal, Slider, operator|=
+#include "ftxui/component/screen_interactive.hpp"  // for ScreenInteractive
 
-    SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock == INVALID_SOCKET)
-    {
-        std::cerr << "Socket creation error" << std::endl;
-        return -1;
-    }
+using namespace ftxui;
 
-    sockaddr_in serv_addr;
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port   = htons(8080);
+int main() {
+  auto screen = ScreenInteractive::TerminalOutput();
+  std::array<int, 30> values;
+  for (size_t i = 0; i < values.size(); ++i) {
+    values[i] = 50 + 20 * std::sin(i * 0.3);
+  }
 
-    if (inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0)
-    {
-        std::cerr << "Invalid address/ Address not supported" << std::endl;
-        return -1;
-    }
+  auto layout_horizontal = Container::Horizontal({});
+  for (auto& value : values) {
+    // In C++17:
+    SliderOption<int> option;
+    option.value = &value;
+    option.max = 100;
+    option.increment = 5;
+    option.direction = Direction::Up;
+    layout_horizontal->Add(Slider<int>(option));
 
-    if (connect(sock, (sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
-    {
-        std::cerr << "Connection Failed" << std::endl;
-        return -1;
-    }
+    /* In C++20:
+    layout_horizontal->Add(Slider<int>({
+        .value = &values[i],
+        .max = 100,
+        .increment = 5,
+        .direction = Direction::Up,
+    }));
+    */
+  }
 
-    std::cout << "Connected to server successfully" << std::endl;
+  layout_horizontal |= size(HEIGHT, GREATER_THAN, 20);
 
-    char buffer[1024] = {0};
-    {
-        int valread = recv(sock, buffer, 1024, 0);
-        buffer[valread] = '\0';
-        if (std::string(buffer) != "notfull")
-        {
-            std::cerr << "Failed to connect to server" << std::endl;
-            return -1;
-        }
-    }
-    std::string message = "prev";
-    std::stringstream ss;
-    std::string rv;
-    int port = 0;
-    while(true)
-    {
-        std::cin >> message;
-        send(sock, message.c_str(), message.size(), 0);
-        int valread = recv(sock, buffer, 1024, 0);
-        buffer[valread] = '\0';
-        std::cout << buffer << std::endl;
-        ss = std::stringstream(buffer);
-        ss >> rv;
-        if (rv == "accepted")
-        {
-            ss >> port;
-            break;
-        }
-    }
-    std::cout << "Accepted on port: " << port << std::endl;
-
-    int a = 0;
-    std::cin >> a;
-
-    CLOSE_SOCKET(sock);
-
-    return 0;
+  screen.Loop(layout_horizontal);
 }
