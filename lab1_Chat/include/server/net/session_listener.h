@@ -27,6 +27,7 @@ class SessionListener
     ~SessionListener();
 
     void run();
+    void closeSession();
 };
 
 #endif

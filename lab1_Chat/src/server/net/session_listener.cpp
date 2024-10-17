@@ -2,6 +2,7 @@
 #include <sstream>
 
 #include <server/net/session_listener.h>
+#include <common/console/format_date.h>
 #include <server/net/message_dispatcher.h>
 using namespace std;
 
@@ -19,7 +20,7 @@ SessionListener::SessionListener(
     listener_socket = bindFreePort(prev_port + 1, assigned_port);
     if (listener_socket == INVALID_SOCKET)
     {
-        cerr << "Failed to bind listener socket." << std::endl;
+        DERR << "Failed to bind listener socket for client " << client_addr_ << ":" << client_port_ << endl;
         init_success = false;
     }
 }
@@ -42,18 +43,18 @@ bool SessionListener::checkName()
         int valread = recv(client_info.c_socket, buffer, 1024, 0);
         if (valread == SOCKET_ERROR)
         {
-            cerr << "Failed to receive name from client." << endl;
+            DERR << "Failed to receive name from client " << client_info.c_addr << ":" << client_info.c_port << endl;
             return false;
         }
         else if (valread == 0)
         {
-            cerr << "Connection closed by client." << endl;
+            DERR << "Connection closed by client " << client_info.c_addr << ":" << client_info.c_port << endl;
             return false;
         }
         buffer[valread] = '\0';
 
         nickname = buffer;
-        if (manager->addClient(nickname, &client_info))
+        if (nickname != "Server" && manager->addClient(nickname, &client_info))
         {
             stringstream ss;
             ss << "accepted " << assigned_port;
@@ -71,7 +72,7 @@ void SessionListener::run()
 {
     if (!init_success)
     {
-        cerr << "Failed to initialize listener." << endl;
+        DERR << "Failed to initialize listener for client " << client_info.c_addr << ":" << client_info.c_port << endl;
         return;
     }
 
@@ -81,33 +82,48 @@ void SessionListener::run()
         return;
     }
 
-    cout << "Client " << nickname << " connected, current connection count: " << manager->getClients().size() << endl;
+    for (auto& client : manager->getClients())
+    {
+        MessageDispatcher::sendToSingle("Server", nickname + " join chat room.", *client.second);
+    }
+
+    // cout << "Client " << nickname << " connected, current connection count: " << manager->getClients().size() <<
+    // endl;
+    DLOG << "Client " << nickname << " connected, current connection count: " << manager->getClients().size() << endl;
     while (true)
     {
         int valread = recv(client_info.c_socket, buffer, buffer_size, 0);
         if (valread == SOCKET_ERROR)
         {
-            cerr << "Failed to receive message from client " << nickname << endl;
+            DERR << "Failed to receive message from client " << nickname << endl;
             break;
         }
         else if (valread == 0)
         {
-            cerr << "Connection closed by client " << nickname << endl;
+            DERR << "Connection closed by client " << nickname << endl;
             break;
         }
         buffer[valread] = '\0';
 
-        cout << "Received message from " << nickname << ": " << buffer << endl;
-        /*
+        DLOG << "Received message from " << nickname << ": " << buffer << endl;
+
         for (auto& client : manager->getClients())
         {
-            if (client.first != nickname) { send(client.second->c_socket, buffer, valread, 0); }
+            // if (client.first == nickname) continue;
+            MessageDispatcher::sendToSingle(nickname, buffer, *client.second);
         }
-        */
-        ClientInfo& client = manager->getClient(nickname);
-        MessageDispatcher::sendToSingle(nickname, buffer, client);
     }
     remove_connection(true);
-    cout << "Client " << nickname << " disconnected, current connection count: " << manager->getClients().size()
+    for (auto& client : manager->getClients())
+    {
+        MessageDispatcher::sendToSingle("Server", nickname + " exit chat room.", *client.second);
+    }
+    DLOG << "Client " << nickname << " disconnected, current connection count: " << manager->getClients().size()
          << endl;
+}
+
+void SessionListener::closeSession()
+{
+    shutdown(client_info.c_socket, SHUT_RDWR);
+    CLOSE_SOCKET(client_info.c_socket);
 }

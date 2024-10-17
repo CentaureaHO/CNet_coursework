@@ -85,6 +85,11 @@ void Client::sendHandler()
     while (true)
     {
         getline(cin, message);
+        if (message == "/exit")
+        {
+            CLOSE_SOCKET(client_socket);
+            exit(0);
+        }
         send(client_socket, message.c_str(), message.length(), 0);
     }
 }
@@ -112,7 +117,7 @@ void Client::run()
     }
 
     enterName();
-    cout << "Connected to server successfully." << endl;
+    cout << "Connected to server successfully.\n" << endl;
 
     thread listener_thread(&Client::listenHandler, this);
     thread sender_thread(&Client::sendHandler, this);

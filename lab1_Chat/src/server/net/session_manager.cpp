@@ -1,6 +1,7 @@
 #include <server/net/session_manager.h>
 #include <server/net/session_listener.h>
 #include <server/net/message_dispatcher.h>
+#include <common/console/format_date.h>
 #include <iostream>
 #include <thread>
 
@@ -12,7 +13,7 @@ SessionManager::SessionManager(int base_port, unsigned int listener_threads)
     server_socket = bindFreePort(base_port, server_port);
     if (server_socket == INVALID_SOCKET)
     {
-        std::cerr << "Failed to bind server socket." << std::endl;
+        DERR << "Failed to bind server socket." << endl;
         exit(1);
     }
 }
@@ -21,27 +22,32 @@ void SessionManager::startListening()
 {
     if (listen(server_socket, 5) == SOCKET_ERROR)
     {
-        std::cerr << "Failed to start listening on port: " << server_port << std::endl;
+        DERR << "Failed to start listening on port: " << server_port << endl;
         CLOSE_SOCKET(server_socket);
         exit(1);
     }
 
-    std::cout << "Server is listening on port: " << server_port << std::endl;
+    DLOG << "Server is listening on port: " << server_port << endl;
 }
 
 void SessionManager::run()
 {
+    running = true;
     thread messageSender(MessageDispatcher::dispatchMessages);
     messageSender.detach();
-    while (true)
+    while (running)
     {
         sockaddr_in client_addr;
-        socklen_t   client_len    = sizeof(client_addr);
-        SOCKET      client_socket = accept(server_socket, (sockaddr*)&client_addr, &client_len);
+        socklen_t   client_len = sizeof(client_addr);
+        // cout << "Waiting for client connection..." << endl;
+        SOCKET client_socket = accept(server_socket, (sockaddr*)&client_addr, &client_len);
+        // cout << "Client connected." << endl;
+
+        if (!running) break;
 
         if (client_socket == INVALID_SOCKET)
         {
-            std::cerr << "Failed to accept client connection." << std::endl;
+            DERR << "Failed to accept client connection." << endl;
             continue;
         }
 
@@ -49,7 +55,7 @@ void SessionManager::run()
             WriteGuard guard = listener_lock.write();
             if (current_listener >= listener_threads)
             {
-                cerr << "All listener threads are busy. Rejecting connection from " << inet_ntoa(client_addr.sin_addr)
+                DERR << "All listener threads are busy. Rejecting connection from " << inet_ntoa(client_addr.sin_addr)
                      << ":" << ntohs(client_addr.sin_port) << endl;
                 reject_connection(client_socket);
                 continue;
@@ -79,7 +85,7 @@ void SessionManager::reject_connection(SOCKET client_socket)
     CLOSE_SOCKET(client_socket);
 }
 
-bool SessionManager::addClient(const std::string& nickname, ClientInfo* client_info)
+bool SessionManager::addClient(const string& nickname, ClientInfo* client_info)
 {
     WriteGuard guard = clients_lock.write();
     if (clients.find(nickname) != clients.end()) { return false; }
@@ -87,7 +93,7 @@ bool SessionManager::addClient(const std::string& nickname, ClientInfo* client_i
     return true;
 }
 
-bool SessionManager::removeClient(const std::string& nickname)
+bool SessionManager::removeClient(const string& nickname)
 {
     WriteGuard guard = clients_lock.write();
     if (clients.find(nickname) == clients.end()) return false;
@@ -99,4 +105,28 @@ void SessionManager::subListener()
 {
     WriteGuard guard = listener_lock.write();
     --current_listener;
+}
+
+void SessionManager::shutdown()
+{
+    DLOG << "Shutting down server..." << endl;
+    running = false;
+
+    MessageDispatcher::clearQueue();
+    listener_pool.StopPool();
+    CLOSE_SOCKET(server_socket);
+
+    {
+        WriteGuard guard = clients_lock.write();
+        for (auto& client_pair : clients)
+        {
+            ClientInfo* client_info = client_pair.second;
+            if (client_info->c_session) { client_info->c_session->closeSession(); }
+            CLOSE_SOCKET(client_info->c_socket);
+        }
+        clients.clear();
+    }
+
+    DLOG << "All client sessions have been closed." << endl;
+    _Exit(0);
 }

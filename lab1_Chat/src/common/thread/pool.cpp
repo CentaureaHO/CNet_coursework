@@ -76,14 +76,15 @@ void ThreadPool::Sync()
 /**
  * @brief 停止线程池
  *
- * 停止所有线程并等待所有任务完成。
+ * 停止所有线程
  */
 void ThreadPool::StopPool()
 {
     {
         std::unique_lock<std::mutex> Lock(QueueMutex);
+        while (!Tasks.empty()) Tasks.pop();
+        Workers.clear();
         Stop = true;
     }
     CondVar.notify_all();
-    Sync();
 }

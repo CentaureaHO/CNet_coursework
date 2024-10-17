@@ -22,6 +22,8 @@ class MessageDispatcher
 
     static void sendToSingle(const std::string& sender, const std::string& message, ClientInfo& client_info);
     static void sendToGroup(const std::string& sender, const std::string& message, GroupInfo& group, SOCKET self);
+
+    static void clearQueue();
 };
 
 #endif

@@ -47,6 +47,8 @@ class SessionManager
     std::unordered_map<std::string, ClientInfo*> clients;
     ReWrLock                                     clients_lock;
 
+    bool running;
+
   public:
     SessionManager(int base_port = 8080, unsigned int listener_threads = 4);
 
@@ -64,6 +66,8 @@ class SessionManager
     void subListener();
 
     ClientInfo& getClient(const std::string& nickname) { return *clients[nickname]; }
+
+    void shutdown();
 };
 
 #endif
