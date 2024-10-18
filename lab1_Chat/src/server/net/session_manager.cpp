@@ -32,11 +32,13 @@ void SessionManager::startListening()
 
 void SessionManager::run()
 {
+    /*
     if (!SetSocketNonBlocking(server_socket))
     {
         DERR << "Failed to set server socket to non-blocking mode." << endl;
         return;
     }
+    */
     running = true;
     thread messageSender(MessageDispatcher::dispatchMessages);
     messageSender.detach();
@@ -55,17 +57,30 @@ void SessionManager::run()
 #ifdef _WIN32
             int error_code = WSAGetLastError();
             if (error_code == WSAEWOULDBLOCK)
-#else
-            if (errno == EWOULDBLOCK)
-#endif
             {
                 this_thread::sleep_for(chrono::milliseconds(100));
                 continue;
             }
+            else if (error_code == WSAECONNABORTED)
+            {
+                DLOG << "Server socket has been closed, exiting run loop." << endl;
+                break;
+            }
+#else
+            if (errno == EWOULDBLOCK)
+            {
+                this_thread::sleep_for(chrono::milliseconds(100));
+                continue;
+            }
+            else if (errno == EBADF || errno == EINTR)
+            {
+                DLOG << "Server socket has been closed, exiting run loop." << endl;
+                break;
+            }
+#endif
             else
             {
-                DERR << "Failed to accept client connection from " << inet_ntoa(client_addr.sin_addr) << ":"
-                     << ntohs(client_addr.sin_port) << endl;
+                DERR << "Failed to accept client connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
                 continue;
             }
         }

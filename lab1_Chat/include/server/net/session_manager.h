@@ -33,11 +33,13 @@ class MessageDispatcher;
 
 class SessionManager
 {
+  public:
+    SOCKET server_socket;
+
   private:
     friend class SessionListener;
 
-    SOCKET server_socket;
-    int    server_port;
+    int server_port;
 
     ThreadPool   listener_pool;
     unsigned int listener_threads;

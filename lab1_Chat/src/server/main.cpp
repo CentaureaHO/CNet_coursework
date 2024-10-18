@@ -12,7 +12,7 @@ int main()
         while (true)
         {
             // cout << "> ";
-            getline(cin, command);
+            cin >> command;
             if (command == "shutdown")
             {
                 server.shutdown();
