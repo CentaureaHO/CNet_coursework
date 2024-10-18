@@ -4,13 +4,15 @@
 #ifndef FTXUI_DOM_DIRECTION_HPP
 #define FTXUI_DOM_DIRECTION_HPP
 
-namespace ftxui {
-enum class Direction {
-  Up = 0,
-  Down = 1,
-  Left = 2,
-  Right = 3,
-};
+namespace ftxui
+{
+    enum class Direction
+    {
+        Up    = 0,
+        Down  = 1,
+        Left  = 2,
+        Right = 3,
+    };
 
 }  // namespace ftxui
 

@@ -33,6 +33,6 @@ class SocketInitializer
 };
 
 SOCKET bindFreePort(int start_port, int& assigned_port);
-bool SetSocketNonBlocking(SOCKET sock);
+bool   SetSocketNonBlocking(SOCKET sock);
 
 #endif

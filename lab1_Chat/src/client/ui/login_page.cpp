@@ -7,6 +7,11 @@ LoginPage::LoginPage(MainComponent* m, std::function<void()> on_exit) : on_exit_
     using namespace ftxui;
 
     on_login_ = [this]() {
+        if (username_.empty())
+        {
+            error_message_ = "Username cannot be empty!";
+            return;
+        }
         client_.setTarget(ip_address_, stoi(port_));
         if (!client_.connectToServer(error_message_) || !client_.login(username_, error_message_))
         {

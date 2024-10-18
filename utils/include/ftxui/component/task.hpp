@@ -8,10 +8,12 @@
 #include <variant>
 #include "ftxui/component/event.hpp"
 
-namespace ftxui {
-class AnimationTask {};
-using Closure = std::function<void()>;
-using Task = std::variant<Event, Closure, AnimationTask>;
+namespace ftxui
+{
+    class AnimationTask
+    {};
+    using Closure = std::function<void()>;
+    using Task    = std::variant<Event, Closure, AnimationTask>;
 }  // namespace ftxui
 
 #endif  // FTXUI_COMPONENT_ANIMATION_HPP

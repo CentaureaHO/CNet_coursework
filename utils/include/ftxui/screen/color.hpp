@@ -13,37 +13,36 @@
 #undef RGB
 #endif
 
-namespace ftxui {
+namespace ftxui
+{
 
-/// @brief A class representing terminal colors.
-/// @ingroup screen
-class Color {
- public:
-  enum Palette1 : uint8_t;
-  enum Palette16 : uint8_t;
-  enum Palette256 : uint8_t;
+    /// @brief A class representing terminal colors.
+    /// @ingroup screen
+    class Color
+    {
+      public:
+        enum Palette1 : uint8_t;
+        enum Palette16 : uint8_t;
+        enum Palette256 : uint8_t;
 
-  // NOLINTBEGIN
-  Color();                  // Transparent.
-  Color(Palette1 index);    // Transparent.
-  Color(Palette16 index);   // Implicit conversion from index to Color.
-  Color(Palette256 index);  // Implicit conversion from index to Color.
-  // NOLINTEND
-  Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255);
-  static Color RGB(uint8_t red, uint8_t green, uint8_t blue);
-  static Color HSV(uint8_t hue, uint8_t saturation, uint8_t value);
-  static Color RGBA(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha);
-  static Color HSVA(uint8_t hue,
-                    uint8_t saturation,
-                    uint8_t value,
-                    uint8_t alpha);
-  static Color Interpolate(float t, const Color& a, const Color& b);
-  static Color Blend(const Color& lhs, const Color& rhs);
+        // NOLINTBEGIN
+        Color();                  // Transparent.
+        Color(Palette1 index);    // Transparent.
+        Color(Palette16 index);   // Implicit conversion from index to Color.
+        Color(Palette256 index);  // Implicit conversion from index to Color.
+        // NOLINTEND
+        Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255);
+        static Color RGB(uint8_t red, uint8_t green, uint8_t blue);
+        static Color HSV(uint8_t hue, uint8_t saturation, uint8_t value);
+        static Color RGBA(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha);
+        static Color HSVA(uint8_t hue, uint8_t saturation, uint8_t value, uint8_t alpha);
+        static Color Interpolate(float t, const Color& a, const Color& b);
+        static Color Blend(const Color& lhs, const Color& rhs);
 
-  //---------------------------
-  // List of colors:
-  //---------------------------
-  // clang-format off
+        //---------------------------
+        // List of colors:
+        //---------------------------
+        // clang-format off
   enum Palette1 : uint8_t{
     Default, // Transparent
   };
@@ -309,36 +308,38 @@ class Color {
     Yellow4            = 100,
     Yellow4Bis         = 106,
   };
-  // clang-format on
+        // clang-format on
 
-  // --- Operators ------
-  bool operator==(const Color& rhs) const;
-  bool operator!=(const Color& rhs) const;
+        // --- Operators ------
+        bool operator==(const Color& rhs) const;
+        bool operator!=(const Color& rhs) const;
 
-  std::string Print(bool is_background_color) const;
-  bool IsOpaque() const { return alpha_ == 255; }
+        std::string Print(bool is_background_color) const;
+        bool        IsOpaque() const { return alpha_ == 255; }
 
- private:
-  enum class ColorType : uint8_t {
-    Palette1,
-    Palette16,
-    Palette256,
-    TrueColor,
-  };
-  ColorType type_ = ColorType::Palette1;
-  uint8_t red_ = 0;
-  uint8_t green_ = 0;
-  uint8_t blue_ = 0;
-  uint8_t alpha_ = 0;
-};
+      private:
+        enum class ColorType : uint8_t
+        {
+            Palette1,
+            Palette16,
+            Palette256,
+            TrueColor,
+        };
+        ColorType type_  = ColorType::Palette1;
+        uint8_t   red_   = 0;
+        uint8_t   green_ = 0;
+        uint8_t   blue_  = 0;
+        uint8_t   alpha_ = 0;
+    };
 
-inline namespace literals {
+    inline namespace literals
+    {
 
-/// @brief Creates a color from a combined hex RGB representation,
-/// e.g. 0x808000_rgb
-Color operator""_rgb(unsigned long long int combined);
+        /// @brief Creates a color from a combined hex RGB representation,
+        /// e.g. 0x808000_rgb
+        Color operator""_rgb(unsigned long long int combined);
 
-}  // namespace literals
+    }  // namespace literals
 
 }  // namespace ftxui
 

@@ -6,17 +6,19 @@
 
 #include <memory>
 
-namespace ftxui {
-class CapturedMouseInterface {
- public:
-  CapturedMouseInterface() = default;
-  CapturedMouseInterface(const CapturedMouseInterface&) = default;
-  CapturedMouseInterface(CapturedMouseInterface&&) = delete;
-  CapturedMouseInterface& operator=(const CapturedMouseInterface&) = default;
-  CapturedMouseInterface& operator=(CapturedMouseInterface&&) = delete;
-  virtual ~CapturedMouseInterface() = default;
-};
-using CapturedMouse = std::unique_ptr<CapturedMouseInterface>;
+namespace ftxui
+{
+    class CapturedMouseInterface
+    {
+      public:
+        CapturedMouseInterface()                                         = default;
+        CapturedMouseInterface(const CapturedMouseInterface&)            = default;
+        CapturedMouseInterface(CapturedMouseInterface&&)                 = delete;
+        CapturedMouseInterface& operator=(const CapturedMouseInterface&) = default;
+        CapturedMouseInterface& operator=(CapturedMouseInterface&&)      = delete;
+        virtual ~CapturedMouseInterface()                                = default;
+    };
+    using CapturedMouse = std::unique_ptr<CapturedMouseInterface>;
 }  // namespace ftxui
 
 #endif /* end of include guard: FTXUI_CAPTURED_MOUSE_HPP */

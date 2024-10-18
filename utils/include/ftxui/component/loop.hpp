@@ -8,33 +8,35 @@
 
 #include "ftxui/component/component_base.hpp"  // for ComponentBase
 
-namespace ftxui {
-class ComponentBase;
+namespace ftxui
+{
+    class ComponentBase;
 
-using Component = std::shared_ptr<ComponentBase>;
-class ScreenInteractive;
+    using Component = std::shared_ptr<ComponentBase>;
+    class ScreenInteractive;
 
-class Loop {
- public:
-  Loop(ScreenInteractive* screen, Component component);
-  ~Loop();
+    class Loop
+    {
+      public:
+        Loop(ScreenInteractive* screen, Component component);
+        ~Loop();
 
-  bool HasQuitted();
-  void RunOnce();
-  void RunOnceBlocking();
-  void Run();
+        bool HasQuitted();
+        void RunOnce();
+        void RunOnceBlocking();
+        void Run();
 
-  // This class is non copyable/movable.
-  Loop(const Loop&) = default;
-  Loop(Loop&&) = delete;
-  Loop& operator=(Loop&&) = delete;
-  Loop(const ScreenInteractive&) = delete;
-  Loop& operator=(const Loop&) = delete;
+        // This class is non copyable/movable.
+        Loop(const Loop&)              = default;
+        Loop(Loop&&)                   = delete;
+        Loop& operator=(Loop&&)        = delete;
+        Loop(const ScreenInteractive&) = delete;
+        Loop& operator=(const Loop&)   = delete;
 
- private:
-  ScreenInteractive* screen_;
-  Component component_;
-};
+      private:
+        ScreenInteractive* screen_;
+        Component          component_;
+    };
 
 }  // namespace ftxui
 

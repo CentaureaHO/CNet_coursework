@@ -22,8 +22,8 @@ class SessionListener
     bool checkName();
 
   public:
-    SessionListener(
-        SOCKET client_socket_, int client_port_, std::string client_addr_, unsigned int buffer_size_, SessionManager* manager_ = nullptr);
+    SessionListener(SOCKET client_socket_, int client_port_, std::string client_addr_, unsigned int buffer_size_,
+        SessionManager* manager_ = nullptr);
     ~SessionListener();
 
     void run();

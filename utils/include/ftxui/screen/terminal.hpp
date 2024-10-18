@@ -4,26 +4,30 @@
 #ifndef FTXUI_SCREEN_TERMINAL_HPP
 #define FTXUI_SCREEN_TERMINAL_HPP
 
-namespace ftxui {
-struct Dimensions {
-  int dimx;
-  int dimy;
-};
+namespace ftxui
+{
+    struct Dimensions
+    {
+        int dimx;
+        int dimy;
+    };
 
-namespace Terminal {
-Dimensions Size();
-void SetFallbackSize(const Dimensions& fallbackSize);
+    namespace Terminal
+    {
+        Dimensions Size();
+        void       SetFallbackSize(const Dimensions& fallbackSize);
 
-enum Color {
-  Palette1,
-  Palette16,
-  Palette256,
-  TrueColor,
-};
-Color ColorSupport();
-void SetColorSupport(Color color);
+        enum Color
+        {
+            Palette1,
+            Palette16,
+            Palette256,
+            TrueColor,
+        };
+        Color ColorSupport();
+        void  SetColorSupport(Color color);
 
-}  // namespace Terminal
+    }  // namespace Terminal
 
 }  // namespace ftxui
 

@@ -172,7 +172,8 @@ namespace utf8_win
         delete[] _wide_buffer;
     }
 
-    u8streambuf& u8streambuf::getInstance(unsigned int read_buf_size = U8_READ_BUFFER_SIZE, bool handle_console_eof = false)
+    u8streambuf& u8streambuf::getInstance(
+        unsigned int read_buf_size = U8_READ_BUFFER_SIZE, bool handle_console_eof = false)
     {
         static u8streambuf instance(read_buf_size, handle_console_eof);
         return instance;

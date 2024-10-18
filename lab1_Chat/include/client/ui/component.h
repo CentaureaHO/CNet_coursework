@@ -86,7 +86,8 @@ class HomePage : public Page
     ftxui::Component         input_container_;
     ftxui::Component         buttons_container_;
     ftxui::Component         container_;
-    bool                     listening_ = false;
+    bool                     listening_       = false;
+    float                    scroll_position_ = 1.0f;
 
   public:
     HomePage(MainComponent* m, std::function<void()> on_exit);

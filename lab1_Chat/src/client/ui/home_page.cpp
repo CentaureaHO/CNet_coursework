@@ -15,7 +15,7 @@ HomePage::HomePage(MainComponent* m, std::function<void()> on_exit) : on_exit_(o
     };
 
     logout_button_ = Button("Logout", on_logout_);
-    exit_button_   = Button("Exit", [this](){
+    exit_button_   = Button("Exit", [this]() {
         on_logout_();
         on_exit_();
     });
@@ -26,7 +26,6 @@ HomePage::HomePage(MainComponent* m, std::function<void()> on_exit) : on_exit_(o
     send_button_ = Button("Send", [this]() {
         client_.sendMessage(input_content_);
         input_content_.clear();
-        
     });
 
     input_container_ = Container::Horizontal({
@@ -39,20 +38,20 @@ HomePage::HomePage(MainComponent* m, std::function<void()> on_exit) : on_exit_(o
         exit_button_,
     });
 
-    container_ = Container::Vertical({
-        input_container_,
-        buttons_container_,
-    });
-
     output_renderer_ = Renderer([&] {
         using namespace ftxui;
         Elements elements;
-        {
-            for (const auto& line : output_lines_) { elements.push_back(text(line)); }
-        }
-        std::string window_title = " " + main_component->getUserName() + " ";
-        auto        content      = vbox(std::move(elements)) | vscroll_indicator | frame | size(HEIGHT, LESS_THAN, 10);
-        return window(text(window_title), content);
+        for (const auto& line : output_lines_) { elements.push_back(text(line)); }
+        auto content = vbox(std::move(elements));
+
+        content = content | focusPositionRelative(0.0f, scroll_position_) | frame | vscroll_indicator;
+
+        return content;
+    });
+
+    container_ = Container::Vertical({
+        input_container_,
+        buttons_container_,
     });
 }
 
@@ -61,8 +60,12 @@ ftxui::Component HomePage::GetComponent()
     using namespace ftxui;
 
     return Renderer(container_, [&] {
+        std::string window_title = " " + main_component->getUserName() + " ";
+
+        auto content = output_renderer_->Render() | size(HEIGHT, EQUAL, 10);
+
         return vbox({
-                   output_renderer_->Render() | flex_grow,
+                   window(text(window_title), content),
                    separator(),
                    hbox({
                        text("Input: "),
@@ -82,8 +85,7 @@ ftxui::Component HomePage::GetComponent()
 void HomePage::startListen()
 {
     listening_ = true;
-    client_.startListening([this](const string& message) 
-    {
+    client_.startListening([this](const string& message) {
         output_lines_.push_back(message);
         main_component->refresh();
     });

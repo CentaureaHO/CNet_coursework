@@ -14,8 +14,8 @@ class MessageDispatcher
 {
   private:
     static std::queue<std::pair<std::string, ClientInfo>> message_queue;
-    static std::mutex                                 queue_mutex;
-    static std::condition_variable                    queue_cond;
+    static std::mutex                                     queue_mutex;
+    static std::condition_variable                        queue_cond;
 
   public:
     static void dispatchMessages();
