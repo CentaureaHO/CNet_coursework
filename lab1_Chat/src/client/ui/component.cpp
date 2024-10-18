@@ -9,12 +9,12 @@ MainComponent::MainComponent(ftxui::ScreenInteractive& screen) : screen_(screen)
 
     on_exit_ = [&] { screen_.ExitLoopClosure()(); };
 
-    login_page_ = std::make_shared<LoginPage>(on_exit_);
+    login_page_ = std::make_shared<LoginPage>(this, on_exit_);
 
-    home_page_ = std::make_shared<HomePage>(on_exit_);
+    home_page_ = std::make_shared<HomePage>(this, on_exit_);
 
     pages_ = {
-        login_page_->GetComponent(), 
+        login_page_->GetComponent(),
         home_page_->GetComponent(),
     };
 
@@ -25,3 +25,7 @@ MainComponent::MainComponent(ftxui::ScreenInteractive& screen) : screen_(screen)
 
 bool           MainComponent::OnEvent(ftxui::Event event) { return ComponentBase::OnEvent(event); }
 ftxui::Element MainComponent::Render() { return container_->Render(); }
+
+void MainComponent::startListen() { home_page_->startListen(); }
+
+void MainComponent::refresh() { screen_.PostEvent(ftxui::Event::Custom); }

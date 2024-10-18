@@ -20,13 +20,16 @@
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
 
+class MainComponent;
+
 class Page
 {
   protected:
     static Client client_;
 
   public:
-    static int current_page;
+    static int     current_page;
+    MainComponent* main_component;
 
     virtual ftxui::Component GetComponent() = 0;
     virtual ~Page()                         = default;
@@ -53,7 +56,7 @@ class LoginPage : public Page
     std::function<void()> on_exit_;
 
   public:
-    LoginPage(std::function<void()> on_exit);
+    LoginPage(MainComponent* m, std::function<void()> on_exit);
 
     ftxui::Component GetComponent() override;
 
@@ -62,21 +65,35 @@ class LoginPage : public Page
     void ClearError();
     void ClearUsername();
 
-    void Reset();
+    void        Reset();
+    std::string getUserName() { return username_; }
 };
 
 class HomePage : public Page
 {
   private:
+    // Existing components
     ftxui::Component      logout_button_;
     ftxui::Component      exit_button_;
-    ftxui::Component      container_;
     std::function<void()> on_logout_;
     std::function<void()> on_exit_;
 
+    std::string              input_content_;
+    std::vector<std::string> output_lines_;
+    ftxui::Component         input_box_;
+    ftxui::Component         send_button_;
+    ftxui::Component         output_renderer_;
+    ftxui::Component         input_container_;
+    ftxui::Component         buttons_container_;
+    ftxui::Component         container_;
+    bool                     listening_ = false;
+
   public:
-    HomePage(std::function<void()> on_exit);
-    ftxui::Component GetComponent();
+    HomePage(MainComponent* m, std::function<void()> on_exit);
+    ftxui::Component GetComponent() override;
+
+    void startListen();
+    void endListen();
 };
 
 class MainComponent : public ftxui::ComponentBase
@@ -95,6 +112,11 @@ class MainComponent : public ftxui::ComponentBase
 
     bool           OnEvent(ftxui::Event event);
     ftxui::Element Render() override;
+
+    std::string getUserName() { return login_page_->getUserName(); }
+    void        startListen();
+
+    void refresh();
 };
 
 #endif

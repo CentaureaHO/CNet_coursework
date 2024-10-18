@@ -107,8 +107,9 @@ void SessionListener::run()
 
         if (string(buffer) == "/disconnect")
         {
-            MessageDispatcher::sendToSingle(nickname, buffer, client_info);
-            continue;
+            // DLOG << "Client " << nickname << " exit chat room." << endl;
+            send(client_info.c_socket, buffer, valread, 0);
+            break;
         }
         DLOG << "Received message from " << nickname << ": " << buffer << endl;
 

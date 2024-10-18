@@ -1,8 +1,9 @@
 #include <client/ui/component.h>
 using namespace std;
 
-LoginPage::LoginPage(std::function<void()> on_exit) : on_exit_(on_exit)
+LoginPage::LoginPage(MainComponent* m, std::function<void()> on_exit) : on_exit_(on_exit)
 {
+    main_component = m;
     using namespace ftxui;
 
     on_login_ = [this]() {
@@ -14,6 +15,8 @@ LoginPage::LoginPage(std::function<void()> on_exit) : on_exit_(on_exit)
             return;
         }
         current_page = 1;
+        error_message_.clear();
+        main_component->startListen();
     };
 
     ip_address_ = "127.0.0.1";
