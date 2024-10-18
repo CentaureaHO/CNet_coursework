@@ -162,5 +162,4 @@ void SessionManager::shutdown()
     clients.clear();
 
     DLOG << "All client sessions have been closed." << endl;
-    _Exit(0);
 }
