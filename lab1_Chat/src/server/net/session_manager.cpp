@@ -32,74 +32,80 @@ void SessionManager::startListening()
 
 void SessionManager::run()
 {
-    /*
-    if (!SetSocketNonBlocking(server_socket))
-    {
-        DERR << "Failed to set server socket to non-blocking mode." << endl;
-        return;
-    }
-    */
     running = true;
     thread messageSender(MessageDispatcher::dispatchMessages);
     messageSender.detach();
+
     while (running)
     {
-        sockaddr_in client_addr;
-        socklen_t   client_len = sizeof(client_addr);
-        // cout << "Waiting for client connection..." << endl;
-        SOCKET client_socket = accept(server_socket, (sockaddr*)&client_addr, &client_len);
-        // cout << "Client connected." << endl;
+        fd_set read_fds;
+        FD_ZERO(&read_fds);
+        FD_SET(server_socket, &read_fds);
 
-        if (!running) break;
+        timeval timeout;
+        timeout.tv_sec  = 1;
+        timeout.tv_usec = 0;
+        int activity    = select(server_socket + 1, &read_fds, NULL, NULL, &timeout);
 
-        if (client_socket == INVALID_SOCKET)
+        if (activity < 0 && errno != EINTR)
         {
+            DERR << "Select error" << endl;
+            break;
+        }
+
+        if (activity == 0)
+        {
+            if (!running) break;
+            continue;
+        }
+
+        if (FD_ISSET(server_socket, &read_fds))
+        {
+            sockaddr_in client_addr;
+            socklen_t   client_len    = sizeof(client_addr);
+            SOCKET      client_socket = accept(server_socket, (sockaddr*)&client_addr, &client_len);
+
+            if (client_socket == INVALID_SOCKET)
+            {
 #ifdef _WIN32
-            int error_code = WSAGetLastError();
-            if (error_code == WSAEWOULDBLOCK)
-            {
-                this_thread::sleep_for(chrono::milliseconds(100));
-                continue;
-            }
-            else if (error_code == WSAECONNABORTED)
-            {
-                DLOG << "Server socket has been closed, exiting run loop." << endl;
-                break;
-            }
+                int error_code = WSAGetLastError();
+                if (error_code == WSAEWOULDBLOCK)
+                {
+                    this_thread::sleep_for(chrono::milliseconds(100));
+                    continue;
+                }
+                else if (error_code == WSAECONNABORTED)
+                {
+                    DLOG << "Server socket has been closed, exiting run loop." << endl;
+                    break;
+                }
 #else
-            if (errno == EWOULDBLOCK)
-            {
-                this_thread::sleep_for(chrono::milliseconds(100));
-                continue;
-            }
-            else if (errno == EBADF || errno == EINTR)
-            {
-                DLOG << "Server socket has been closed, exiting run loop." << endl;
-                break;
-            }
+                if (errno == EWOULDBLOCK)
+                {
+                    this_thread::sleep_for(chrono::milliseconds(100));
+                    continue;
+                }
+                else if (errno == EBADF || errno == EINTR)
+                {
+                    DLOG << "Server socket has been closed, exiting run loop." << endl;
+                    break;
+                }
 #endif
-            else
-            {
-                DERR << "Failed to accept client connection from " << inet_ntoa(client_addr.sin_addr) << ":"
-                     << ntohs(client_addr.sin_port) << endl;
-                continue;
+                else
+                {
+                    DERR << "Failed to accept client connection from " << inet_ntoa(client_addr.sin_addr) << ":"
+                         << ntohs(client_addr.sin_port) << endl;
+                    continue;
+                }
             }
-        }
 
-        {
-            WriteGuard guard = listener_lock.write();
-            if (current_listener >= listener_threads)
-            {
-                DERR << "All listener threads are busy. Rejecting connection from " << inet_ntoa(client_addr.sin_addr)
-                     << ":" << ntohs(client_addr.sin_port) << endl;
-                reject_connection(client_socket);
-                continue;
-            }
-            ++current_listener;
+            accept_connection(client_socket, inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
         }
-
-        accept_connection(client_socket, inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
     }
+
+    CLOSE_SOCKET(server_socket);
+    DLOG << "Server stopped." << endl;
+    SOCKCLEANUP();
 }
 
 void SessionManager::accept_connection(SOCKET client_socket, const string& client_ip, int client_port)
@@ -147,6 +153,7 @@ void SessionManager::shutdown()
     WriteGuard cltg = clients_lock.write();
     WriteGuard lltg = listener_lock.write();
     MessageDispatcher::clearQueue();
+    MessageDispatcher::stop();
 
     DLOG << "Shutting down server..." << endl;
     running = false;

@@ -101,6 +101,7 @@ void HomePage::startListen()
         {
             client_.errHandler();
             current_page = 0;
+            main_component->errFeedback("服务器断开连接或发生错误。");
             main_component->refresh();
             listening_ = false;
             return;

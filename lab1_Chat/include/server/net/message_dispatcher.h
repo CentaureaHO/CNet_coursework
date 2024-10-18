@@ -16,13 +16,13 @@ class MessageDispatcher
     static std::queue<std::pair<std::string, ClientInfo>> message_queue;
     static std::mutex                                     queue_mutex;
     static std::condition_variable                        queue_cond;
+    static bool                                           running;
 
   public:
     static void dispatchMessages();
-
     static void sendToSingle(const std::string& sender, const std::string& message, ClientInfo& client_info);
     static void sendToGroup(const std::string& sender, const std::string& message, GroupInfo& group, SOCKET self);
-
+    static void stop();
     static void clearQueue();
 };
 
