@@ -67,7 +67,11 @@ class SessionManager
     bool removeClient(const std::string& nickname);
     void subListener();
 
-    ClientInfo& getClient(const std::string& nickname) { return *clients[nickname]; }
+    ClientInfo& getClient(const std::string& nickname)
+    {
+        ReadGuard guard = clients_lock.read();
+        return *clients[nickname];
+    }
 
     void shutdown();
 };

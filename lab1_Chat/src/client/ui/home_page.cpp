@@ -94,11 +94,13 @@ ftxui::Component HomePage::GetComponent()
 void HomePage::startListen()
 {
     listening_ = true;
+    output_lines_.clear();
     client_.startListening([this](const string& message) {
         output_lines_.push_back(message);
         main_component->refresh();
         if (message == "服务器断开连接或发生错误。")
         {
+            output_lines_.clear();
             client_.errHandler();
             current_page = 0;
             main_component->errFeedback("服务器断开连接或发生错误。");

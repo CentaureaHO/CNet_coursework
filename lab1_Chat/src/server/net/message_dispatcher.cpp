@@ -18,7 +18,7 @@ void MessageDispatcher::dispatchMessages()
 
         if (!running && message_queue.empty())
         {
-            cout << "Message dispatcher stopped." << endl;
+            //cout << "Message dispatcher stopped." << endl;
             break;
         }
 
