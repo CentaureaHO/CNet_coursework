@@ -38,6 +38,14 @@ HomePage::HomePage(MainComponent* m, std::function<void()> on_exit) : on_exit_(o
         exit_button_,
     });
 
+    SliderOption<float> scroll_option;
+    scroll_option.value     = &scroll_position_;
+    scroll_option.min       = 0.f;
+    scroll_option.max       = 1.f;
+    scroll_option.increment = 0.1f;
+    scroll_option.direction = Direction::Down;
+    auto scroll_slider      = Slider(scroll_option);
+
     output_renderer_ = Renderer([&] {
         using namespace ftxui;
         Elements elements;
@@ -50,6 +58,8 @@ HomePage::HomePage(MainComponent* m, std::function<void()> on_exit) : on_exit_(o
     });
 
     container_ = Container::Vertical({
+        output_renderer_,
+        scroll_slider,
         input_container_,
         buttons_container_,
     });
