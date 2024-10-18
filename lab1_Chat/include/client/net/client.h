@@ -14,6 +14,7 @@ class Client
     int         server_listen_port;
     int         buffer_size;
     char*       buffer;
+    bool        exiting;
 
     bool createSocket();
     bool connectServer();

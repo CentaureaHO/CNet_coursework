@@ -29,11 +29,8 @@ void MessageDispatcher::dispatchMessages()
 
 void MessageDispatcher::sendToSingle(const string& sender, const string& message, ClientInfo& client_info)
 {
-#ifdef _WIN32
-    string msg = sender + formatDate() + ":  " + message;
-#else
-    string msg = sender + formatDate() + ":  " + message;
-#endif
+    bool                         is_disconnect = (message == "/disconnect");
+    string                       msg           = is_disconnect ? message : sender + formatDate() + ":  " + message;
     std::unique_lock<std::mutex> lock(queue_mutex);
     // std::cout << "Sending message to " << client_info.c_nickname << std::endl;
     message_queue.push(make_pair(msg, client_info));

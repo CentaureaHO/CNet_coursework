@@ -105,6 +105,11 @@ void SessionListener::run()
         }
         buffer[valread] = '\0';
 
+        if (string(buffer) == "/disconnect")
+        {
+            MessageDispatcher::sendToSingle(nickname, buffer, client_info);
+            continue;
+        }
         DLOG << "Received message from " << nickname << ": " << buffer << endl;
 
         for (auto& client : manager->getClients())

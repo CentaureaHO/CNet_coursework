@@ -57,3 +57,16 @@ SOCKET bindFreePort(int start_port, int& assigned_port)
     cerr << "No available port found." << endl;
     return INVALID_SOCKET;
 }
+
+bool SetSocketNonBlocking(SOCKET sock)
+{
+#ifdef _WIN32
+    u_long mode = 1;
+    if (ioctlsocket(sock, FIONBIO, &mode) != 0) { return false; }
+#else
+    int flags = fcntl(sock, F_GETFL, 0);
+    if (flags == -1) { return false; }
+    if (fcntl(sock, F_SETFL, flags | O_NONBLOCK) == -1) { return false; }
+#endif
+    return true;
+}

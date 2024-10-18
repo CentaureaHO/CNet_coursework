@@ -10,7 +10,7 @@ using socklen_t = int;
 #define SOCKCLEANUP() WSACleanup()
 #else
 #include <arpa/inet.h>
-#include <cstring>
+#include <fcntl.h>  // For fcntl() to set non-blocking on Linux/Unix
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -33,5 +33,6 @@ class SocketInitializer
 };
 
 SOCKET bindFreePort(int start_port, int& assigned_port);
+bool SetSocketNonBlocking(SOCKET sock);
 
 #endif

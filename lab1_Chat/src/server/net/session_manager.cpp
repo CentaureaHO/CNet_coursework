@@ -32,6 +32,11 @@ void SessionManager::startListening()
 
 void SessionManager::run()
 {
+    if (!SetSocketNonBlocking(server_socket))
+    {
+        DERR << "Failed to set server socket to non-blocking mode." << endl;
+        return;
+    }
     running = true;
     thread messageSender(MessageDispatcher::dispatchMessages);
     messageSender.detach();
@@ -47,8 +52,22 @@ void SessionManager::run()
 
         if (client_socket == INVALID_SOCKET)
         {
-            DERR << "Failed to accept client connection." << endl;
-            continue;
+#ifdef _WIN32
+            int error_code = WSAGetLastError();
+            if (error_code == WSAEWOULDBLOCK)
+#else
+            if (errno == EWOULDBLOCK)
+#endif
+            {
+                this_thread::sleep_for(chrono::milliseconds(100));
+                continue;
+            }
+            else
+            {
+                DERR << "Failed to accept client connection from " << inet_ntoa(client_addr.sin_addr) << ":"
+                     << ntohs(client_addr.sin_port) << endl;
+                continue;
+            }
         }
 
         {
