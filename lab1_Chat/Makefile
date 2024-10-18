@@ -21,8 +21,8 @@ ifeq ($(OS),Windows_NT)
     RM := del /Q
     SEP := /
     COMMON_SOURCES := src/common/net/socket_defs.cpp src/common/console/utf8_console.cpp src/common/thread/pool.cpp src/common/thread/lock.cpp src/common/console/format_date.cpp
-    SERVER_SOURCES := src/server/main.cpp src/server/net/message_dispatcher.cpp src/server/net/session_listener.cpp src/server/net/session_manager.cpp
-    CLIENT_SOURCES := src/client/main.cpp src/client/net/client.cpp src/client/ui/component.cpp src/client/ui/home_page.cpp src/client/ui/login_page.cpp
+    SERVER_SOURCES := src/server/net/message_dispatcher.cpp src/server/net/session_listener.cpp src/server/net/session_manager.cpp
+    CLIENT_SOURCES := src/client/net/client.cpp src/client/ui/component.cpp src/client/ui/home_page.cpp src/client/ui/login_page.cpp
 else
     LDFLAGS := -L../utils/lib -lftxui-component -lftxui-dom -lftxui-screen -lncurses
     MKDIR := mkdir -p

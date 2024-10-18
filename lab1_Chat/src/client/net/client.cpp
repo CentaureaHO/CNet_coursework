@@ -103,6 +103,7 @@ void Client::listenHandler()
             {
                 std::lock_guard<std::mutex> lock(socket_mutex_);
                 CLOSE_SOCKET(client_socket);
+                client_socket = INVALID_SOCKET;
             }
             if (on_message_received_) { on_message_received_("服务器断开连接或发生错误。"); }
             return;
@@ -128,6 +129,7 @@ void Client::listenHandler()
 void Client::disconnect()
 {
     CLOSE_SOCKET(client_socket);
+    client_socket = INVALID_SOCKET;
     islogin = false;
 }
 
@@ -164,6 +166,7 @@ void Client::startListening(std::function<void(const std::string&)> on_message_r
     on_message_received_ = on_message_received;
     running_             = true;
     listening_thread_    = std::thread(&Client::listenHandler, this);
+    listening_thread_.detach();
 }
 
 void Client::sendMessage(const std::string& message)

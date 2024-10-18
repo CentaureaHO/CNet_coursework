@@ -10,6 +10,7 @@ HomePage::HomePage(MainComponent* m, std::function<void()> on_exit) : on_exit_(o
         endListen();
         output_lines_.clear();
         current_page = 0;
+        listening_   = false;
     };
 
     logout_button_ = Button("Logout", on_logout_);
@@ -96,17 +97,21 @@ void HomePage::startListen()
     client_.startListening([this](const string& message) {
         output_lines_.push_back(message);
         main_component->refresh();
-        if (message == "服务器断开连接或发生错误。") 
-        { 
-            client_.errHandler(); 
-            on_exit_();
+        if (message == "服务器断开连接或发生错误。")
+        {
+            client_.errHandler();
+            current_page = 0;
+            main_component->refresh();
+            listening_ = false;
+            return;
         }
     });
 }
 
 void HomePage::endListen()
 {
-    client_.sendMessage("/disconnect");
-    client_.disconnect();
+    // client_.sendMessage("/disconnect");
+    // client_.disconnect();
     client_.stop();
+    listening_ = false;
 }
