@@ -9,8 +9,6 @@ HomePage::HomePage(MainComponent* m, std::function<void()> on_exit) : on_exit_(o
     on_logout_ = [this]() {
         endListen();
         output_lines_.clear();
-        client_.disconnect();
-        client_.stop();
         current_page = 0;
     };
 
@@ -96,6 +94,10 @@ void HomePage::startListen()
 {
     listening_ = true;
     client_.startListening([this](const string& message) {
+        if (message == "服务器断开连接或发生错误。")
+        {
+            return;
+        }
         output_lines_.push_back(message);
         main_component->refresh();
     });
@@ -103,7 +105,6 @@ void HomePage::startListen()
 
 void HomePage::endListen()
 {
-    main_component->getUserName();
     client_.sendMessage("/disconnect");
     client_.disconnect();
     client_.stop();

@@ -80,7 +80,8 @@ void SessionManager::run()
 #endif
             else
             {
-                DERR << "Failed to accept client connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
+                DERR << "Failed to accept client connection from " << inet_ntoa(client_addr.sin_addr) << ":"
+                     << ntohs(client_addr.sin_port) << endl;
                 continue;
             }
         }
@@ -143,23 +144,28 @@ void SessionManager::subListener()
 
 void SessionManager::shutdown()
 {
+    WriteGuard cltg = clients_lock.write();
+    WriteGuard lltg = listener_lock.write();
+    MessageDispatcher::clearQueue();
+
     DLOG << "Shutting down server..." << endl;
     running = false;
 
-    MessageDispatcher::clearQueue();
+    for (auto& client_pair : clients)
+    {
+        ClientInfo* client_info = client_pair.second;
+        MessageDispatcher::sendToSingle("Server", "/disconnect", *client_info);
+    }
+
     listener_pool.StopPool();
     CLOSE_SOCKET(server_socket);
 
+    for (auto& client_pair : clients)
     {
-        WriteGuard guard = clients_lock.write();
-        for (auto& client_pair : clients)
-        {
-            ClientInfo* client_info = client_pair.second;
-            if (client_info->c_session) { client_info->c_session->closeSession(); }
-            CLOSE_SOCKET(client_info->c_socket);
-        }
-        clients.clear();
+        ClientInfo* client_info = client_pair.second;
+        if (client_info->c_session) { client_info->c_session->closeSession(); }
     }
+    clients.clear();
 
     DLOG << "All client sessions have been closed." << endl;
     _Exit(0);

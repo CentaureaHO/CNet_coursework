@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 #include <client/ui/component.h>
 using namespace std;
 

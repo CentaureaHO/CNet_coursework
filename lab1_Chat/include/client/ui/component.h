@@ -118,6 +118,7 @@ class MainComponent : public ftxui::ComponentBase
     void        startListen();
 
     void refresh();
+    void errFeedback(const std::string& message);
 };
 
 #endif

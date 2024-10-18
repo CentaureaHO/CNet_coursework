@@ -95,27 +95,8 @@ void SessionListener::run()
         int valread = recv(client_info.c_socket, buffer, buffer_size, 0);
         if (valread == SOCKET_ERROR)
         {
-    int error_code = WSAGetLastError(); // 获取最后的错误代码
-    DERR << "Failed to receive message from client " << nickname << ". Error code: " << error_code << endl;
-    
-    // 根据错误码来进一步解释错误信息
-    switch (error_code)
-    {
-        case WSAECONNRESET:
-            DERR << "Connection reset by peer." << endl;
+            DERR << "Failed to receive message from client " << nickname << "." << endl;
             break;
-        case WSAETIMEDOUT:
-            DERR << "Connection timed out." << endl;
-            break;
-        case WSAEWOULDBLOCK:
-            DERR << "Non-blocking socket operation could not complete immediately." << endl;
-            break;
-        // 可以添加更多的错误码处理
-        default:
-            DERR << "Unknown error occurred." << endl;
-            break;
-    }
-    break;
         }
         else if (valread == 0)
         {

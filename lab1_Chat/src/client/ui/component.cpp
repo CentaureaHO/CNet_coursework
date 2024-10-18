@@ -1,4 +1,6 @@
 #include <client/ui/component.h>
+#include <iostream>
+#include <fstream>
 
 Client Page::client_(1024);
 int    Page::current_page = 0;
@@ -7,7 +9,10 @@ MainComponent::MainComponent(ftxui::ScreenInteractive& screen) : screen_(screen)
 {
     using namespace ftxui;
 
-    on_exit_ = [&] { screen_.ExitLoopClosure()(); };
+    on_exit_ = [&] {
+        screen_.ExitLoopClosure()();
+        // exit(0);
+    };
 
     login_page_ = std::make_shared<LoginPage>(this, on_exit_);
 
@@ -29,3 +34,4 @@ ftxui::Element MainComponent::Render() { return container_->Render(); }
 void MainComponent::startListen() { home_page_->startListen(); }
 
 void MainComponent::refresh() { screen_.PostEvent(ftxui::Event::Custom); }
+void MainComponent::errFeedback(const std::string& message) { login_page_->SetError(message); }

@@ -98,8 +98,8 @@ void Client::listenHandler()
         if (valread <= 0)
         {
             if (exiting) return;
-            // 连接关闭或错误
             running_ = false;
+            CLOSE_SOCKET(client_socket);
             if (on_message_received_) { on_message_received_("服务器断开连接或发生错误。"); }
             return;
         }
