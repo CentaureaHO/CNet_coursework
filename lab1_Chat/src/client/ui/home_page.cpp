@@ -94,12 +94,13 @@ void HomePage::startListen()
 {
     listening_ = true;
     client_.startListening([this](const string& message) {
-        if (message == "服务器断开连接或发生错误。")
-        {
-            return;
-        }
         output_lines_.push_back(message);
         main_component->refresh();
+        if (message == "服务器断开连接或发生错误。") 
+        { 
+            client_.errHandler(); 
+            on_exit_();
+        }
     });
 }
 

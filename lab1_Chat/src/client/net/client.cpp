@@ -7,7 +7,8 @@
 using namespace std;
 
 Client::Client(unsigned int buffer_size_)
-    : server_addr("127.0.0.1"),
+    : client_socket(INVALID_SOCKET),
+      server_addr("127.0.0.1"),
       server_port(8080),
       buffer_size(buffer_size_),
       buffer(new char[buffer_size_]),
@@ -18,8 +19,8 @@ Client::Client(unsigned int buffer_size_)
 
 Client::~Client()
 {
-    if (buffer) delete[] buffer;
     stop();
+    if (buffer) delete[] buffer;
 }
 
 void Client::setTarget(const std::string& server_addr_, int server_port_)
@@ -99,16 +100,19 @@ void Client::listenHandler()
         {
             if (exiting) return;
             running_ = false;
-            CLOSE_SOCKET(client_socket);
+            {
+                std::lock_guard<std::mutex> lock(socket_mutex_);
+                CLOSE_SOCKET(client_socket);
+            }
             if (on_message_received_) { on_message_received_("服务器断开连接或发生错误。"); }
             return;
         }
         else
         {
             buffer[valread] = '\0';
-            string message(buffer);
+            std::string message(buffer);
 
-            static string exit_message = "/disconnect";
+            static std::string exit_message = "/disconnect";
             if (message == exit_message)
             {
                 running_ = false;
@@ -165,19 +169,37 @@ void Client::startListening(std::function<void(const std::string&)> on_message_r
 void Client::sendMessage(const std::string& message)
 {
     std::lock_guard<std::mutex> lock(socket_mutex_);
-    if (client_socket != INVALID_SOCKET) { send(client_socket, message.c_str(), message.length(), 0); }
+    if (running_ && client_socket != INVALID_SOCKET) send(client_socket, message.c_str(), message.length(), 0);
 }
 
 void Client::stop()
 {
-    if (running_)
+    if (!running_) return;
+    exiting  = true;
+    running_ = false;
+    islogin  = false;
+    if (client_socket != INVALID_SOCKET)
     {
-        exiting                          = true;
-        running_                         = false;
-        islogin                          = false;
-        static string disconnect_message = "/disconnect";
+        std::lock_guard<std::mutex> lock(socket_mutex_);
+        static std::string          disconnect_message = "/disconnect";
         send(client_socket, disconnect_message.c_str(), disconnect_message.length(), 0);
         CLOSE_SOCKET(client_socket);
-        if (listening_thread_.joinable()) { listening_thread_.join(); }
+        client_socket = INVALID_SOCKET;
     }
+    if (listening_thread_.joinable()) { listening_thread_.join(); }
+}
+
+void Client::errHandler()
+{
+    if (!running_) return;
+    exiting  = true;
+    running_ = false;
+    islogin  = false;
+    if (client_socket != INVALID_SOCKET)
+    {
+        std::lock_guard<std::mutex> lock(socket_mutex_);
+        CLOSE_SOCKET(client_socket);
+        client_socket = INVALID_SOCKET;
+    }
+    if (listening_thread_.joinable()) { listening_thread_.join(); }
 }

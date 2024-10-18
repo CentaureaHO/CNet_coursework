@@ -151,12 +151,6 @@ void SessionManager::shutdown()
     DLOG << "Shutting down server..." << endl;
     running = false;
 
-    for (auto& client_pair : clients)
-    {
-        ClientInfo* client_info = client_pair.second;
-        MessageDispatcher::sendToSingle("Server", "/disconnect", *client_info);
-    }
-
     listener_pool.StopPool();
     CLOSE_SOCKET(server_socket);
 

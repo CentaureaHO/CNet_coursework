@@ -12,17 +12,16 @@
 class Client
 {
   private:
-    SOCKET      client_socket;
-    std::string server_addr;
-    int         server_port;
-    int         buffer_size;
-    char*       buffer;
-    bool        exiting;
-    bool        islogin;
-
-    bool        running_;
-    std::thread listening_thread_;
-    std::mutex  socket_mutex_;
+    SOCKET            client_socket;
+    std::string       server_addr;
+    int               server_port;
+    int               buffer_size;
+    char*             buffer;
+    std::atomic<bool> exiting;
+    std::atomic<bool> islogin;
+    std::atomic<bool> running_;
+    std::thread       listening_thread_;
+    std::mutex        socket_mutex_;
 
     std::function<void(const std::string&)> on_message_received_;
 
@@ -30,22 +29,19 @@ class Client
     bool connectServer();
     bool checkBusy();
     bool enterName(const std::string& username, std::string& error_message);
-
     void listenHandler();
 
   public:
     Client(unsigned int buffer_size_);
     ~Client();
-
     void setTarget(const std::string& server_addr, int server_port);
-
     bool connectToServer(std::string& error_message);
     bool login(const std::string& username, std::string& error_message);
-
     void startListening(std::function<void(const std::string&)> on_message_received);
     void sendMessage(const std::string& message);
     void disconnect();
     void stop();
+    void errHandler();
 };
 
 #endif

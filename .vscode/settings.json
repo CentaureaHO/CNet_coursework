@@ -1,7 +1,6 @@
 {
     "files.associations": {
         "*.sy": "c",
-        "memory": "cpp",
         "__bit_reference": "cpp",
         "__hash_table": "cpp",
         "__node_handle": "cpp",
@@ -32,6 +31,7 @@
         "cwchar": "cpp",
         "cwctype": "cpp",
         "deque": "cpp",
+        "memory": "cpp",
         "forward_list": "cpp",
         "fstream": "cpp",
         "future": "cpp",
