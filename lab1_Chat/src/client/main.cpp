@@ -1,19 +1,15 @@
 #include <bits/stdc++.h>
 
-#include <client/net/client.h>
+#include <client/ui/component.h>
 using namespace std;
 
 int main()
 {
-    string addr;
-    int    port;
+    auto screen = ftxui::ScreenInteractive::TerminalOutput();
 
-    cout << "Enter server address: ";
-    cin >> addr;
-    cout << "Enter server port: ";
-    cin >> port;
+    auto main_component = std::make_shared<MainComponent>(screen);
 
-    Client client(addr, port, 1024);
-    client.run();
+    screen.Loop(main_component);
+
     return 0;
 }

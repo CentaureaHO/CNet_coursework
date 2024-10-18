@@ -6,14 +6,32 @@
 #include <client/net/client.h>
 using namespace std;
 
-Client::Client(std::string server_addr_, int server_port_, unsigned int buffer_size_)
-    : server_addr(server_addr_), server_port(server_port_), buffer_size(buffer_size_), buffer(new char[buffer_size_])
+Client::Client(unsigned int buffer_size_)
+    : server_addr("127.0.0.1"),
+      server_port(8080),
+      buffer_size(buffer_size_),
+      buffer(new char[buffer_size_]),
+      exiting(false),
+      islogin(false),
+      running_(false)
 {}
 
-Client::~Client() { delete[] buffer; }
+Client::~Client()
+{
+    if (buffer) delete[] buffer;
+    stop();
+}
+
+void Client::setTarget(const std::string& server_addr_, int server_port_)
+{
+    if (islogin) return;
+    server_addr = server_addr_;
+    server_port = server_port_;
+}
 
 bool Client::createSocket()
 {
+    if (islogin) return false;
     client_socket = socket(AF_INET, SOCK_STREAM, 0);
     if (client_socket == INVALID_SOCKET) return false;
     return true;
@@ -21,13 +39,12 @@ bool Client::createSocket()
 
 bool Client::connectServer()
 {
+    if (islogin) return false;
     sockaddr_in serv_addr;
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port   = htons(server_port);
 
-    // cout << "Connecting to server..." << endl;
     if (inet_pton(AF_INET, server_addr.c_str(), &serv_addr.sin_addr) <= 0) return false;
-    // cout << "Connected to server." << endl;
     if (connect(client_socket, (sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) return false;
 
     return true;
@@ -35,65 +52,56 @@ bool Client::connectServer()
 
 bool Client::checkBusy()
 {
-    int valread     = recv(client_socket, buffer, buffer_size, 0);
+    if (islogin) return false;
+    int valread = recv(client_socket, buffer, buffer_size, 0);
+    if (valread <= 0) return false;
     buffer[valread] = '\0';
     if (std::string(buffer) != "notfull") return false;
     return true;
 }
 
-void Client::enterName()
+bool Client::enterName(const std::string& username, std::string& error_message)
 {
-    string       message;
+    if (islogin) return false;
+    string       message = username;
     stringstream ss;
     string       rv;
-    while (true)
+
+    send(client_socket, message.c_str(), message.size(), 0);
+    int valread = recv(client_socket, buffer, buffer_size, 0);
+    if (valread <= 0)
     {
-        cout << "Enter your name: ";
-        cin >> message;
-        send(client_socket, message.c_str(), message.size(), 0);
-        int valread     = recv(client_socket, buffer, buffer_size, 0);
-        buffer[valread] = '\0';
-        ss              = stringstream(buffer);
-        ss >> rv;
-        if (rv == "accepted")
-        {
-            ss >> server_listen_port;
-            break;
-        }
-        else { cout << "Name already taken. Please enter a different name." << endl; }
+        error_message = "无法接收服务器响应。";
+        return false;
+    }
+    buffer[valread] = '\0';
+    ss              = stringstream(buffer);
+    ss >> rv;
+    if (rv == "accepted")
+    {
+        // ss >> server_listen_port;
+        return true;
+    }
+    else
+    {
+        error_message = "用户名已被占用，请更换。";
+        return false;
     }
 }
 
 void Client::listenHandler()
 {
     int valread = 0;
-    while (true)
+    while (running_)
     {
         valread = recv(client_socket, buffer, buffer_size, 0);
-        if (valread == -1)
+        if (valread <= 0)
         {
-#ifdef _WIN32
-            if (WSAGetLastError() == WSAEWOULDBLOCK)
-#else
-            if (errno == EWOULDBLOCK)
-#endif
-            {
-                this_thread::sleep_for(chrono::milliseconds(100));
-                continue;
-            }
-            else
-            {
-                if (exiting) return;
-                cerr << "Server disconnected or error occurred." << endl;
-                CLOSE_SOCKET(client_socket);
-                exit(1);
-            }
-        }
-        else if (valread == 0)
-        {
-            cerr << "Server disconnected." << endl;
-            CLOSE_SOCKET(client_socket);
-            exit(1);
+            if (exiting) return;
+            // 连接关闭或错误
+            running_ = false;
+            if (on_message_received_) { on_message_received_("服务器断开连接或发生错误。"); }
+            return;
         }
         else
         {
@@ -103,67 +111,73 @@ void Client::listenHandler()
             static string exit_message = "/disconnect";
             if (message == exit_message)
             {
-                cout << "Received disconnect signal, closing connection..." << endl;
-                CLOSE_SOCKET(client_socket);
+                running_ = false;
+                if (on_message_received_) { on_message_received_("收到断开信号，正在关闭连接..."); }
                 return;
             }
 
-            cout << message << endl;
+            if (on_message_received_) { on_message_received_(message); }
         }
     }
 }
 
-void Client::sendHandler()
+void Client::disconnect()
 {
-    string message;
-    while (true)
-    {
-        getline(cin, message);
-        if (message == "/exit")
-        {
-            exiting = true;
-
-            static string disconnect_message = "/disconnect";
-            send(client_socket, disconnect_message.c_str(), disconnect_message.length(), 0);
-
-            CLOSE_SOCKET(client_socket);
-            return;
-        }
-        send(client_socket, message.c_str(), message.length(), 0);
-    }
+    CLOSE_SOCKET(client_socket);
+    islogin = false;
 }
 
-void Client::disconnect() { CLOSE_SOCKET(client_socket); }
-
-void Client::run()
+bool Client::connectToServer(std::string& error_message)
 {
-    exiting = false;
     if (!createSocket())
     {
-        cerr << "Failed to create socket." << endl;
-        return;
+        error_message = "无法创建套接字。";
+        return false;
     }
 
     if (!connectServer())
     {
-        cerr << "Failed to connect to server." << endl;
-        return;
+        error_message = "无法连接到服务器，请检查 IP 地址和端口号。";
+        return false;
     }
 
     if (!checkBusy())
     {
-        cerr << "Server is full." << endl;
-        return;
+        error_message = "服务器人数达到上限，请稍后再试。";
+        return false;
     }
 
-    enterName();
-    cout << "Connected to server successfully.\n" << endl;
+    return true;
+}
 
-    thread listener_thread(&Client::listenHandler, this);
-    thread sender_thread(&Client::sendHandler, this);
+bool Client::login(const std::string& username, std::string& error_message)
+{
+    return enterName(username, error_message);
+}
 
-    listener_thread.join();
-    sender_thread.join();
+void Client::startListening(std::function<void(const std::string&)> on_message_received)
+{
+    on_message_received_ = on_message_received;
+    running_             = true;
+    listening_thread_    = std::thread(&Client::listenHandler, this);
+}
 
-    disconnect();
+void Client::sendMessage(const std::string& message)
+{
+    std::lock_guard<std::mutex> lock(socket_mutex_);
+    if (client_socket != INVALID_SOCKET) { send(client_socket, message.c_str(), message.length(), 0); }
+}
+
+void Client::stop()
+{
+    if (running_)
+    {
+        exiting                          = true;
+        running_                         = false;
+        islogin                          = false;
+        static string disconnect_message = "/disconnect";
+        send(client_socket, disconnect_message.c_str(), disconnect_message.length(), 0);
+        CLOSE_SOCKET(client_socket);
+        if (listening_thread_.joinable()) { listening_thread_.join(); }
+    }
 }
