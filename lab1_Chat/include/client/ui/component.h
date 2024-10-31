@@ -111,7 +111,7 @@ class MainComponent : public ftxui::ComponentBase
   public:
     MainComponent(ftxui::ScreenInteractive& screen);
 
-    bool           OnEvent(ftxui::Event event);
+    bool           OnEvent(ftxui::Event event) override;
     ftxui::Element Render() override;
 
     std::string getUserName() { return login_page_->getUserName(); }

@@ -15,7 +15,7 @@ WERROR_FLAGS := -Wall -Wextra -Wpedantic # -Werror
 WARNINGS_IGNORE := -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-value
 
 ifeq ($(OS),Windows_NT)
-    LDFLAGS := -L../utils/lib -lws2_32 -lpthread -lftxui-component-w -lftxui-dom-w -lftxui-screen-w
+    LDFLAGS := -L../utils/lib/win/ftxui -lws2_32 -lpthread -lftxui-component -lftxui-dom -lftxui-screen
     MKDIR := powershell -Command "New-Item -ItemType Directory -Force"
     RMDIR := powershell -Command "Remove-Item -Recurse -Force"
     RM := del /Q
@@ -24,7 +24,7 @@ ifeq ($(OS),Windows_NT)
     SERVER_SOURCES := src/server/net/message_dispatcher.cpp src/server/net/session_listener.cpp src/server/net/session_manager.cpp
     CLIENT_SOURCES := src/client/net/client.cpp src/client/ui/component.cpp src/client/ui/home_page.cpp src/client/ui/login_page.cpp
 else
-    LDFLAGS := -L../utils/lib -lftxui-component -lftxui-dom -lftxui-screen -lncurses
+    LDFLAGS := -L../utils/lib/linux/ftxui -lftxui-component -lftxui-dom -lftxui-screen -lncurses
     MKDIR := mkdir -p
     RMDIR := rm -rf
     RM := rm -f
