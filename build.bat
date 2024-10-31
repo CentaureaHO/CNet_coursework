@@ -23,7 +23,7 @@ echo building: %project%
 
 
 if "%project%"=="boost" (
-    cd utils/boost
+    cd third_repos/boost
 
     for /f "usebackq delims=" %%i in (`python -c "import sysconfig; print(sysconfig.get_paths()['include'].replace('\\', '/'))"`) do (
         set "PYTHON_INCLUDE_PATH=%%i"
@@ -52,15 +52,15 @@ if "%project%"=="boost" (
     xcopy "./boost" "../include/boost" /E /I
 
 ) else if "%project%"=="ftxui" (
-    cd utils/ftxui
+    cd third_repos/ftxui
     mkdir build
     cd build
     cmake -G "Ninja" -DCMAKE_CXX_COMPILER=clang++ .. -DFTXUI_BUILD_EXAMPLES=OFF -DFTXUI_BUILD_DOCS=OFF -DFTXUI_BUILD_TESTS=OFF -DFTXUI_BUILD_TESTS_FUZZER=OFF -DFTXUI_ENABLE_INSTALL=OFF 
     cmake --build .
-    mkdir "../../lib/win/ftxui"
-    move *.a ../../lib/win/ftxui/
+    mkdir "../../../utils/lib/win/ftxui"
+    move *.a ../../../utils/lib/win/ftxui
     cd ./../include
-    xcopy "./ftxui" "../../include/ftxui" /E /I
+    xcopy "./ftxui" "../../../utils/include/ftxui" /E /I
 )
 
 echo build done
