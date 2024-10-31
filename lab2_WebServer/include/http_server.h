@@ -3,16 +3,19 @@
 
 #include <string>
 #include <socket_defs.h>
+#include <atomic>
 
 class HttpServer
 {
   public:
     HttpServer(int port);
     bool start();
+    void stop();
 
   private:
-    int    port_;
-    SOCKET server_socket_;
+    int               port_;
+    SOCKET            server_socket_;
+    std::atomic<bool> running_;
 
     void        handleClient(SOCKET client_socket);
     std::string generateResponse(const std::string& content, int status_code = 200,

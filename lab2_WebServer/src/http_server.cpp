@@ -5,11 +5,10 @@
 #include <http_message.h>
 using namespace std;
 
-HttpServer::HttpServer(int port) : port_(port), server_socket_(INVALID_SOCKET) {}
+HttpServer::HttpServer(int port) : port_(port), server_socket_(INVALID_SOCKET), running_(false) {}
 
 bool HttpServer::start()
 {
-
     server_socket_ = socket(AF_INET, SOCK_STREAM, 0);
     if (server_socket_ == INVALID_SOCKET)
     {
@@ -37,8 +36,9 @@ bool HttpServer::start()
     }
 
     cout << "HTTP Server is running on port " << port_ << endl;
+    running_ = true;
 
-    while (true)
+    while (running_)
     {
         SOCKET client_socket = accept(server_socket_, nullptr, nullptr);
         if (client_socket == INVALID_SOCKET)
@@ -52,6 +52,24 @@ bool HttpServer::start()
 
     CLOSE_SOCKET(server_socket_);
     return true;
+}
+
+void HttpServer::stop()
+{
+    running_ = false;
+    CLOSE_SOCKET(server_socket_);
+
+    SOCKET fake_socket = socket(AF_INET, SOCK_STREAM, 0);
+    if (fake_socket != INVALID_SOCKET)
+    {
+        sockaddr_in server_addr{};
+        server_addr.sin_family      = AF_INET;
+        server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+        server_addr.sin_port        = htons(port_);
+
+        connect(fake_socket, (sockaddr*)&server_addr, sizeof(server_addr));
+        CLOSE_SOCKET(fake_socket);
+    }
 }
 
 void HttpServer::handleClient(SOCKET client_socket)

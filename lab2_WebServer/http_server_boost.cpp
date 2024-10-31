@@ -12,12 +12,35 @@
 #include <boost/beast/version.hpp>
 #include <boost/asio/ip/tcp.hpp>
 #include <boost/asio/strand.hpp>
+#include <boost/beast/core/detail/base64.hpp>
 using namespace std;
 
 namespace beast = boost::beast;
 namespace http  = beast::http;
 namespace net   = boost::asio;
 using tcp       = boost::asio::ip::tcp;
+
+string decodeURIComponent(const string& encoded)
+{
+    string decoded;
+    for (size_t i = 0; i < encoded.length(); ++i)
+    {
+        if (encoded[i] == '%')
+        {
+            if (i + 2 < encoded.length())
+            {
+                string hex = encoded.substr(i + 1, 2);
+                decoded += static_cast<char>(stoi(hex, nullptr, 16));
+                i += 2;
+            }
+        }
+        else if (encoded[i] == '+')
+            decoded += ' ';
+        else
+            decoded += encoded[i];
+    }
+    return decoded;
+}
 
 class HttpSession : public enable_shared_from_this<HttpSession>
 {
@@ -81,9 +104,10 @@ class HttpSession : public enable_shared_from_this<HttpSession>
 
     void handlePostRequest()
     {
-        res_ = {http::status::ok, req_.version()};
+        string body = decodeURIComponent(req_.body());
+        res_        = {http::status::ok, req_.version()};
         res_.set(http::field::content_type, "text/plain");
-        res_.body() = "POST request received with body: " + req_.body();
+        res_.body() = "POST request received with parsed body: " + body;
         res_.prepare_payload();
         writeResponse();
     }
@@ -134,6 +158,27 @@ int main()
     tcp::endpoint   endpoint{address, port};
     HttpServer      server(ioc, endpoint);
 
-    cout << "HTTP Server is running on " << address_ << endl;
+    cout << "HTTP Server is running on " << address_ << ":" << port << endl;
+
+    thread shutdown_thread([&ioc]() {
+        cout << "Enter 'q' to stop the server..." << endl;
+        string input;
+        while (true)
+        {
+            cin >> input;
+            if (input == "q")
+            {
+                cout << "Shutting down server..." << endl;
+                ioc.stop();
+                break;
+            }
+        }
+    });
+
     ioc.run();
+
+    if (shutdown_thread.joinable()) shutdown_thread.join();
+
+    cout << "Server stopped." << endl;
+    return 0;
 }
