@@ -1,0 +1,6 @@
+[submodule "utils/boost"]
+	path = utils/boost
+	url = https://github.com/boostorg/boost.git
+[submodule "utils/ftxui"]
+	path = utils/ftxui
+	url = https://github.com/ArthurSonzogni/FTXUI.git

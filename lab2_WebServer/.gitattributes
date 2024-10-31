@@ -1,2 +1,0 @@
-utils/lib/* filter=lfs diff=lfs merge=lfs -text
-utils/include/* filter=lfs diff=lfs merge=lfs -text

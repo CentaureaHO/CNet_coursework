@@ -6,3 +6,8 @@
 */err
 */log
 */note
+utils/*
+!utils/include/
+!utils/lib/
+utils/include/*
+utils/lib/*

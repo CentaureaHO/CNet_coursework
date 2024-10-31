@@ -7,7 +7,7 @@ CXX ?= g++
 INCLUDES = -I./include -I../utils/include
 
 CXX_STANDARD = -std=c++20
-DBGFLAGS = -g
+DBGFLAGS = -g -static
 WERROR_FLAGS := -Wall -Wextra -Wpedantic # -Werror
 WARNINGS_IGNORE := -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-value
 

@@ -3,6 +3,4 @@
 ## 第三方库引用
 
 - [FTXUI](https://github.com/ArthurSonzogni/FTXUI)：终端ui库，使用MIT LICENSE
-  - **Include Path**：`utils/include/ftxui`；
-  - **Static Libraries**：`utils/lib/*ftxui*.a`，-l后缀表示linux环境，-w后缀表示win环境；
-- [Boost](https://www.boost.org/)：第三方库集合，此处使用到网络相关部分
+- [Boost](https://github.com/boostorg/boost)：第三方库集合，此处使用到网络相关部分
