@@ -7,13 +7,20 @@ using namespace std;
 queue<std::pair<std::string, ClientInfo>> MessageDispatcher::message_queue;
 mutex                                     MessageDispatcher::queue_mutex;
 condition_variable                        MessageDispatcher::queue_cond;
+bool                                      MessageDispatcher::running = true;
 
 void MessageDispatcher::dispatchMessages()
 {
     while (true)
     {
         std::unique_lock<std::mutex> lock(queue_mutex);
-        queue_cond.wait(lock, [] { return !message_queue.empty(); });
+        queue_cond.wait(lock, [] { return !message_queue.empty() || !running; });
+
+        if (!running && message_queue.empty())
+        {
+            //cout << "Message dispatcher stopped." << endl;
+            break;
+        }
 
         auto [message, client_info] = message_queue.front();
         message_queue.pop();
@@ -32,9 +39,7 @@ void MessageDispatcher::sendToSingle(const string& sender, const string& message
     bool                         is_disconnect = (message == "/disconnect");
     string                       msg           = is_disconnect ? message : sender + formatDate() + ":  " + message;
     std::unique_lock<std::mutex> lock(queue_mutex);
-    // std::cout << "Sending message to " << client_info.c_nickname << std::endl;
     message_queue.push(make_pair(msg, client_info));
-    // std::cout << "Message sent to " << client_info.c_nickname << std::endl;
     queue_cond.notify_one();
 }
 
@@ -58,5 +63,14 @@ void MessageDispatcher::clearQueue()
 {
     std::unique_lock<std::mutex> lock(queue_mutex);
     while (!message_queue.empty()) message_queue.pop();
+    queue_cond.notify_all();
+}
+
+void MessageDispatcher::stop()
+{
+    {
+        std::unique_lock<std::mutex> lock(queue_mutex);
+        running = false;
+    }
     queue_cond.notify_all();
 }
