@@ -1,0 +1,35 @@
+#ScaleFactor 
+{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#ColorMappingContainer 
+{
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-left: 1px solid #ccc;
+  z-index: 10;
+}
+
+#ColorMappingContainer div 
+{
+  margin-bottom: 5px;
+}
+
+#ColorMappingContainer div span 
+{
+  margin-right: 5px;
+  font-size: 0.8em;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */

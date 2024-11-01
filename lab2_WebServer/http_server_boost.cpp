@@ -98,6 +98,9 @@ class HttpSession : public enable_shared_from_this<HttpSession>
             res_.body() = string((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
         }
         res_.set(http::field::server, "Boost.Beast");
+
+        if (req_.keep_alive()) res_.set(http::field::connection, "keep-alive");
+
         res_.prepare_payload();
         writeResponse();
     }
@@ -108,6 +111,9 @@ class HttpSession : public enable_shared_from_this<HttpSession>
         res_        = {http::status::ok, req_.version()};
         res_.set(http::field::content_type, "text/plain");
         res_.body() = "POST request received with parsed body: " + body;
+
+        if (req_.keep_alive()) res_.set(http::field::connection, "keep-alive");
+
         res_.prepare_payload();
         writeResponse();
     }
@@ -116,7 +122,8 @@ class HttpSession : public enable_shared_from_this<HttpSession>
     {
         auto self = shared_from_this();
         http::async_write(socket_, res_, [self](beast::error_code ec, size_t) {
-            self->socket_.shutdown(tcp::socket::shutdown_send, ec);
+            if (!ec && self->req_.keep_alive()) { self->readRequest(); }
+            else { self->socket_.shutdown(tcp::socket::shutdown_send, ec); }
         });
     }
 
@@ -180,5 +187,4 @@ int main()
     if (shutdown_thread.joinable()) shutdown_thread.join();
 
     cout << "Server stopped." << endl;
-    return 0;
 }

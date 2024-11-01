@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        .section {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .section h2 {
+            font-size: 1.2em;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .info p,
+        .skills p,
+        .achievements p {
+            font-size: 1em;
+            color: #333;
+        }
+
+        audio {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .sidebar {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+            width: 200px;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .audio-list audio {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .audio-item {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .audio-item p {
+            font-size: 0.9em;
+            color: #333;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lab2 网页制作</h1>
+
+        <div class="sidebar">
+            <h3>我的歌单</h3>
+            <div class="audio-list">
+                <div class="audio-item">
+                    <audio controls>
+                        <source src="audio/MagicTheorem.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p>Magic Theorem</p>
+                </div>
+                <div class="audio-item">
+                    <audio controls>
+                        <source src="audio/take-one.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p>Take One</p>
+                </div>
+                <div class="audio-item">
+                    <audio controls>
+                        <source src="audio/SleepWalkingOrchestra.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p>Sleep Walking Orchestra</p>
+                </div>
+            </div>
+        </div>
+
+        <img src="img/logo.png" alt="My Logo">
+
+        <audio controls>
+            <source src="audio/intro.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="section info">
+            <h2>个人信息</h2>
+            <p><strong>姓名：</strong> 唐显达</p>
+            <p><strong>学号：</strong> 2210878</p>
+            <p><strong>专业：</strong> 计算机科学与技术</p>
+        </div>
+
+        <div class="section skills">
+            <h2>专业技能</h2>
+            <ol>
+                <li>惯用语言：C++、Python</li>
+                <li>数据库管理：了解MySQL，具备数据库设计和优化能力</li>
+                <li>基础Web开发</li>
+            </ol>
+        </div>
+
+        <div class="section achievements">
+            <h2>过往经历</h2>
+            <ol>
+                <li><a href="visual.html">数据可视化：Stacked area chart制作</a></li>
+                <li><a href="https://www.bilibili.com/video/BV1vz4y1875M/">高级语言程设：磁盘空间管理</a></li>
+                <li><a href="https://github.com/CentaureaHO/miniob">数据库系统：miniob2023</a></li>
+            </ol>
+        </div>
+    </div>
+
+</body>
+
+</html>
