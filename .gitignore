@@ -11,3 +11,8 @@ utils/*
 !utils/lib/
 utils/include/*
 utils/lib/*
+
+*/npm_proj/*
+!*/npm_proj/package.json
+!*/npm_proj/package-lock.json
+!*/npm_proj/src/
