@@ -41,7 +41,7 @@ TEST_SOURCES := test.cpp
 TEST_EXEC = test
 
 .PHONY: all
-all: obj server client
+all: obj
 
 .PHONY: obj
 obj: $(COMMON_OBJECTS) $(TRANSFER_OBJECTS)
