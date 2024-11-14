@@ -32,7 +32,7 @@ int main()
 
     thread server_thread(server_recv, std::ref(server));
     this_thread::sleep_for(chrono::seconds(1));
-    client.connect(LH, ROUTER_PORT);
+    client.connect(LH, 9999);
 
     char client_data[8192] = "Hello, server!";
     client.send(client_data, strlen(client_data));

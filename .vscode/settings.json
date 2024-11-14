@@ -33,7 +33,12 @@
         "fstream": "cpp",
         "locale": "cpp",
         "cstdlib": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "any": "cpp",
+        "memory": "cpp",
+        "future": "cpp",
+        "optional": "cpp",
+        "random": "cpp"
     },
     "cmake.sourceDirectory": "D:/CodeTable/CNet_coursework/third_repos/boost"
 }
