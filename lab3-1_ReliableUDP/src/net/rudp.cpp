@@ -16,10 +16,8 @@ namespace
     static uniform_int_distribution<uint64_t> dist(0, UINT64_MAX);
 }  // namespace
 
-UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port)
-    : socket_fd(-1), cid(0), last_valid_pid(0), rtt(ms(0))
+UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port) : socket_fd(-1), cid(0), rtt(ms(0))
 {
-    if (!initialize_winsock()) { exit(EXIT_FAILURE); }
 
     socket_fd = socket(AF_INET, SOCK_DGRAM, 0);
     if (socket_fd < 0)
@@ -59,9 +57,8 @@ void UDPConnection::reset()
 
     disconnect();
 
-    cid            = 0;
-    last_valid_pid = 0;
-    rtt            = ms(0);
+    cid = 0;
+    rtt = ms(0);
 }
 
 bool UDPConnection::listen()
@@ -175,7 +172,6 @@ bool UDPConnection::connect(const std::string& peer_ip, uint16_t peer_port, uint
         return false;
     }
 
-    last_valid_pid = 0;
     return true;
 }
 
@@ -185,13 +181,10 @@ bool UDPConnection::send(const char* data, uint32_t data_len, uint8_t retry)
 {
     socklen_t peer_addr_len = sizeof(peer_addr);
 
-    uint32_t cur_pid = last_valid_pid + 1;
-
     RUPacket packet;
     packet.header.dlh = DATA_LENTH_H(data_len);
     packet.header.dlm = DATA_LENTH_M(data_len);
     packet.header.dll = DATA_LENTH_L(data_len);
-    packet.header.pid = cur_pid;
     packet.header.cid = cid;
     packet.data       = new char[data_len];
     memcpy(packet.data, data, data_len);
@@ -225,7 +218,6 @@ bool UDPConnection::send(const char* data, uint32_t data_len, uint8_t retry)
         if (ack_p->header.cid != cid) continue;
         if (!check_sum_check(*ack_p)) return this->send(packet.data, data_len);
         if (!(ack_p->header.flags & ACK)) return this->send(packet.data, data_len);
-        if (ack_p->header.pid != cur_pid) return this->send(packet.data, data_len);
         break;
     }
 
@@ -252,13 +244,9 @@ uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
         RUPacket* packet = (RUPacket*)data;
         if (packet->header.cid != cid) continue;
 
-        ++last_valid_pid;
-        if (!check_sum_check(*packet) || packet->header.pid != last_valid_pid) --last_valid_pid;
-
         RUPacket ack_p;
         ack_p.header.flags |= ACK;
         ack_p.header.cid = cid;
-        ack_p.header.pid = last_valid_pid;
         set_sum_check(ack_p);
         if (sendto(socket_fd, (char*)&ack_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, peer_addr_len) < 0)
         {

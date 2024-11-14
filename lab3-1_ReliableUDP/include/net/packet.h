@@ -24,14 +24,6 @@
 
 #define HEADER_LEN (sizeof(RUHeader) / sizeof(char))
 
-/*
-    建立连接时，packet id恒为0
-
-    后续通信，packed id从1开始递增
-
-    如果包传输错误，返回的ACK保留上次成功接收的packet id
- */
-
 struct RUHeader
 {
     /*
@@ -40,7 +32,9 @@ struct RUHeader
       |---------------------------------------------------------------|
       |  Common Flags(8bits)  |         Data Length(24bits)           |
       |---------------------------------------------------------------|
-      |                      Packet ID(32bits)                        |
+      |                         Seq ID(32bits)                        |
+      |---------------------------------------------------------------|
+      |                         Ack ID(32bits)                        |
       |---------------------------------------------------------------|
       |                   Connection ID H(32bits)                     |
       |---------------------------------------------------------------|
@@ -59,12 +53,12 @@ struct RUHeader
 
     uint8_t  flags;
     uint8_t  dlh, dlm, dll;
-    uint32_t pid;
+    uint32_t seq_id, ack_id;
     uint64_t cid;
     uint16_t sum_check;
     uint16_t reserved;
 
-    RUHeader() : flags(0), dlh(0), dlm(0), dll(0), pid(0), cid(0), sum_check(0), reserved(0) {}
+    RUHeader() : flags(0), dlh(0), dlm(0), dll(0), seq_id(0), ack_id(0), cid(0), sum_check(0), reserved(0) {}
 };
 
 struct RUPacket

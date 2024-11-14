@@ -38,7 +38,9 @@
         "memory": "cpp",
         "future": "cpp",
         "optional": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "ios": "cpp",
+        "ostream": "cpp"
     },
     "cmake.sourceDirectory": "D:/CodeTable/CNet_coursework/third_repos/boost"
 }

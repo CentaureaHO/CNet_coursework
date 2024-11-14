@@ -17,7 +17,6 @@ class UDPConnection
     sockaddr_in peer_addr;
 
     uint64_t cid;
-    uint32_t last_valid_pid;
 
     std::chrono::milliseconds rtt;
 
