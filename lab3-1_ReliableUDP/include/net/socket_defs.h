@@ -20,6 +20,8 @@ using socklen_t = int;
 #define CLOSE_SOCKET(s) close(s)
 #define SOCKCLEANUP()
 #endif
+#include <fcntl.h>
+#include <errno.h>
 
 class SocketInitializer
 {

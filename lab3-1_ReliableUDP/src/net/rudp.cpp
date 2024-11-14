@@ -1,7 +1,7 @@
 #include <net/rudp.h>
 #include <net/packet.h>
-#include <net/socket_defs.h>
 #include <random>
+#include <iostream>
 #include <cstring>
 using namespace std;
 using ms = chrono::milliseconds;
@@ -12,12 +12,31 @@ namespace
     static uniform_int_distribution<uint64_t> dist(0, UINT64_MAX);
 }  // namespace
 
-UDPConnection::UDPConnection(const string& ip, uint16_t port)
-    : target_ip(ip), port(port), cid(0), last_valid_pid(0), rtt(ms(0))
-{}
+UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port)
+    : socket_fd(-1), cid(0), last_valid_pid(0), rtt(std::chrono::milliseconds(0))
+{
+    socket_fd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (socket_fd < 0)
+    {
+        perror("Socket creation failed");
+        exit(EXIT_FAILURE);
+    }
+
+    local_addr.sin_family      = AF_INET;
+    local_addr.sin_addr.s_addr = inet_addr(local_ip.c_str());
+    local_addr.sin_port        = htons(local_port);
+
+    if (::bind(socket_fd, (struct sockaddr*)&local_addr, sizeof(local_addr)) < 0)
+    {
+        perror("Bind failed");
+        CLOSE_SOCKET(socket_fd);
+        exit(EXIT_FAILURE);
+    }
+}
+
 UDPConnection::~UDPConnection()
 {
-    if (cid != 0) disconnect();
+    if (socket_fd >= 0) CLOSE_SOCKET(socket_fd);
 }
 
 void UDPConnection::reset()
@@ -31,31 +50,199 @@ void UDPConnection::reset()
     rtt            = ms(0);
 }
 
-void UDPConnection::set_ip(const string& ip) { this->target_ip = ip; }
-void UDPConnection::set_port(uint16_t port) { this->port = port; }
-
-bool listen()
+bool UDPConnection::listen()
 {
-    char connect_buffer[32];
+    char      listen_data[64];
+    socklen_t peer_addr_len = sizeof(peer_addr);
+
+    while (true)
+    {
+        int len =
+            recvfrom(socket_fd, listen_data, sizeof(listen_data), 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
+        if (len < 0)
+        {
+            perror("Data receive failed");
+            return false;
+        }
+
+        RUPacket* syn_p = (RUPacket*)listen_data;
+        if (!(syn_p->header.flags & SYN)) continue;
+        if (syn_p->header.cid == 0) continue;
+        cid = syn_p->header.cid;
+        break;
+    }
+
+    RUPacket syn_ack_p;
+    syn_ack_p.header.flags |= SYN | ACK;
+    syn_ack_p.header.cid = cid;
+
+    if (sendto(socket_fd, (char*)&syn_ack_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, peer_addr_len) < 0)
+    {
+        perror("SYN ACK send failed");
+        return false;
+    }
+
+    while (true)
+    {
+        int len =
+            recvfrom(socket_fd, listen_data, sizeof(listen_data), 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
+        if (len < 0)
+        {
+            perror("ACK receive failed");
+            return false;
+        }
+
+        RUPacket* ack_p = (RUPacket*)listen_data;
+        if (ack_p->header.cid != cid) continue;
+        if (!(ack_p->header.flags & ACK)) continue;
+        break;
+    }
 
     return true;
 }
 
-bool UDPConnection::connect(uint8_t retry)
+bool UDPConnection::connect(const std::string& peer_ip, uint16_t peer_port, uint8_t retry)
 {
     if (cid != 0) return false;
-
     cid = dist(rd);
 
-    RUPacket syn_packet;
-    syn_packet.header.flags |= SYN;
-    syn_packet.header.cid = cid;
-    set_sum_check(syn_packet);
+    peer_addr.sin_family      = AF_INET;
+    peer_addr.sin_addr.s_addr = inet_addr(peer_ip.c_str());
+    peer_addr.sin_port        = htons(peer_port);
 
-    char connect_buffer[32];
-    memcpy(connect_buffer, &syn_packet, sizeof(RUHeader));
+    RUPacket syn_p;
+    syn_p.header.flags |= SYN;
+    syn_p.header.cid = cid;
 
+    auto start_time = chrono::steady_clock::now();
+
+    if (sendto(socket_fd, (char*)&syn_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr)) < 0)
+    {
+        perror("SYN send failed");
+        return false;
+    }
+
+    char      recv_data[HEADER_LEN];
+    socklen_t addr_len = sizeof(peer_addr);
+
+    while (true)
+    {
+        int len = recvfrom(socket_fd, recv_data, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, &addr_len);
+        if (len < 0)
+        {
+            perror("SYN ACK receive failed");
+            return false;
+        }
+
+        RUPacket* syn_ack_p = (RUPacket*)recv_data;
+        if (syn_ack_p->header.cid != cid) continue;
+        if (!(syn_ack_p->header.flags & SYN) || !(syn_ack_p->header.flags & ACK)) continue;
+
+        auto end_time = chrono::steady_clock::now();
+        rtt           = chrono::duration_cast<ms>(end_time - start_time);
+
+        cout << "Estimated RTT: " << rtt.count() << " ms" << endl;
+
+        break;
+    }
+
+    RUPacket ack_p;
+    ack_p.header.flags |= ACK;
+    ack_p.header.cid = cid;
+    if (sendto(socket_fd, (char*)&ack_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr)) < 0)
+    {
+        perror("ACK send failed");
+        return false;
+    }
+
+    last_valid_pid = 0;
     return true;
 }
 
 bool UDPConnection::disconnect() { return true; }
+
+bool UDPConnection::send(const char* data, uint32_t data_len, uint8_t retry)
+{
+    if (retry == 0) return false;
+    socklen_t peer_addr_len = sizeof(peer_addr);
+
+    uint32_t cur_pid = last_valid_pid + 1;
+
+    RUPacket packet;
+    packet.header.dlh = DATA_LENTH_H(data_len);
+    packet.header.dlm = DATA_LENTH_M(data_len);
+    packet.header.dll = DATA_LENTH_L(data_len);
+    packet.header.pid = cur_pid;
+    packet.header.cid = cid;
+    packet.data       = new char[data_len];
+    memcpy(packet.data, data, data_len);
+    set_sum_check(packet);
+
+    if (sendto(socket_fd, (char*)&packet, HEADER_LEN + data_len, 0, (struct sockaddr*)&peer_addr, peer_addr_len) < 0)
+    {
+        perror("Data send failed");
+        return false;
+    }
+
+    while (true)
+    {
+        int len =
+            recvfrom(socket_fd, (char*)&packet, HEADER_LEN + data_len, 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
+        if (len < 0)
+        {
+            perror("Data receive failed");
+            return false;
+        }
+
+        RUPacket* ack_p = (RUPacket*)&packet;
+        ack_p->data     = packet.data;
+        if (ack_p->header.cid != cid) continue;
+        if (!check_sum_check(*ack_p)) return this->send(packet.data, data_len, retry - 1);
+        if (!(ack_p->header.flags & ACK)) return this->send(packet.data, data_len, retry - 1);
+        if (ack_p->header.pid != cur_pid) return this->send(packet.data, data_len, retry - 1);
+        break;
+    }
+
+    delete[] packet.data;
+    return true;
+}
+
+uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
+{
+    uint32_t  ret           = 0;
+    socklen_t peer_addr_len = sizeof(peer_addr);
+    while (true)
+    {
+        int len = recvfrom(socket_fd, data, buff_size, 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
+        if (len < 0)
+        {
+            perror("Data receive failed");
+            return 0;
+        }
+
+        RUPacket* packet = (RUPacket*)data;
+        if (packet->header.cid != cid) continue;
+
+        ++last_valid_pid;
+        if (!check_sum_check(*packet) || packet->header.pid != last_valid_pid) --last_valid_pid;
+
+        RUPacket ack_p;
+        ack_p.header.flags |= ACK;
+        ack_p.header.cid = cid;
+        ack_p.header.pid = last_valid_pid;
+        set_sum_check(ack_p);
+        if (sendto(socket_fd, (char*)&ack_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, peer_addr_len) < 0)
+        {
+            perror("ACK send failed");
+            return 0;
+        }
+
+        ret = DATA_LENTH(packet->header.dlh, packet->header.dlm, packet->header.dll);
+
+        char* true_data = packet->data;
+        memcpy(data, true_data, ret);
+        break;
+    }
+
+    return ret;
+}

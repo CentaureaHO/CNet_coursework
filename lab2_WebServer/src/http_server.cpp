@@ -76,66 +76,83 @@ void HttpServer::handleClient(SOCKET client_socket)
 {
     const int buffer_size = 4096;
     char      buffer[buffer_size];
+    bool      keep_alive = true;
 
-    int bytes_received = recv(client_socket, buffer, buffer_size - 1, 0);
-    if (bytes_received <= 0)
+    while (keep_alive)
     {
-        cerr << "Receive failed\n";
-        return;
-    }
-
-    buffer[bytes_received] = '\0';
-    string request(buffer);
-
-    HttpMessage http_request;
-    if (!http_request.parseRequest(request))
-    {
-        cerr << "Failed to parse request\n";
-        return;
-    }
-
-    HttpMessage http_response;
-    if (http_request.getMethod() == HttpMessage::Method::GET)
-    {
-        string path = http_request.getPath();
-        if (path == "/") path = "/index.html";
-
-        string file_content = readFile("dist" + path);
-        if (!file_content.empty())
+        int bytes_received = recv(client_socket, buffer, buffer_size - 1, 0);
+        if (bytes_received <= 0)
         {
+            cerr << "Receive failed\n";
+            return;
+        }
+
+        buffer[bytes_received] = '\0';
+        string request(buffer);
+
+        HttpMessage http_request;
+        if (!http_request.parseRequest(request))
+        {
+            cerr << "Failed to parse request\n";
+            return;
+        }
+
+        string connection_header = http_request.getHeader("Connection");
+        if (connection_header == "keep-alive" || connection_header == "Keep-Alive") { keep_alive = true; }
+        else { keep_alive = false; }
+
+        HttpMessage http_response;
+        if (http_request.getMethod() == HttpMessage::Method::GET)
+        {
+            string path = http_request.getPath();
+            if (path == "/") path = "/index.html";
+
+            string file_content = readFile("dist" + path);
+            if (!file_content.empty())
+            {
+                http_response.setStatusCode(200);
+                http_response.setHeader("Content-Type", getContentType(path));
+                http_response.setBody(file_content);
+            }
+            else
+            {
+                http_response.setStatusCode(404);
+                http_response.setBody("404 Not Found");
+            }
+        }
+        else if (http_request.getMethod() == HttpMessage::Method::POST)
+        {
+            string body = http_request.getBody();
+
+            size_t pos = body.find_last_of("\r\n\r\n");
+            string post_data;
+
+            if (pos != string::npos)
+                post_data = body.substr(pos + 1);
+            else
+                post_data = body;
+
             http_response.setStatusCode(200);
-            http_response.setHeader("Content-Type", getContentType(path));
-            http_response.setBody(file_content);
+            http_response.setBody("POST request received with data: " + post_data);
         }
         else
         {
-            http_response.setStatusCode(404);
-            http_response.setBody("404 Not Found");
+            http_response.setStatusCode(405);
+            http_response.setBody("Method Not Allowed");
         }
-    }
-    else if (http_request.getMethod() == HttpMessage::Method::POST)
-    {
-        string body = http_request.getBody();
 
-        size_t pos = body.find_last_of("\r\n\r\n");
-        string post_data;
-
-        if (pos != string::npos)
-            post_data = body.substr(pos + 1);
+        if (keep_alive)
+            http_response.setHeader("Connection", "keep-alive");
         else
-            post_data = body;
+            http_response.setHeader("Connection", "close");
 
-        http_response.setStatusCode(200);
-        http_response.setBody("POST request received with data: " + post_data);
-    }
-    else
-    {
-        http_response.setStatusCode(405);
-        http_response.setBody("Method Not Allowed");
+        string response = http_response.buildResponse();
+        send(client_socket, response.c_str(), response.length(), 0);
+
+        if (!keep_alive) break;
     }
 
-    string response = http_response.buildResponse();
-    send(client_socket, response.c_str(), response.length(), 0);
+    CLOSE_SOCKET(client_socket);
 }
 
 string HttpServer::generateResponse(

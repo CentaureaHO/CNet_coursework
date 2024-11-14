@@ -1,29 +1,45 @@
 #include <bits/stdc++.h>
 #include <net/packet.h>
+#include <net/rudp.h>
+#include <thread>
+#include <chrono>
 using namespace std;
+
+#define ROUTER_PORT 8888
+#define LH "127.0.0.1"
+
+void server_recv(UDPConnection& server)
+{
+    server.listen();
+    char buffer[10000];
+    while (true)
+    {
+        uint32_t len = server.recv(buffer, 8192);
+        if (len > 0)
+        {
+            buffer[len] = '\0';
+            cout << "Server received: " << buffer << endl;
+            break;
+        }
+        this_thread::sleep_for(chrono::milliseconds(100));
+    }
+}
 
 int main()
 {
-    RUPacket packet;
-    packet.header.flags = 0x00;
-    packet.header.flags |= SYN;
-    packet.header.pid = 0xFFAC00FF;
-    packet.header.cid = CID(0x00000000, 0x000000AC);
+    UDPConnection client(LH, 8080);
+    UDPConnection server(LH, 9999);
 
-    packet.data       = new char[4096];
-    packet.header.dlh = 0x00;
-    packet.header.dlm = 0x00;
-    packet.header.dll = 0x03;
-    packet.data[0]    = 'H';
-    packet.data[1]    = 'H';
-    packet.data[2]    = 'H';
-    set_sum_check(packet);
+    thread server_thread(server_recv, std::ref(server));
+    this_thread::sleep_for(chrono::seconds(1));
+    client.connect(LH, ROUTER_PORT);
 
-    printf("Sum check: %x\n", packet.header.sum_check);
-    printf("Check sum check: %d\n", check_sum_check(packet));
+    char client_data[8192] = "Hello, server!";
+    client.send(client_data, strlen(client_data));
 
-    packet.data[2]    = 'h';
-    printf("Check sum check: %d\n", check_sum_check(packet));
+    this_thread::sleep_for(chrono::seconds(1));
 
-    delete[] packet.data;
+    server_thread.detach();
+
+    return 0;
 }

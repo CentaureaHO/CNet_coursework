@@ -15,12 +15,12 @@ WERROR_FLAGS := -Wall -Wextra -Wpedantic # -Werror
 WARNINGS_IGNORE := -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-value
 
 ifeq ($(OS),Windows_NT)
-    LDFLAGS := 
+    LDFLAGS := -lws2_32
     MKDIR := powershell -Command "New-Item -ItemType Directory -Force"
     RMDIR := powershell -Command "Remove-Item -Recurse -Force"
     RM := del /Q
     SEP := /
-    COMMON_SOURCES := src/common/net/socket_defs.cpp src/common/console/utf8_console.cpp src/common/thread/pool.cpp src/common/thread/lock.cpp src/common/console/format_date.cpp
+    COMMON_SOURCES := src/net/socket_defs.cpp src/net/packet.cpp src/net/rudp.cpp 
 else
     LDFLAGS := 
     MKDIR := mkdir -p

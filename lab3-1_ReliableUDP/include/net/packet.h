@@ -22,6 +22,16 @@
 #define ACK 0b00000010
 #define FIN 0b00000100
 
+#define HEADER_LEN (sizeof(RUHeader) / sizeof(char))
+
+/*
+    建立连接时，packet id恒为0
+
+    后续通信，packed id从1开始递增
+
+    如果包传输错误，返回的ACK保留上次成功接收的packet id
+ */
+
 struct RUHeader
 {
     /*
