@@ -40,7 +40,7 @@ void print_winsock_error(const char* msg)
     LocalFree(error_msg);
 }
 
-UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port)
+UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port, bool non_block)
     : socket_fd(-1), cid(0), seq_id(0), last_seq_id_received(0), rtt(ms(1000))
 {
     WSADATA wsaData;
@@ -53,12 +53,15 @@ UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port)
         exit(EXIT_FAILURE);
     }
 
-    u_long mode = 1;
-    if (ioctlsocket(socket_fd, FIONBIO, &mode) != 0)
+    if (non_block)
     {
-        print_winsock_error("Failed to set non-blocking mode");
-        closesocket(socket_fd);
-        exit(EXIT_FAILURE);
+        u_long mode = 1;
+        if (ioctlsocket(socket_fd, FIONBIO, &mode) != 0)
+        {
+            print_winsock_error("Failed to set non-blocking mode");
+            closesocket(socket_fd);
+            exit(EXIT_FAILURE);
+        }
     }
 
     local_addr.sin_family      = AF_INET;

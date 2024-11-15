@@ -27,7 +27,7 @@ void server_recv(UDPConnection& server)
 
 int main()
 {
-    UDPConnection server(LH, 9999);
+    UDPConnection server(LH, 9999, false);
 
     thread server_thread(server_recv, std::ref(server));
     server_thread.join();

@@ -18,12 +18,12 @@ class UDPConnection
 
     uint64_t cid;
     uint32_t seq_id;
-    uint32_t last_seq_id_received;  // Add this line
+    uint32_t last_seq_id_received;
 
     std::chrono::milliseconds rtt;
 
   public:
-    UDPConnection(const std::string& local_ip, uint16_t local_port);
+    UDPConnection(const std::string& local_ip, uint16_t local_port, bool non_block = true);
     ~UDPConnection();
 
     void reset();
