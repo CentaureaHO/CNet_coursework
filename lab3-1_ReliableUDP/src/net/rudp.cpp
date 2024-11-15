@@ -6,9 +6,16 @@
 #include <chrono>
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#include <cmath>
+#include <algorithm>
 
 using namespace std;
 using ms = chrono::milliseconds;
+
+#define MAX_RETRIES 10
+
+#define MAX_WAIT_TIME 1000
+#define TIME_OUT_SCALER 2
 
 namespace
 {
@@ -16,21 +23,41 @@ namespace
     static uniform_int_distribution<uint64_t> dist(0, UINT64_MAX);
 }  // namespace
 
-UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port)
-    : socket_fd(-1), cid(0), seq_id(0), rtt(ms(0))
+void print_winsock_error(const char* msg)
 {
+    int   error_code = WSAGetLastError();
+    char* error_msg  = NULL;
+
+    FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL,
+        error_code,
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+        (LPSTR)&error_msg,
+        0,
+        NULL);
+
+    std::cerr << msg << ": " << error_msg << std::endl;
+    LocalFree(error_msg);
+}
+
+UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port)
+    : socket_fd(-1), cid(0), seq_id(0), last_seq_id_received(0), rtt(ms(1000))
+{
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
+
     socket_fd = socket(AF_INET, SOCK_DGRAM, 0);
-    if (socket_fd < 0)
+    if (socket_fd == INVALID_SOCKET)
     {
-        perror("Socket creation failed");
+        print_winsock_error("Socket creation failed");
         exit(EXIT_FAILURE);
     }
 
     u_long mode = 1;
     if (ioctlsocket(socket_fd, FIONBIO, &mode) != 0)
     {
-        perror("Failed to set non-blocking mode");
-        CLOSE_SOCKET(socket_fd);
+        print_winsock_error("Failed to set non-blocking mode");
+        closesocket(socket_fd);
         exit(EXIT_FAILURE);
     }
 
@@ -40,46 +67,30 @@ UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port)
 
     if (::bind(socket_fd, (struct sockaddr*)&local_addr, sizeof(local_addr)) < 0)
     {
-        perror("Bind failed");
-        CLOSE_SOCKET(socket_fd);
+        print_winsock_error("Bind failed");
+        closesocket(socket_fd);
         exit(EXIT_FAILURE);
     }
 }
 
 UDPConnection::~UDPConnection()
 {
-    if (socket_fd >= 0) CLOSE_SOCKET(socket_fd);
+    if (socket_fd != INVALID_SOCKET) closesocket(socket_fd);
+    WSACleanup();
 }
 
 void UDPConnection::reset()
 {
     if (cid == 0) return;
-
     disconnect();
-
     cid = 0;
-    rtt = ms(0);
-}
-
-bool UDPConnection::wait_for_event(int socket_fd, bool is_read, uint32_t timeout_ms)
-{
-    fd_set fds;
-    FD_ZERO(&fds);
-    FD_SET((int)socket_fd, &fds);
-
-    timeval timeout;
-    timeout.tv_sec  = timeout_ms / 1000;
-    timeout.tv_usec = (timeout_ms % 1000) * 1000;
-
-    int ret = select(socket_fd + 1, is_read ? &fds : nullptr, is_read ? nullptr : &fds, nullptr, &timeout);
-    return ret > 0;
+    rtt = ms(1000);
 }
 
 bool UDPConnection::connect(const std::string& peer_ip, uint16_t peer_port, uint8_t retry)
 {
-    if (cid != 0) return false;
-    cid    = dist(rd);
     seq_id = 0;
+    cid    = dist(rd);
 
     peer_addr.sin_family      = AF_INET;
     peer_addr.sin_addr.s_addr = inet_addr(peer_ip.c_str());
@@ -88,71 +99,79 @@ bool UDPConnection::connect(const std::string& peer_ip, uint16_t peer_port, uint
     RUPacket syn_p;
     syn_p.header.flags |= SYN;
     syn_p.header.cid    = cid;
-    syn_p.header.seq_id = seq_id;
-    ++seq_id;
+    syn_p.header.seq_id = ++seq_id;
     set_sum_check(syn_p);
 
-    auto start_time = chrono::steady_clock::now();
+    cout << "Client: Sending SYN, CID = " << cid << ", SeqID = " << syn_p.header.seq_id << endl;
 
-    if (sendto(socket_fd, (char*)&syn_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr)) < 0)
+    bool syn_ack_received = false;
+
+    for (uint8_t attempt = 0; attempt < retry; ++attempt)
     {
-        perror("SYN send failed");
-        return false;
-    }
-
-    char      recv_data[HEADER_LEN];
-    socklen_t addr_len = sizeof(peer_addr);
-
-    RUPacket* syn_ack_p = nullptr;
-    auto      timeout   = chrono::steady_clock::now() + chrono::seconds(5);
-    while (true)
-    {
-        if (!wait_for_event(socket_fd, true, 5000))
+        if (sendto(socket_fd, (char*)&syn_p.header, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr)) < 0)
         {
-            cerr << "Connection timed out!" << endl;
+            print_winsock_error("Client: Failed to send SYN");
             return false;
         }
 
-        int len = recvfrom(socket_fd, recv_data, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, &addr_len);
-        if (len < 0)
+        auto start = chrono::steady_clock::now();
+        while (chrono::steady_clock::now() - start < ms(MAX_WAIT_TIME))
         {
-            int error = WSAGetLastError();
-            if (error == WSAEWOULDBLOCK)
+            RUPacket syn_ack_p;
+            int      addr_len = sizeof(peer_addr);
+            int      len      = recvfrom(socket_fd,
+                (char*)&syn_ack_p.header,
+                sizeof(syn_ack_p.header),
+                0,
+                (struct sockaddr*)&peer_addr,
+                &addr_len);
+            if (len == HEADER_LEN)
             {
-                if (chrono::steady_clock::now() > timeout)
+                if (syn_ack_p.header.flags & (SYN | ACK) && syn_ack_p.header.ack_id == syn_p.header.seq_id)
                 {
-                    cerr << "Connection timed out!" << endl;
+                    cout << "Client: Received SYN-ACK, CID = " << syn_ack_p.header.cid
+                         << ", SeqID = " << syn_ack_p.header.seq_id << ", AckID = " << syn_ack_p.header.ack_id << endl;
+
+                    RUPacket ack_p;
+                    ack_p.header.flags |= ACK;
+                    ack_p.header.cid    = cid;
+                    ack_p.header.seq_id = ++seq_id;
+                    ack_p.header.ack_id = syn_ack_p.header.seq_id;
+                    set_sum_check(ack_p);
+
+                    if (sendto(socket_fd,
+                            (char*)&ack_p.header,
+                            HEADER_LEN,
+                            0,
+                            (struct sockaddr*)&peer_addr,
+                            sizeof(peer_addr)) < 0)
+                    {
+                        print_winsock_error("Client: Failed to send ACK");
+                        return false;
+                    }
+                    cout << "Client: Connection established" << endl;
+                    syn_ack_received = true;
+                    break;
+                }
+            }
+            else if (len < 0)
+            {
+                int error = WSAGetLastError();
+                if (error != WSAEWOULDBLOCK)
+                {
+                    print_winsock_error("Client: Error receiving SYN-ACK");
                     return false;
                 }
-                continue;
             }
-            perror("SYN ACK receive failed");
-            return false;
         }
 
-        syn_ack_p = (RUPacket*)recv_data;
-        if (!check_sum_check(*syn_ack_p)) continue;
-        if (syn_ack_p->header.cid != cid) continue;
-        if (!(syn_ack_p->header.flags & SYN) || !(syn_ack_p->header.flags & ACK)) continue;
-        if (!(syn_ack_p->header.ack_id == seq_id)) continue;
-
-        auto end_time = chrono::steady_clock::now();
-        rtt           = chrono::duration_cast<ms>(end_time - start_time);
-        if (rtt < ms(5)) rtt = ms(50);
-
-        cout << "Estimated RTT: " << rtt.count() << " ms" << endl;
-        break;
+        if (syn_ack_received) { break; }
+        else { cout << "Client: Timeout waiting for SYN-ACK, retrying..." << endl; }
     }
 
-    RUPacket ack_p;
-    ack_p.header.flags |= ACK;
-    ack_p.header.cid    = cid;
-    ack_p.header.seq_id = seq_id;
-    ack_p.header.ack_id = syn_ack_p->header.seq_id + 1;
-    set_sum_check(ack_p);
-    if (sendto(socket_fd, (char*)&ack_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr)) < 0)
+    if (!syn_ack_received)
     {
-        perror("ACK send failed");
+        cout << "Client: Failed to establish connection after retries" << endl;
         return false;
     }
 
@@ -161,193 +180,281 @@ bool UDPConnection::connect(const std::string& peer_ip, uint16_t peer_port, uint
 
 bool UDPConnection::listen()
 {
-    char      listen_data[64];
-    socklen_t peer_addr_len = sizeof(peer_addr);
-    seq_id                  = 0;
-    last_recv_seq_id        = 15;
-    RUPacket* syn_p         = nullptr;
+    seq_id = 0;
 
-    // auto timeout = chrono::steady_clock::now() + chrono::seconds(5);
     while (true)
     {
-        if (!wait_for_event(socket_fd, true, 5000))
+        RUPacket    syn_p;
+        sockaddr_in client_addr;
+        int         addr_len = sizeof(client_addr);
+        int         len      = recvfrom(
+            socket_fd, (char*)&syn_p.header, sizeof(syn_p.header), 0, (struct sockaddr*)&client_addr, &addr_len);
+        if (len == HEADER_LEN)
         {
-            cerr << "Listen timed out!" << endl;
-            return false;
-        }
+            if (syn_p.header.flags & SYN)
+            {
+                cid = syn_p.header.cid;
+                cout << "Server: Received SYN, CID = " << cid << ", SeqID = " << syn_p.header.seq_id << endl;
 
-        int len =
-            recvfrom(socket_fd, listen_data, sizeof(listen_data), 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
-        if (len < 0)
+                RUPacket syn_ack_p;
+                syn_ack_p.header.flags |= (SYN | ACK);
+                syn_ack_p.header.cid    = cid;
+                syn_ack_p.header.seq_id = ++seq_id;
+                syn_ack_p.header.ack_id = syn_p.header.seq_id;
+                set_sum_check(syn_ack_p);
+
+                bool ack_received = false;
+
+                for (uint8_t attempt = 0; attempt < MAX_RETRIES; ++attempt)
+                {
+                    if (sendto(socket_fd,
+                            (char*)&syn_ack_p.header,
+                            HEADER_LEN,
+                            0,
+                            (struct sockaddr*)&client_addr,
+                            addr_len) < 0)
+                    {
+                        print_winsock_error("Server: Failed to send SYN-ACK");
+                        return false;
+                    }
+                    cout << "Server: Sent SYN-ACK, CID = " << cid << ", SeqID = " << syn_ack_p.header.seq_id
+                         << ", AckID = " << syn_ack_p.header.ack_id << endl;
+
+                    auto start = chrono::steady_clock::now();
+                    while (chrono::steady_clock::now() - start < ms(MAX_WAIT_TIME))
+                    {
+                        RUPacket ack_p;
+                        len = recvfrom(socket_fd,
+                            (char*)&ack_p.header,
+                            sizeof(ack_p.header),
+                            0,
+                            (struct sockaddr*)&client_addr,
+                            &addr_len);
+                        if (len == HEADER_LEN)
+                        {
+                            if (ack_p.header.flags & ACK && ack_p.header.ack_id == syn_ack_p.header.seq_id)
+                            {
+                                cout << "Server: Received ACK, CID = " << ack_p.header.cid
+                                     << ", SeqID = " << ack_p.header.seq_id << ", AckID = " << ack_p.header.ack_id
+                                     << endl;
+                                cout << "Server: Connection established" << endl;
+
+                                peer_addr = client_addr;
+
+                                ack_received = true;
+                                break;
+                            }
+                        }
+                        else if (len < 0)
+                        {
+                            int error = WSAGetLastError();
+                            if (error != WSAEWOULDBLOCK)
+                            {
+                                print_winsock_error("Server: Error receiving ACK");
+                                return false;
+                            }
+                        }
+                    }
+
+                    if (ack_received) { break; }
+                    else { cout << "Server: Timeout waiting for ACK, retrying SYN-ACK..." << endl; }
+                }
+
+                if (!ack_received)
+                {
+                    cout << "Server: Failed to establish connection after retries" << endl;
+                    return false;
+                }
+
+                return true;
+            }
+        }
+        else if (len < 0)
         {
             int error = WSAGetLastError();
-            if (error == WSAEWOULDBLOCK) continue;
-            perror("Data receive failed");
-            return false;
+            if (error != WSAEWOULDBLOCK)
+            {
+                print_winsock_error("Server: Error receiving SYN");
+                return false;
+            }
         }
-
-        syn_p = (RUPacket*)listen_data;
-        if (!check_sum_check(*syn_p)) continue;
-        if (!(syn_p->header.flags & SYN)) continue;
-        if (syn_p->header.cid == 0) continue;
-        cid = syn_p->header.cid;
-        break;
     }
-
-    RUPacket syn_ack_p;
-    syn_ack_p.header.flags |= SYN | ACK;
-    syn_ack_p.header.cid    = cid;
-    syn_ack_p.header.seq_id = seq_id;
-    ++seq_id;
-    syn_ack_p.header.ack_id = syn_p->header.seq_id + 1;
-    set_sum_check(syn_ack_p);
-
-    if (sendto(socket_fd, (char*)&syn_ack_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr)) < 0)
-    {
-        perror("SYN ACK send failed");
-        return false;
-    }
-
-    RUPacket* ack_p = nullptr;
-    while (true)
-    {
-        if (!wait_for_event(socket_fd, true, 5000))
-        {
-            cerr << "Listen ACK timed out!" << endl;
-            return false;
-        }
-
-        int len =
-            recvfrom(socket_fd, listen_data, sizeof(listen_data), 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
-        if (len < 0)
-        {
-            int error = WSAGetLastError();
-            if (error == WSAEWOULDBLOCK) continue;
-            perror("ACK receive failed");
-            return false;
-        }
-
-        ack_p = (RUPacket*)listen_data;
-        if (!check_sum_check(*ack_p)) continue;
-        if (ack_p->header.cid != cid) continue;
-        if (!(ack_p->header.flags & ACK)) continue;
-        if (!(ack_p->header.ack_id == seq_id)) continue;
-        break;
-    }
-
-    return true;
+    return false;
 }
 
 bool UDPConnection::disconnect() { return true; }
 
 bool UDPConnection::send(const char* data, uint32_t data_len, uint8_t retry)
 {
-    socklen_t peer_addr_len = sizeof(peer_addr);
+    uint32_t data_sent = 0;
 
-    RUPacket packet;
-    packet.header.dlh    = DATA_LENTH_H(data_len);
-    packet.header.dlm    = DATA_LENTH_M(data_len);
-    packet.header.dll    = DATA_LENTH_L(data_len);
-    packet.header.cid    = cid;
-    packet.header.seq_id = seq_id;
-    ++seq_id;
-    packet.data = new char[data_len];
-    memcpy(packet.data, data, data_len);
-    set_sum_check(packet);
-
-    auto timeout = 2 * rtt.count();  // 2倍RTT作为超时
-    while (true)
+    while (data_sent < data_len)
     {
-        if (sendto(socket_fd, (char*)&packet, HEADER_LEN + data_len, 0, (struct sockaddr*)&peer_addr, peer_addr_len) <
-            0)
+        uint32_t chunk_size = (data_len - data_sent > BUFF_MAX) ? BUFF_MAX : data_len - data_sent;
+
+        RUPacket packet;
+        packet.header.flags  = 0;
+        packet.header.cid    = cid;
+        packet.header.seq_id = ++seq_id;
+        packet.header.dlh    = DATA_LENTH_H(chunk_size);
+        packet.header.dlm    = DATA_LENTH_M(chunk_size);
+        packet.header.dll    = DATA_LENTH_L(chunk_size);
+        packet.data          = const_cast<char*>(data + data_sent);
+        set_sum_check(packet);
+
+        bool ack_received = false;
+
+        for (uint8_t attempt = 0; attempt < retry; ++attempt)
         {
-            int error = WSAGetLastError();
-            if (error == WSAEWOULDBLOCK) continue;
-            perror("Data send failed");
-            delete[] packet.data;
-            return false;
+            char send_buffer[HEADER_LEN + BUFF_MAX];
+            memcpy(send_buffer, &packet.header, HEADER_LEN);
+            memcpy(send_buffer + HEADER_LEN, packet.data, chunk_size);
+
+            int sent_len = sendto(
+                socket_fd, send_buffer, HEADER_LEN + chunk_size, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr));
+            if (sent_len < 0)
+            {
+                print_winsock_error("Failed to send data");
+                return false;
+            }
+
+            auto start = chrono::steady_clock::now();
+            while (chrono::steady_clock::now() - start < rtt * TIME_OUT_SCALER)
+            {
+                RUPacket    ack_p;
+                sockaddr_in from_addr;
+                int         addr_len = sizeof(from_addr);
+                int         len      = recvfrom(
+                    socket_fd, (char*)&ack_p.header, sizeof(ack_p.header), 0, (struct sockaddr*)&from_addr, &addr_len);
+                if (len == HEADER_LEN)
+                {
+                    if (!check_sum_check(ack_p))
+                    {
+                        cout << "Checksum mismatch in ACK, discarding" << endl;
+                        continue;
+                    }
+
+                    if (ack_p.header.flags & ACK && ack_p.header.ack_id == seq_id)
+                    {
+                        ack_received = true;
+                        break;
+                    }
+                }
+                else if (len < 0)
+                {
+                    int error = WSAGetLastError();
+                    if (error != WSAEWOULDBLOCK)
+                    {
+                        print_winsock_error("Error receiving ACK");
+                        return false;
+                    }
+                }
+            }
+
+            if (ack_received)
+            {
+                data_sent += chunk_size;
+                break;
+            }
+            else { cout << "Timeout waiting for ACK, retrying..." << endl; }
         }
 
-        if (!wait_for_event(socket_fd, true, timeout))
+        if (!ack_received)
         {
-            // cerr << "Send timed out!" << endl;
-            delete[] packet.data;
+            cout << "Failed to send data after retries" << endl;
             return false;
         }
-
-        int len =
-            recvfrom(socket_fd, (char*)&packet, HEADER_LEN + data_len, 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
-        if (len < 0)
-        {
-            int error = WSAGetLastError();
-            if (error == WSAEWOULDBLOCK) continue;
-            perror("Data receive failed");
-            delete[] packet.data;
-            return false;
-        }
-
-        RUPacket* ack_p = (RUPacket*)&packet;
-        ack_p->data     = packet.data;
-        if (!check_sum_check(*ack_p)) continue;
-        if (ack_p->header.cid != cid) continue;
-        if (!(ack_p->header.flags & ACK)) continue;
-        if (!(ack_p->header.ack_id == seq_id)) continue;
-        break;
     }
 
-    delete[] packet.data;
     return true;
 }
 
 uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
 {
-    uint32_t  ret           = 0;
-    socklen_t peer_addr_len = sizeof(peer_addr);
+    uint32_t data_received = 0;
 
-    auto timeout = 2 * rtt.count();
-    while (true)
+    while (data_received < buff_size)
     {
-        if (!wait_for_event(socket_fd, true, timeout))
+        RUPacket    packet;
+        sockaddr_in from_addr;
+        int         addr_len = sizeof(from_addr);
+
+        auto start           = chrono::steady_clock::now();
+        bool packet_received = false;
+
+        while (chrono::steady_clock::now() - start < rtt * TIME_OUT_SCALER)
         {
-            // cerr << "Receive timed out!" << endl;
-            return 0;
+            char recv_buffer[HEADER_LEN + BUFF_MAX];
+            int len = recvfrom(socket_fd, recv_buffer, sizeof(recv_buffer), 0, (struct sockaddr*)&from_addr, &addr_len);
+            if (len >= HEADER_LEN)
+            {
+                memcpy(&packet.header, recv_buffer, HEADER_LEN);
+
+                uint32_t data_len = DATA_LENTH(packet.header.dlh, packet.header.dlm, packet.header.dll);
+                if (data_len > BUFF_MAX || data_len + HEADER_LEN > (uint32_t)len)
+                {
+                    cout << "Data length exceeds buffer size or packet size mismatch" << endl;
+                    continue;
+                }
+
+                packet.data = new char[data_len];
+                memcpy(packet.data, recv_buffer + HEADER_LEN, data_len);
+
+                if (!check_sum_check(packet))
+                {
+                    delete[] packet.data;
+                    continue;
+                }
+
+                if (packet.header.seq_id <= last_seq_id_received)
+                {
+                    RUPacket ack_p;
+                    ack_p.header.flags |= ACK;
+                    ack_p.header.cid    = cid;
+                    ack_p.header.seq_id = ++seq_id;
+                    ack_p.header.ack_id = packet.header.seq_id;
+                    set_sum_check(ack_p);
+
+                    sendto(socket_fd, (char*)&ack_p.header, HEADER_LEN, 0, (struct sockaddr*)&from_addr, addr_len);
+                    delete[] packet.data;
+                    continue;
+                }
+
+                last_seq_id_received = packet.header.seq_id;
+
+                RUPacket ack_p;
+                ack_p.header.flags |= ACK;
+                ack_p.header.cid    = cid;
+                ack_p.header.seq_id = ++seq_id;
+                ack_p.header.ack_id = packet.header.seq_id;
+                set_sum_check(ack_p);
+
+                sendto(socket_fd, (char*)&ack_p.header, HEADER_LEN, 0, (struct sockaddr*)&from_addr, addr_len);
+
+                uint32_t copy_size = min(data_len, buff_size - data_received);
+                memcpy(data + data_received, packet.data, copy_size);
+                data_received += copy_size;
+                delete[] packet.data;
+                packet_received = true;
+                break;
+            }
+            else if (len < 0)
+            {
+                int error = WSAGetLastError();
+                if (error != WSAEWOULDBLOCK)
+                {
+                    print_winsock_error("Error receiving data");
+                    return data_received;
+                }
+            }
         }
 
-        int len = recvfrom(socket_fd, data, buff_size, 0, (struct sockaddr*)&peer_addr, &peer_addr_len);
-        if (len == SOCKET_ERROR)
+        if (!packet_received)
         {
-            int error = WSAGetLastError();
-            if (error == WSAEWOULDBLOCK) return 0;
-            perror("Data receive failed");
-            return 0;
+            cout << "Timeout waiting for data" << endl;
+            return data_received;
         }
-
-        RUPacket* packet = (RUPacket*)data;
-        if (!check_sum_check(*packet)) continue;
-        if (packet->header.cid != cid) continue;
-
-        static uint32_t last_ack_id = 0;
-        if (packet->header.seq_id == last_ack_id) continue;
-
-        RUPacket ack_p;
-        ack_p.header.flags |= ACK;
-        ack_p.header.cid    = cid;
-        ack_p.header.seq_id = seq_id;
-        ++seq_id;
-        ack_p.header.ack_id = packet->header.seq_id + 1;
-        set_sum_check(ack_p);
-        if (sendto(socket_fd, (char*)&ack_p, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, peer_addr_len) < 0)
-        {
-            perror("ACK send failed");
-            return 0;
-        }
-
-        ret             = DATA_LENTH(packet->header.dlh, packet->header.dlm, packet->header.dll);
-        char* true_data = packet->data;
-        memcpy(data, true_data, ret);
-        last_ack_id = packet->header.seq_id;
-        break;
     }
 
-    return ret;
+    return data_received;
 }
