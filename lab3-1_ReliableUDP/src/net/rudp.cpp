@@ -8,6 +8,7 @@
 #include <ws2tcpip.h>
 #include <cmath>
 #include <algorithm>
+#include <thread>
 
 using namespace std;
 using ms = chrono::milliseconds;
@@ -36,11 +37,11 @@ void print_winsock_error(const char* msg)
         0,
         NULL);
 
-    std::cerr << msg << ": " << error_msg << std::endl;
+    cerr << msg << ": " << error_msg << endl;
     LocalFree(error_msg);
 }
 
-UDPConnection::UDPConnection(const std::string& local_ip, uint16_t local_port, bool non_block)
+UDPConnection::UDPConnection(const string& local_ip, uint16_t local_port, bool non_block)
     : socket_fd(-1), cid(0), seq_id(0), last_seq_id_received(0), rtt(ms(1000))
 {
     WSADATA wsaData;
@@ -90,7 +91,7 @@ void UDPConnection::reset()
     rtt = ms(1000);
 }
 
-bool UDPConnection::connect(const std::string& peer_ip, uint16_t peer_port, uint8_t retry)
+bool UDPConnection::connect(const string& peer_ip, uint16_t peer_port, uint8_t retry)
 {
     seq_id = 0;
     cid    = dist(rd);
@@ -285,7 +286,145 @@ bool UDPConnection::listen()
     return false;
 }
 
-bool UDPConnection::disconnect() { return true; }
+bool UDPConnection::disconnect()
+{
+    // Step 1: Send FIN
+    RUPacket fin_p;
+    fin_p.header.flags |= FIN;
+    fin_p.header.cid    = cid;
+    fin_p.header.seq_id = ++seq_id;
+    set_sum_check(fin_p);
+
+    cout << "Sending FIN, SeqID = " << fin_p.header.seq_id << endl;
+
+    bool fin_ack_received = false;
+
+    for (uint8_t attempt = 0; attempt < MAX_RETRIES; ++attempt)
+    {
+        if (sendto(socket_fd, (char*)&fin_p.header, HEADER_LEN, 0, (struct sockaddr*)&peer_addr, sizeof(peer_addr)) < 0)
+        {
+            print_winsock_error("Failed to send FIN");
+            return false;
+        }
+
+        // Wait for ACK of FIN
+        auto start = chrono::steady_clock::now();
+        while (chrono::steady_clock::now() - start < rtt * TIME_OUT_SCALER)
+        {
+            RUPacket    ack_p;
+            sockaddr_in from_addr;
+            int         addr_len = sizeof(from_addr);
+            int         len      = recvfrom(
+                socket_fd, (char*)&ack_p.header, sizeof(ack_p.header), 0, (struct sockaddr*)&from_addr, &addr_len);
+            if (len == HEADER_LEN)
+            {
+                if (!check_sum_check(ack_p))
+                {
+                    cout << "Checksum mismatch in ACK, discarding" << endl;
+                    continue;
+                }
+
+                if (ack_p.header.flags & ACK && ack_p.header.ack_id == fin_p.header.seq_id)
+                {
+                    fin_ack_received = true;
+                    cout << "Received ACK for FIN, SeqID = " << ack_p.header.seq_id << endl;
+                    break;
+                }
+            }
+            else if (len < 0)
+            {
+                int error = WSAGetLastError();
+                if (error != WSAEWOULDBLOCK)
+                {
+                    print_winsock_error("Error receiving ACK for FIN");
+                    return false;
+                }
+            }
+        }
+
+        if (fin_ack_received) { break; }
+        else { cout << "Timeout waiting for ACK of FIN, retrying..." << endl; }
+    }
+
+    if (!fin_ack_received)
+    {
+        cout << "Failed to receive ACK for FIN after retries" << endl;
+        return false;
+    }
+
+    // Step 2: Wait for FIN from peer
+    bool fin_from_peer_received = false;
+    auto start                  = chrono::steady_clock::now();
+    while (chrono::steady_clock::now() - start < rtt * TIME_OUT_SCALER)
+    {
+        RUPacket    fin_p_peer;
+        sockaddr_in from_addr;
+        int         addr_len = sizeof(from_addr);
+        int         len      = recvfrom(socket_fd,
+            (char*)&fin_p_peer.header,
+            sizeof(fin_p_peer.header),
+            0,
+            (struct sockaddr*)&from_addr,
+            &addr_len);
+        if (len == HEADER_LEN)
+        {
+            if (!check_sum_check(fin_p_peer))
+            {
+                cout << "Checksum mismatch in FIN from peer, discarding" << endl;
+                continue;
+            }
+
+            if (fin_p_peer.header.flags & FIN)
+            {
+                fin_from_peer_received = true;
+                cout << "Received FIN from peer, SeqID = " << fin_p_peer.header.seq_id << endl;
+
+                // Step 3: Send ACK for peer's FIN
+                RUPacket ack_p;
+                ack_p.header.flags |= ACK;
+                ack_p.header.cid    = cid;
+                ack_p.header.seq_id = ++seq_id;
+                ack_p.header.ack_id = fin_p_peer.header.seq_id;
+                set_sum_check(ack_p);
+
+                if (sendto(socket_fd,
+                        (char*)&ack_p.header,
+                        HEADER_LEN,
+                        0,
+                        (struct sockaddr*)&peer_addr,
+                        sizeof(peer_addr)) < 0)
+                {
+                    print_winsock_error("Failed to send ACK for peer's FIN");
+                    return false;
+                }
+
+                cout << "Sent ACK for peer's FIN, SeqID = " << ack_p.header.seq_id << endl;
+                break;
+            }
+        }
+        else if (len < 0)
+        {
+            int error = WSAGetLastError();
+            if (error != WSAEWOULDBLOCK)
+            {
+                print_winsock_error("Error receiving FIN from peer");
+                return false;
+            }
+        }
+    }
+
+    if (!fin_from_peer_received)
+    {
+        cout << "Failed to receive FIN from peer" << endl;
+        return false;
+    }
+
+    this_thread::sleep_for(chrono::milliseconds(50));
+
+    cout << "Disconnected successfully" << endl;
+    cid = 0;
+    return true;
+}
 
 bool UDPConnection::send(const char* data, uint32_t data_len, uint8_t retry)
 {
@@ -380,15 +519,95 @@ uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
 
     auto start = chrono::steady_clock::now();
 
-    while (chrono::steady_clock::now() - start < rtt * TIME_OUT_SCALER)
+    while (true)
     {
-        char recv_buffer[HEADER_LEN + BUFF_MAX];
+        char recv_buffer[8192];
         int  len = recvfrom(socket_fd, recv_buffer, sizeof(recv_buffer), 0, (struct sockaddr*)&from_addr, &addr_len);
         if (len >= HEADER_LEN)
         {
-            memcpy(&packet.header, recv_buffer, HEADER_LEN);
+            memcpy(&packet.header, recv_buffer, len);
 
             uint32_t data_len = DATA_LENTH(packet.header.dlh, packet.header.dlm, packet.header.dll);
+
+            if (packet.header.flags & FIN)
+            {
+                RUPacket ack_p;
+                ack_p.header.flags |= ACK;
+                ack_p.header.cid    = cid;
+                ack_p.header.seq_id = ++seq_id;
+                ack_p.header.ack_id = packet.header.seq_id;
+                set_sum_check(ack_p);
+
+                if (sendto(socket_fd, (char*)&ack_p.header, HEADER_LEN, 0, (struct sockaddr*)&from_addr, addr_len) < 0)
+                {
+                    print_winsock_error("Failed to send ACK for FIN");
+                }
+
+                cout << "Received FIN from peer, SeqID = " << packet.header.seq_id << endl;
+
+                this_thread::sleep_for(chrono::milliseconds(50));
+
+                RUPacket fin_p;
+                fin_p.header.flags |= FIN;
+                fin_p.header.cid    = cid;
+                fin_p.header.seq_id = ++seq_id;
+                set_sum_check(fin_p);
+
+                if (sendto(socket_fd, (char*)&fin_p.header, HEADER_LEN, 0, (struct sockaddr*)&from_addr, addr_len) < 0)
+                {
+                    print_winsock_error("Failed to send FIN");
+                }
+                cout << "Sent FIN, SeqID = " << fin_p.header.seq_id << endl;
+
+                // Wait for ACK of our FIN
+                bool fin_ack_received = false;
+                auto fin_start        = chrono::steady_clock::now();
+                while (chrono::steady_clock::now() - fin_start < rtt * TIME_OUT_SCALER)
+                {
+                    RUPacket ack_p;
+                    len = recvfrom(socket_fd,
+                        (char*)&ack_p.header,
+                        sizeof(ack_p.header),
+                        0,
+                        (struct sockaddr*)&from_addr,
+                        &addr_len);
+                    if (len == HEADER_LEN)
+                    {
+                        if (!check_sum_check(ack_p))
+                        {
+                            cout << "Checksum mismatch in ACK, discarding" << endl;
+                            continue;
+                        }
+
+                        if (ack_p.header.flags & ACK && ack_p.header.ack_id == fin_p.header.seq_id)
+                        {
+                            fin_ack_received = true;
+                            cout << "Received ACK for FIN, SeqID = " << ack_p.header.seq_id << endl;
+                            break;
+                        }
+                    }
+                    else if (len < 0)
+                    {
+                        int error = WSAGetLastError();
+                        if (error != WSAEWOULDBLOCK)
+                        {
+                            print_winsock_error("Error receiving ACK for FIN");
+                            return 0;
+                        }
+                    }
+                }
+
+                if (!fin_ack_received)
+                {
+                    cout << "Failed to receive ACK for our FIN" << endl;
+                    return 0;
+                }
+
+                cout << "Connection closed gracefully" << endl;
+                cid = 0;  // Reset connection ID
+                return 0;
+            }
+
             if (data_len > BUFF_MAX || data_len + HEADER_LEN > (uint32_t)len)
             {
                 cout << "Data length exceeds buffer size or packet size mismatch" << endl;
@@ -398,14 +617,9 @@ uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
             packet.data = new char[data_len];
             memcpy(packet.data, recv_buffer + HEADER_LEN, data_len);
 
-            if (!check_sum_check(packet))
-            {
-                delete[] packet.data;
-                continue;
-            }
-
             if (packet.header.seq_id <= last_seq_id_received)
             {
+                // Resend ACK for already received packet
                 RUPacket ack_p;
                 ack_p.header.flags |= ACK;
                 ack_p.header.cid    = cid;
@@ -420,6 +634,7 @@ uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
 
             last_seq_id_received = packet.header.seq_id;
 
+            // Send ACK for received packet
             RUPacket ack_p;
             ack_p.header.flags |= ACK;
             ack_p.header.cid    = cid;
@@ -444,8 +659,11 @@ uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
                 return 0;
             }
         }
-    }
 
-    cout << "Timeout waiting for data" << endl;
-    return 0;
+        if (chrono::steady_clock::now() - start > rtt * TIME_OUT_SCALER)
+        {
+            cout << "Timeout waiting for data" << endl;
+            return 0;
+        }
+    }
 }

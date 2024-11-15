@@ -22,6 +22,8 @@ void server_recv(UDPConnection& server)
             buffer[len] = '\0';
             cout << "Server received: " << buffer << endl;
         }
+        else if (len == 0)
+            break;
     }
 }
 

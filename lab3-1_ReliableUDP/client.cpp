@@ -22,5 +22,7 @@ int main()
     client_data[0] = '2';
     client.send(client_data, strlen(client_data));
 
+    client.disconnect();
+
     return 0;
 }
