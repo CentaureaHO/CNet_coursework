@@ -19,7 +19,7 @@ void server_recv(UDPConnection& server)
         {
             buffer[len] = '\0';
             cout << "Server received: " << buffer << endl;
-            break;
+            // break;
         }
         this_thread::sleep_for(chrono::milliseconds(100));
     }
@@ -35,6 +35,8 @@ int main()
     client.connect(LH, 9999);
 
     char client_data[8192] = "Hello, server!";
+    client.send(client_data, strlen(client_data));
+    client.send(client_data, strlen(client_data));
     client.send(client_data, strlen(client_data));
 
     this_thread::sleep_for(chrono::seconds(1));

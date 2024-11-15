@@ -17,6 +17,8 @@ class UDPConnection
     sockaddr_in peer_addr;
 
     uint64_t cid;
+    uint32_t seq_id;
+    int32_t last_recv_seq_id;
 
     std::chrono::milliseconds rtt;
 
@@ -29,6 +31,8 @@ class UDPConnection
     bool listen();
     bool connect(const std::string& peer_ip, uint16_t peer_port, uint8_t retry = 10);
     bool disconnect();
+    bool wait_for_event(int socket_fd, bool is_read, uint32_t timeout_ms);
+
 
     bool     send(const char* data, uint32_t data_len, uint8_t retry = 10);
     uint32_t recv(char* data, uint32_t buff_size, uint8_t retry = 5);
