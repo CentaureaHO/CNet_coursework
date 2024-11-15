@@ -84,7 +84,8 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "stop_token": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "*.rh": "cpp"
     },
     "cmake.sourceDirectory": "D:/CodeTable/CNet_coursework/third_repos/boost"
 }

@@ -371,57 +371,38 @@ bool UDPConnection::send(const char* data, uint32_t data_len, uint8_t retry)
 
 uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
 {
-    uint32_t data_received = 0;
+    RUPacket    packet;
+    sockaddr_in from_addr;
+    int         addr_len = sizeof(from_addr);
 
-    while (data_received < buff_size)
+    auto start = chrono::steady_clock::now();
+
+    while (chrono::steady_clock::now() - start < rtt * TIME_OUT_SCALER)
     {
-        RUPacket    packet;
-        sockaddr_in from_addr;
-        int         addr_len = sizeof(from_addr);
-
-        auto start           = chrono::steady_clock::now();
-        bool packet_received = false;
-
-        while (chrono::steady_clock::now() - start < rtt * TIME_OUT_SCALER)
+        char recv_buffer[HEADER_LEN + BUFF_MAX];
+        int  len = recvfrom(socket_fd, recv_buffer, sizeof(recv_buffer), 0, (struct sockaddr*)&from_addr, &addr_len);
+        if (len >= HEADER_LEN)
         {
-            char recv_buffer[HEADER_LEN + BUFF_MAX];
-            int len = recvfrom(socket_fd, recv_buffer, sizeof(recv_buffer), 0, (struct sockaddr*)&from_addr, &addr_len);
-            if (len >= HEADER_LEN)
+            memcpy(&packet.header, recv_buffer, HEADER_LEN);
+
+            uint32_t data_len = DATA_LENTH(packet.header.dlh, packet.header.dlm, packet.header.dll);
+            if (data_len > BUFF_MAX || data_len + HEADER_LEN > (uint32_t)len)
             {
-                memcpy(&packet.header, recv_buffer, HEADER_LEN);
+                cout << "Data length exceeds buffer size or packet size mismatch" << endl;
+                continue;
+            }
 
-                uint32_t data_len = DATA_LENTH(packet.header.dlh, packet.header.dlm, packet.header.dll);
-                if (data_len > BUFF_MAX || data_len + HEADER_LEN > (uint32_t)len)
-                {
-                    cout << "Data length exceeds buffer size or packet size mismatch" << endl;
-                    continue;
-                }
+            packet.data = new char[data_len];
+            memcpy(packet.data, recv_buffer + HEADER_LEN, data_len);
 
-                packet.data = new char[data_len];
-                memcpy(packet.data, recv_buffer + HEADER_LEN, data_len);
+            if (!check_sum_check(packet))
+            {
+                delete[] packet.data;
+                continue;
+            }
 
-                if (!check_sum_check(packet))
-                {
-                    delete[] packet.data;
-                    continue;
-                }
-
-                if (packet.header.seq_id <= last_seq_id_received)
-                {
-                    RUPacket ack_p;
-                    ack_p.header.flags |= ACK;
-                    ack_p.header.cid    = cid;
-                    ack_p.header.seq_id = ++seq_id;
-                    ack_p.header.ack_id = packet.header.seq_id;
-                    set_sum_check(ack_p);
-
-                    sendto(socket_fd, (char*)&ack_p.header, HEADER_LEN, 0, (struct sockaddr*)&from_addr, addr_len);
-                    delete[] packet.data;
-                    continue;
-                }
-
-                last_seq_id_received = packet.header.seq_id;
-
+            if (packet.header.seq_id <= last_seq_id_received)
+            {
                 RUPacket ack_p;
                 ack_p.header.flags |= ACK;
                 ack_p.header.cid    = cid;
@@ -430,31 +411,38 @@ uint32_t UDPConnection::recv(char* data, uint32_t buff_size, uint8_t retry)
                 set_sum_check(ack_p);
 
                 sendto(socket_fd, (char*)&ack_p.header, HEADER_LEN, 0, (struct sockaddr*)&from_addr, addr_len);
-
-                uint32_t copy_size = min(data_len, buff_size - data_received);
-                memcpy(data + data_received, packet.data, copy_size);
-                data_received += copy_size;
                 delete[] packet.data;
-                packet_received = true;
-                break;
+                continue;
             }
-            else if (len < 0)
-            {
-                int error = WSAGetLastError();
-                if (error != WSAEWOULDBLOCK)
-                {
-                    print_winsock_error("Error receiving data");
-                    return data_received;
-                }
-            }
-        }
 
-        if (!packet_received)
+            last_seq_id_received = packet.header.seq_id;
+
+            RUPacket ack_p;
+            ack_p.header.flags |= ACK;
+            ack_p.header.cid    = cid;
+            ack_p.header.seq_id = ++seq_id;
+            ack_p.header.ack_id = packet.header.seq_id;
+            set_sum_check(ack_p);
+
+            sendto(socket_fd, (char*)&ack_p.header, HEADER_LEN, 0, (struct sockaddr*)&from_addr, addr_len);
+
+            uint32_t copy_size = min(data_len, buff_size);
+            memcpy(data, packet.data, copy_size);
+            delete[] packet.data;
+
+            return copy_size;
+        }
+        else if (len < 0)
         {
-            cout << "Timeout waiting for data" << endl;
-            return data_received;
+            int error = WSAGetLastError();
+            if (error != WSAEWOULDBLOCK)
+            {
+                print_winsock_error("Error receiving data");
+                return 0;
+            }
         }
     }
 
-    return data_received;
+    cout << "Timeout waiting for data" << endl;
+    return 0;
 }

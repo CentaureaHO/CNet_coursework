@@ -8,6 +8,8 @@ using namespace std;
 #define ROUTER_PORT 8888
 #define LH "127.0.0.1"
 
+int cnt = 3;
+
 void server_recv(UDPConnection& server)
 {
     server.listen();
@@ -20,7 +22,6 @@ void server_recv(UDPConnection& server)
             buffer[len] = '\0';
             cout << "Server received: " << buffer << endl;
         }
-        this_thread::sleep_for(chrono::milliseconds(100));
     }
 }
 
