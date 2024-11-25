@@ -1,38 +1,54 @@
 #include <bits/stdc++.h>
-#include <net/packet.h>
-#include <net/rudp.h>
-#include <thread>
-#include <chrono>
-using namespace std;
-
-#define ROUTER_PORT 8888
-#define LH "127.0.0.1"
-
-int cnt = 3;
-
-void server_recv(UDPConnection& server)
-{
-    server.listen();
-    char buffer[10000];
-    while (true)
-    {
-        uint32_t len = server.recv(buffer, 8192);
-        if (len > 0)
-        {
-            buffer[len] = '\0';
-            cout << "Server received: " << buffer << endl;
-        }
-        else if (len == 0)
-            break;
-    }
-}
+#include <net/socket_defs.h>
+#include <net/nb_socket.h>
 
 int main()
 {
-    UDPConnection server(LH, 9999, false);
+    NBSocket server(0, Protocol::UDP); // 0 表示自动分配端口
 
-    thread server_thread(server_recv, std::ref(server));
-    server_thread.join();
+    if (!server.init())
+    {
+        std::cerr << "Failed to initialize server.\n";
+        return 1;
+    }
+
+    int actual_port = server.getBoundPort();
+    if (actual_port == -1)
+    {
+        std::cerr << "Failed to retrieve bound port.\n";
+        return 1;
+    }
+
+    std::cout << "Server is running on port: " << actual_port << "\n";
+
+    char        buffer[2048];
+    sockaddr_in client_addr{};
+    size_t      received_length = 0;
+
+    while (true)
+    {
+        bool received = server.recv(buffer,
+            sizeof(buffer),
+            &client_addr,
+            received_length,
+            std::chrono::milliseconds(5000),  // 超时时间 5 秒
+            std::chrono::milliseconds(100));  // 轮询间隔 100 毫秒
+
+        if (received)
+        {
+            buffer[received_length] = '\0';
+            char client_ip[INET_ADDRSTRLEN];
+            inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, INET_ADDRSTRLEN);
+            int client_port = ntohs(client_addr.sin_port);
+
+            std::cout << "Received data: " << buffer
+                      << " from " << client_ip << ":" << client_port << std::endl;
+
+            // 回发数据
+            server.send("Acknowledged", strlen("Acknowledged"), &client_addr);
+        }
+        else { std::cout << "No data received (timeout).\n"; }
+    }
 
     return 0;
 }

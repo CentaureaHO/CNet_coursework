@@ -23,6 +23,12 @@ using socklen_t = int;
 #include <fcntl.h>
 #include <errno.h>
 
+enum class Protocol
+{
+    UDP,
+    TCP
+};
+
 class SocketInitializer
 {
   private:
@@ -32,5 +38,7 @@ class SocketInitializer
   public:
     static SocketInitializer& getInstance();
 };
+
+bool SetSocketNonBlocking(SOCKET sock);
 
 #endif
