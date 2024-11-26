@@ -20,7 +20,7 @@ ifeq ($(OS),Windows_NT)
     RMDIR := powershell -Command "Remove-Item -Recurse -Force"
     RM := del /Q
     SEP := /
-    COMMON_SOURCES := src/net/socket_defs.cpp src/net/nb_socket.cpp
+    COMMON_SOURCES := src/net/socket_defs.cpp src/net/nb_socket.cpp src/net/rudp/rudp_defs.cpp src/net/rudp/rudp.cpp src/common/lock.cpp
 else
     LDFLAGS := 
     MKDIR := mkdir -p

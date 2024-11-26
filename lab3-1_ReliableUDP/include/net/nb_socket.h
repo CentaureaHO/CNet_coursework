@@ -2,6 +2,7 @@
 #define __NET_NB_SOCKET_H
 
 #include <net/socket_defs.h>
+#include <chrono>
 
 class NBSocket
 {
@@ -21,11 +22,8 @@ class NBSocket
 
     bool send(const char* buffer, size_t buffer_size, const sockaddr_in* target_addr);
 
-    template <typename Duration>
-    bool recv(char* buffer, size_t buffer_size, sockaddr_in* client_addr, size_t& received_length, Duration timeout,
-        Duration poll_interval);
+    bool recv(char* buffer, size_t buffer_size, sockaddr_in* client_addr, size_t& received_length,
+        std::chrono::microseconds timeout, std::chrono::microseconds poll_interval);
 };
-
-#include <net/nb_socket.tpp>
 
 #endif

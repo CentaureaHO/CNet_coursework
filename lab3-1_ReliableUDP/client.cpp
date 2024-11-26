@@ -1,63 +1,65 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <net/socket_defs.h>
 #include <net/nb_socket.h>
+#include <net/rudp/rudp_defs.h>
+#include <net/rudp/rudp.h>
+using namespace std;
+using namespace chrono;
 
-int main(int argc, char* argv[])
+void sendFile(RUDP& client, const string& filePath)
 {
-    if (argc != 2)
+    ifstream file(filePath, ios::binary);
+    if (!file.is_open())
     {
-        std::cerr << "Usage: " << argv[0] << " <port>\n";
-        return 1;
+        cerr << "Failed to open file: " << filePath << endl;
+        return;
     }
 
-    int port = std::stoi(argv[1]); // 从命令行参数获取端口号
+    string fileName = filePath.substr(filePath.find_last_of("/\\") + 1);
 
-    SocketInitializer::getInstance();
+    string beginMessage = "File begin: " + fileName + "\r\n";
+    client.send(beginMessage.c_str(), beginMessage.size());
 
-    NBSocket client(0, Protocol::UDP); // 客户端使用随机端口
-
-    if (!client.init())
+    char buffer[BODY_SIZE];
+    while (file)
     {
-        std::cerr << "Failed to initialize client.\n";
-        return 1;
+        file.read(buffer, BODY_SIZE);
+        size_t bytesRead = file.gcount();
+        if (bytesRead > 0) { client.send(buffer, bytesRead); }
     }
 
-    sockaddr_in server_addr{};
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port   = htons(port);
-    inet_pton(AF_INET, "127.0.0.1", &server_addr.sin_addr);
+    string endMessage = "File end\r\n";
+    client.send(endMessage.c_str(), endMessage.size());
 
-    const char* message = "Hello from client!";
-    if (client.send(message, strlen(message), &server_addr))
+    file.close();
+    cout << "File " << fileName << " sent successfully." << endl;
+}
+
+int main()
+{
+    RUDP client(7777);
+
+    cout << "Client run at port " << client.getBoundPort() << endl;
+
+    client.connect("127.0.0.1", 8000);
+
+    auto start = high_resolution_clock::now();
+
+    sendFile(client, "resources/1.jpg");
+
+    auto end = high_resolution_clock::now();
+
+    auto duration = duration_cast<milliseconds>(end - start);
+    cout << "File transfer completed in " << duration.count() << " milliseconds." << endl;
+
+    /*
+    while (true)
     {
-        std::cout << "Message sent to server on port " << port << ".\n";
+        string filePath;
+        cout << "Enter the file path to send: ";
+        getline(cin, filePath);
 
-        // 等待服务器响应
-        char        buffer[2048];
-        sockaddr_in response_addr{};
-        size_t      received_length = 0;
-
-        bool received = client.recv(buffer,
-            sizeof(buffer),
-            &response_addr,
-            received_length,
-            std::chrono::milliseconds(5000),  // 超时时间 5 秒
-            std::chrono::milliseconds(100));  // 轮询间隔 100 毫秒
-
-        if (received)
-        {
-            buffer[received_length] = '\0';
-            std::cout << "Response from server: " << buffer << std::endl;
-        }
-        else
-        {
-            std::cout << "No response from server (timeout).\n";
-        }
+        sendFile(client, filePath);
     }
-    else
-    {
-        std::cerr << "Failed to send message.\n";
-    }
-
-    return 0;
+    */
 }

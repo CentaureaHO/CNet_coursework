@@ -1,4 +1,8 @@
 #include <net/nb_socket.h>
+#include <cstring>
+#include <iostream>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 NBSocket::NBSocket(int port, Protocol protocol) : _port(port), _protocol(protocol), _sockfd(INVALID_SOCKET) { init(); }
@@ -26,7 +30,7 @@ bool NBSocket::init()
     }
 
     sockaddr_in server_addr{};
-    std::memset(&server_addr, 0, sizeof(server_addr));
+    memset(&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family      = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
     server_addr.sin_port        = htons(_port);
@@ -50,7 +54,7 @@ bool NBSocket::init()
 
     if (!SetSocketNonBlocking(_sockfd))
     {
-        std::cerr << "Failed to set socket to non-blocking mode.\n";
+        cerr << "Failed to set socket to non-blocking mode.\n";
         CLOSE_SOCKET(_sockfd);
         return false;
     }
@@ -62,7 +66,7 @@ int NBSocket::getBoundPort() const
 {
     if (_sockfd == INVALID_SOCKET)
     {
-        std::cerr << "Socket is not initialized.\n";
+        cerr << "Socket is not initialized.\n";
         return -1;
     }
 
@@ -92,5 +96,74 @@ bool NBSocket::send(const char* buffer, size_t buffer_size, const sockaddr_in* t
         int sent_len = ::send(_sockfd, buffer, buffer_size, 0);
         return sent_len == (int)buffer_size;
     }
+    return false;
+}
+
+bool NBSocket::recv(char* buffer, size_t buffer_size, sockaddr_in* client_addr, size_t& received_length,
+    chrono::microseconds timeout, chrono::microseconds poll_interval)
+{
+    if (_sockfd == INVALID_SOCKET)
+    {
+        cerr << "Socket is not initialized.\n";
+        return false;
+    }
+
+    socklen_t addr_len   = sizeof(sockaddr_in);
+    auto      start_time = chrono::high_resolution_clock::now();
+    auto      now        = chrono::high_resolution_clock::now();
+    auto      elapsed_us = chrono::duration_cast<chrono::microseconds>(now - start_time);
+
+    while (true)
+    {
+        if (_protocol == Protocol::UDP)
+        {
+            int recv_len = recvfrom(_sockfd, buffer, buffer_size, 0, (struct sockaddr*)client_addr, &addr_len);
+
+            if (recv_len > 0)
+            {
+                received_length = static_cast<size_t>(recv_len);
+                return true;
+            }
+            /*
+            #ifdef _WIN32
+                        else if (recv_len == SOCKET_ERROR && WSAGetLastError() != WSAEWOULDBLOCK)
+                            perror("recvfrom failed");
+            #else
+                        else if (recv_len < 0 && errno != EWOULDBLOCK && errno != EAGAIN)
+                            perror("recvfrom failed");
+            #endif
+            */
+        }
+        else if (_protocol == Protocol::TCP)
+        {
+            int recv_len = ::recv(_sockfd, buffer, buffer_size, 0);
+            if (recv_len > 0)
+            {
+                received_length = static_cast<size_t>(recv_len);
+                return true;
+            }
+            /*
+            #ifdef _WIN32
+                        else if (recv_len == SOCKET_ERROR && WSAGetLastError() != WSAEWOULDBLOCK)
+                            perror("recv failed");
+            #else
+                        else if (recv_len < 0 && errno != EWOULDBLOCK && errno != EAGAIN)
+                            perror("recv failed");
+            #endif
+            */
+        }
+
+        now        = chrono::high_resolution_clock::now();
+        elapsed_us = chrono::duration_cast<chrono::microseconds>(now - start_time);
+        if (elapsed_us >= timeout)
+        {
+            // cerr << "Recv timed out after " << elapsed_us.count() << "us.\n";
+            break;
+        }
+
+        this_thread::sleep_for(poll_interval);
+    }
+
+    received_length = 0;
     return false;
 }

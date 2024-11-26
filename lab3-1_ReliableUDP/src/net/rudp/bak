@@ -1,0 +1,139 @@
+// server
+void RUDP::listen()
+{
+    memset(&recv_buffer, 0, sizeof(recv_buffer));
+    memset(&send_buffer, 0, sizeof(send_buffer));
+
+    _statu = RUDP_STATUS::LISTEN;
+    cout << "RUDP server is now listening on port " << _local_port << endl;
+
+    size_t received_length = 0;
+
+    int patience = 0;
+
+    while (true)
+    {
+        if (_socket.recv(reinterpret_cast<char*>(&recv_buffer),
+                sizeof(recv_buffer),
+                &_remote_addr,
+                received_length,
+                us(5000000),
+                us(QUERY_GAP)))
+        {
+            if (!checkCheckSum(recv_buffer))
+            {
+                cerr << "Received packet with checksum error. Ignored." << endl;
+                continue;
+            }
+
+            if (CHK_SYN(recv_buffer) && !CHK_ACK(recv_buffer))
+            {
+                cout << "Received SYN packet, entering SYN_RCVD state" << endl;
+                _statu = RUDP_STATUS::SYN_RCVD;
+
+                _last_ack   = recv_buffer.header.seq_num;
+                _seq_num    = 0;
+                _connect_id = recv_buffer.header.connect_id;
+
+                SET_SYN(send_buffer);
+                SET_ACK(send_buffer);
+                send_buffer.header.connect_id = recv_buffer.header.connect_id;
+                send_buffer.header.seq_num    = 0;
+                send_buffer.header.ack_num    = _last_ack;
+                genCheckSum(send_buffer);
+
+                if (!_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr))
+                {
+                    cerr << "Failed to send SYN ACK packet" << endl;
+                    _statu = RUDP_STATUS::LISTEN;
+                    continue;
+                }
+
+                cout << "Sent SYN ACK packet" << endl;
+                _statu = RUDP_STATUS::ESTABLISHED;
+            }
+        }
+    }
+}
+
+// client
+bool RUDP::connect(const char* remote_ip, int remote_port)
+{
+    _seq_num    = 0;
+    _connect_id = dist(gen);
+    memset(&recv_buffer, 0, sizeof(recv_buffer));
+    memset(&send_buffer, 0, sizeof(send_buffer));
+
+    _remote_addr.sin_family      = AF_INET;
+    _remote_addr.sin_port        = htons(remote_port);
+    _remote_addr.sin_addr.s_addr = inet_addr(remote_ip);
+    _statu                       = RUDP_STATUS::SYN_SENT;
+
+    SET_SYN(send_buffer);
+    send_buffer.header.connect_id = _connect_id;
+    send_buffer.header.seq_num    = _seq_num;
+    genCheckSum(send_buffer);
+
+    // loop for: syn -> syn ack
+    chrono::high_resolution_clock::time_point start_time;
+    chrono::high_resolution_clock::time_point end_time;
+    for (int attempt = 0; attempt < CONNECT_RETRY; ++attempt)
+    {
+        _statu = RUDP_STATUS::CLOSED;
+
+        if (!_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr))
+        {
+            cerr << "Attempt " << (attempt + 1) << ": send SYN failed" << endl;
+            // this_thread::sleep_for(_rtt);
+            continue;
+        }
+
+        _statu = RUDP_STATUS::SYN_SENT;
+
+        start_time             = chrono::high_resolution_clock::now();
+        size_t received_length = 0;
+        if (_socket.recv(reinterpret_cast<char*>(&recv_buffer),
+                sizeof(recv_buffer),
+                &_remote_addr,
+                received_length,
+                _rtt * FACTOR,
+                us(QUERY_GAP)))
+        {
+            end_time = chrono::high_resolution_clock::now();
+
+            if (!checkCheckSum(recv_buffer))
+            {
+                cerr << "Attempt " << (attempt + 1) << ": checksum error" << endl;
+                continue;
+            }
+
+            if (recv_buffer.header.connect_id != _connect_id)
+            {
+                cerr << "Attempt " << (attempt + 1) << ": connect_id mismatch" << endl;
+                continue;
+            }
+
+            if (!CHK_SYN(recv_buffer) || !CHK_ACK(recv_buffer) || recv_buffer.header.ack_num != _seq_num)
+            {
+                cerr << "Attempt " << (attempt + 1) << ": invalid response" << endl;
+                continue;
+            }
+
+            _statu = RUDP_STATUS::ESTABLISHED;
+
+            chrono::duration<double> actual_rtt = chrono::duration_cast<us>(end_time - start_time);
+            // _rtt                                = actual_rtt;
+            // cout << "Connected successfully! Updated RTT: " << _rtt.count() << "us" << endl;
+            return true;
+        }
+
+        cerr << "Attempt " << (attempt + 1) << ": no valid response, retrying..." << endl;
+
+        // // this_thread::sleep_for(_rtt);
+    }
+
+    cerr << "Failed to connect to target after " << CONNECT_RETRY << " attempts." << endl;
+    clear_statu();
+
+    return false;
+}
