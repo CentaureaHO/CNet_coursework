@@ -45,21 +45,12 @@ int main()
 
     auto start = high_resolution_clock::now();
 
-    sendFile(client, "resources/1.jpg");
+    // sendFile(client, "resources/1.jpg");
 
     auto end = high_resolution_clock::now();
 
     auto duration = duration_cast<milliseconds>(end - start);
     cout << "File transfer completed in " << duration.count() << " milliseconds." << endl;
 
-    /*
-    while (true)
-    {
-        string filePath;
-        cout << "Enter the file path to send: ";
-        getline(cin, filePath);
-
-        sendFile(client, filePath);
-    }
-    */
+    client.disconnect();
 }
