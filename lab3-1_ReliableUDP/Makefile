@@ -32,7 +32,7 @@ else
 	TRANSFER_SOURCES := $(shell find $(SRC_DIR)/transfer -name '*.cpp' -o -name '*.c')
 endif
 
-CXXFLAGS = $(CXX_STANDARD) $(INCLUDES) $(WERROR_FLAGS) $(DBGFLAGS) $(WARNINGS_IGNORE)
+CXXFLAGS = $(CXX_STANDARD) $(INCLUDES) $(WERROR_FLAGS) $(DBGFLAGS) $(WARNINGS_IGNORE) -O3
 
 COMMON_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(COMMON_SOURCES:.cpp=.o))
 TRANSFER_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(TRANSFER_SOURCES:.cpp=.o))

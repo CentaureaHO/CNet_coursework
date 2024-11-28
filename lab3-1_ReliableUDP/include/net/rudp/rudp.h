@@ -49,9 +49,9 @@ class RUDP
     // std::condition_variable         _send_buffer_cv;      // 条件变量，用于同步
     // std::mutex                      _send_buffer_cv_mtx;  // 互斥锁，配合条件变量使用
 
-    std::thread  _resend_thread;   // 重传线程
+    std::thread       _resend_thread;   // 重传线程
     std::atomic<bool> _resending;       // 是否正在重传
-    std::thread  _receive_thread;  // 接收线程
+    std::thread       _receive_thread;  // 接收线程
     std::atomic<bool> _receiving;       // 是否正在接收
 
   public:

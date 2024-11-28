@@ -4,6 +4,7 @@
 #include <iostream>
 #include <thread>
 #include <cassert>
+#include <iomanip>
 using namespace std;
 
 using us = chrono::microseconds;
@@ -77,7 +78,6 @@ void RUDP::_resendLoop()
                     packet_timer.timeout = us(static_cast<long long>(_rtt.count() * packet_timer.timeout_factor));
 
                     _nb_socket.send((const char*)&packet_timer.packet, lenInByte(packet_timer.packet), &_remote_addr);
-                    // cerr << "Resend packet " << packet_timer.packet.header.seq_num << endl;
                 }
             }
         }
@@ -98,11 +98,7 @@ void RUDP::listen(Callback cb)
             case RUDP_STATUS::LISTEN: listen_listen(); break;
             case RUDP_STATUS::SYN_RCVD: listen_syn_rcvd(); break;
             case RUDP_STATUS::ESTABLISHED: listen_established(cb); break;
-            case RUDP_STATUS::FIN_RCVD:
-                listen_fin_rcvd();
-                break;
-                /*case RUDP_STATUS::CLOSE_WAIT: listen_close_wait(); break;
-                 */
+            case RUDP_STATUS::FIN_RCVD: listen_fin_rcvd(); break;
             default: assert(false);
         }
     }
@@ -222,13 +218,11 @@ void RUDP::listen_established(Callback cb)
                 tick_gap))
             continue;
 
-        /*
-                if (!checkCheckSum(recv_buffer))
-                {
-                    cout << "Received a packet with wrong checksum, drop it." << endl;
-                    continue;
-                }
-        */
+        if (!checkCheckSum(recv_buffer))
+        {
+            cout << "Received a packet with wrong checksum, drop it." << endl;
+            continue;
+        }
 
         if (recv_buffer.header.connect_id != _connect_id)
         {
@@ -287,13 +281,27 @@ void RUDP::listen_fin_rcvd()
     SET_FIN(fin_ack_p);
     genCheckSum(fin_ack_p);
 
-    _nb_socket.send(reinterpret_cast<char*>(&fin_ack_p), lenInByte(fin_ack_p), &_remote_addr);
-
     RUDP_P recv_buffer;
     size_t received_length = 0;
 
+    cout << "Waiting for last ACK packet." << endl;
+
+    auto max_wait_time = chrono::milliseconds(10000);
+    auto start_time    = chrono::steady_clock::now();
+
     while (true)
     {
+        auto current_time = chrono::steady_clock::now();
+        auto elapsed_time = duration_cast<chrono::milliseconds>(current_time - start_time);
+        if (elapsed_time >= max_wait_time)
+        {
+            cout << "Timeout: No ACK received within the specified time. Connection closed." << endl;
+            _statu = RUDP_STATUS::CLOSED;
+            break;
+        }
+
+        _nb_socket.send(reinterpret_cast<char*>(&fin_ack_p), lenInByte(fin_ack_p), &_remote_addr);
+
         if (!_nb_socket.recv(reinterpret_cast<char*>(&recv_buffer),
                 lenInByte(recv_buffer),
                 &_remote_addr,
@@ -320,8 +328,6 @@ void RUDP::listen_fin_rcvd()
             _statu = RUDP_STATUS::CLOSED;
             break;
         }
-
-        _nb_socket.send(reinterpret_cast<char*>(&fin_ack_p), lenInByte(fin_ack_p), &_remote_addr);
     }
 }
 
@@ -428,21 +434,6 @@ void RUDP::_receiveHandler()
     {
         if (!_receiving) break;
 
-        {
-            {
-                ReadGuard guard = _send_buffer_lock.read();
-                if (_send_buffer.empty()) guard.~ReadGuard();
-            }
-
-            /*
-            unique_lock<mutex> cv_lock(_send_buffer_cv_mtx);
-            _send_buffer_cv.wait(cv_lock, [this] {
-                ReadGuard read_guard = _send_buffer_lock.read();
-                return !_send_buffer.empty();
-            });
-            */
-        }
-
         if (!_nb_socket.recv(reinterpret_cast<char*>(&recv_buffer),
                 lenInByte(recv_buffer),
                 &_remote_addr,
@@ -466,14 +457,6 @@ void RUDP::_receiveHandler()
         {
             WriteGuard guard = _send_buffer_lock.write();
             _send_buffer.erase(recv_buffer.header.ack_num - 1);
-
-            /*
-            if (_send_buffer.empty())
-            {
-                lock_guard<mutex> cv_lock(_send_buffer_cv_mtx);
-                _send_buffer_cv.notify_all();
-            }
-            */
         }
     }
 }
@@ -493,7 +476,7 @@ void RUDP::send(const char* buffer, size_t buffer_size)
     memcpy(packet.body, buffer, buffer_size);
     genCheckSum(packet);
 
-    while (_send_buffer.size() > 0);
+    while (_send_buffer.size() > 0) this_thread::sleep_for(tick_gap);
 
     {
         WriteGuard guard = _send_buffer_lock.write();
@@ -501,21 +484,6 @@ void RUDP::send(const char* buffer, size_t buffer_size)
     }
 
     _nb_socket.send((const char*)&packet, lenInByte(packet), &_remote_addr);
-
-    /*
-    {
-        {
-            lock_guard<mutex> cv_lock(_send_buffer_cv_mtx);
-            _send_buffer_cv.notify_all();
-        }
-
-        unique_lock<mutex> cv_lock(_send_buffer_cv_mtx);
-        _send_buffer_cv.wait(cv_lock, [this] {
-            ReadGuard guard = _send_buffer_lock.read();
-            return _send_buffer.empty();
-        });
-    }
-    */
 }
 
 bool RUDP::disconnect()
@@ -526,10 +494,10 @@ bool RUDP::disconnect()
         return false;
     }
 
+    while (_send_buffer.size() > 0) this_thread::sleep_for(tick_gap);
+
     cout << "Disconnecting..." << endl;
     {
-        // lock_guard<mutex> cv_lock(_send_buffer_cv_mtx);
-        // _send_buffer_cv.notify_all();
         _receiving = false;
         if (_receive_thread.joinable()) _receive_thread.join();
     }
@@ -549,8 +517,14 @@ bool RUDP::disconnect()
     RUDP_P recv_buffer;
     size_t received_length = 0;
 
-    while (true)
+    auto start         = chrono::steady_clock::now();
+    auto end           = chrono::steady_clock::now();
+    auto max_wait_time = chrono::seconds(10);
+
+    while (chrono::duration_cast<chrono::seconds>(end - start) < max_wait_time)
     {
+        end = chrono::steady_clock::now();
+
         if (!_nb_socket.recv(reinterpret_cast<char*>(&recv_buffer),
                 lenInByte(recv_buffer),
                 &_remote_addr,
@@ -609,9 +583,8 @@ bool RUDP::disconnect()
         return false;
     }
 
-    // 等待至多2s，确保对方收到最后一个ACK包
-    auto start = chrono::steady_clock::now();
-    auto end   = chrono::steady_clock::now();
+    start = chrono::steady_clock::now();
+    end   = chrono::steady_clock::now();
 
     while (chrono::duration_cast<chrono::seconds>(end - start).count() < 2)
     {

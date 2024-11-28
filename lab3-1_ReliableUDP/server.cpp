@@ -11,7 +11,6 @@ void receiveFile(RUDP_P& packet, ofstream& outFile, bool& receivingFile)
 
     if (data.find("File begin: ") == 0)
     {
-        // Start receiving a new file
         string fileName = data.substr(12, data.find("\r\n") - 12);
         string filePath = "download/" + fileName;
 
@@ -28,7 +27,6 @@ void receiveFile(RUDP_P& packet, ofstream& outFile, bool& receivingFile)
     }
     else if (data == "File end\r\n")
     {
-        // End of file transmission
         if (outFile.is_open())
         {
             outFile.close();
@@ -38,9 +36,10 @@ void receiveFile(RUDP_P& packet, ofstream& outFile, bool& receivingFile)
     }
     else if (receivingFile)
     {
-        // Write file data
-        if (outFile.is_open()) { outFile.write(packet.body, packet.header.data_len); }
-        else { cerr << "File output stream is not open." << endl; }
+        if (outFile.is_open())
+            outFile.write(packet.body, packet.header.data_len);
+        else
+            cerr << "File output stream is not open." << endl;
     }
 }
 

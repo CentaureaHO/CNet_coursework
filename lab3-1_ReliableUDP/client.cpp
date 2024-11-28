@@ -20,12 +20,20 @@ void sendFile(RUDP& client, const string& filePath)
     string beginMessage = "File begin: " + fileName + "\r\n";
     client.send(beginMessage.c_str(), beginMessage.size());
 
-    char buffer[BODY_SIZE];
+    char   buffer[BODY_SIZE];
+    size_t totalBytesSent = 0;
+
     while (file)
     {
         file.read(buffer, BODY_SIZE);
         size_t bytesRead = file.gcount();
-        if (bytesRead > 0) { client.send(buffer, bytesRead); }
+        if (bytesRead > 0)
+        {
+            client.send(buffer, bytesRead);
+            totalBytesSent += bytesRead;
+
+            cout << "Sent " << totalBytesSent << " bytes so far..." << endl;
+        }
     }
 
     string endMessage = "File end\r\n";
@@ -45,7 +53,7 @@ int main()
 
     auto start = high_resolution_clock::now();
 
-    // sendFile(client, "resources/1.jpg");
+    sendFile(client, "resources/small.txt");
 
     auto end = high_resolution_clock::now();
 
