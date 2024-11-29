@@ -1,8 +1,7 @@
 */.vscode/
 */obj/
 */bin/
-*/test
-*/test.exe
+*/test.*
 */err
 */log
 */note

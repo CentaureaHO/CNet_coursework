@@ -28,12 +28,61 @@ uint16_t genCheckSum(RUDP_P& packet)
     return ~sum;
 }
 
-// 校验数据包的校验和
 bool checkCheckSum(RUDP_P& packet)
 {
-    uint16_t received_checksum = packet.header.checksum;
+    uint16_t received_checksum   = packet.header.checksum;
     uint16_t calculated_checksum = genCheckSum(packet);
-    packet.header.checksum = received_checksum;
+    packet.header.checksum       = received_checksum;
 
     return received_checksum == calculated_checksum;
+}
+
+string statuStr(RUDP_STATUS statu)
+{
+    switch (statu)
+    {
+#define X(s, b, c) \
+    case RUDP_STATUS::s: return #s;
+        RUDP_STATU_LIST
+#undef X
+        default: return "UNKNOWN";
+    }
+
+    return "UNKNOWN";
+}
+
+ostream& operator<<(ostream& os, const RUDP_H& header)
+{
+    os << "connect_id: " << header.connect_id << '\n'
+       << "seq_num: " << header.seq_num << '\n'
+       << "ack_num: " << header.ack_num << '\n'
+       << "data_len: " << header.data_len << '\n'
+       << "flags: 0x" << hex << header.flags << dec << " (";
+
+    bool first = true;
+    if (CHK_SYN_H(header))
+    {
+        os << (first ? "" : ", ") << "SYN";
+        first = false;
+    }
+    if (CHK_ACK_H(header))
+    {
+        os << (first ? "" : ", ") << "ACK";
+        first = false;
+    }
+    if (CHK_FIN_H(header))
+    {
+        os << (first ? "" : ", ") << "FIN";
+        first = false;
+    }
+    if (CHK_RST_H(header))
+    {
+        os << (first ? "" : ", ") << "RST";
+        first = false;
+    }
+    if (first) os << "NONE";
+
+    os << ")\n"
+       << "checksum: 0x" << hex << header.checksum << dec;
+    return os;
 }

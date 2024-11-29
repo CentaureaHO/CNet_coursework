@@ -86,7 +86,11 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "*.rh": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "shared_mutex": "cpp",
+        "iomanip": "cpp",
+        "generator": "cpp",
+        "text_encoding": "cpp"
     },
     "cmake.sourceDirectory": "D:/CodeTable/CNet_coursework/third_repos/boost"
 }

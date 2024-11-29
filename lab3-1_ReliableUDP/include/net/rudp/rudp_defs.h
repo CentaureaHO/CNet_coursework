@@ -3,6 +3,7 @@
 
 #include <net/nb_socket.h>
 #include <stdint.h>
+#include <string>
 
 #define PACKET_SIZE 8192
 #define BODY_SIZE (PACKET_SIZE - sizeof(RUDP_H))
@@ -76,5 +77,20 @@ bool     checkCheckSum(RUDP_P& packet);
         rudp.header.ack_num  = 0; \
         rudp.header.data_len = 0; \
     }
+
+#define SET_SYN_H(rudp) (rudp.flags |= 0x0001)
+#define SET_ACK_H(rudp) (rudp.flags |= 0x0002)
+#define SET_FIN_H(rudp) (rudp.flags |= 0x0004)
+#define SET_RST_H(rudp) (rudp.flags |= 0x0008)
+
+#define CHK_SYN_H(rudp) (rudp.flags & 0x0001)
+#define CHK_ACK_H(rudp) (rudp.flags & 0x0002)
+#define CHK_FIN_H(rudp) (rudp.flags & 0x0004)
+#define CHK_RST_H(rudp) (rudp.flags & 0x0008)
+
+#define CLR_FLAGS_H(rudp) (rudp.flags = 0x0000)
+
+std::string   statuStr(RUDP_STATUS statu);
+std::ostream& operator<<(std::ostream& os, const RUDP_H& header);
 
 #endif

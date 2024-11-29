@@ -5,6 +5,7 @@
 #include <thread>
 #include <cassert>
 #include <iomanip>
+#include <common/log.h>
 using namespace std;
 
 using us = chrono::microseconds;
@@ -20,7 +21,19 @@ namespace
     random_device                      rd;
     mt19937                            gen(rd());
     uniform_int_distribution<uint32_t> dist(0, UINT32_MAX);
+
+    Logger server_log("server.log");
+    Logger client_log("client.log");
 }  // namespace
+
+#define SLOG(...) LOG(server_log, __VA_ARGS__)
+#define CLOG(...) LOG(client_log, __VA_ARGS__)
+
+#define SLOG_WARN(...) LOG_WARN(server_log, __VA_ARGS__)
+#define CLOG_WARN(...) LOG_WARN(client_log, __VA_ARGS__)
+
+#define SLOG_ERR(...) LOG_ERR(server_log, __VA_ARGS__)
+#define CLOG_ERR(...) LOG_ERR(client_log, __VA_ARGS__)
 
 const us tick_gap = us(TICK_GAP);
 
@@ -78,6 +91,10 @@ void RUDP::_resendLoop()
                     packet_timer.timeout = us(static_cast<long long>(_rtt.count() * packet_timer.timeout_factor));
 
                     _nb_socket.send((const char*)&packet_timer.packet, lenInByte(packet_timer.packet), &_remote_addr);
+                    CLOG_WARN(statuStr(_statu),
+                        ": No ack received for packet ",
+                        packet_timer.packet.header.seq_num,
+                        ", resend it.");
                 }
             }
         }
@@ -86,9 +103,54 @@ void RUDP::_resendLoop()
     }
 }
 
+void RUDP::_receiveHandler()
+{
+    RUDP_P recv_buffer;
+    size_t received_length = 0;
+
+    while (true)
+    {
+        if (!_receiving) break;
+
+        if (!_nb_socket.recv(reinterpret_cast<char*>(&recv_buffer),
+                lenInByte(recv_buffer),
+                &_remote_addr,
+                received_length,
+                us(static_cast<long long>(_rtt.count() * BASE_TIMEOUT_FACTOR)),
+                tick_gap))
+            continue;
+
+        if (!checkCheckSum(recv_buffer))
+        {
+            // cout << "Received a packet with wrong checksum, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet with wrong checksum, drop it.");
+            continue;
+        }
+
+        if (recv_buffer.header.connect_id != _connect_id)
+        {
+            // cout << "Received a packet with wrong connect_id, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet with wrong connect_id, drop it.");
+            continue;
+        }
+
+        CLOG(statuStr(_statu), ": Received a packet:\n", recv_buffer.header);
+
+        {
+            WriteGuard guard = _send_buffer_lock.write();
+            _send_buffer.erase(recv_buffer.header.ack_num - 1);
+            CLOG(statuStr(_statu),
+                ": Received packet, seq_num: ",
+                recv_buffer.header.seq_num,
+                " remove from resend loop.");
+        }
+    }
+}
+
 void RUDP::listen(Callback cb)
 {
     _statu = RUDP_STATUS::LISTEN;
+    SLOG("Enter listen mode, change statu to LISTEN.");
 
     while (true)
     {
@@ -119,24 +181,28 @@ void RUDP::listen_listen()
 
     if (!checkCheckSum(recv_buffer))
     {
-        cout << "Received a packet with wrong checksum, drop it." << endl;
+        // cout << "Received a packet with wrong checksum, drop it." << endl;
+        SLOG_WARN(statuStr(_statu), ": Received a packet with wrong checksum, drop it.");
         return;
     }
 
     if (!CHK_SYN(recv_buffer))
     {
-        cout << "Received a packet without SYN flag, drop it." << endl;
+        // cout << "Received a packet without SYN flag, drop it." << endl;
+        SLOG_WARN(statuStr(_statu), ": Received a packet without SYN flag, drop it.");
         return;
     }
 
     if (CHK_ACK(recv_buffer))
     {
-        cout << "Received a packet with ACK flag, drop it." << endl;
+        // cout << "Received a packet with ACK flag, drop it." << endl;
+        SLOG_WARN(statuStr(_statu), ": Received a packet with ACK flag, drop it.");
         return;
     }
 
     _connect_id = recv_buffer.header.connect_id;
-    cout << "Received a SYN packet, connect_id: " << _connect_id << endl;
+    // cout << "Received a SYN packet, connect_id: " << _connect_id << endl;
+    SLOG(statuStr(_statu), ": Received a SYN packet:\n", recv_buffer.header);
 
     RUDP_P send_buffer;
     send_buffer.header.connect_id = _connect_id;
@@ -148,16 +214,23 @@ void RUDP::listen_listen()
 
     if (!_nb_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr))
     {
-        cout << "Failed to send SYN_ACK packet." << endl;
+        // cout << "Failed to send SYN_ACK packet." << endl;
+        SLOG_ERR(statuStr(_statu), ": Failed to send SYN_ACK packet, turn back to LISTEN.");
         return;
     }
     _send_buffer.emplace(send_buffer.header.seq_num,
         PacketTimer(send_buffer, us(static_cast<long long>(_rtt.count() * BASE_TIMEOUT_FACTOR)), BASE_TIMEOUT_FACTOR));
 
-    cout << "Sent SYN_ACK packet to " << inet_ntoa(_remote_addr.sin_addr) << ":" << ntohs(_remote_addr.sin_port)
-         << endl;
+    // cout << "Sent SYN_ACK packet to " << inet_ntoa(_remote_addr.sin_addr) << ":" << ntohs(_remote_addr.sin_port)
+    //     << endl;
+    SLOG(statuStr(_statu),
+        ": Sent SYN_ACK packet to ",
+        inet_ntoa(_remote_addr.sin_addr),
+        ":",
+        ntohs(_remote_addr.sin_port));
 
     _statu = RUDP_STATUS::SYN_RCVD;
+    SLOG("Change statu to SYN_RCVD.");
 }
 
 void RUDP::listen_syn_rcvd()
@@ -177,21 +250,25 @@ void RUDP::listen_syn_rcvd()
 
         if (!checkCheckSum(recv_buffer))
         {
-            cout << "Received a packet with wrong checksum, drop it." << endl;
+            // cout << "Received a packet with wrong checksum, drop it." << endl;
+            SLOG_WARN(statuStr(_statu), ": Received a packet with wrong checksum, drop it.");
             continue;
         }
 
         if (recv_buffer.header.connect_id != _connect_id)
         {
-            cout << "Received a packet with wrong connect_id, drop it." << endl;
+            // cout << "Received a packet with wrong connect_id, drop it." << endl;
+            SLOG_WARN(statuStr(_statu), ": Received a packet with wrong connect_id, drop it.");
             continue;
         }
 
         if (CHK_ACK(recv_buffer))
         {
-            cout << "Received a ACK packet, connection established." << endl;
+            // cout << "Received a ACK packet, connection established." << endl;
+            SLOG(statuStr(_statu), ": Received a ACK packet:\n", recv_buffer.header);
             _statu   = RUDP_STATUS::ESTABLISHED;
             _ack_num = recv_buffer.header.seq_num + 1;
+            SLOG("Connection established, change statu to ESTABLISHED.");
 
             {
                 WriteGuard guard = _send_buffer_lock.write();
@@ -220,19 +297,22 @@ void RUDP::listen_established(Callback cb)
 
         if (!checkCheckSum(recv_buffer))
         {
-            cout << "Received a packet with wrong checksum, drop it." << endl;
+            // cout << "Received a packet with wrong checksum, drop it." << endl;
+            SLOG_WARN(statuStr(_statu), ": Received a packet with wrong checksum, drop it.");
             continue;
         }
 
         if (recv_buffer.header.connect_id != _connect_id)
         {
-            cout << "Received a packet with wrong connect_id, drop it." << endl;
+            // cout << "Received a packet with wrong connect_id, drop it." << endl;
+            SLOG_WARN(statuStr(_statu), ": Received a packet with wrong connect_id, drop it.");
             continue;
         }
 
         if (recv_buffer.header.seq_num < _ack_num)
         {
-            cout << "Received a old packet, send ACK packet." << endl;
+            // cout << "Received a old packet, send ACK packet." << endl;
+            SLOG(statuStr(_statu), ": Received a old packet, send ACK packet.");
             send_buffer.header.connect_id = _connect_id;
             send_buffer.header.seq_num    = _seq_num++;
             send_buffer.header.ack_num    = recv_buffer.header.seq_num + 1;
@@ -246,14 +326,18 @@ void RUDP::listen_established(Callback cb)
 
         if (CHK_FIN(recv_buffer))
         {
-            cout << "Received a FIN packet, change statu to FIN_RCVD." << endl;
+            // cout << "Received a FIN packet, change statu to FIN_RCVD." << endl;
+            SLOG(statuStr(_statu), ": Received a FIN packet:\n", recv_buffer.header);
 
             _statu = RUDP_STATUS::FIN_RCVD;
+            SLOG("Change statu to FIN_RCVD.");
 
             _ack_num = recv_buffer.header.seq_num + 1;
 
             break;
         }
+
+        SLOG(statuStr(_statu), ": Received a packet:\n", recv_buffer.header);
 
         _ack_num = recv_buffer.header.seq_num + 1;
         cb(recv_buffer);
@@ -265,9 +349,9 @@ void RUDP::listen_established(Callback cb)
         genCheckSum(send_buffer);
 
         _nb_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr);
-        _send_buffer.emplace(send_buffer.header.seq_num,
-            PacketTimer(
-                send_buffer, us(static_cast<long long>(_rtt.count() * BASE_TIMEOUT_FACTOR)), BASE_TIMEOUT_FACTOR));
+        // _send_buffer.emplace(send_buffer.header.seq_num,
+        //     PacketTimer(
+        //         send_buffer, us(static_cast<long long>(_rtt.count() * BASE_TIMEOUT_FACTOR)), BASE_TIMEOUT_FACTOR));
     }
 }
 
@@ -284,7 +368,7 @@ void RUDP::listen_fin_rcvd()
     RUDP_P recv_buffer;
     size_t received_length = 0;
 
-    cout << "Waiting for last ACK packet." << endl;
+    // cout << "Waiting for last ACK packet." << endl;
 
     auto max_wait_time = chrono::milliseconds(10000);
     auto start_time    = chrono::steady_clock::now();
@@ -295,7 +379,8 @@ void RUDP::listen_fin_rcvd()
         auto elapsed_time = duration_cast<chrono::milliseconds>(current_time - start_time);
         if (elapsed_time >= max_wait_time)
         {
-            cout << "Timeout: No ACK received within the specified time. Connection closed." << endl;
+            // cout << "Timeout: No ACK received within the specified time. Connection closed." << endl;
+            SLOG_ERR(statuStr(_statu), ": Timeout: No ACK received within the specified time. Connection closed.");
             _statu = RUDP_STATUS::CLOSED;
             break;
         }
@@ -312,20 +397,24 @@ void RUDP::listen_fin_rcvd()
 
         if (!checkCheckSum(recv_buffer))
         {
-            cout << "Received a packet with wrong checksum, drop it." << endl;
+            // cout << "Received a packet with wrong checksum, drop it." << endl;
+            SLOG_WARN(statuStr(_statu), ": Received a packet with wrong checksum, drop it.");
             continue;
         }
 
         if (recv_buffer.header.connect_id != _connect_id)
         {
-            cout << "Received a packet with wrong connect_id, drop it." << endl;
+            // cout << "Received a packet with wrong connect_id, drop it." << endl;
+            SLOG_WARN(statuStr(_statu), ": Received a packet with wrong connect_id, drop it.");
             continue;
         }
 
         if (CHK_ACK(recv_buffer) && !CHK_FIN(recv_buffer))
         {
-            cout << "Received last ACK packet, connection closed." << endl;
+            // cout << "Received last ACK packet, connection closed." << endl;
+            SLOG(statuStr(_statu), ": Received last ACK packet", recv_buffer.header);
             _statu = RUDP_STATUS::CLOSED;
+            SLOG("Change statu to CLOSED.");
             break;
         }
     }
@@ -335,7 +424,8 @@ bool RUDP::connect(const char* remote_ip, int remote_port)
 {
     if (_statu != RUDP_STATUS::CLOSED)
     {
-        cout << "Connection already established." << endl;
+        // cout << "Connection already established." << endl;
+        CLOG_ERR("Connection already established.");
         return false;
     }
 
@@ -343,7 +433,9 @@ bool RUDP::connect(const char* remote_ip, int remote_port)
     _remote_addr.sin_port        = htons(remote_port);
     _remote_addr.sin_addr.s_addr = inet_addr(remote_ip);
 
-    _connect_id                 = dist(gen);
+    _connect_id = dist(gen);
+    CLOG("Enter connect mode and generate connect_id: ", _connect_id);
+
     uint32_t syn_packet_seq_num = _seq_num++;
 
     RUDP_P syn_packet;
@@ -358,7 +450,9 @@ bool RUDP::connect(const char* remote_ip, int remote_port)
     _resending     = true;
     _resend_thread = thread(&RUDP::_resendLoop, this);
 
+    CLOG(statuStr(_statu), ": Send SYN packet to ", remote_ip, ":", remote_port);
     _statu = RUDP_STATUS::SYN_SENT;
+    CLOG("Change statu to SYN_SENT.");
 
     RUDP_P recv_packet;
     size_t received_length = 0;
@@ -374,19 +468,22 @@ bool RUDP::connect(const char* remote_ip, int remote_port)
 
         if (!checkCheckSum(recv_packet))
         {
-            cout << "Received a packet with wrong checksum, drop it." << endl;
+            // cout << "Received a packet with wrong checksum, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet with wrong checksum, drop it.");
             continue;
         }
 
         if (recv_packet.header.connect_id != _connect_id)
         {
-            cout << "Received a packet with wrong connect_id, drop it." << endl;
+            // cout << "Received a packet with wrong connect_id, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet with wrong connect_id, drop it.");
             continue;
         }
 
         if (CHK_SYN(recv_packet) && CHK_ACK(recv_packet))
         {
-            cout << "Received a SYN_ACK packet, send ACK packet, and enter ESTABLISHED state." << endl;
+            // cout << "Received a SYN_ACK packet, send ACK packet, and enter ESTABLISHED state." << endl;
+            CLOG(statuStr(_statu), ": Received a SYN_ACK packet:\n", recv_packet.header);
             _statu = RUDP_STATUS::ESTABLISHED;
             RUDP_P ack_packet;
             ack_packet.header.connect_id = _connect_id;
@@ -407,13 +504,16 @@ bool RUDP::connect(const char* remote_ip, int remote_port)
                 _nb_socket.send((const char*)&ack_packet, lenInByte(ack_packet), &_remote_addr);
             }
 
+            CLOG("Change statu to ESTABLISHED, and send ACK packet.");
+
             break;
         }
     }
 
     if (_statu != RUDP_STATUS::ESTABLISHED)
     {
-        cout << "Failed to connect to " << remote_ip << ":" << remote_port << endl;
+        // cout << "Failed to connect to " << remote_ip << ":" << remote_port << endl;
+        CLOG_ERR("Failed to connect to ", remote_ip, ":", remote_port, ", turn back to CLOSED.");
         clear_statu();
         return false;
     }
@@ -425,47 +525,12 @@ bool RUDP::connect(const char* remote_ip, int remote_port)
     return true;
 }
 
-void RUDP::_receiveHandler()
-{
-    RUDP_P recv_buffer;
-    size_t received_length = 0;
-
-    while (true)
-    {
-        if (!_receiving) break;
-
-        if (!_nb_socket.recv(reinterpret_cast<char*>(&recv_buffer),
-                lenInByte(recv_buffer),
-                &_remote_addr,
-                received_length,
-                us(static_cast<long long>(_rtt.count() * BASE_TIMEOUT_FACTOR)),
-                tick_gap))
-            continue;
-
-        if (!checkCheckSum(recv_buffer))
-        {
-            cout << "Received a packet with wrong checksum, drop it." << endl;
-            continue;
-        }
-
-        if (recv_buffer.header.connect_id != _connect_id)
-        {
-            cout << "Received a packet with wrong connect_id, drop it." << endl;
-            continue;
-        }
-
-        {
-            WriteGuard guard = _send_buffer_lock.write();
-            _send_buffer.erase(recv_buffer.header.ack_num - 1);
-        }
-    }
-}
-
 void RUDP::send(const char* buffer, size_t buffer_size)
 {
     if (_statu != RUDP_STATUS::ESTABLISHED)
     {
-        cout << "Connection not established." << endl;
+        // cout << "Connection not established." << endl;
+        CLOG_ERR("Connection not established.");
         return;
     }
 
@@ -484,24 +549,33 @@ void RUDP::send(const char* buffer, size_t buffer_size)
     }
 
     _nb_socket.send((const char*)&packet, lenInByte(packet), &_remote_addr);
+    CLOG(statuStr(_statu),
+        ": Send packet ",
+        packet.header.seq_num,
+        " to ",
+        inet_ntoa(_remote_addr.sin_addr),
+        " with checksum 0x",
+        hex,
+        packet.header.checksum);
 }
 
 bool RUDP::disconnect()
 {
     if (_statu != RUDP_STATUS::ESTABLISHED)
     {
-        cout << "Connection not established." << endl;
+        // cout << "Connection not established." << endl;
+        CLOG_ERR("Connection not established.");
         return false;
     }
 
     while (_send_buffer.size() > 0) this_thread::sleep_for(tick_gap);
 
-    cout << "Disconnecting..." << endl;
+    // cout << "Disconnecting..." << endl;
     {
         _receiving = false;
         if (_receive_thread.joinable()) _receive_thread.join();
     }
-    cout << "Receive thread stopped." << endl;
+    // cout << "Receive thread stopped." << endl;
 
     RUDP_P fin_packet;
     fin_packet.header.connect_id = _connect_id;
@@ -511,8 +585,10 @@ bool RUDP::disconnect()
 
     _nb_socket.send((const char*)&fin_packet, lenInByte(fin_packet), &_remote_addr);
     _send_buffer.emplace(fin_packet.header.seq_num, PacketTimer(fin_packet, _rtt, BASE_TIMEOUT_FACTOR));
+    CLOG(statuStr(_statu), ": Send FIN packet ", fin_packet.header.seq_num, " to ", inet_ntoa(_remote_addr.sin_addr));
 
     _statu = RUDP_STATUS::FIN_WAIT;
+    CLOG("Change statu to FIN_WAIT.");
 
     RUDP_P recv_buffer;
     size_t received_length = 0;
@@ -535,27 +611,33 @@ bool RUDP::disconnect()
 
         if (!checkCheckSum(recv_buffer))
         {
-            cout << "Received a packet with wrong checksum, drop it." << endl;
+            // cout << "Received a packet with wrong checksum, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet with wrong checksum, drop it.");
             continue;
         }
 
         if (recv_buffer.header.connect_id != _connect_id)
         {
-            cout << "Received a packet with wrong connect_id, drop it." << endl;
+            // cout << "Received a packet with wrong connect_id, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet with wrong connect_id, drop it.");
             continue;
         }
 
         if (recv_buffer.header.ack_num != _seq_num)
         {
-            cout << "Received a packet with wrong ack_num, drop it." << endl;
+            // cout << "Received a packet with wrong ack_num, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet with wrong ack_num, drop it.");
             continue;
         }
 
         if (!CHK_ACK(recv_buffer) || !CHK_FIN(recv_buffer))
         {
-            cout << "Received a packet without ACK/FIN flag, drop it." << endl;
+            // cout << "Received a packet without ACK/FIN flag, drop it." << endl;
+            CLOG_WARN(statuStr(_statu), ": Received a packet without ACK/FIN flag, drop it.");
             continue;
         }
+
+        CLOG(statuStr(_statu), ": Received FIN_ACK packet ", recv_buffer.header.seq_num);
 
         {
             WriteGuard guard = _send_buffer_lock.write();
@@ -564,6 +646,8 @@ bool RUDP::disconnect()
             _resending = false;
             if (_resend_thread.joinable()) _resend_thread.join();
         }
+
+        CLOG(statuStr(_statu), ": Received FIN_ACK packet ", recv_buffer.header.seq_num);
 
         CLR_FLAGS(fin_packet);
         fin_packet.header.seq_num = _seq_num++;
@@ -574,6 +658,7 @@ bool RUDP::disconnect()
         _nb_socket.send((const char*)&fin_packet, lenInByte(fin_packet), &_remote_addr);
 
         _statu = RUDP_STATUS::CLOSE_WAIT;
+        CLOG("Change statu to CLOSE_WAIT.");
         break;
     }
 
@@ -596,7 +681,11 @@ bool RUDP::disconnect()
                 received_length,
                 us(static_cast<long long>(2000000)),
                 tick_gap))
+        {
             _nb_socket.send((const char*)&fin_packet, lenInByte(fin_packet), &_remote_addr);
+            CLOG(statuStr(_statu), ": Receive packet at CLOSE_WAIT:\n", recv_buffer.header);
+            CLOG(statuStr(_statu), ": Resend ACK packet ", fin_packet.header.seq_num);
+        }
 
         end = chrono::steady_clock::now();
     }

@@ -18,9 +18,9 @@ ifeq ($(OS),Windows_NT)
     LDFLAGS := -lws2_32
     MKDIR := powershell -Command "New-Item -ItemType Directory -Force"
     RMDIR := powershell -Command "Remove-Item -Recurse -Force"
-    RM := del /Q
+    RM := del /F /Q
     SEP := /
-    COMMON_SOURCES := src/net/socket_defs.cpp src/net/nb_socket.cpp src/net/rudp/rudp_defs.cpp src/net/rudp/rudp.cpp src/common/lock.cpp
+    COMMON_SOURCES := src/net/socket_defs.cpp src/net/nb_socket.cpp src/net/rudp/rudp_defs.cpp src/net/rudp/rudp.cpp src/common/lock.cpp src/common/log.cpp
 else
     LDFLAGS := 
     MKDIR := mkdir -p
@@ -38,19 +38,24 @@ COMMON_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(COMMON_SOURCES:.cpp=.
 TRANSFER_OBJECTS := $(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%, $(TRANSFER_SOURCES:.cpp=.o))
 
 TEST_SOURCES := test.cpp
-TEST_EXEC = test
+TEST_EXEC = $(BIN_DIR)/test
 
 SERVER_SOURCES := server.cpp
-SERVER_EXEC = server
+SERVER_EXEC = $(BIN_DIR)/server
 
 CLIENT_SOURCES := client.cpp
-CLIENT_EXEC = client
+CLIENT_EXEC = $(BIN_DIR)/client
 
 .PHONY: all
-all: obj
+all: $(BIN_DIR) $(SERVER_EXEC) $(CLIENT_EXEC) $(TEST_EXEC)
+
+.PHONY: $(BIN_DIR)
+$(BIN_DIR):
+	$(MKDIR) $(BIN_DIR)
 
 .PHONY: obj
 obj: $(COMMON_OBJECTS) $(TRANSFER_OBJECTS)
+
 $(OBJ_DIR)$(SEP)%.o: $(SRC_DIR)$(SEP)%.cpp
 	$(MKDIR) $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -60,17 +65,20 @@ $(OBJ_DIR)$(SEP)%.o: $(SRC_DIR)$(SEP)%.c
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: server
-test: $(SERVER_SOURCES) $(COMMON_OBJECTS)
+server: $(SERVER_EXEC) $(BIN_DIR)
+
 $(SERVER_EXEC): $(SERVER_SOURCES) $(COMMON_OBJECTS)
 	$(CXX) $(COMMON_OBJECTS) $(SERVER_SOURCES) -o $(SERVER_EXEC) $(CXXFLAGS) $(LDFLAGS)
 
 .PHONY: client
-client: $(CLIENT_SOURCES) $(COMMON_OBJECTS)
+client: $(CLIENT_EXEC) $(BIN_DIR)
+
 $(CLIENT_EXEC): $(CLIENT_SOURCES) $(COMMON_OBJECTS)
 	$(CXX) $(COMMON_OBJECTS) $(CLIENT_SOURCES) -o $(CLIENT_EXEC) $(CXXFLAGS) $(LDFLAGS)
 
 .PHONY: test
-test: $(TEST_SOURCES) $(COMMON_OBJECTS)
+test: $(TEST_EXEC) $(BIN_DIR)
+
 $(TEST_EXEC): $(TEST_SOURCES) $(COMMON_OBJECTS)
 	$(CXX) $(COMMON_OBJECTS) $(TEST_SOURCES) -o $(TEST_EXEC) $(CXXFLAGS) $(LDFLAGS)
 
@@ -78,7 +86,6 @@ $(TEST_EXEC): $(TEST_SOURCES) $(COMMON_OBJECTS)
 clean:
 	-$(RMDIR) $(OBJ_DIR)
 	-$(RMDIR) $(BIN_DIR)
-	-$(RM) $(TEST_EXEC)
 
 .PHONY: print-objects
 print-objects:
