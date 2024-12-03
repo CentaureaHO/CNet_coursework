@@ -647,7 +647,7 @@ bool RUDP::disconnect()
             if (_resend_thread.joinable()) _resend_thread.join();
         }
 
-        CLOG(statuStr(_statu), ": Received FIN_ACK packet ", recv_buffer.header.seq_num);
+        // CLOG(statuStr(_statu), ": Received FIN_ACK packet ", recv_buffer.header.seq_num);
 
         CLR_FLAGS(fin_packet);
         fin_packet.header.seq_num = _seq_num++;

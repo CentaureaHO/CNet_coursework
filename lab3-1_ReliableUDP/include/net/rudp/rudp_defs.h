@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <string>
 
-#define PACKET_SIZE 8192
+#define PACKET_SIZE 15000
 #define BODY_SIZE (PACKET_SIZE - sizeof(RUDP_H))
 
 #define RUDP_STATU_LIST  \

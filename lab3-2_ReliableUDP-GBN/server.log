@@ -1,0 +1,7036 @@
+2024-12-04 00:23:39.932 - LOG: Enter listen mode, change statu to LISTEN.
+2024-12-04 00:23:43.904 - LOG: LISTEN: Received a SYN packet:
+connect_id: 340464685
+seq_num: 0
+ack_num: 0
+data_len: 0
+flags: 0x1 (SYN)
+checksum: 0xd786
+2024-12-04 00:23:43.904 - LOG: LISTEN: Sent SYN_ACK packet to 127.0.0.1:7777
+2024-12-04 00:23:43.904 - LOG: Change statu to SYN_RCVD.
+2024-12-04 00:23:43.934 - LOG: SYN_RCVD: Received a ACK packet:
+connect_id: 340464685
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0xd782
+2024-12-04 00:23:43.934 - LOG: Connection established, change statu to ESTABLISHED.
+2024-12-04 00:23:44.009 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0xd782
+2024-12-04 00:23:44.009 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0xd782
+2024-12-04 00:23:44.927 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 2
+ack_num: 0
+data_len: 19
+flags: 0x0 (NONE)
+checksum: 0x48a
+2024-12-04 00:23:44.927 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 2
+ack_num: 0
+data_len: 19
+flags: 0x0 (NONE)
+checksum: 0x48a
+2024-12-04 00:23:45.017 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 3
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x283
+2024-12-04 00:23:45.018 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 3
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x283
+2024-12-04 00:23:45.062 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4a5c
+2024-12-04 00:23:45.062 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4a5c
+2024-12-04 00:23:45.092 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4a5c
+2024-12-04 00:23:45.092 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4a5c
+2024-12-04 00:23:45.167 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa5b8
+2024-12-04 00:23:45.168 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa5b8
+2024-12-04 00:23:45.182 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa5b8
+2024-12-04 00:23:45.183 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa5b8
+2024-12-04 00:23:45.257 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9043
+2024-12-04 00:23:45.257 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9043
+2024-12-04 00:23:45.287 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9043
+2024-12-04 00:23:45.287 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9043
+2024-12-04 00:23:45.333 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 7
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6742
+2024-12-04 00:23:45.333 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 7
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6742
+2024-12-04 00:23:45.364 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 7
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6742
+2024-12-04 00:23:45.364 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 7
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6742
+2024-12-04 00:23:45.424 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ced
+2024-12-04 00:23:45.424 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ced
+2024-12-04 00:23:45.454 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ced
+2024-12-04 00:23:45.454 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ced
+2024-12-04 00:23:45.530 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x336b
+2024-12-04 00:23:45.530 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x336b
+2024-12-04 00:23:45.560 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x336b
+2024-12-04 00:23:45.560 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x336b
+2024-12-04 00:23:45.620 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1fa4
+2024-12-04 00:23:45.621 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1fa4
+2024-12-04 00:23:45.651 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1fa4
+2024-12-04 00:23:45.651 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1fa4
+2024-12-04 00:23:45.712 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31bf
+2024-12-04 00:23:45.712 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31bf
+2024-12-04 00:23:45.742 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31bf
+2024-12-04 00:23:45.742 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31bf
+2024-12-04 00:23:45.802 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd767
+2024-12-04 00:23:45.802 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd767
+2024-12-04 00:23:45.832 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd767
+2024-12-04 00:23:45.832 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd767
+2024-12-04 00:23:45.892 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdce6
+2024-12-04 00:23:45.892 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdce6
+2024-12-04 00:23:45.922 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdce6
+2024-12-04 00:23:45.922 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdce6
+2024-12-04 00:23:45.983 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x87c1
+2024-12-04 00:23:45.983 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x87c1
+2024-12-04 00:23:46.013 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x87c1
+2024-12-04 00:23:46.013 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x87c1
+2024-12-04 00:23:46.073 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5eb8
+2024-12-04 00:23:46.073 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5eb8
+2024-12-04 00:23:46.103 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5eb8
+2024-12-04 00:23:46.103 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5eb8
+2024-12-04 00:23:46.163 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1e76
+2024-12-04 00:23:46.163 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1e76
+2024-12-04 00:23:46.193 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1e76
+2024-12-04 00:23:46.193 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1e76
+2024-12-04 00:23:46.253 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x27f6
+2024-12-04 00:23:46.253 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x27f6
+2024-12-04 00:23:46.283 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x27f6
+2024-12-04 00:23:46.283 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x27f6
+2024-12-04 00:23:46.343 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf1ae
+2024-12-04 00:23:46.343 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf1ae
+2024-12-04 00:23:46.373 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf1ae
+2024-12-04 00:23:46.373 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf1ae
+2024-12-04 00:23:46.433 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x35f2
+2024-12-04 00:23:46.433 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x35f2
+2024-12-04 00:23:46.463 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x35f2
+2024-12-04 00:23:46.463 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x35f2
+2024-12-04 00:23:46.523 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8622
+2024-12-04 00:23:46.523 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8622
+2024-12-04 00:23:46.553 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8622
+2024-12-04 00:23:46.553 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8622
+2024-12-04 00:23:46.614 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x38b
+2024-12-04 00:23:46.614 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x38b
+2024-12-04 00:23:46.644 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x38b
+2024-12-04 00:23:46.644 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x38b
+2024-12-04 00:23:46.705 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf58f
+2024-12-04 00:23:46.705 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf58f
+2024-12-04 00:23:46.735 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf58f
+2024-12-04 00:23:46.735 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf58f
+2024-12-04 00:23:46.795 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 23
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e95
+2024-12-04 00:23:46.795 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 23
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e95
+2024-12-04 00:23:46.825 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 23
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e95
+2024-12-04 00:23:46.825 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 23
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e95
+2024-12-04 00:23:46.885 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x47f
+2024-12-04 00:23:46.885 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x47f
+2024-12-04 00:23:46.915 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x47f
+2024-12-04 00:23:46.915 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x47f
+2024-12-04 00:23:46.975 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x557c
+2024-12-04 00:23:46.975 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x557c
+2024-12-04 00:23:46.990 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x557c
+2024-12-04 00:23:46.990 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x557c
+2024-12-04 00:23:47.065 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6203
+2024-12-04 00:23:47.065 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6203
+2024-12-04 00:23:47.095 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6203
+2024-12-04 00:23:47.095 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6203
+2024-12-04 00:23:47.155 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x85d4
+2024-12-04 00:23:47.156 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x85d4
+2024-12-04 00:23:47.185 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x85d4
+2024-12-04 00:23:47.185 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x85d4
+2024-12-04 00:23:47.245 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x25a9
+2024-12-04 00:23:47.245 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x25a9
+2024-12-04 00:23:47.276 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x25a9
+2024-12-04 00:23:47.276 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x25a9
+2024-12-04 00:23:47.336 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x56cd
+2024-12-04 00:23:47.336 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x56cd
+2024-12-04 00:23:47.367 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x56cd
+2024-12-04 00:23:47.367 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x56cd
+2024-12-04 00:23:47.412 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9398
+2024-12-04 00:23:47.413 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9398
+2024-12-04 00:23:47.457 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9398
+2024-12-04 00:23:47.457 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9398
+2024-12-04 00:23:47.502 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4500
+2024-12-04 00:23:47.502 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4500
+2024-12-04 00:23:47.547 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4500
+2024-12-04 00:23:47.547 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4500
+2024-12-04 00:23:47.607 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc200
+2024-12-04 00:23:47.607 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc200
+2024-12-04 00:23:47.637 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc200
+2024-12-04 00:23:47.637 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc200
+2024-12-04 00:23:47.697 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfad7
+2024-12-04 00:23:47.697 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfad7
+2024-12-04 00:23:47.727 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfad7
+2024-12-04 00:23:47.727 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfad7
+2024-12-04 00:23:47.787 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd830
+2024-12-04 00:23:47.787 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd830
+2024-12-04 00:23:47.817 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd830
+2024-12-04 00:23:47.817 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd830
+2024-12-04 00:23:47.877 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x550e
+2024-12-04 00:23:47.877 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x550e
+2024-12-04 00:23:47.907 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x550e
+2024-12-04 00:23:47.907 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x550e
+2024-12-04 00:23:47.952 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21fd
+2024-12-04 00:23:47.952 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21fd
+2024-12-04 00:23:47.982 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21fd
+2024-12-04 00:23:47.982 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21fd
+2024-12-04 00:23:48.042 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf089
+2024-12-04 00:23:48.042 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf089
+2024-12-04 00:23:48.087 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf089
+2024-12-04 00:23:48.088 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf089
+2024-12-04 00:23:48.147 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdca2
+2024-12-04 00:23:48.147 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdca2
+2024-12-04 00:23:48.178 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdca2
+2024-12-04 00:23:48.178 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdca2
+2024-12-04 00:23:48.223 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 39
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x723
+2024-12-04 00:23:48.223 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 39
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x723
+2024-12-04 00:23:48.299 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb7e8
+2024-12-04 00:23:48.299 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb7e8
+2024-12-04 00:23:48.314 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb7e8
+2024-12-04 00:23:48.314 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb7e8
+2024-12-04 00:23:48.389 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb0c4
+2024-12-04 00:23:48.390 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb0c4
+2024-12-04 00:23:48.419 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb0c4
+2024-12-04 00:23:48.419 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb0c4
+2024-12-04 00:23:48.479 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x565e
+2024-12-04 00:23:48.479 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x565e
+2024-12-04 00:23:48.509 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x565e
+2024-12-04 00:23:48.509 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x565e
+2024-12-04 00:23:48.570 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31f7
+2024-12-04 00:23:48.570 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31f7
+2024-12-04 00:23:48.585 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31f7
+2024-12-04 00:23:48.585 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x31f7
+2024-12-04 00:23:48.645 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdff5
+2024-12-04 00:23:48.646 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdff5
+2024-12-04 00:23:48.690 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdff5
+2024-12-04 00:23:48.690 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdff5
+2024-12-04 00:23:48.750 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcf9e
+2024-12-04 00:23:48.751 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcf9e
+2024-12-04 00:23:48.780 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcf9e
+2024-12-04 00:23:48.780 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcf9e
+2024-12-04 00:23:48.841 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12f
+2024-12-04 00:23:48.841 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12f
+2024-12-04 00:23:48.857 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12f
+2024-12-04 00:23:48.857 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12f
+2024-12-04 00:23:48.933 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6cac
+2024-12-04 00:23:48.933 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6cac
+2024-12-04 00:23:48.963 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6cac
+2024-12-04 00:23:48.963 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6cac
+2024-12-04 00:23:49.023 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc20
+2024-12-04 00:23:49.023 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc20
+2024-12-04 00:23:49.054 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc20
+2024-12-04 00:23:49.054 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc20
+2024-12-04 00:23:49.114 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1bd6
+2024-12-04 00:23:49.114 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1bd6
+2024-12-04 00:23:49.144 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1bd6
+2024-12-04 00:23:49.144 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1bd6
+2024-12-04 00:23:49.204 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa1a
+2024-12-04 00:23:49.204 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa1a
+2024-12-04 00:23:49.234 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa1a
+2024-12-04 00:23:49.234 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa1a
+2024-12-04 00:23:49.295 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7ee7
+2024-12-04 00:23:49.295 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7ee7
+2024-12-04 00:23:49.310 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7ee7
+2024-12-04 00:23:49.310 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7ee7
+2024-12-04 00:23:49.385 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1f93
+2024-12-04 00:23:49.385 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1f93
+2024-12-04 00:23:49.415 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1f93
+2024-12-04 00:23:49.415 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1f93
+2024-12-04 00:23:49.475 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd722
+2024-12-04 00:23:49.475 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd722
+2024-12-04 00:23:49.505 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd722
+2024-12-04 00:23:49.505 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd722
+2024-12-04 00:23:49.565 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe398
+2024-12-04 00:23:49.565 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe398
+2024-12-04 00:23:49.595 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe398
+2024-12-04 00:23:49.595 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe398
+2024-12-04 00:23:49.655 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53ee
+2024-12-04 00:23:49.655 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53ee
+2024-12-04 00:23:49.686 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53ee
+2024-12-04 00:23:49.686 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53ee
+2024-12-04 00:23:49.731 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7fdd
+2024-12-04 00:23:49.732 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7fdd
+2024-12-04 00:23:49.777 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7fdd
+2024-12-04 00:23:49.777 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7fdd
+2024-12-04 00:23:49.837 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd7d
+2024-12-04 00:23:49.837 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd7d
+2024-12-04 00:23:49.867 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd7d
+2024-12-04 00:23:49.867 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd7d
+2024-12-04 00:23:49.927 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x223f
+2024-12-04 00:23:49.927 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x223f
+2024-12-04 00:23:49.942 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x223f
+2024-12-04 00:23:49.942 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x223f
+2024-12-04 00:23:50.002 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5726
+2024-12-04 00:23:50.002 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5726
+2024-12-04 00:23:50.032 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5726
+2024-12-04 00:23:50.032 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5726
+2024-12-04 00:23:50.107 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4f3
+2024-12-04 00:23:50.107 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4f3
+2024-12-04 00:23:50.137 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4f3
+2024-12-04 00:23:50.137 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4f3
+2024-12-04 00:23:50.197 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53bb
+2024-12-04 00:23:50.197 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53bb
+2024-12-04 00:23:50.227 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53bb
+2024-12-04 00:23:50.227 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53bb
+2024-12-04 00:23:50.287 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb94f
+2024-12-04 00:23:50.287 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb94f
+2024-12-04 00:23:50.317 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb94f
+2024-12-04 00:23:50.317 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb94f
+2024-12-04 00:23:50.362 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5e
+2024-12-04 00:23:50.362 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5e
+2024-12-04 00:23:50.407 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5e
+2024-12-04 00:23:50.407 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5e
+2024-12-04 00:23:50.467 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5903
+2024-12-04 00:23:50.467 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5903
+2024-12-04 00:23:50.468 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5903
+2024-12-04 00:23:50.468 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5903
+2024-12-04 00:23:50.542 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb29f
+2024-12-04 00:23:50.542 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb29f
+2024-12-04 00:23:50.572 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb29f
+2024-12-04 00:23:50.572 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb29f
+2024-12-04 00:23:50.648 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x16e6
+2024-12-04 00:23:50.648 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x16e6
+2024-12-04 00:23:50.678 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x16e6
+2024-12-04 00:23:50.678 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x16e6
+2024-12-04 00:23:50.738 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6f51
+2024-12-04 00:23:50.738 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6f51
+2024-12-04 00:23:50.753 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6f51
+2024-12-04 00:23:50.753 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6f51
+2024-12-04 00:23:50.828 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x289c
+2024-12-04 00:23:50.828 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x289c
+2024-12-04 00:23:50.858 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x289c
+2024-12-04 00:23:50.858 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x289c
+2024-12-04 00:23:50.918 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1a95
+2024-12-04 00:23:50.918 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1a95
+2024-12-04 00:23:50.948 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1a95
+2024-12-04 00:23:50.948 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1a95
+2024-12-04 00:23:51.008 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8a77
+2024-12-04 00:23:51.008 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8a77
+2024-12-04 00:23:51.038 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8a77
+2024-12-04 00:23:51.038 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8a77
+2024-12-04 00:23:51.083 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3e1e
+2024-12-04 00:23:51.083 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3e1e
+2024-12-04 00:23:51.128 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3e1e
+2024-12-04 00:23:51.128 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3e1e
+2024-12-04 00:23:51.173 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2bf6
+2024-12-04 00:23:51.173 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2bf6
+2024-12-04 00:23:51.218 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2bf6
+2024-12-04 00:23:51.218 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2bf6
+2024-12-04 00:23:51.279 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc5c7
+2024-12-04 00:23:51.279 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc5c7
+2024-12-04 00:23:51.294 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc5c7
+2024-12-04 00:23:51.294 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc5c7
+2024-12-04 00:23:51.354 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb3ed
+2024-12-04 00:23:51.354 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb3ed
+2024-12-04 00:23:51.385 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb3ed
+2024-12-04 00:23:51.385 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb3ed
+2024-12-04 00:23:51.445 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 75
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe477
+2024-12-04 00:23:51.445 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 75
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe477
+2024-12-04 00:23:51.520 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd22
+2024-12-04 00:23:51.520 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd22
+2024-12-04 00:23:51.550 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd22
+2024-12-04 00:23:51.550 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd22
+2024-12-04 00:23:51.595 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcb6d
+2024-12-04 00:23:51.595 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcb6d
+2024-12-04 00:23:51.624 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcb6d
+2024-12-04 00:23:51.625 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcb6d
+2024-12-04 00:23:51.699 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x39b2
+2024-12-04 00:23:51.700 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x39b2
+2024-12-04 00:23:51.730 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x39b2
+2024-12-04 00:23:51.730 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x39b2
+2024-12-04 00:23:51.775 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 79
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x48d4
+2024-12-04 00:23:51.775 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 79
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x48d4
+2024-12-04 00:23:51.820 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 79
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x48d4
+2024-12-04 00:23:51.820 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 79
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x48d4
+2024-12-04 00:23:51.865 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4d2
+2024-12-04 00:23:51.865 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4d2
+2024-12-04 00:23:51.910 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4d2
+2024-12-04 00:23:51.910 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa4d2
+2024-12-04 00:23:51.970 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5a
+2024-12-04 00:23:51.970 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5a
+2024-12-04 00:23:51.985 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5a
+2024-12-04 00:23:51.985 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6d5a
+2024-12-04 00:23:52.045 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfee5
+2024-12-04 00:23:52.045 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfee5
+2024-12-04 00:23:52.090 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfee5
+2024-12-04 00:23:52.090 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfee5
+2024-12-04 00:23:52.135 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xecb2
+2024-12-04 00:23:52.135 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xecb2
+2024-12-04 00:23:52.180 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xecb2
+2024-12-04 00:23:52.180 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xecb2
+2024-12-04 00:23:52.240 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x54a3
+2024-12-04 00:23:52.240 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x54a3
+2024-12-04 00:23:52.270 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x54a3
+2024-12-04 00:23:52.270 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x54a3
+2024-12-04 00:23:52.330 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8fe7
+2024-12-04 00:23:52.330 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8fe7
+2024-12-04 00:23:52.345 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8fe7
+2024-12-04 00:23:52.345 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8fe7
+2024-12-04 00:23:52.421 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x24c9
+2024-12-04 00:23:52.421 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x24c9
+2024-12-04 00:23:52.451 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x24c9
+2024-12-04 00:23:52.451 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x24c9
+2024-12-04 00:23:52.511 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb820
+2024-12-04 00:23:52.511 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb820
+2024-12-04 00:23:52.541 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb820
+2024-12-04 00:23:52.541 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb820
+2024-12-04 00:23:52.602 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf338
+2024-12-04 00:23:52.602 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf338
+2024-12-04 00:23:52.632 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf338
+2024-12-04 00:23:52.632 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf338
+2024-12-04 00:23:52.677 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x262c
+2024-12-04 00:23:52.677 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x262c
+2024-12-04 00:23:52.722 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x262c
+2024-12-04 00:23:52.722 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x262c
+2024-12-04 00:23:52.782 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc1e3
+2024-12-04 00:23:52.782 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc1e3
+2024-12-04 00:23:52.797 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc1e3
+2024-12-04 00:23:52.797 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc1e3
+2024-12-04 00:23:52.872 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe9dc
+2024-12-04 00:23:52.872 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe9dc
+2024-12-04 00:23:52.902 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe9dc
+2024-12-04 00:23:52.902 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe9dc
+2024-12-04 00:23:52.962 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9943
+2024-12-04 00:23:52.962 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9943
+2024-12-04 00:23:52.992 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9943
+2024-12-04 00:23:52.992 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9943
+2024-12-04 00:23:53.052 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12dd
+2024-12-04 00:23:53.052 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12dd
+2024-12-04 00:23:53.082 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12dd
+2024-12-04 00:23:53.082 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12dd
+2024-12-04 00:23:53.142 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd71
+2024-12-04 00:23:53.142 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd71
+2024-12-04 00:23:53.172 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd71
+2024-12-04 00:23:53.172 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbd71
+2024-12-04 00:23:53.232 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x89ca
+2024-12-04 00:23:53.232 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x89ca
+2024-12-04 00:23:53.262 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x89ca
+2024-12-04 00:23:53.262 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x89ca
+2024-12-04 00:23:53.308 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4af9
+2024-12-04 00:23:53.308 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4af9
+2024-12-04 00:23:53.353 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4af9
+2024-12-04 00:23:53.353 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4af9
+2024-12-04 00:23:53.398 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeacc
+2024-12-04 00:23:53.398 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeacc
+2024-12-04 00:23:53.428 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeacc
+2024-12-04 00:23:53.428 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeacc
+2024-12-04 00:23:53.503 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa39
+2024-12-04 00:23:53.503 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa39
+2024-12-04 00:23:53.533 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa39
+2024-12-04 00:23:53.533 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa39
+2024-12-04 00:23:53.593 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cb1
+2024-12-04 00:23:53.594 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cb1
+2024-12-04 00:23:53.623 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cb1
+2024-12-04 00:23:53.623 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cb1
+2024-12-04 00:23:53.683 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xef01
+2024-12-04 00:23:53.683 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xef01
+2024-12-04 00:23:53.698 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xef01
+2024-12-04 00:23:53.698 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xef01
+2024-12-04 00:23:53.759 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x472a
+2024-12-04 00:23:53.759 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x472a
+2024-12-04 00:23:53.804 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x472a
+2024-12-04 00:23:53.804 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x472a
+2024-12-04 00:23:53.864 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xaa47
+2024-12-04 00:23:53.864 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xaa47
+2024-12-04 00:23:53.894 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xaa47
+2024-12-04 00:23:53.894 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xaa47
+2024-12-04 00:23:53.954 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x86a3
+2024-12-04 00:23:53.954 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x86a3
+2024-12-04 00:23:53.984 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x86a3
+2024-12-04 00:23:53.984 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x86a3
+2024-12-04 00:23:54.045 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7872
+2024-12-04 00:23:54.045 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7872
+2024-12-04 00:23:54.075 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7872
+2024-12-04 00:23:54.075 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7872
+2024-12-04 00:23:54.120 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1970
+2024-12-04 00:23:54.120 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1970
+2024-12-04 00:23:54.150 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1970
+2024-12-04 00:23:54.150 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1970
+2024-12-04 00:23:54.225 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9e9f
+2024-12-04 00:23:54.225 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9e9f
+2024-12-04 00:23:54.255 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9e9f
+2024-12-04 00:23:54.255 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9e9f
+2024-12-04 00:23:54.315 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cd
+2024-12-04 00:23:54.315 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cd
+2024-12-04 00:23:54.330 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cd
+2024-12-04 00:23:54.330 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3cd
+2024-12-04 00:23:54.390 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 108
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe8fc
+2024-12-04 00:23:54.390 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 108
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe8fc
+2024-12-04 00:23:54.465 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xde8c
+2024-12-04 00:23:54.465 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xde8c
+2024-12-04 00:23:54.496 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xde8c
+2024-12-04 00:23:54.496 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xde8c
+2024-12-04 00:23:54.540 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6592
+2024-12-04 00:23:54.540 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6592
+2024-12-04 00:23:54.586 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6592
+2024-12-04 00:23:54.586 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6592
+2024-12-04 00:23:54.631 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xae87
+2024-12-04 00:23:54.631 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xae87
+2024-12-04 00:23:54.661 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xae87
+2024-12-04 00:23:54.661 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xae87
+2024-12-04 00:23:54.736 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e87
+2024-12-04 00:23:54.736 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e87
+2024-12-04 00:23:54.751 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e87
+2024-12-04 00:23:54.751 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7e87
+2024-12-04 00:23:54.826 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x855
+2024-12-04 00:23:54.826 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x855
+2024-12-04 00:23:54.841 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x855
+2024-12-04 00:23:54.841 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x855
+2024-12-04 00:23:54.916 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfbbc
+2024-12-04 00:23:54.916 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfbbc
+2024-12-04 00:23:54.931 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfbbc
+2024-12-04 00:23:54.931 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfbbc
+2024-12-04 00:23:54.991 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d64
+2024-12-04 00:23:54.991 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d64
+2024-12-04 00:23:55.036 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d64
+2024-12-04 00:23:55.036 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d64
+2024-12-04 00:23:55.097 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad36
+2024-12-04 00:23:55.097 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad36
+2024-12-04 00:23:55.112 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad36
+2024-12-04 00:23:55.112 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad36
+2024-12-04 00:23:55.187 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 117
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4cf0
+2024-12-04 00:23:55.187 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 117
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4cf0
+2024-12-04 00:23:55.202 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 117
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4cf0
+2024-12-04 00:23:55.202 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 117
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4cf0
+2024-12-04 00:23:55.277 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbe5a
+2024-12-04 00:23:55.277 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbe5a
+2024-12-04 00:23:55.308 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbe5a
+2024-12-04 00:23:55.308 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbe5a
+2024-12-04 00:23:55.368 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6c98
+2024-12-04 00:23:55.368 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6c98
+2024-12-04 00:23:55.398 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6c98
+2024-12-04 00:23:55.398 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6c98
+2024-12-04 00:23:55.458 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xedb3
+2024-12-04 00:23:55.458 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xedb3
+2024-12-04 00:23:55.488 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xedb3
+2024-12-04 00:23:55.489 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xedb3
+2024-12-04 00:23:55.549 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf4cd
+2024-12-04 00:23:55.549 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf4cd
+2024-12-04 00:23:55.564 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf4cd
+2024-12-04 00:23:55.564 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf4cd
+2024-12-04 00:23:55.624 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 122
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x17f7
+2024-12-04 00:23:55.624 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 122
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x17f7
+2024-12-04 00:23:55.699 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x75b3
+2024-12-04 00:23:55.699 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x75b3
+2024-12-04 00:23:55.729 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x75b3
+2024-12-04 00:23:55.729 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x75b3
+2024-12-04 00:23:55.774 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc37c
+2024-12-04 00:23:55.774 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc37c
+2024-12-04 00:23:55.819 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc37c
+2024-12-04 00:23:55.819 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc37c
+2024-12-04 00:23:55.879 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4049
+2024-12-04 00:23:55.879 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4049
+2024-12-04 00:23:55.909 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4049
+2024-12-04 00:23:55.909 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4049
+2024-12-04 00:23:55.969 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0xcedb
+2024-12-04 00:23:55.969 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0xcedb
+2024-12-04 00:23:55.999 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0xcedb
+2024-12-04 00:23:55.999 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0xcedb
+2024-12-04 00:23:56.044 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0x34b0
+2024-12-04 00:23:56.044 - LOG: ESTABLISHED: Received a packet:
+connect_id: 340464685
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0x34b0
+2024-12-04 00:23:56.074 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0x34b0
+2024-12-04 00:23:56.074 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 340464685
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0x34b0
+2024-12-04 00:24:06.329 - LOG: ESTABLISHED: Process packet:
+connect_id: 340464685
+seq_num: 128
+ack_num: 0
+data_len: 0
+flags: 0x4 (FIN)
+checksum: 0xd703
+2024-12-04 00:24:06.329 - LOG: ESTABLISHED: Received a FIN packet:
+connect_id: 340464685
+seq_num: 128
+ack_num: 0
+data_len: 0
+flags: 0x4 (FIN)
+checksum: 0xd703
+2024-12-04 00:24:06.329 - LOG: Change statu to FIN_RCVD.
+2024-12-04 00:26:23.185 - LOG: Enter listen mode, change statu to LISTEN.
+2024-12-04 00:26:26.340 - LOG: LISTEN: Received a SYN packet:
+connect_id: 4267644468
+seq_num: 0
+ack_num: 0
+data_len: 0
+flags: 0x1 (SYN)
+checksum: 0xeb6a
+2024-12-04 00:26:26.340 - LOG: LISTEN: Sent SYN_ACK packet to 127.0.0.1:7777
+2024-12-04 00:26:26.340 - LOG: Change statu to SYN_RCVD.
+2024-12-04 00:26:26.370 - LOG: SYN_RCVD: Received a ACK packet:
+connect_id: 4267644468
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0xeb66
+2024-12-04 00:26:26.370 - LOG: Connection established, change statu to ESTABLISHED.
+2024-12-04 00:26:26.430 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0xeb66
+2024-12-04 00:26:27.213 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 2
+ack_num: 0
+data_len: 19
+flags: 0x0 (NONE)
+checksum: 0x186e
+2024-12-04 00:26:27.303 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 3
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1667
+2024-12-04 00:26:27.349 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5e40
+2024-12-04 00:26:27.394 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5e40
+2024-12-04 00:26:27.439 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb99c
+2024-12-04 00:26:27.469 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb99c
+2024-12-04 00:26:27.529 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa427
+2024-12-04 00:26:27.559 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa427
+2024-12-04 00:26:27.619 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 7
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7b26
+2024-12-04 00:26:27.679 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x80d1
+2024-12-04 00:26:27.724 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x80d1
+2024-12-04 00:26:27.784 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x474f
+2024-12-04 00:26:27.814 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x474f
+2024-12-04 00:26:27.874 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3388
+2024-12-04 00:26:27.889 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3388
+2024-12-04 00:26:27.964 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x45a3
+2024-12-04 00:26:27.994 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x45a3
+2024-12-04 00:26:28.055 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeb4b
+2024-12-04 00:26:28.085 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeb4b
+2024-12-04 00:26:28.145 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf0ca
+2024-12-04 00:26:28.175 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf0ca
+2024-12-04 00:26:28.236 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9ba5
+2024-12-04 00:26:28.251 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9ba5
+2024-12-04 00:26:28.326 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x729c
+2024-12-04 00:26:28.356 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x729c
+2024-12-04 00:26:28.416 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x325a
+2024-12-04 00:26:28.446 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x325a
+2024-12-04 00:26:28.505 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3bda
+2024-12-04 00:26:28.535 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3bda
+2024-12-04 00:26:28.596 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x593
+2024-12-04 00:26:28.626 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x593
+2024-12-04 00:26:28.687 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x49d6
+2024-12-04 00:26:28.717 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x49d6
+2024-12-04 00:26:28.777 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9a06
+2024-12-04 00:26:28.807 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9a06
+2024-12-04 00:26:28.868 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x176f
+2024-12-04 00:26:28.898 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x176f
+2024-12-04 00:26:28.943 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x974
+2024-12-04 00:26:28.988 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x974
+2024-12-04 00:26:29.033 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 23
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9279
+2024-12-04 00:26:29.094 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1863
+2024-12-04 00:26:29.124 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1863
+2024-12-04 00:26:29.199 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6960
+2024-12-04 00:26:29.229 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6960
+2024-12-04 00:26:29.289 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x75e7
+2024-12-04 00:26:29.319 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x75e7
+2024-12-04 00:26:29.380 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x99b8
+2024-12-04 00:26:29.410 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x99b8
+2024-12-04 00:26:29.470 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x398d
+2024-12-04 00:26:29.500 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x398d
+2024-12-04 00:26:29.560 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ab1
+2024-12-04 00:26:29.576 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ab1
+2024-12-04 00:26:29.651 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa77c
+2024-12-04 00:26:29.681 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa77c
+2024-12-04 00:26:29.741 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x58e4
+2024-12-04 00:26:29.772 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x58e4
+2024-12-04 00:26:29.817 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd5e4
+2024-12-04 00:26:29.862 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd5e4
+2024-12-04 00:26:29.907 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xebc
+2024-12-04 00:26:29.952 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xebc
+2024-12-04 00:26:30.012 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xec14
+2024-12-04 00:26:30.042 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xec14
+2024-12-04 00:26:30.087 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x68f2
+2024-12-04 00:26:30.132 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x68f2
+2024-12-04 00:26:30.192 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x35e1
+2024-12-04 00:26:30.207 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x35e1
+2024-12-04 00:26:30.267 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x46e
+2024-12-04 00:26:30.297 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x46e
+2024-12-04 00:26:30.357 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf086
+2024-12-04 00:26:30.402 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf086
+2024-12-04 00:26:30.447 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 39
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1b07
+2024-12-04 00:26:30.507 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcbcc
+2024-12-04 00:26:30.522 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcbcc
+2024-12-04 00:26:30.583 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc4a8
+2024-12-04 00:26:30.629 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc4a8
+2024-12-04 00:26:30.674 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6a42
+2024-12-04 00:26:30.704 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6a42
+2024-12-04 00:26:30.764 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x45db
+2024-12-04 00:26:30.794 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x45db
+2024-12-04 00:26:30.854 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf3d9
+2024-12-04 00:26:30.885 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf3d9
+2024-12-04 00:26:30.946 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe382
+2024-12-04 00:26:30.992 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe382
+2024-12-04 00:26:31.052 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1513
+2024-12-04 00:26:31.067 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1513
+2024-12-04 00:26:31.142 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8090
+2024-12-04 00:26:31.172 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8090
+2024-12-04 00:26:31.232 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1005
+2024-12-04 00:26:31.263 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1005
+2024-12-04 00:26:31.323 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2fba
+2024-12-04 00:26:31.338 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2fba
+2024-12-04 00:26:31.413 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdff
+2024-12-04 00:26:31.443 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdff
+2024-12-04 00:26:31.488 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x92cb
+2024-12-04 00:26:31.533 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x92cb
+2024-12-04 00:26:31.594 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3377
+2024-12-04 00:26:31.609 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3377
+2024-12-04 00:26:31.669 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeb06
+2024-12-04 00:26:31.699 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xeb06
+2024-12-04 00:26:31.759 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf77c
+2024-12-04 00:26:31.789 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf77c
+2024-12-04 00:26:31.864 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x67d2
+2024-12-04 00:26:31.879 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x67d2
+2024-12-04 00:26:31.939 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x93c1
+2024-12-04 00:26:31.984 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x93c1
+2024-12-04 00:26:32.029 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd161
+2024-12-04 00:26:32.059 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd161
+2024-12-04 00:26:32.134 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3623
+2024-12-04 00:26:32.164 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3623
+2024-12-04 00:26:32.224 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6b0a
+2024-12-04 00:26:32.239 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6b0a
+2024-12-04 00:26:32.299 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb8d7
+2024-12-04 00:26:32.329 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb8d7
+2024-12-04 00:26:32.389 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x679f
+2024-12-04 00:26:32.419 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x679f
+2024-12-04 00:26:32.494 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcd33
+2024-12-04 00:26:32.524 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcd33
+2024-12-04 00:26:32.584 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8142
+2024-12-04 00:26:32.614 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8142
+2024-12-04 00:26:32.674 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ce7
+2024-12-04 00:26:32.690 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6ce7
+2024-12-04 00:26:32.764 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc683
+2024-12-04 00:26:32.794 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc683
+2024-12-04 00:26:32.854 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2aca
+2024-12-04 00:26:32.884 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2aca
+2024-12-04 00:26:32.945 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8335
+2024-12-04 00:26:32.975 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8335
+2024-12-04 00:26:33.035 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3c80
+2024-12-04 00:26:33.065 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3c80
+2024-12-04 00:26:33.125 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2e79
+2024-12-04 00:26:33.155 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2e79
+2024-12-04 00:26:33.217 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9e5b
+2024-12-04 00:26:33.217 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9e5b
+2024-12-04 00:26:33.290 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5202
+2024-12-04 00:26:33.336 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5202
+2024-12-04 00:26:33.396 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3fda
+2024-12-04 00:26:33.426 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3fda
+2024-12-04 00:26:33.487 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd9ab
+2024-12-04 00:26:33.517 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd9ab
+2024-12-04 00:26:33.577 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc7d1
+2024-12-04 00:26:33.607 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc7d1
+2024-12-04 00:26:33.667 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 75
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf85b
+2024-12-04 00:26:33.697 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 75
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf85b
+2024-12-04 00:26:33.757 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2106
+2024-12-04 00:26:33.787 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2106
+2024-12-04 00:26:33.848 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdf51
+2024-12-04 00:26:33.878 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdf51
+2024-12-04 00:26:33.938 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d96
+2024-12-04 00:26:33.968 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d96
+2024-12-04 00:26:34.028 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 79
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5cb8
+2024-12-04 00:26:34.058 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 79
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5cb8
+2024-12-04 00:26:34.119 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb8b6
+2024-12-04 00:26:34.149 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb8b6
+2024-12-04 00:26:34.194 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x813e
+2024-12-04 00:26:34.239 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x813e
+2024-12-04 00:26:34.284 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12ca
+2024-12-04 00:26:34.329 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x12ca
+2024-12-04 00:26:34.390 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x97
+2024-12-04 00:26:34.405 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x97
+2024-12-04 00:26:34.480 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6887
+2024-12-04 00:26:34.510 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6887
+2024-12-04 00:26:34.570 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa3cb
+2024-12-04 00:26:34.585 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa3cb
+2024-12-04 00:26:34.660 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x38ad
+2024-12-04 00:26:34.690 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x38ad
+2024-12-04 00:26:34.750 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcc04
+2024-12-04 00:26:34.780 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcc04
+2024-12-04 00:26:34.840 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x71d
+2024-12-04 00:26:34.855 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x71d
+2024-12-04 00:26:34.915 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3a10
+2024-12-04 00:26:34.960 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3a10
+2024-12-04 00:26:35.005 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd5c7
+2024-12-04 00:26:35.050 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd5c7
+2024-12-04 00:26:35.110 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfdc0
+2024-12-04 00:26:35.140 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfdc0
+2024-12-04 00:26:35.201 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad27
+2024-12-04 00:26:35.232 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad27
+2024-12-04 00:26:35.293 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x26c1
+2024-12-04 00:26:35.323 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x26c1
+2024-12-04 00:26:35.383 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd155
+2024-12-04 00:26:35.413 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd155
+2024-12-04 00:26:35.473 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9dae
+2024-12-04 00:26:35.503 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9dae
+2024-12-04 00:26:35.564 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5edd
+2024-12-04 00:26:35.594 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5edd
+2024-12-04 00:26:35.654 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfeb0
+2024-12-04 00:26:35.684 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfeb0
+2024-12-04 00:26:35.744 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1e1d
+2024-12-04 00:26:35.774 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1e1d
+2024-12-04 00:26:35.834 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5095
+2024-12-04 00:26:35.864 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5095
+2024-12-04 00:26:35.924 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2e6
+2024-12-04 00:26:35.954 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2e6
+2024-12-04 00:26:36.015 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5b0e
+2024-12-04 00:26:36.045 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5b0e
+2024-12-04 00:26:36.105 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbe2b
+2024-12-04 00:26:36.135 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbe2b
+2024-12-04 00:26:36.196 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9a87
+2024-12-04 00:26:36.227 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9a87
+2024-12-04 00:26:36.272 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8c56
+2024-12-04 00:26:36.317 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8c56
+2024-12-04 00:26:36.363 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2d54
+2024-12-04 00:26:36.393 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2d54
+2024-12-04 00:26:36.469 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb283
+2024-12-04 00:26:36.498 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb283
+2024-12-04 00:26:36.558 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x17b1
+2024-12-04 00:26:36.588 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x17b1
+2024-12-04 00:26:36.648 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 108
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfce0
+2024-12-04 00:26:36.678 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 108
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfce0
+2024-12-04 00:26:36.723 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf270
+2024-12-04 00:26:36.769 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf270
+2024-12-04 00:26:36.829 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7976
+2024-12-04 00:26:36.859 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7976
+2024-12-04 00:26:36.919 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc26b
+2024-12-04 00:26:36.949 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc26b
+2024-12-04 00:26:36.994 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x926b
+2024-12-04 00:26:37.039 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x926b
+2024-12-04 00:26:37.084 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1c39
+2024-12-04 00:26:37.129 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1c39
+2024-12-04 00:26:37.189 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa1
+2024-12-04 00:26:37.219 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa1
+2024-12-04 00:26:37.279 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6148
+2024-12-04 00:26:37.310 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6148
+2024-12-04 00:26:37.369 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc11a
+2024-12-04 00:26:37.399 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc11a
+2024-12-04 00:26:37.445 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 117
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x60d4
+2024-12-04 00:26:37.519 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd23e
+2024-12-04 00:26:37.549 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd23e
+2024-12-04 00:26:37.610 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x807c
+2024-12-04 00:26:37.640 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x807c
+2024-12-04 00:26:37.685 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x198
+2024-12-04 00:26:37.730 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x198
+2024-12-04 00:26:37.790 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8b2
+2024-12-04 00:26:37.805 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8b2
+2024-12-04 00:26:37.880 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 122
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2bdb
+2024-12-04 00:26:37.910 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 122
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2bdb
+2024-12-04 00:26:37.955 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8997
+2024-12-04 00:26:38.000 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8997
+2024-12-04 00:26:38.060 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd760
+2024-12-04 00:26:38.090 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd760
+2024-12-04 00:26:38.150 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x542d
+2024-12-04 00:26:38.181 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x542d
+2024-12-04 00:26:38.241 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0xe2bf
+2024-12-04 00:26:38.256 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0xe2bf
+2024-12-04 00:26:38.332 - LOG: ESTABLISHED: Received a packet:
+connect_id: 4267644468
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0x4894
+2024-12-04 00:26:38.362 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 4267644468
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0x4894
+2024-12-04 00:27:05.994 - LOG: ESTABLISHED: Received a FIN packet:
+connect_id: 4267644468
+seq_num: 128
+ack_num: 0
+data_len: 0
+flags: 0x4 (FIN)
+checksum: 0xeae7
+2024-12-04 00:27:05.994 - LOG: Change statu to FIN_RCVD.
+2024-12-04 00:27:06.084 - LOG: FIN_RCVD: Received last ACK packetconnect_id: 4267644468
+seq_num: 129
+ack_num: 249
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0xe9ef
+2024-12-04 00:27:06.085 - LOG: Change statu to CLOSED.
+2024-12-04 00:27:57.170 - LOG: Enter listen mode, change statu to LISTEN.
+2024-12-04 00:27:59.009 - LOG: LISTEN: Received a SYN packet:
+connect_id: 1706762151
+seq_num: 0
+ack_num: 0
+data_len: 0
+flags: 0x1 (SYN)
+checksum: 0x7a9c
+2024-12-04 00:27:59.010 - LOG: LISTEN: Sent SYN_ACK packet to 127.0.0.1:7777
+2024-12-04 00:27:59.010 - LOG: Change statu to SYN_RCVD.
+2024-12-04 00:27:59.039 - LOG: SYN_RCVD: Received a ACK packet:
+connect_id: 1706762151
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0x7a98
+2024-12-04 00:27:59.039 - LOG: Connection established, change statu to ESTABLISHED.
+2024-12-04 00:27:59.114 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0x7a98
+2024-12-04 00:27:59.911 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 2
+ack_num: 0
+data_len: 19
+flags: 0x0 (NONE)
+checksum: 0xa79f
+2024-12-04 00:27:59.987 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 3
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa598
+2024-12-04 00:28:00.047 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xed71
+2024-12-04 00:28:00.092 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 4
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xed71
+2024-12-04 00:28:00.153 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x48ce
+2024-12-04 00:28:00.183 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 5
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x48ce
+2024-12-04 00:28:00.244 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3359
+2024-12-04 00:28:00.274 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 6
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3359
+2024-12-04 00:28:00.334 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 7
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa58
+2024-12-04 00:28:00.335 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 7
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa58
+2024-12-04 00:28:00.411 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1003
+2024-12-04 00:28:00.457 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 8
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1003
+2024-12-04 00:28:00.517 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd680
+2024-12-04 00:28:00.517 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 9
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd680
+2024-12-04 00:28:00.607 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc2b9
+2024-12-04 00:28:00.637 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 10
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc2b9
+2024-12-04 00:28:00.697 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd4d4
+2024-12-04 00:28:00.712 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 11
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd4d4
+2024-12-04 00:28:00.773 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7a7d
+2024-12-04 00:28:00.819 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 12
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7a7d
+2024-12-04 00:28:00.864 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7ffc
+2024-12-04 00:28:00.909 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 13
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7ffc
+2024-12-04 00:28:00.954 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2ad7
+2024-12-04 00:28:01.000 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 14
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2ad7
+2024-12-04 00:28:01.045 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1ce
+2024-12-04 00:28:01.090 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 15
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1ce
+2024-12-04 00:28:01.150 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc18b
+2024-12-04 00:28:01.180 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 16
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc18b
+2024-12-04 00:28:01.240 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcb0b
+2024-12-04 00:28:01.269 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 17
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcb0b
+2024-12-04 00:28:01.331 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x94c4
+2024-12-04 00:28:01.361 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 18
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x94c4
+2024-12-04 00:28:01.422 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd907
+2024-12-04 00:28:01.453 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 19
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd907
+2024-12-04 00:28:01.499 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2938
+2024-12-04 00:28:01.544 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 20
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2938
+2024-12-04 00:28:01.605 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa6a0
+2024-12-04 00:28:01.635 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 21
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa6a0
+2024-12-04 00:28:01.680 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x98a5
+2024-12-04 00:28:01.725 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 22
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x98a5
+2024-12-04 00:28:01.785 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 23
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21ab
+2024-12-04 00:28:01.815 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 23
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21ab
+2024-12-04 00:28:01.860 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa794
+2024-12-04 00:28:01.890 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 24
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa794
+2024-12-04 00:28:01.966 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf891
+2024-12-04 00:28:01.981 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 25
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf891
+2024-12-04 00:28:02.057 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x519
+2024-12-04 00:28:02.087 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 26
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x519
+2024-12-04 00:28:02.147 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x28ea
+2024-12-04 00:28:02.177 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 27
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x28ea
+2024-12-04 00:28:02.237 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc8be
+2024-12-04 00:28:02.267 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 28
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc8be
+2024-12-04 00:28:02.328 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf9e2
+2024-12-04 00:28:02.359 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 29
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf9e2
+2024-12-04 00:28:02.403 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x36ae
+2024-12-04 00:28:02.448 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 30
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x36ae
+2024-12-04 00:28:02.508 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe815
+2024-12-04 00:28:02.523 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 31
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe815
+2024-12-04 00:28:02.584 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6516
+2024-12-04 00:28:02.614 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 32
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6516
+2024-12-04 00:28:02.689 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9ded
+2024-12-04 00:28:02.719 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 33
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9ded
+2024-12-04 00:28:02.764 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7b46
+2024-12-04 00:28:02.794 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 34
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7b46
+2024-12-04 00:28:02.869 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf823
+2024-12-04 00:28:02.884 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 35
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf823
+2024-12-04 00:28:02.945 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc512
+2024-12-04 00:28:02.990 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 36
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc512
+2024-12-04 00:28:03.050 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x939f
+2024-12-04 00:28:03.080 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 37
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x939f
+2024-12-04 00:28:03.140 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7fb8
+2024-12-04 00:28:03.170 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 38
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7fb8
+2024-12-04 00:28:03.230 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 39
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xaa38
+2024-12-04 00:28:03.261 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 39
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xaa38
+2024-12-04 00:28:03.306 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5afe
+2024-12-04 00:28:03.352 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 40
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5afe
+2024-12-04 00:28:03.412 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53da
+2024-12-04 00:28:03.442 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 41
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x53da
+2024-12-04 00:28:03.502 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf973
+2024-12-04 00:28:03.532 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 42
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf973
+2024-12-04 00:28:03.593 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd50c
+2024-12-04 00:28:03.623 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 43
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xd50c
+2024-12-04 00:28:03.668 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x830b
+2024-12-04 00:28:03.698 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 44
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x830b
+2024-12-04 00:28:03.773 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x72b4
+2024-12-04 00:28:03.804 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 45
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x72b4
+2024-12-04 00:28:03.849 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa444
+2024-12-04 00:28:03.879 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 46
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa444
+2024-12-04 00:28:03.939 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc2
+2024-12-04 00:28:03.984 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 47
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc2
+2024-12-04 00:28:04.044 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9f36
+2024-12-04 00:28:04.074 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 48
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9f36
+2024-12-04 00:28:04.134 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbeeb
+2024-12-04 00:28:04.165 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 49
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbeeb
+2024-12-04 00:28:04.225 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9d30
+2024-12-04 00:28:04.255 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 50
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9d30
+2024-12-04 00:28:04.316 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21fd
+2024-12-04 00:28:04.346 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 51
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x21fd
+2024-12-04 00:28:04.405 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc2a8
+2024-12-04 00:28:04.435 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 52
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc2a8
+2024-12-04 00:28:04.496 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7a38
+2024-12-04 00:28:04.526 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 53
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x7a38
+2024-12-04 00:28:04.572 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x86ae
+2024-12-04 00:28:04.603 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 54
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x86ae
+2024-12-04 00:28:04.678 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf703
+2024-12-04 00:28:04.693 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 55
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf703
+2024-12-04 00:28:04.753 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x22f3
+2024-12-04 00:28:04.783 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 56
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x22f3
+2024-12-04 00:28:04.843 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6093
+2024-12-04 00:28:04.874 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 57
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6093
+2024-12-04 00:28:04.949 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc554
+2024-12-04 00:28:04.979 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 58
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc554
+2024-12-04 00:28:05.039 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa3b
+2024-12-04 00:28:05.054 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 59
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfa3b
+2024-12-04 00:28:05.129 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4809
+2024-12-04 00:28:05.159 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 60
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4809
+2024-12-04 00:28:05.204 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf6d0
+2024-12-04 00:28:05.249 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 61
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf6d0
+2024-12-04 00:28:05.294 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5c65
+2024-12-04 00:28:05.339 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 62
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5c65
+2024-12-04 00:28:05.399 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1074
+2024-12-04 00:28:05.414 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 63
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1074
+2024-12-04 00:28:05.474 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc18
+2024-12-04 00:28:05.519 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 64
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfc18
+2024-12-04 00:28:05.565 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x55b5
+2024-12-04 00:28:05.610 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 65
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x55b5
+2024-12-04 00:28:05.655 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb9fb
+2024-12-04 00:28:05.685 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 66
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb9fb
+2024-12-04 00:28:05.761 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1267
+2024-12-04 00:28:05.791 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 67
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1267
+2024-12-04 00:28:05.836 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcbb1
+2024-12-04 00:28:05.881 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 68
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcbb1
+2024-12-04 00:28:05.941 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbdaa
+2024-12-04 00:28:05.956 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 69
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbdaa
+2024-12-04 00:28:06.032 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2d8d
+2024-12-04 00:28:06.062 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 70
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2d8d
+2024-12-04 00:28:06.122 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe133
+2024-12-04 00:28:06.138 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 71
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe133
+2024-12-04 00:28:06.213 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcf0b
+2024-12-04 00:28:06.243 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 72
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xcf0b
+2024-12-04 00:28:06.288 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x68dd
+2024-12-04 00:28:06.318 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 73
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x68dd
+2024-12-04 00:28:06.378 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5703
+2024-12-04 00:28:06.408 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 74
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5703
+2024-12-04 00:28:06.484 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 75
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x878d
+2024-12-04 00:28:06.514 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 75
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x878d
+2024-12-04 00:28:06.574 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb037
+2024-12-04 00:28:06.589 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 76
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb037
+2024-12-04 00:28:06.649 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6e83
+2024-12-04 00:28:06.679 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 77
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6e83
+2024-12-04 00:28:06.739 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdcc7
+2024-12-04 00:28:06.769 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 78
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdcc7
+2024-12-04 00:28:06.829 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 79
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xebe9
+2024-12-04 00:28:06.905 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x47e8
+2024-12-04 00:28:06.935 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 80
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x47e8
+2024-12-04 00:28:06.994 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1070
+2024-12-04 00:28:07.024 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 81
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1070
+2024-12-04 00:28:07.069 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa1fb
+2024-12-04 00:28:07.099 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 82
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa1fb
+2024-12-04 00:28:07.159 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8fc8
+2024-12-04 00:28:07.204 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 83
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8fc8
+2024-12-04 00:28:07.250 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf7b8
+2024-12-04 00:28:07.280 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 84
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf7b8
+2024-12-04 00:28:07.340 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x32fd
+2024-12-04 00:28:07.370 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 85
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x32fd
+2024-12-04 00:28:07.431 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc7de
+2024-12-04 00:28:07.461 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 86
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc7de
+2024-12-04 00:28:07.536 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5b36
+2024-12-04 00:28:07.551 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 87
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x5b36
+2024-12-04 00:28:07.612 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x964e
+2024-12-04 00:28:07.657 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 88
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x964e
+2024-12-04 00:28:07.702 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc941
+2024-12-04 00:28:07.732 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 89
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xc941
+2024-12-04 00:28:07.792 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x64f9
+2024-12-04 00:28:07.822 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 90
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x64f9
+2024-12-04 00:28:07.882 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8cf2
+2024-12-04 00:28:07.912 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 91
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8cf2
+2024-12-04 00:28:07.987 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3c59
+2024-12-04 00:28:08.002 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 92
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x3c59
+2024-12-04 00:28:08.062 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb5f2
+2024-12-04 00:28:08.092 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 93
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xb5f2
+2024-12-04 00:28:08.167 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6087
+2024-12-04 00:28:08.197 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 94
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6087
+2024-12-04 00:28:08.257 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2ce0
+2024-12-04 00:28:08.272 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 95
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x2ce0
+2024-12-04 00:28:08.347 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xee0e
+2024-12-04 00:28:08.362 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 96
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xee0e
+2024-12-04 00:28:08.438 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8de2
+2024-12-04 00:28:08.468 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 97
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8de2
+2024-12-04 00:28:08.528 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad4e
+2024-12-04 00:28:08.559 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 98
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xad4e
+2024-12-04 00:28:08.619 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdfc6
+2024-12-04 00:28:08.649 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 99
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xdfc6
+2024-12-04 00:28:08.709 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9217
+2024-12-04 00:28:08.739 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 100
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9217
+2024-12-04 00:28:08.799 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xea3f
+2024-12-04 00:28:08.814 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 101
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xea3f
+2024-12-04 00:28:08.889 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d5d
+2024-12-04 00:28:08.919 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 102
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x4d5d
+2024-12-04 00:28:08.964 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x29b9
+2024-12-04 00:28:09.009 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 103
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x29b9
+2024-12-04 00:28:09.054 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1b88
+2024-12-04 00:28:09.084 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 104
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x1b88
+2024-12-04 00:28:09.144 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbc85
+2024-12-04 00:28:09.189 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 105
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbc85
+2024-12-04 00:28:09.249 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x41b5
+2024-12-04 00:28:09.279 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 106
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x41b5
+2024-12-04 00:28:09.324 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa6e2
+2024-12-04 00:28:09.369 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 107
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xa6e2
+2024-12-04 00:28:09.429 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 108
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8c12
+2024-12-04 00:28:09.444 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 108
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8c12
+2024-12-04 00:28:09.519 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x81a2
+2024-12-04 00:28:09.534 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 109
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x81a2
+2024-12-04 00:28:09.595 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8a8
+2024-12-04 00:28:09.625 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 110
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x8a8
+2024-12-04 00:28:09.685 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x519d
+2024-12-04 00:28:09.716 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 111
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x519d
+2024-12-04 00:28:09.792 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x219d
+2024-12-04 00:28:09.822 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 112
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x219d
+2024-12-04 00:28:09.883 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xab6a
+2024-12-04 00:28:09.898 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 113
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xab6a
+2024-12-04 00:28:09.973 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9ed2
+2024-12-04 00:28:09.988 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 114
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x9ed2
+2024-12-04 00:28:10.063 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf079
+2024-12-04 00:28:10.093 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 115
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf079
+2024-12-04 00:28:10.138 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x504c
+2024-12-04 00:28:10.183 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 116
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x504c
+2024-12-04 00:28:10.244 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 117
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf005
+2024-12-04 00:28:10.274 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 117
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xf005
+2024-12-04 00:28:10.319 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6170
+2024-12-04 00:28:10.349 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 118
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6170
+2024-12-04 00:28:10.424 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfae
+2024-12-04 00:28:10.439 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 119
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xfae
+2024-12-04 00:28:10.514 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x90c9
+2024-12-04 00:28:10.544 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 120
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x90c9
+2024-12-04 00:28:10.589 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x97e3
+2024-12-04 00:28:10.619 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 121
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x97e3
+2024-12-04 00:28:10.679 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 122
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbb0c
+2024-12-04 00:28:10.709 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 122
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xbb0c
+2024-12-04 00:28:10.769 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x18c9
+2024-12-04 00:28:10.799 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 123
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x18c9
+2024-12-04 00:28:10.874 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6692
+2024-12-04 00:28:10.904 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 124
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0x6692
+2024-12-04 00:28:10.949 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe35e
+2024-12-04 00:28:10.994 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 125
+ack_num: 0
+data_len: 14980
+flags: 0x0 (NONE)
+checksum: 0xe35e
+2024-12-04 00:28:11.039 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0x71f1
+2024-12-04 00:28:11.069 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 126
+ack_num: 0
+data_len: 14813
+flags: 0x0 (NONE)
+checksum: 0x71f1
+2024-12-04 00:28:11.129 - LOG: ESTABLISHED: Received a packet:
+connect_id: 1706762151
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0xd7c5
+2024-12-04 00:28:11.159 - LOG: ESTABLISHED: Received a old packet, send newest ACK packet:
+connect_id: 1706762151
+seq_num: 127
+ack_num: 0
+data_len: 10
+flags: 0x0 (NONE)
+checksum: 0xd7c5
+2024-12-04 00:28:13.208 - LOG: ESTABLISHED: Received a FIN packet:
+connect_id: 1706762151
+seq_num: 128
+ack_num: 0
+data_len: 0
+flags: 0x4 (FIN)
+checksum: 0x7a19
+2024-12-04 00:28:13.209 - LOG: Change statu to FIN_RCVD.
+2024-12-04 00:28:13.315 - LOG: FIN_RCVD: Received last ACK packetconnect_id: 1706762151
+seq_num: 129
+ack_num: 252
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x791e
+2024-12-04 00:28:13.315 - LOG: Change statu to CLOSED.
