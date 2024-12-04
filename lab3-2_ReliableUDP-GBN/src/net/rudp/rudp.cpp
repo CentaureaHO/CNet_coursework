@@ -10,12 +10,12 @@ using namespace std;
 
 using us = chrono::microseconds;
 
-#define GUESS_RTT 10000        // 初始时假定rtt为50ms
+#define GUESS_RTT 30000        // 初始时假定rtt为30ms
 #define BASE_TIMEOUT_FACTOR 2  // 基础超时因子
 #define TIMEOUT_FACTOR_INC 1   // 超时因子增量
 #define MAX_TIMEOUT_FACTOR 10  // 最大超时因子
 #define TICK_GAP 5000          // 每5ms检查一次超时
-#define PROCESS_GAP 50000      // 给接收端10ms处理时间
+#define PROCESS_GAP 10000     // 给接收端10ms处理时间
 
 namespace
 {
@@ -154,6 +154,13 @@ void RUDP::_receiveHandler()
                     it = _send_buffer.erase(it);
                 else
                     ++it;
+            }
+
+            CLOG(statuStr(_statu), ": Fast resend all packets with seq_num greater than ack_num.");
+            for (auto& [seq_num, packet_timer] : _send_buffer)
+            {
+                _nb_socket.send((const char*)&packet_timer.packet, lenInByte(packet_timer.packet), &_remote_addr);
+                CLOG(statuStr(_statu), ": Resend packet ", seq_num);
             }
         }
     }
@@ -367,6 +374,14 @@ void RUDP::listen_syn_rcvd()
             _statu   = RUDP_STATUS::ESTABLISHED;
             _ack_num = recv_buffer.header.seq_num + 1;
             SLOG("Connection established, change statu to ESTABLISHED.");
+            RUDP_P ack_packet;
+            ack_packet.header.connect_id = _connect_id;
+            ack_packet.header.seq_num    = _seq_num++;
+            ack_packet.header.ack_num    = recv_buffer.header.seq_num + 1;
+            SET_ACK(ack_packet);
+            genCheckSum(ack_packet);
+
+            _nb_socket.send(reinterpret_cast<char*>(&ack_packet), lenInByte(ack_packet), &_remote_addr);
 
             {
                 WriteGuard guard = _buffer_lock.write();
@@ -395,7 +410,7 @@ void RUDP::listen_established(Callback cb)
                 &_remote_addr,
                 received_length,
                 us(static_cast<long long>(_rtt.count() * BASE_TIMEOUT_FACTOR)),
-                tick_gap))
+                us(10)))
             continue;
 
         {
@@ -599,7 +614,8 @@ void RUDP::send(const char* buffer, size_t buffer_size)
 
     {
         WriteGuard guard = _buffer_lock.write();
-        _send_buffer.emplace(packet.header.seq_num, PacketTimer(packet, _rtt, BASE_TIMEOUT_FACTOR));
+        _send_buffer.emplace(packet.header.seq_num,
+            PacketTimer(packet, us(static_cast<long long>(_rtt.count() * BASE_TIMEOUT_FACTOR)), BASE_TIMEOUT_FACTOR));
     }
 
     _nb_socket.send((const char*)&packet, lenInByte(packet), &_remote_addr);

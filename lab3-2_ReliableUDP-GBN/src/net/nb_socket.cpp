@@ -124,15 +124,6 @@ bool NBSocket::recv(char* buffer, size_t buffer_size, sockaddr_in* client_addr, 
                 received_length = static_cast<size_t>(recv_len);
                 return true;
             }
-            /*
-            #ifdef _WIN32
-                        else if (recv_len == SOCKET_ERROR && WSAGetLastError() != WSAEWOULDBLOCK)
-                            perror("recvfrom failed");
-            #else
-                        else if (recv_len < 0 && errno != EWOULDBLOCK && errno != EAGAIN)
-                            perror("recvfrom failed");
-            #endif
-            */
         }
         else if (_protocol == Protocol::TCP)
         {
@@ -142,24 +133,12 @@ bool NBSocket::recv(char* buffer, size_t buffer_size, sockaddr_in* client_addr, 
                 received_length = static_cast<size_t>(recv_len);
                 return true;
             }
-            /*
-            #ifdef _WIN32
-                        else if (recv_len == SOCKET_ERROR && WSAGetLastError() != WSAEWOULDBLOCK)
-                            perror("recv failed");
-            #else
-                        else if (recv_len < 0 && errno != EWOULDBLOCK && errno != EAGAIN)
-                            perror("recv failed");
-            #endif
-            */
         }
 
         now        = chrono::high_resolution_clock::now();
         elapsed_us = chrono::duration_cast<chrono::microseconds>(now - start_time);
         if (elapsed_us >= timeout)
-        {
-            // cerr << "Recv timed out after " << elapsed_us.count() << "us.\n";
             break;
-        }
 
         this_thread::sleep_for(poll_interval);
     }
