@@ -8,6 +8,8 @@
 #define PACKET_SIZE 15000
 #define BODY_SIZE (PACKET_SIZE - sizeof(RUDP_H))
 
+#define SENDER_WINDOW_SIZE 20
+
 #define RUDP_STATU_LIST  \
     X(CLOSED, b, 0)      \
     X(LISTEN, s, 1)      \

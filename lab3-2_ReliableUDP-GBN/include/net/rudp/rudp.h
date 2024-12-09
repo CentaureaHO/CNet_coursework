@@ -42,6 +42,8 @@ class RUDP
 
     uint32_t _seq_num;  // 序列号
     uint32_t _ack_num;  // 确认号
+    uint32_t _swindow_size;
+    uint32_t _window_base;
 
     std::chrono::microseconds _rtt;  // 往返时间
 

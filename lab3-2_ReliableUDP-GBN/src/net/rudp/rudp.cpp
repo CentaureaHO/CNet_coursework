@@ -5,17 +5,18 @@
 #include <thread>
 #include <cassert>
 #include <iomanip>
+#include <unordered_map>
 #include <common/log.h>
 using namespace std;
 
 using us = chrono::microseconds;
 
-#define GUESS_RTT 30000        // 初始时假定rtt为30ms
+#define GUESS_RTT 30000        // 初始时假定rtt为100ms
 #define BASE_TIMEOUT_FACTOR 2  // 基础超时因子
 #define TIMEOUT_FACTOR_INC 1   // 超时因子增量
-#define MAX_TIMEOUT_FACTOR 10  // 最大超时因子
+#define MAX_TIMEOUT_FACTOR 2  // 最大超时因子
 #define TICK_GAP 5000          // 每5ms检查一次超时
-#define PROCESS_GAP 10000     // 给接收端10ms处理时间
+#define PROCESS_GAP 0        // 给接收端20ms处理时间
 
 namespace
 {
@@ -51,6 +52,8 @@ RUDP::RUDP(int local_port)
       _nb_socket(local_port),
       _seq_num(0),
       _ack_num(0),
+      _swindow_size(SENDER_WINDOW_SIZE),
+      _window_base(0),
       _rtt(GUESS_RTT),
       _resending(false),
       _receiving(false)
@@ -109,8 +112,9 @@ void RUDP::_resendLoop()
 
 void RUDP::_receiveHandler()
 {
-    RUDP_P recv_buffer;
-    size_t received_length = 0;
+    RUDP_P                  recv_buffer;
+    size_t                  received_length = 0;
+    unordered_map<int, int> ack_cnt_map;
 
     while (true)
     {
@@ -138,11 +142,15 @@ void RUDP::_receiveHandler()
             continue;
         }
 
+        if (recv_buffer.header.ack_num <= _window_base) continue;
+
         CLOG(statuStr(_statu), ": Received a packet:\n", recv_buffer.header);
 
         {
             WriteGuard guard = _buffer_lock.write();
+            _window_base     = recv_buffer.header.ack_num;
             // _send_buffer.erase(recv_buffer.header.ack_num - 1);
+
             CLOG(statuStr(_statu),
                 ": Received packet, ack_num: ",
                 recv_buffer.header.ack_num,
@@ -156,11 +164,13 @@ void RUDP::_receiveHandler()
                     ++it;
             }
 
-            CLOG(statuStr(_statu), ": Fast resend all packets with seq_num greater than ack_num.");
+            CLOG(statuStr(_statu), ": Fast resend all packets with seq_num less than ack_num.");
             for (auto& [seq_num, packet_timer] : _send_buffer)
             {
+                packet_timer.timeout = us(static_cast<long long>(_rtt.count() * packet_timer.timeout_factor));
                 _nb_socket.send((const char*)&packet_timer.packet, lenInByte(packet_timer.packet), &_remote_addr);
                 CLOG(statuStr(_statu), ": Resend packet ", seq_num);
+                this_thread::sleep_for(process_gap);
             }
         }
     }
@@ -168,8 +178,13 @@ void RUDP::_receiveHandler()
 
 void RUDP::_server_receiveHandler(Callback cb)
 {
-    RUDP_P recv_buffer;
-    RUDP_P send_buffer;
+    RUDP_P                  recv_buffer;
+    RUDP_P                  send_buffer;
+    unordered_map<int, int> ack_cnt_map;
+
+    int  ack_cnt        = 0;
+    auto cur_time       = chrono::steady_clock::now();
+    auto last_send_time = cur_time - chrono::seconds(1);
 
     while (true)
     {
@@ -213,12 +228,25 @@ void RUDP::_server_receiveHandler(Callback cb)
 
             _nb_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr);
 
+            ack_cnt        = 0;
+            last_send_time = chrono::steady_clock::now();
+
             continue;
         }
         else if (recv_buffer.header.seq_num > _ack_num)
         {
             // receive out-of-order packet, send ACK packet for the last in-order packet
-            SLOG(statuStr(_statu), ": Received a out-of-order packet, skip it:\n", recv_buffer.header);
+            SLOG(statuStr(_statu), ": Received a out-of-order packet, send newest ACK packet:\n", recv_buffer.header);
+            send_buffer.header.connect_id = _connect_id;
+            send_buffer.header.seq_num    = _seq_num++;
+            send_buffer.header.ack_num    = _ack_num;
+            SET_ACK(send_buffer);
+            genCheckSum(send_buffer);
+
+            _nb_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr);
+
+            ack_cnt        = 0;
+            last_send_time = chrono::steady_clock::now();
 
             continue;
         }
@@ -242,13 +270,27 @@ void RUDP::_server_receiveHandler(Callback cb)
         _ack_num = recv_buffer.header.seq_num + 1;
         cb(recv_buffer);
 
-        send_buffer.header.connect_id = _connect_id;
-        send_buffer.header.seq_num    = _seq_num++;
-        send_buffer.header.ack_num    = recv_buffer.header.seq_num + 1;
-        SET_ACK(send_buffer);
-        genCheckSum(send_buffer);
+        cur_time = chrono::steady_clock::now();
+        ++ack_cnt;
 
-        _nb_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr);
+        if (ack_cnt >= 5 || cur_time - last_send_time >= us(static_cast<long long>(_rtt.count() * 5)))
+        {
+            if (ack_cnt >= 5)
+                SLOG(statuStr(_statu), ": Received 5 packets, send ACK packet.")
+            else
+                SLOG(statuStr(_statu), ": Timeout, send ACK packet.")
+
+            ack_cnt        = 0;
+            last_send_time = cur_time;
+
+            send_buffer.header.connect_id = _connect_id;
+            send_buffer.header.seq_num    = _seq_num++;
+            send_buffer.header.ack_num    = _ack_num;
+            SET_ACK(send_buffer);
+            genCheckSum(send_buffer);
+
+            _nb_socket.send(reinterpret_cast<char*>(&send_buffer), lenInByte(send_buffer), &_remote_addr);
+        }
     }
 }
 
@@ -587,6 +629,7 @@ bool RUDP::connect(const char* remote_ip, int remote_port)
         return false;
     }
 
+    _window_base    = _seq_num - 1;
     _receiving      = true;
     _receive_thread = thread(&RUDP::_receiveHandler, this);
     while (_send_buffer.size() != 0) this_thread::sleep_for(tick_gap);
@@ -610,7 +653,7 @@ void RUDP::send(const char* buffer, size_t buffer_size)
     memcpy(packet.body, buffer, buffer_size);
     genCheckSum(packet);
 
-    while (_send_buffer.size() > 19) this_thread::sleep_for(tick_gap);
+    while (_send_buffer.size() >= _swindow_size) this_thread::sleep_for(tick_gap);
 
     {
         WriteGuard guard = _buffer_lock.write();
