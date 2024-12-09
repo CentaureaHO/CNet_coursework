@@ -1,0 +1,2401 @@
+2024-12-10 02:05:32.798 - LOG: Start resend thread.
+2024-12-10 02:05:32.799 - LOG: Enter connect mode and generate connect_id: 2731203033
+2024-12-10 02:05:32.799 - LOG: SYN_SENT: Send SYN packet to 127.0.0.1:8000
+2024-12-10 02:05:32.799 - LOG: Change statu to SYN_SENT.
+2024-12-10 02:05:32.810 - LOG: SYN_SENT: Received a SYN_ACK packet:
+connect_id: 2731203033
+seq_num: 0
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0x8357
+2024-12-10 02:05:32.810 - LOG: Change statu to ESTABLISHED, and send ACK packet.
+2024-12-10 02:05:32.811 - LOG: Start receive thread.
+2024-12-10 02:05:32.825 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 1
+ack_num: 2
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8356
+2024-12-10 02:05:32.825 - LOG: ESTABLISHED: Received packet, seq_num: 1 remove from resend loop.
+2024-12-10 02:05:35.117 - LOG: ESTABLISHED: Send packet 2 to 127.0.0.1 with checksum 0xce32
+2024-12-10 02:05:35.183 - WARN: No ack received for packet 2, resend it.
+2024-12-10 02:05:35.235 - WARN: No ack received for packet 2, resend it.
+2024-12-10 02:05:35.278 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 2
+ack_num: 3
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8354
+2024-12-10 02:05:35.278 - LOG: ESTABLISHED: Received packet, seq_num: 2 remove from resend loop.
+2024-12-10 02:05:35.295 - LOG: ESTABLISHED: Send packet 3 to 127.0.0.1 with checksum 0x17a7
+2024-12-10 02:05:35.355 - WARN: No ack received for packet 3, resend it.
+2024-12-10 02:05:35.415 - WARN: No ack received for packet 3, resend it.
+2024-12-10 02:05:35.435 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 3
+ack_num: 4
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8352
+2024-12-10 02:05:35.435 - LOG: ESTABLISHED: Received packet, seq_num: 3 remove from resend loop.
+2024-12-10 02:05:35.455 - LOG: ESTABLISHED: Send packet 4 to 127.0.0.1 with checksum 0xc950
+2024-12-10 02:05:35.515 - WARN: No ack received for packet 4, resend it.
+2024-12-10 02:05:35.526 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 4
+ack_num: 5
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8350
+2024-12-10 02:05:35.526 - LOG: ESTABLISHED: Received packet, seq_num: 4 remove from resend loop.
+2024-12-10 02:05:35.545 - LOG: ESTABLISHED: Send packet 5 to 127.0.0.1 with checksum 0xd9a6
+2024-12-10 02:05:35.605 - WARN: No ack received for packet 5, resend it.
+2024-12-10 02:05:35.616 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 5
+ack_num: 6
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x834e
+2024-12-10 02:05:35.616 - LOG: ESTABLISHED: Received packet, seq_num: 5 remove from resend loop.
+2024-12-10 02:05:35.635 - LOG: ESTABLISHED: Send packet 6 to 127.0.0.1 with checksum 0xe0fc
+2024-12-10 02:05:35.690 - WARN: No ack received for packet 6, resend it.
+2024-12-10 02:05:35.745 - WARN: No ack received for packet 6, resend it.
+2024-12-10 02:05:35.766 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 6
+ack_num: 7
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x834c
+2024-12-10 02:05:35.766 - LOG: ESTABLISHED: Received packet, seq_num: 6 remove from resend loop.
+2024-12-10 02:05:40.685 - LOG: ESTABLISHED: Send packet 7 to 127.0.0.1 with checksum 0xb058
+2024-12-10 02:05:40.751 - WARN: No ack received for packet 7, resend it.
+2024-12-10 02:05:40.764 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 7
+ack_num: 8
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x834a
+2024-12-10 02:05:40.764 - LOG: ESTABLISHED: Received packet, seq_num: 7 remove from resend loop.
+2024-12-10 02:05:40.776 - LOG: ESTABLISHED: Send packet 8 to 127.0.0.1 with checksum 0xae51
+2024-12-10 02:05:40.830 - WARN: No ack received for packet 8, resend it.
+2024-12-10 02:05:40.891 - WARN: No ack received for packet 8, resend it.
+2024-12-10 02:05:40.903 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 8
+ack_num: 9
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8348
+2024-12-10 02:05:40.903 - LOG: ESTABLISHED: Received packet, seq_num: 8 remove from resend loop.
+2024-12-10 02:05:40.925 - LOG: ESTABLISHED: Send packet 9 to 127.0.0.1 with checksum 0xf62a
+2024-12-10 02:05:40.982 - WARN: No ack received for packet 9, resend it.
+2024-12-10 02:05:40.994 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 9
+ack_num: 10
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8346
+2024-12-10 02:05:40.994 - LOG: ESTABLISHED: Received packet, seq_num: 9 remove from resend loop.
+2024-12-10 02:05:41.007 - LOG: ESTABLISHED: Send packet 10 to 127.0.0.1 with checksum 0x5187
+2024-12-10 02:05:41.067 - WARN: No ack received for packet 10, resend it.
+2024-12-10 02:05:41.119 - WARN: No ack received for packet 10, resend it.
+2024-12-10 02:05:41.146 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 10
+ack_num: 11
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8344
+2024-12-10 02:05:41.146 - LOG: ESTABLISHED: Received packet, seq_num: 10 remove from resend loop.
+2024-12-10 02:05:41.155 - LOG: ESTABLISHED: Send packet 11 to 127.0.0.1 with checksum 0x3c12
+2024-12-10 02:05:41.213 - WARN: No ack received for packet 11, resend it.
+2024-12-10 02:05:41.245 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 11
+ack_num: 12
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8342
+2024-12-10 02:05:41.246 - LOG: ESTABLISHED: Received packet, seq_num: 11 remove from resend loop.
+2024-12-10 02:05:41.255 - LOG: ESTABLISHED: Send packet 12 to 127.0.0.1 with checksum 0x1311
+2024-12-10 02:05:41.325 - WARN: No ack received for packet 12, resend it.
+2024-12-10 02:05:41.355 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 12
+ack_num: 13
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8340
+2024-12-10 02:05:41.355 - LOG: ESTABLISHED: Received packet, seq_num: 12 remove from resend loop.
+2024-12-10 02:05:41.380 - LOG: ESTABLISHED: Send packet 13 to 127.0.0.1 with checksum 0x18bc
+2024-12-10 02:05:41.435 - WARN: No ack received for packet 13, resend it.
+2024-12-10 02:05:41.456 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 13
+ack_num: 14
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x833e
+2024-12-10 02:05:41.456 - LOG: ESTABLISHED: Received packet, seq_num: 13 remove from resend loop.
+2024-12-10 02:05:41.465 - LOG: ESTABLISHED: Send packet 14 to 127.0.0.1 with checksum 0xdf39
+2024-12-10 02:05:41.525 - WARN: No ack received for packet 14, resend it.
+2024-12-10 02:05:41.593 - WARN: No ack received for packet 14, resend it.
+2024-12-10 02:05:41.600 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 14
+ack_num: 15
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x833c
+2024-12-10 02:05:41.600 - LOG: ESTABLISHED: Received packet, seq_num: 14 remove from resend loop.
+2024-12-10 02:05:41.615 - LOG: ESTABLISHED: Send packet 15 to 127.0.0.1 with checksum 0xcb72
+2024-12-10 02:05:41.672 - WARN: No ack received for packet 15, resend it.
+2024-12-10 02:05:41.684 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 15
+ack_num: 16
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x833a
+2024-12-10 02:05:41.684 - LOG: ESTABLISHED: Received packet, seq_num: 15 remove from resend loop.
+2024-12-10 02:05:41.706 - LOG: ESTABLISHED: Send packet 16 to 127.0.0.1 with checksum 0xdd8d
+2024-12-10 02:05:41.757 - WARN: No ack received for packet 16, resend it.
+2024-12-10 02:05:41.770 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 16
+ack_num: 17
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8338
+2024-12-10 02:05:41.770 - LOG: ESTABLISHED: Received packet, seq_num: 16 remove from resend loop.
+2024-12-10 02:05:41.781 - LOG: ESTABLISHED: Send packet 17 to 127.0.0.1 with checksum 0x8336
+2024-12-10 02:05:41.841 - WARN: No ack received for packet 17, resend it.
+2024-12-10 02:05:41.853 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 17
+ack_num: 18
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8336
+2024-12-10 02:05:41.853 - LOG: ESTABLISHED: Received packet, seq_num: 17 remove from resend loop.
+2024-12-10 02:05:41.874 - LOG: ESTABLISHED: Send packet 18 to 127.0.0.1 with checksum 0x88b5
+2024-12-10 02:05:41.933 - WARN: No ack received for packet 18, resend it.
+2024-12-10 02:05:41.946 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 18
+ack_num: 19
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8334
+2024-12-10 02:05:41.946 - LOG: ESTABLISHED: Received packet, seq_num: 18 remove from resend loop.
+2024-12-10 02:05:41.959 - LOG: ESTABLISHED: Send packet 19 to 127.0.0.1 with checksum 0x3390
+2024-12-10 02:05:42.014 - WARN: No ack received for packet 19, resend it.
+2024-12-10 02:05:42.066 - WARN: No ack received for packet 19, resend it.
+2024-12-10 02:05:42.091 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 19
+ack_num: 20
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8332
+2024-12-10 02:05:42.091 - LOG: ESTABLISHED: Received packet, seq_num: 19 remove from resend loop.
+2024-12-10 02:05:42.097 - LOG: ESTABLISHED: Send packet 20 to 127.0.0.1 with checksum 0xa87
+2024-12-10 02:05:42.150 - WARN: No ack received for packet 20, resend it.
+2024-12-10 02:05:42.158 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 20
+ack_num: 21
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8330
+2024-12-10 02:05:42.158 - LOG: ESTABLISHED: Received packet, seq_num: 20 remove from resend loop.
+2024-12-10 02:05:42.172 - LOG: ESTABLISHED: Send packet 21 to 127.0.0.1 with checksum 0xca44
+2024-12-10 02:05:42.230 - WARN: No ack received for packet 21, resend it.
+2024-12-10 02:05:42.242 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 21
+ack_num: 22
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x832e
+2024-12-10 02:05:42.242 - LOG: ESTABLISHED: Received packet, seq_num: 21 remove from resend loop.
+2024-12-10 02:05:42.255 - LOG: ESTABLISHED: Send packet 22 to 127.0.0.1 with checksum 0xd3c4
+2024-12-10 02:05:42.321 - WARN: No ack received for packet 22, resend it.
+2024-12-10 02:05:42.327 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 22
+ack_num: 23
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x832c
+2024-12-10 02:05:42.327 - LOG: ESTABLISHED: Received packet, seq_num: 22 remove from resend loop.
+2024-12-10 02:05:42.333 - LOG: ESTABLISHED: Send packet 23 to 127.0.0.1 with checksum 0x9d7d
+2024-12-10 02:05:42.387 - WARN: No ack received for packet 23, resend it.
+2024-12-10 02:05:42.448 - WARN: No ack received for packet 23, resend it.
+2024-12-10 02:05:42.461 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 23
+ack_num: 24
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x832a
+2024-12-10 02:05:42.461 - LOG: ESTABLISHED: Received packet, seq_num: 23 remove from resend loop.
+2024-12-10 02:05:42.474 - LOG: ESTABLISHED: Send packet 24 to 127.0.0.1 with checksum 0xe1c0
+2024-12-10 02:05:42.525 - WARN: No ack received for packet 24, resend it.
+2024-12-10 02:05:42.539 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 24
+ack_num: 25
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8328
+2024-12-10 02:05:42.539 - LOG: ESTABLISHED: Received packet, seq_num: 24 remove from resend loop.
+2024-12-10 02:05:42.551 - LOG: ESTABLISHED: Send packet 25 to 127.0.0.1 with checksum 0x31f1
+2024-12-10 02:05:42.612 - WARN: No ack received for packet 25, resend it.
+2024-12-10 02:05:42.624 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 25
+ack_num: 26
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8326
+2024-12-10 02:05:42.624 - LOG: ESTABLISHED: Received packet, seq_num: 25 remove from resend loop.
+2024-12-10 02:05:42.636 - LOG: ESTABLISHED: Send packet 26 to 127.0.0.1 with checksum 0xaf59
+2024-12-10 02:05:42.693 - WARN: No ack received for packet 26, resend it.
+2024-12-10 02:05:42.709 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 26
+ack_num: 27
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8324
+2024-12-10 02:05:42.709 - LOG: ESTABLISHED: Received packet, seq_num: 26 remove from resend loop.
+2024-12-10 02:05:42.719 - LOG: ESTABLISHED: Send packet 27 to 127.0.0.1 with checksum 0xa15e
+2024-12-10 02:05:42.775 - WARN: No ack received for packet 27, resend it.
+2024-12-10 02:05:42.785 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 27
+ack_num: 28
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8322
+2024-12-10 02:05:42.785 - LOG: ESTABLISHED: Received packet, seq_num: 27 remove from resend loop.
+2024-12-10 02:05:42.795 - LOG: ESTABLISHED: Send packet 28 to 127.0.0.1 with checksum 0x2a64
+2024-12-10 02:05:42.855 - WARN: No ack received for packet 28, resend it.
+2024-12-10 02:05:42.905 - WARN: No ack received for packet 28, resend it.
+2024-12-10 02:05:42.925 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 28
+ack_num: 29
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8320
+2024-12-10 02:05:42.925 - LOG: ESTABLISHED: Received packet, seq_num: 28 remove from resend loop.
+2024-12-10 02:05:42.939 - LOG: ESTABLISHED: Send packet 29 to 127.0.0.1 with checksum 0xb04d
+2024-12-10 02:05:42.995 - WARN: No ack received for packet 29, resend it.
+2024-12-10 02:05:43.015 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 29
+ack_num: 30
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x831e
+2024-12-10 02:05:43.015 - LOG: ESTABLISHED: Received packet, seq_num: 29 remove from resend loop.
+2024-12-10 02:05:43.035 - LOG: ESTABLISHED: Send packet 30 to 127.0.0.1 with checksum 0x14b
+2024-12-10 02:05:43.086 - WARN: No ack received for packet 30, resend it.
+2024-12-10 02:05:43.092 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 30
+ack_num: 31
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x831c
+2024-12-10 02:05:43.092 - LOG: ESTABLISHED: Received packet, seq_num: 30 remove from resend loop.
+2024-12-10 02:05:43.098 - LOG: ESTABLISHED: Send packet 31 to 127.0.0.1 with checksum 0xdd2
+2024-12-10 02:05:43.152 - WARN: No ack received for packet 31, resend it.
+2024-12-10 02:05:43.173 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 31
+ack_num: 32
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x831a
+2024-12-10 02:05:43.173 - LOG: ESTABLISHED: Received packet, seq_num: 31 remove from resend loop.
+2024-12-10 02:05:43.188 - LOG: ESTABLISHED: Send packet 32 to 127.0.0.1 with checksum 0x31a3
+2024-12-10 02:05:43.241 - WARN: No ack received for packet 32, resend it.
+2024-12-10 02:05:43.297 - WARN: No ack received for packet 32, resend it.
+2024-12-10 02:05:43.310 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 32
+ack_num: 33
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8318
+2024-12-10 02:05:43.310 - LOG: ESTABLISHED: Received packet, seq_num: 32 remove from resend loop.
+2024-12-10 02:05:43.321 - LOG: ESTABLISHED: Send packet 33 to 127.0.0.1 with checksum 0xd177
+2024-12-10 02:05:43.382 - WARN: No ack received for packet 33, resend it.
+2024-12-10 02:05:43.400 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 33
+ack_num: 34
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8316
+2024-12-10 02:05:43.400 - LOG: ESTABLISHED: Received packet, seq_num: 33 remove from resend loop.
+2024-12-10 02:05:43.413 - LOG: ESTABLISHED: Send packet 34 to 127.0.0.1 with checksum 0x29c
+2024-12-10 02:05:43.467 - WARN: No ack received for packet 34, resend it.
+2024-12-10 02:05:43.480 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 34
+ack_num: 35
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8314
+2024-12-10 02:05:43.480 - LOG: ESTABLISHED: Received packet, seq_num: 34 remove from resend loop.
+2024-12-10 02:05:43.491 - LOG: ESTABLISHED: Send packet 35 to 127.0.0.1 with checksum 0x3f67
+2024-12-10 02:05:43.545 - WARN: No ack received for packet 35, resend it.
+2024-12-10 02:05:43.560 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 35
+ack_num: 36
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8312
+2024-12-10 02:05:43.560 - LOG: ESTABLISHED: Received packet, seq_num: 35 remove from resend loop.
+2024-12-10 02:05:43.576 - LOG: ESTABLISHED: Send packet 36 to 127.0.0.1 with checksum 0xf0ce
+2024-12-10 02:05:43.636 - WARN: No ack received for packet 36, resend it.
+2024-12-10 02:05:43.649 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 36
+ack_num: 37
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8310
+2024-12-10 02:05:43.649 - LOG: ESTABLISHED: Received packet, seq_num: 36 remove from resend loop.
+2024-12-10 02:05:43.661 - LOG: ESTABLISHED: Send packet 37 to 127.0.0.1 with checksum 0x6dcf
+2024-12-10 02:05:43.723 - WARN: No ack received for packet 37, resend it.
+2024-12-10 02:05:43.776 - WARN: No ack received for packet 37, resend it.
+2024-12-10 02:05:43.789 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 37
+ack_num: 38
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x830e
+2024-12-10 02:05:43.789 - LOG: ESTABLISHED: Received packet, seq_num: 37 remove from resend loop.
+2024-12-10 02:05:43.801 - LOG: ESTABLISHED: Send packet 38 to 127.0.0.1 with checksum 0xa6a6
+2024-12-10 02:05:43.854 - WARN: No ack received for packet 38, resend it.
+2024-12-10 02:05:43.867 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 38
+ack_num: 39
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x830c
+2024-12-10 02:05:43.867 - LOG: ESTABLISHED: Received packet, seq_num: 38 remove from resend loop.
+2024-12-10 02:05:43.879 - LOG: ESTABLISHED: Send packet 39 to 127.0.0.1 with checksum 0x83ff
+2024-12-10 02:05:43.939 - WARN: No ack received for packet 39, resend it.
+2024-12-10 02:05:43.952 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 39
+ack_num: 40
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x830a
+2024-12-10 02:05:43.952 - LOG: ESTABLISHED: Received packet, seq_num: 39 remove from resend loop.
+2024-12-10 02:05:43.964 - LOG: ESTABLISHED: Send packet 40 to 127.0.0.1 with checksum 0xdd
+2024-12-10 02:05:44.018 - WARN: No ack received for packet 40, resend it.
+2024-12-10 02:05:44.024 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 40
+ack_num: 41
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8308
+2024-12-10 02:05:44.024 - LOG: ESTABLISHED: Received packet, seq_num: 40 remove from resend loop.
+2024-12-10 02:05:44.032 - LOG: ESTABLISHED: Send packet 41 to 127.0.0.1 with checksum 0xcdcb
+2024-12-10 02:05:44.085 - WARN: No ack received for packet 41, resend it.
+2024-12-10 02:05:44.145 - WARN: No ack received for packet 41, resend it.
+2024-12-10 02:05:44.157 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 41
+ack_num: 42
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8306
+2024-12-10 02:05:44.157 - LOG: ESTABLISHED: Received packet, seq_num: 41 remove from resend loop.
+2024-12-10 02:05:44.163 - LOG: ESTABLISHED: Send packet 42 to 127.0.0.1 with checksum 0x9c58
+2024-12-10 02:05:44.230 - WARN: No ack received for packet 42, resend it.
+2024-12-10 02:05:44.246 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 42
+ack_num: 43
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8304
+2024-12-10 02:05:44.246 - LOG: ESTABLISHED: Received packet, seq_num: 42 remove from resend loop.
+2024-12-10 02:05:44.265 - LOG: ESTABLISHED: Send packet 43 to 127.0.0.1 with checksum 0x8871
+2024-12-10 02:05:44.340 - WARN: No ack received for packet 43, resend it.
+2024-12-10 02:05:44.361 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 43
+ack_num: 44
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8302
+2024-12-10 02:05:44.361 - LOG: ESTABLISHED: Received packet, seq_num: 43 remove from resend loop.
+2024-12-10 02:05:44.381 - LOG: ESTABLISHED: Send packet 44 to 127.0.0.1 with checksum 0xb2f1
+2024-12-10 02:05:44.442 - WARN: No ack received for packet 44, resend it.
+2024-12-10 02:05:44.461 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 44
+ack_num: 45
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8300
+2024-12-10 02:05:44.461 - LOG: ESTABLISHED: Received packet, seq_num: 44 remove from resend loop.
+2024-12-10 02:05:44.485 - LOG: ESTABLISHED: Send packet 45 to 127.0.0.1 with checksum 0x63b7
+2024-12-10 02:05:44.540 - WARN: No ack received for packet 45, resend it.
+2024-12-10 02:05:44.574 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 45
+ack_num: 46
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82fe
+2024-12-10 02:05:44.574 - LOG: ESTABLISHED: Received packet, seq_num: 45 remove from resend loop.
+2024-12-10 02:05:44.592 - LOG: ESTABLISHED: Send packet 46 to 127.0.0.1 with checksum 0x5c93
+2024-12-10 02:05:44.661 - WARN: No ack received for packet 46, resend it.
+2024-12-10 02:05:44.721 - WARN: No ack received for packet 46, resend it.
+2024-12-10 02:05:44.727 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 46
+ack_num: 47
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82fc
+2024-12-10 02:05:44.727 - LOG: ESTABLISHED: Received packet, seq_num: 46 remove from resend loop.
+2024-12-10 02:05:44.733 - LOG: ESTABLISHED: Send packet 47 to 127.0.0.1 with checksum 0x22d
+2024-12-10 02:05:44.785 - WARN: No ack received for packet 47, resend it.
+2024-12-10 02:05:44.800 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 47
+ack_num: 48
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82fa
+2024-12-10 02:05:44.800 - LOG: ESTABLISHED: Received packet, seq_num: 47 remove from resend loop.
+2024-12-10 02:05:44.812 - LOG: ESTABLISHED: Send packet 48 to 127.0.0.1 with checksum 0xddc5
+2024-12-10 02:05:44.866 - WARN: No ack received for packet 48, resend it.
+2024-12-10 02:05:44.872 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 48
+ack_num: 49
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82f8
+2024-12-10 02:05:44.872 - LOG: ESTABLISHED: Received packet, seq_num: 48 remove from resend loop.
+2024-12-10 02:05:44.884 - LOG: ESTABLISHED: Send packet 49 to 127.0.0.1 with checksum 0x8bc4
+2024-12-10 02:05:44.945 - WARN: No ack received for packet 49, resend it.
+2024-12-10 02:05:44.976 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 49
+ack_num: 50
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82f6
+2024-12-10 02:05:44.976 - LOG: ESTABLISHED: Received packet, seq_num: 49 remove from resend loop.
+2024-12-10 02:05:44.995 - LOG: ESTABLISHED: Send packet 50 to 127.0.0.1 with checksum 0x7b6d
+2024-12-10 02:05:45.060 - WARN: No ack received for packet 50, resend it.
+2024-12-10 02:05:45.115 - WARN: No ack received for packet 50, resend it.
+2024-12-10 02:05:45.132 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 50
+ack_num: 51
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82f4
+2024-12-10 02:05:45.132 - LOG: ESTABLISHED: Received packet, seq_num: 50 remove from resend loop.
+2024-12-10 02:05:45.146 - LOG: ESTABLISHED: Send packet 51 to 127.0.0.1 with checksum 0xacfd
+2024-12-10 02:05:45.204 - WARN: No ack received for packet 51, resend it.
+2024-12-10 02:05:45.209 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 51
+ack_num: 52
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82f2
+2024-12-10 02:05:45.209 - LOG: ESTABLISHED: Received packet, seq_num: 51 remove from resend loop.
+2024-12-10 02:05:45.215 - LOG: ESTABLISHED: Send packet 52 to 127.0.0.1 with checksum 0x187b
+2024-12-10 02:05:45.293 - WARN: No ack received for packet 52, resend it.
+2024-12-10 02:05:45.316 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 52
+ack_num: 53
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82f0
+2024-12-10 02:05:45.316 - LOG: ESTABLISHED: Received packet, seq_num: 52 remove from resend loop.
+2024-12-10 02:05:45.326 - LOG: ESTABLISHED: Send packet 53 to 127.0.0.1 with checksum 0xa7ef
+2024-12-10 02:05:45.385 - WARN: No ack received for packet 53, resend it.
+2024-12-10 02:05:45.406 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 53
+ack_num: 54
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ee
+2024-12-10 02:05:45.406 - LOG: ESTABLISHED: Received packet, seq_num: 53 remove from resend loop.
+2024-12-10 02:05:45.425 - LOG: ESTABLISHED: Send packet 54 to 127.0.0.1 with checksum 0xc7a4
+2024-12-10 02:05:45.485 - WARN: No ack received for packet 54, resend it.
+2024-12-10 02:05:45.505 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 54
+ack_num: 55
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ec
+2024-12-10 02:05:45.505 - LOG: ESTABLISHED: Received packet, seq_num: 54 remove from resend loop.
+2024-12-10 02:05:45.520 - LOG: ESTABLISHED: Send packet 55 to 127.0.0.1 with checksum 0xa5e9
+2024-12-10 02:05:45.580 - WARN: No ack received for packet 55, resend it.
+2024-12-10 02:05:45.635 - WARN: No ack received for packet 55, resend it.
+2024-12-10 02:05:45.656 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 55
+ack_num: 56
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ea
+2024-12-10 02:05:45.656 - LOG: ESTABLISHED: Received packet, seq_num: 55 remove from resend loop.
+2024-12-10 02:05:45.675 - LOG: ESTABLISHED: Send packet 56 to 127.0.0.1 with checksum 0x2ab6
+2024-12-10 02:05:45.735 - WARN: No ack received for packet 56, resend it.
+2024-12-10 02:05:45.765 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 56
+ack_num: 57
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82e8
+2024-12-10 02:05:45.765 - LOG: ESTABLISHED: Received packet, seq_num: 56 remove from resend loop.
+2024-12-10 02:05:45.780 - LOG: ESTABLISHED: Send packet 57 to 127.0.0.1 with checksum 0xcb61
+2024-12-10 02:05:45.850 - WARN: No ack received for packet 57, resend it.
+2024-12-10 02:05:45.886 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 57
+ack_num: 58
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82e6
+2024-12-10 02:05:45.886 - LOG: ESTABLISHED: Received packet, seq_num: 57 remove from resend loop.
+2024-12-10 02:05:45.905 - LOG: ESTABLISHED: Send packet 58 to 127.0.0.1 with checksum 0x82f1
+2024-12-10 02:05:45.960 - WARN: No ack received for packet 58, resend it.
+2024-12-10 02:05:45.986 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 58
+ack_num: 59
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82e4
+2024-12-10 02:05:45.986 - LOG: ESTABLISHED: Received packet, seq_num: 58 remove from resend loop.
+2024-12-10 02:05:46.005 - LOG: ESTABLISHED: Send packet 59 to 127.0.0.1 with checksum 0x8f67
+2024-12-10 02:05:46.072 - WARN: No ack received for packet 59, resend it.
+2024-12-10 02:05:46.135 - WARN: No ack received for packet 59, resend it.
+2024-12-10 02:05:46.171 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 59
+ack_num: 60
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82e2
+2024-12-10 02:05:46.171 - LOG: ESTABLISHED: Received packet, seq_num: 59 remove from resend loop.
+2024-12-10 02:05:46.185 - LOG: ESTABLISHED: Send packet 60 to 127.0.0.1 with checksum 0xffbc
+2024-12-10 02:05:46.245 - WARN: No ack received for packet 60, resend it.
+2024-12-10 02:05:46.254 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 60
+ack_num: 61
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82e0
+2024-12-10 02:05:46.254 - LOG: ESTABLISHED: Received packet, seq_num: 60 remove from resend loop.
+2024-12-10 02:05:46.260 - LOG: ESTABLISHED: Send packet 61 to 127.0.0.1 with checksum 0x2bac
+2024-12-10 02:05:46.318 - WARN: No ack received for packet 61, resend it.
+2024-12-10 02:05:46.335 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 61
+ack_num: 62
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82de
+2024-12-10 02:05:46.335 - LOG: ESTABLISHED: Received packet, seq_num: 61 remove from resend loop.
+2024-12-10 02:05:46.348 - LOG: ESTABLISHED: Send packet 62 to 127.0.0.1 with checksum 0x694c
+2024-12-10 02:05:46.405 - WARN: No ack received for packet 62, resend it.
+2024-12-10 02:05:46.436 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 62
+ack_num: 63
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82dc
+2024-12-10 02:05:46.436 - LOG: ESTABLISHED: Received packet, seq_num: 62 remove from resend loop.
+2024-12-10 02:05:46.448 - LOG: ESTABLISHED: Send packet 63 to 127.0.0.1 with checksum 0xce0d
+2024-12-10 02:05:46.502 - WARN: No ack received for packet 63, resend it.
+2024-12-10 02:05:46.509 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 63
+ack_num: 64
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82da
+2024-12-10 02:05:46.509 - LOG: ESTABLISHED: Received packet, seq_num: 63 remove from resend loop.
+2024-12-10 02:05:46.514 - LOG: ESTABLISHED: Send packet 64 to 127.0.0.1 with checksum 0x2f5
+2024-12-10 02:05:46.585 - WARN: No ack received for packet 64, resend it.
+2024-12-10 02:05:46.645 - WARN: No ack received for packet 64, resend it.
+2024-12-10 02:05:46.676 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 64
+ack_num: 65
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82d8
+2024-12-10 02:05:46.676 - LOG: ESTABLISHED: Received packet, seq_num: 64 remove from resend loop.
+2024-12-10 02:05:46.695 - LOG: ESTABLISHED: Send packet 65 to 127.0.0.1 with checksum 0x50c2
+2024-12-10 02:05:46.755 - WARN: No ack received for packet 65, resend it.
+2024-12-10 02:05:46.791 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 65
+ack_num: 66
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82d6
+2024-12-10 02:05:46.791 - LOG: ESTABLISHED: Received packet, seq_num: 65 remove from resend loop.
+2024-12-10 02:05:46.810 - LOG: ESTABLISHED: Send packet 66 to 127.0.0.1 with checksum 0xff89
+2024-12-10 02:05:46.865 - WARN: No ack received for packet 66, resend it.
+2024-12-10 02:05:46.891 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 66
+ack_num: 67
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82d4
+2024-12-10 02:05:46.891 - LOG: ESTABLISHED: Received packet, seq_num: 66 remove from resend loop.
+2024-12-10 02:05:46.915 - LOG: ESTABLISHED: Send packet 67 to 127.0.0.1 with checksum 0x651e
+2024-12-10 02:05:46.975 - WARN: No ack received for packet 67, resend it.
+2024-12-10 02:05:47.011 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 67
+ack_num: 68
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82d2
+2024-12-10 02:05:47.011 - LOG: ESTABLISHED: Received packet, seq_num: 67 remove from resend loop.
+2024-12-10 02:05:47.035 - LOG: ESTABLISHED: Send packet 68 to 127.0.0.1 with checksum 0x192d
+2024-12-10 02:05:47.095 - WARN: No ack received for packet 68, resend it.
+2024-12-10 02:05:47.165 - WARN: No ack received for packet 68, resend it.
+2024-12-10 02:05:47.185 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 68
+ack_num: 69
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82d0
+2024-12-10 02:05:47.185 - LOG: ESTABLISHED: Received packet, seq_num: 68 remove from resend loop.
+2024-12-10 02:05:47.209 - LOG: ESTABLISHED: Send packet 69 to 127.0.0.1 with checksum 0x4d2
+2024-12-10 02:05:47.266 - WARN: No ack received for packet 69, resend it.
+2024-12-10 02:05:47.290 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 69
+ack_num: 70
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ce
+2024-12-10 02:05:47.290 - LOG: ESTABLISHED: Received packet, seq_num: 69 remove from resend loop.
+2024-12-10 02:05:47.291 - LOG: ESTABLISHED: Send packet 70 to 127.0.0.1 with checksum 0x5e6e
+2024-12-10 02:05:47.351 - WARN: No ack received for packet 70, resend it.
+2024-12-10 02:05:47.375 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 70
+ack_num: 71
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82cc
+2024-12-10 02:05:47.376 - LOG: ESTABLISHED: Received packet, seq_num: 70 remove from resend loop.
+2024-12-10 02:05:47.391 - LOG: ESTABLISHED: Send packet 71 to 127.0.0.1 with checksum 0xc2b4
+2024-12-10 02:05:47.455 - WARN: No ack received for packet 71, resend it.
+2024-12-10 02:05:47.492 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 71
+ack_num: 72
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ca
+2024-12-10 02:05:47.492 - LOG: ESTABLISHED: Received packet, seq_num: 71 remove from resend loop.
+2024-12-10 02:05:47.503 - LOG: ESTABLISHED: Send packet 72 to 127.0.0.1 with checksum 0x1b20
+2024-12-10 02:05:47.557 - WARN: No ack received for packet 72, resend it.
+2024-12-10 02:05:47.563 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 72
+ack_num: 73
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82c8
+2024-12-10 02:05:47.563 - LOG: ESTABLISHED: Received packet, seq_num: 72 remove from resend loop.
+2024-12-10 02:05:47.569 - LOG: ESTABLISHED: Send packet 73 to 127.0.0.1 with checksum 0xd46a
+2024-12-10 02:05:47.628 - WARN: No ack received for packet 73, resend it.
+2024-12-10 02:05:47.686 - WARN: No ack received for packet 73, resend it.
+2024-12-10 02:05:47.691 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 73
+ack_num: 74
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82c6
+2024-12-10 02:05:47.691 - LOG: ESTABLISHED: Received packet, seq_num: 73 remove from resend loop.
+2024-12-10 02:05:47.697 - LOG: ESTABLISHED: Send packet 74 to 127.0.0.1 with checksum 0xc663
+2024-12-10 02:05:47.755 - WARN: No ack received for packet 74, resend it.
+2024-12-10 02:05:47.761 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 74
+ack_num: 75
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82c4
+2024-12-10 02:05:47.761 - LOG: ESTABLISHED: Received packet, seq_num: 74 remove from resend loop.
+2024-12-10 02:05:47.766 - LOG: ESTABLISHED: Send packet 75 to 127.0.0.1 with checksum 0x3646
+2024-12-10 02:05:47.824 - WARN: No ack received for packet 75, resend it.
+2024-12-10 02:05:47.841 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 75
+ack_num: 76
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82c2
+2024-12-10 02:05:47.841 - LOG: ESTABLISHED: Received packet, seq_num: 75 remove from resend loop.
+2024-12-10 02:05:47.854 - LOG: ESTABLISHED: Send packet 76 to 127.0.0.1 with checksum 0xe9ec
+2024-12-10 02:05:47.922 - WARN: No ack received for packet 76, resend it.
+2024-12-10 02:05:47.934 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 76
+ack_num: 77
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82c0
+2024-12-10 02:05:47.934 - LOG: ESTABLISHED: Received packet, seq_num: 76 remove from resend loop.
+2024-12-10 02:05:47.946 - LOG: ESTABLISHED: Send packet 77 to 127.0.0.1 with checksum 0xd7c4
+2024-12-10 02:05:48.006 - WARN: No ack received for packet 77, resend it.
+2024-12-10 02:05:48.066 - WARN: No ack received for packet 77, resend it.
+2024-12-10 02:05:48.078 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 77
+ack_num: 78
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82be
+2024-12-10 02:05:48.078 - LOG: ESTABLISHED: Received packet, seq_num: 77 remove from resend loop.
+2024-12-10 02:05:48.092 - LOG: ESTABLISHED: Send packet 78 to 127.0.0.1 with checksum 0x7196
+2024-12-10 02:05:48.151 - WARN: No ack received for packet 78, resend it.
+2024-12-10 02:05:48.173 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 78
+ack_num: 79
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82bc
+2024-12-10 02:05:48.173 - LOG: ESTABLISHED: Received packet, seq_num: 78 remove from resend loop.
+2024-12-10 02:05:48.187 - LOG: ESTABLISHED: Send packet 79 to 127.0.0.1 with checksum 0x5fbc
+2024-12-10 02:05:48.248 - WARN: No ack received for packet 79, resend it.
+2024-12-10 02:05:48.260 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 79
+ack_num: 80
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ba
+2024-12-10 02:05:48.260 - LOG: ESTABLISHED: Received packet, seq_num: 79 remove from resend loop.
+2024-12-10 02:05:48.284 - LOG: ESTABLISHED: Send packet 80 to 127.0.0.1 with checksum 0x9046
+2024-12-10 02:05:48.347 - WARN: No ack received for packet 80, resend it.
+2024-12-10 02:05:48.358 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 80
+ack_num: 81
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82b8
+2024-12-10 02:05:48.358 - LOG: ESTABLISHED: Received packet, seq_num: 80 remove from resend loop.
+2024-12-10 02:05:48.371 - LOG: ESTABLISHED: Send packet 81 to 127.0.0.1 with checksum 0xb8f0
+2024-12-10 02:05:48.431 - WARN: No ack received for packet 81, resend it.
+2024-12-10 02:05:48.443 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 81
+ack_num: 82
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82b6
+2024-12-10 02:05:48.443 - LOG: ESTABLISHED: Received packet, seq_num: 81 remove from resend loop.
+2024-12-10 02:05:48.461 - LOG: ESTABLISHED: Send packet 82 to 127.0.0.1 with checksum 0x773c
+2024-12-10 02:05:48.521 - WARN: No ack received for packet 82, resend it.
+2024-12-10 02:05:48.582 - WARN: No ack received for packet 82, resend it.
+2024-12-10 02:05:48.605 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 82
+ack_num: 83
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82b4
+2024-12-10 02:05:48.606 - LOG: ESTABLISHED: Received packet, seq_num: 82 remove from resend loop.
+2024-12-10 02:05:48.618 - LOG: ESTABLISHED: Send packet 83 to 127.0.0.1 with checksum 0xe580
+2024-12-10 02:05:48.690 - WARN: No ack received for packet 83, resend it.
+2024-12-10 02:05:48.711 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 83
+ack_num: 84
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82b2
+2024-12-10 02:05:48.711 - LOG: ESTABLISHED: Received packet, seq_num: 83 remove from resend loop.
+2024-12-10 02:05:48.735 - LOG: ESTABLISHED: Send packet 84 to 127.0.0.1 with checksum 0xf4a2
+2024-12-10 02:05:48.790 - WARN: No ack received for packet 84, resend it.
+2024-12-10 02:05:48.796 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 84
+ack_num: 85
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82b0
+2024-12-10 02:05:48.796 - LOG: ESTABLISHED: Received packet, seq_num: 84 remove from resend loop.
+2024-12-10 02:05:48.802 - LOG: ESTABLISHED: Send packet 85 to 127.0.0.1 with checksum 0x50a1
+2024-12-10 02:05:48.858 - WARN: No ack received for packet 85, resend it.
+2024-12-10 02:05:48.864 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 85
+ack_num: 86
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ae
+2024-12-10 02:05:48.864 - LOG: ESTABLISHED: Received packet, seq_num: 85 remove from resend loop.
+2024-12-10 02:05:48.869 - LOG: ESTABLISHED: Send packet 86 to 127.0.0.1 with checksum 0x1929
+2024-12-10 02:05:48.933 - WARN: No ack received for packet 86, resend it.
+2024-12-10 02:05:48.987 - WARN: No ack received for packet 86, resend it.
+2024-12-10 02:05:49.006 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 86
+ack_num: 87
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82ac
+2024-12-10 02:05:49.006 - LOG: ESTABLISHED: Received packet, seq_num: 86 remove from resend loop.
+2024-12-10 02:05:49.011 - LOG: ESTABLISHED: Send packet 87 to 127.0.0.1 with checksum 0xaab4
+2024-12-10 02:05:49.072 - WARN: No ack received for packet 87, resend it.
+2024-12-10 02:05:49.085 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 87
+ack_num: 88
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82aa
+2024-12-10 02:05:49.085 - LOG: ESTABLISHED: Received packet, seq_num: 87 remove from resend loop.
+2024-12-10 02:05:49.097 - LOG: ESTABLISHED: Send packet 88 to 127.0.0.1 with checksum 0x9881
+2024-12-10 02:05:49.163 - WARN: No ack received for packet 88, resend it.
+2024-12-10 02:05:49.169 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 88
+ack_num: 89
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82a8
+2024-12-10 02:05:49.169 - LOG: ESTABLISHED: Received packet, seq_num: 88 remove from resend loop.
+2024-12-10 02:05:49.181 - LOG: ESTABLISHED: Send packet 89 to 127.0.0.1 with checksum 0x72
+2024-12-10 02:05:49.236 - WARN: No ack received for packet 89, resend it.
+2024-12-10 02:05:49.248 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 89
+ack_num: 90
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82a6
+2024-12-10 02:05:49.248 - LOG: ESTABLISHED: Received packet, seq_num: 89 remove from resend loop.
+2024-12-10 02:05:49.260 - LOG: ESTABLISHED: Send packet 90 to 127.0.0.1 with checksum 0x3bb6
+2024-12-10 02:05:49.315 - WARN: No ack received for packet 90, resend it.
+2024-12-10 02:05:49.327 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 90
+ack_num: 91
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82a4
+2024-12-10 02:05:49.327 - LOG: ESTABLISHED: Received packet, seq_num: 90 remove from resend loop.
+2024-12-10 02:05:49.339 - LOG: ESTABLISHED: Send packet 91 to 127.0.0.1 with checksum 0xd097
+2024-12-10 02:05:49.390 - WARN: No ack received for packet 91, resend it.
+2024-12-10 02:05:49.446 - WARN: No ack received for packet 91, resend it.
+2024-12-10 02:05:49.454 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 91
+ack_num: 92
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82a2
+2024-12-10 02:05:49.454 - LOG: ESTABLISHED: Received packet, seq_num: 91 remove from resend loop.
+2024-12-10 02:05:49.455 - LOG: ESTABLISHED: Send packet 92 to 127.0.0.1 with checksum 0x63ef
+2024-12-10 02:05:49.515 - WARN: No ack received for packet 92, resend it.
+2024-12-10 02:05:49.526 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 92
+ack_num: 93
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x82a0
+2024-12-10 02:05:49.526 - LOG: ESTABLISHED: Received packet, seq_num: 92 remove from resend loop.
+2024-12-10 02:05:49.542 - LOG: ESTABLISHED: Send packet 93 to 127.0.0.1 with checksum 0x9f07
+2024-12-10 02:05:49.595 - WARN: No ack received for packet 93, resend it.
+2024-12-10 02:05:49.603 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 93
+ack_num: 94
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x829e
+2024-12-10 02:05:49.603 - LOG: ESTABLISHED: Received packet, seq_num: 93 remove from resend loop.
+2024-12-10 02:05:49.611 - LOG: ESTABLISHED: Send packet 94 to 127.0.0.1 with checksum 0xd1fa
+2024-12-10 02:05:49.665 - WARN: No ack received for packet 94, resend it.
+2024-12-10 02:05:49.690 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 94
+ack_num: 95
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x829c
+2024-12-10 02:05:49.690 - LOG: ESTABLISHED: Received packet, seq_num: 94 remove from resend loop.
+2024-12-10 02:05:49.710 - LOG: ESTABLISHED: Send packet 95 to 127.0.0.1 with checksum 0x6db2
+2024-12-10 02:05:49.775 - WARN: No ack received for packet 95, resend it.
+2024-12-10 02:05:49.835 - WARN: No ack received for packet 95, resend it.
+2024-12-10 02:05:49.855 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 95
+ack_num: 96
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x829a
+2024-12-10 02:05:49.855 - LOG: ESTABLISHED: Received packet, seq_num: 95 remove from resend loop.
+2024-12-10 02:05:49.870 - LOG: ESTABLISHED: Send packet 96 to 127.0.0.1 with checksum 0x95ab
+2024-12-10 02:05:49.935 - WARN: No ack received for packet 96, resend it.
+2024-12-10 02:05:49.976 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 96
+ack_num: 97
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8298
+2024-12-10 02:05:49.976 - LOG: ESTABLISHED: Received packet, seq_num: 96 remove from resend loop.
+2024-12-10 02:05:49.995 - LOG: ESTABLISHED: Send packet 97 to 127.0.0.1 with checksum 0x4512
+2024-12-10 02:05:50.055 - WARN: No ack received for packet 97, resend it.
+2024-12-10 02:05:50.075 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 97
+ack_num: 98
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8296
+2024-12-10 02:05:50.076 - LOG: ESTABLISHED: Received packet, seq_num: 97 remove from resend loop.
+2024-12-10 02:05:50.095 - LOG: ESTABLISHED: Send packet 98 to 127.0.0.1 with checksum 0xbeab
+2024-12-10 02:05:50.155 - WARN: No ack received for packet 98, resend it.
+2024-12-10 02:05:50.186 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 98
+ack_num: 99
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8294
+2024-12-10 02:05:50.186 - LOG: ESTABLISHED: Received packet, seq_num: 98 remove from resend loop.
+2024-12-10 02:05:50.205 - LOG: ESTABLISHED: Send packet 99 to 127.0.0.1 with checksum 0x6940
+2024-12-10 02:05:50.275 - WARN: No ack received for packet 99, resend it.
+2024-12-10 02:05:50.286 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 99
+ack_num: 100
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8292
+2024-12-10 02:05:50.286 - LOG: ESTABLISHED: Received packet, seq_num: 99 remove from resend loop.
+2024-12-10 02:05:50.295 - LOG: ESTABLISHED: Send packet 100 to 127.0.0.1 with checksum 0x3599
+2024-12-10 02:05:50.355 - WARN: No ack received for packet 100, resend it.
+2024-12-10 02:05:50.414 - WARN: No ack received for packet 100, resend it.
+2024-12-10 02:05:50.445 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 100
+ack_num: 101
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8290
+2024-12-10 02:05:50.445 - LOG: ESTABLISHED: Received packet, seq_num: 100 remove from resend loop.
+2024-12-10 02:05:50.460 - LOG: ESTABLISHED: Send packet 101 to 127.0.0.1 with checksum 0xf6c7
+2024-12-10 02:05:50.525 - WARN: No ack received for packet 101, resend it.
+2024-12-10 02:05:50.546 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 101
+ack_num: 102
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x828e
+2024-12-10 02:05:50.546 - LOG: ESTABLISHED: Received packet, seq_num: 101 remove from resend loop.
+2024-12-10 02:05:50.557 - LOG: ESTABLISHED: Send packet 102 to 127.0.0.1 with checksum 0x969b
+2024-12-10 02:05:50.625 - WARN: No ack received for packet 102, resend it.
+2024-12-10 02:05:50.646 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 102
+ack_num: 103
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x828c
+2024-12-10 02:05:50.646 - LOG: ESTABLISHED: Received packet, seq_num: 102 remove from resend loop.
+2024-12-10 02:05:50.665 - LOG: ESTABLISHED: Send packet 103 to 127.0.0.1 with checksum 0xb607
+2024-12-10 02:05:50.730 - WARN: No ack received for packet 103, resend it.
+2024-12-10 02:05:50.745 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 103
+ack_num: 104
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x828a
+2024-12-10 02:05:50.745 - LOG: ESTABLISHED: Received packet, seq_num: 103 remove from resend loop.
+2024-12-10 02:05:50.755 - LOG: ESTABLISHED: Send packet 104 to 127.0.0.1 with checksum 0xe87f
+2024-12-10 02:05:50.825 - WARN: No ack received for packet 104, resend it.
+2024-12-10 02:05:50.890 - WARN: No ack received for packet 104, resend it.
+2024-12-10 02:05:50.915 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 104
+ack_num: 105
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8288
+2024-12-10 02:05:50.915 - LOG: ESTABLISHED: Received packet, seq_num: 104 remove from resend loop.
+2024-12-10 02:05:50.925 - LOG: ESTABLISHED: Send packet 105 to 127.0.0.1 with checksum 0x9ad0
+2024-12-10 02:05:50.985 - WARN: No ack received for packet 105, resend it.
+2024-12-10 02:05:50.995 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 105
+ack_num: 106
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8286
+2024-12-10 02:05:50.995 - LOG: ESTABLISHED: Received packet, seq_num: 105 remove from resend loop.
+2024-12-10 02:05:51.005 - LOG: ESTABLISHED: Send packet 106 to 127.0.0.1 with checksum 0xf2f8
+2024-12-10 02:05:51.075 - WARN: No ack received for packet 106, resend it.
+2024-12-10 02:05:51.097 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 106
+ack_num: 107
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8284
+2024-12-10 02:05:51.097 - LOG: ESTABLISHED: Received packet, seq_num: 106 remove from resend loop.
+2024-12-10 02:05:51.108 - LOG: ESTABLISHED: Send packet 107 to 127.0.0.1 with checksum 0x5616
+2024-12-10 02:05:51.160 - WARN: No ack received for packet 107, resend it.
+2024-12-10 02:05:51.176 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 107
+ack_num: 108
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8282
+2024-12-10 02:05:51.176 - LOG: ESTABLISHED: Received packet, seq_num: 107 remove from resend loop.
+2024-12-10 02:05:51.185 - LOG: ESTABLISHED: Send packet 108 to 127.0.0.1 with checksum 0x3272
+2024-12-10 02:05:51.240 - WARN: No ack received for packet 108, resend it.
+2024-12-10 02:05:51.251 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 108
+ack_num: 109
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8280
+2024-12-10 02:05:51.252 - LOG: ESTABLISHED: Received packet, seq_num: 108 remove from resend loop.
+2024-12-10 02:05:51.265 - LOG: ESTABLISHED: Send packet 109 to 127.0.0.1 with checksum 0x2441
+2024-12-10 02:05:51.335 - WARN: No ack received for packet 109, resend it.
+2024-12-10 02:05:51.405 - WARN: No ack received for packet 109, resend it.
+2024-12-10 02:05:51.427 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 109
+ack_num: 110
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x827e
+2024-12-10 02:05:51.427 - LOG: ESTABLISHED: Received packet, seq_num: 109 remove from resend loop.
+2024-12-10 02:05:51.445 - LOG: ESTABLISHED: Send packet 110 to 127.0.0.1 with checksum 0xc53e
+2024-12-10 02:05:51.505 - WARN: No ack received for packet 110, resend it.
+2024-12-10 02:05:51.515 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 110
+ack_num: 111
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x827c
+2024-12-10 02:05:51.515 - LOG: ESTABLISHED: Received packet, seq_num: 110 remove from resend loop.
+2024-12-10 02:05:51.525 - LOG: ESTABLISHED: Send packet 111 to 127.0.0.1 with checksum 0x4a6e
+2024-12-10 02:05:51.581 - WARN: No ack received for packet 111, resend it.
+2024-12-10 02:05:51.606 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 111
+ack_num: 112
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x827a
+2024-12-10 02:05:51.606 - LOG: ESTABLISHED: Received packet, seq_num: 111 remove from resend loop.
+2024-12-10 02:05:51.623 - LOG: ESTABLISHED: Send packet 112 to 127.0.0.1 with checksum 0xaf9b
+2024-12-10 02:05:51.675 - WARN: No ack received for packet 112, resend it.
+2024-12-10 02:05:51.685 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 112
+ack_num: 113
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8278
+2024-12-10 02:05:51.685 - LOG: ESTABLISHED: Received packet, seq_num: 112 remove from resend loop.
+2024-12-10 02:05:51.695 - LOG: ESTABLISHED: Send packet 113 to 127.0.0.1 with checksum 0x94cb
+2024-12-10 02:05:51.755 - WARN: No ack received for packet 113, resend it.
+2024-12-10 02:05:51.825 - WARN: No ack received for packet 113, resend it.
+2024-12-10 02:05:51.835 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 113
+ack_num: 114
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8276
+2024-12-10 02:05:51.836 - LOG: ESTABLISHED: Received packet, seq_num: 113 remove from resend loop.
+2024-12-10 02:05:51.845 - LOG: ESTABLISHED: Send packet 114 to 127.0.0.1 with checksum 0x8a5b
+2024-12-10 02:05:51.915 - WARN: No ack received for packet 114, resend it.
+2024-12-10 02:05:51.926 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 114
+ack_num: 115
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8274
+2024-12-10 02:05:51.926 - LOG: ESTABLISHED: Received packet, seq_num: 114 remove from resend loop.
+2024-12-10 02:05:51.935 - LOG: ESTABLISHED: Send packet 115 to 127.0.0.1 with checksum 0x1161
+2024-12-10 02:05:51.990 - WARN: No ack received for packet 115, resend it.
+2024-12-10 02:05:52.015 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 115
+ack_num: 116
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8272
+2024-12-10 02:05:52.015 - LOG: ESTABLISHED: Received packet, seq_num: 115 remove from resend loop.
+2024-12-10 02:05:52.025 - LOG: ESTABLISHED: Send packet 116 to 127.0.0.1 with checksum 0x5a56
+2024-12-10 02:05:52.085 - WARN: No ack received for packet 116, resend it.
+2024-12-10 02:05:52.096 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 116
+ack_num: 117
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8270
+2024-12-10 02:05:52.096 - LOG: ESTABLISHED: Received packet, seq_num: 116 remove from resend loop.
+2024-12-10 02:05:52.105 - LOG: ESTABLISHED: Send packet 117 to 127.0.0.1 with checksum 0x2a56
+2024-12-10 02:05:52.160 - WARN: No ack received for packet 117, resend it.
+2024-12-10 02:05:52.175 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 117
+ack_num: 118
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x826e
+2024-12-10 02:05:52.175 - LOG: ESTABLISHED: Received packet, seq_num: 117 remove from resend loop.
+2024-12-10 02:05:52.185 - LOG: ESTABLISHED: Send packet 118 to 127.0.0.1 with checksum 0xb423
+2024-12-10 02:05:52.240 - WARN: No ack received for packet 118, resend it.
+2024-12-10 02:05:52.304 - WARN: No ack received for packet 118, resend it.
+2024-12-10 02:05:52.313 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 118
+ack_num: 119
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x826c
+2024-12-10 02:05:52.313 - LOG: ESTABLISHED: Received packet, seq_num: 118 remove from resend loop.
+2024-12-10 02:05:52.317 - LOG: ESTABLISHED: Send packet 119 to 127.0.0.1 with checksum 0xa78b
+2024-12-10 02:05:52.381 - WARN: No ack received for packet 119, resend it.
+2024-12-10 02:05:52.393 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 119
+ack_num: 120
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x826a
+2024-12-10 02:05:52.393 - LOG: ESTABLISHED: Received packet, seq_num: 119 remove from resend loop.
+2024-12-10 02:05:52.405 - LOG: ESTABLISHED: Send packet 120 to 127.0.0.1 with checksum 0xf932
+2024-12-10 02:05:52.459 - WARN: No ack received for packet 120, resend it.
+2024-12-10 02:05:52.472 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 120
+ack_num: 121
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8268
+2024-12-10 02:05:52.472 - LOG: ESTABLISHED: Received packet, seq_num: 120 remove from resend loop.
+2024-12-10 02:05:52.487 - LOG: ESTABLISHED: Send packet 121 to 127.0.0.1 with checksum 0x5905
+2024-12-10 02:05:52.538 - WARN: No ack received for packet 121, resend it.
+2024-12-10 02:05:52.550 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 121
+ack_num: 122
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8266
+2024-12-10 02:05:52.550 - LOG: ESTABLISHED: Received packet, seq_num: 121 remove from resend loop.
+2024-12-10 02:05:52.563 - LOG: ESTABLISHED: Send packet 122 to 127.0.0.1 with checksum 0xf8be
+2024-12-10 02:05:52.617 - WARN: No ack received for packet 122, resend it.
+2024-12-10 02:05:52.678 - WARN: No ack received for packet 122, resend it.
+2024-12-10 02:05:52.684 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 122
+ack_num: 123
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8264
+2024-12-10 02:05:52.684 - LOG: ESTABLISHED: Received packet, seq_num: 122 remove from resend loop.
+2024-12-10 02:05:52.695 - LOG: ESTABLISHED: Send packet 123 to 127.0.0.1 with checksum 0x6a29
+2024-12-10 02:05:52.750 - WARN: No ack received for packet 123, resend it.
+2024-12-10 02:05:52.761 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 123
+ack_num: 124
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8262
+2024-12-10 02:05:52.761 - LOG: ESTABLISHED: Received packet, seq_num: 123 remove from resend loop.
+2024-12-10 02:05:52.785 - LOG: ESTABLISHED: Send packet 124 to 127.0.0.1 with checksum 0x1867
+2024-12-10 02:05:52.845 - WARN: No ack received for packet 124, resend it.
+2024-12-10 02:05:52.866 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 124
+ack_num: 125
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8260
+2024-12-10 02:05:52.866 - LOG: ESTABLISHED: Received packet, seq_num: 124 remove from resend loop.
+2024-12-10 02:05:52.875 - LOG: ESTABLISHED: Send packet 125 to 127.0.0.1 with checksum 0x9982
+2024-12-10 02:05:52.935 - WARN: No ack received for packet 125, resend it.
+2024-12-10 02:05:52.945 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 125
+ack_num: 126
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x825e
+2024-12-10 02:05:52.946 - LOG: ESTABLISHED: Received packet, seq_num: 125 remove from resend loop.
+2024-12-10 02:05:52.955 - LOG: ESTABLISHED: Send packet 126 to 127.0.0.1 with checksum 0xa09c
+2024-12-10 02:05:53.017 - WARN: No ack received for packet 126, resend it.
+2024-12-10 02:05:53.046 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 126
+ack_num: 127
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x825c
+2024-12-10 02:05:53.046 - LOG: ESTABLISHED: Received packet, seq_num: 126 remove from resend loop.
+2024-12-10 02:05:53.070 - LOG: ESTABLISHED: Send packet 127 to 127.0.0.1 with checksum 0xc3c5
+2024-12-10 02:05:53.132 - WARN: No ack received for packet 127, resend it.
+2024-12-10 02:05:53.187 - WARN: No ack received for packet 127, resend it.
+2024-12-10 02:05:53.199 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 127
+ack_num: 128
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x825a
+2024-12-10 02:05:53.199 - LOG: ESTABLISHED: Received packet, seq_num: 127 remove from resend loop.
+2024-12-10 02:05:53.210 - LOG: ESTABLISHED: Send packet 128 to 127.0.0.1 with checksum 0x2182
+2024-12-10 02:05:53.265 - WARN: No ack received for packet 128, resend it.
+2024-12-10 02:05:53.285 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 128
+ack_num: 129
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8258
+2024-12-10 02:05:53.285 - LOG: ESTABLISHED: Received packet, seq_num: 128 remove from resend loop.
+2024-12-10 02:05:53.302 - LOG: ESTABLISHED: Send packet 129 to 127.0.0.1 with checksum 0x6f4b
+2024-12-10 02:05:53.363 - WARN: No ack received for packet 129, resend it.
+2024-12-10 02:05:53.380 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 129
+ack_num: 130
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8256
+2024-12-10 02:05:53.380 - LOG: ESTABLISHED: Received packet, seq_num: 129 remove from resend loop.
+2024-12-10 02:05:53.395 - LOG: ESTABLISHED: Send packet 130 to 127.0.0.1 with checksum 0xec17
+2024-12-10 02:05:53.451 - WARN: No ack received for packet 130, resend it.
+2024-12-10 02:05:53.462 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 130
+ack_num: 131
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8254
+2024-12-10 02:05:53.463 - LOG: ESTABLISHED: Received packet, seq_num: 130 remove from resend loop.
+2024-12-10 02:05:53.472 - LOG: ESTABLISHED: Send packet 131 to 127.0.0.1 with checksum 0x7aaa
+2024-12-10 02:05:53.528 - WARN: No ack received for packet 131, resend it.
+2024-12-10 02:05:53.583 - WARN: No ack received for packet 131, resend it.
+2024-12-10 02:05:53.607 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 131
+ack_num: 132
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8252
+2024-12-10 02:05:53.607 - LOG: ESTABLISHED: Received packet, seq_num: 131 remove from resend loop.
+2024-12-10 02:05:53.623 - LOG: ESTABLISHED: Send packet 132 to 127.0.0.1 with checksum 0xe07e
+2024-12-10 02:05:53.674 - WARN: No ack received for packet 132, resend it.
+2024-12-10 02:05:53.682 - LOG: ESTABLISHED: Received a packet:
+connect_id: 2731203033
+seq_num: 132
+ack_num: 133
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x8250
+2024-12-10 02:05:53.682 - LOG: ESTABLISHED: Received packet, seq_num: 132 remove from resend loop.
+2024-12-10 02:05:57.940 - LOG: ESTABLISHED: Send FIN packet 133 to 127.0.0.1
+2024-12-10 02:05:57.940 - LOG: Change statu to FIN_WAIT.
+2024-12-10 02:05:57.995 - WARN: No ack received for packet 133, resend it.
+2024-12-10 02:05:58.006 - LOG: FIN_WAIT: Received a packet:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.006 - LOG: FIN_WAIT: Received packet, seq_num: 133 remove from resend loop.
+2024-12-10 02:05:58.075 - LOG: FIN_WAIT: Received FIN_ACK packet 133
+2024-12-10 02:05:58.106 - WARN: FIN_WAIT: Received a packet with wrong checksum, drop it.
+2024-12-10 02:05:58.106 - LOG: Change statu to CLOSE_WAIT.
+2024-12-10 02:05:58.125 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.125 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.138 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.138 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.150 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.150 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.171 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.171 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.196 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.196 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.215 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.215 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.235 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.235 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.255 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.255 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.270 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.270 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.290 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.290 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.310 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.310 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.328 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.328 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.345 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.345 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.365 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.365 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.385 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.385 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.405 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.405 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.425 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.425 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.445 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.445 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.460 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.460 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.471 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.471 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.490 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.491 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.515 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.515 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.535 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.535 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.555 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.555 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.575 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.575 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.595 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.595 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.615 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.615 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.635 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.635 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.650 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.650 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.665 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.665 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.685 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.685 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.705 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.705 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.725 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.725 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.745 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.745 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.765 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.765 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.780 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.780 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.800 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.800 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.825 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.825 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.845 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.845 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.860 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.860 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.875 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.875 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.895 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.895 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.915 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.915 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.935 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.935 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.950 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.950 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.971 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.971 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.987 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.987 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:58.998 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:58.998 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.010 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.010 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.021 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.021 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.032 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.032 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.043 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.043 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.054 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.054 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.064 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.064 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.075 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.075 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.087 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.087 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.098 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.098 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.114 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.114 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.135 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.135 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.155 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.155 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.170 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.170 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.185 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.185 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.196 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.196 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.208 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.208 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.219 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.219 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.229 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.229 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.240 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.240 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.251 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.251 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.262 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.262 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.274 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.274 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.285 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.285 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.295 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.295 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.306 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.306 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.318 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.318 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.329 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.329 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.341 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.341 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.353 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.353 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.365 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.365 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.381 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.381 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.393 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.393 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.416 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.416 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.429 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.429 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.441 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.441 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.453 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.453 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.475 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.475 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.490 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.490 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.501 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.502 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.514 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.514 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.526 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.526 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.545 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.545 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.560 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.560 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.580 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.580 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.600 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.600 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.615 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.615 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.635 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.635 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.655 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.655 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.669 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.669 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.680 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.680 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.694 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.694 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.708 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.708 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.724 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.724 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.742 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.742 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.755 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.755 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.771 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.771 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.784 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.784 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.798 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.799 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.812 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.812 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.827 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.827 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.838 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.838 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.849 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.849 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.860 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.860 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.871 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.871 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.883 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.883 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.900 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.900 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.915 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.915 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.935 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.935 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.948 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.948 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.959 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.959 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.974 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.974 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.987 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.987 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:05:59.999 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:05:59.999 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:06:00.012 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:06:00.012 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:06:00.023 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:06:00.023 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:06:00.041 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:06:00.042 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:06:00.059 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:06:00.059 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:06:00.075 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:06:00.075 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:06:00.100 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:06:00.100 - LOG: CLOSE_WAIT: Resend ACK packet 134
+2024-12-10 02:06:00.125 - LOG: CLOSE_WAIT: Receive packet at CLOSE_WAIT:
+connect_id: 2731203033
+seq_num: 133
+ack_num: 134
+data_len: 0
+flags: 0x6 (ACK, FIN)
+checksum: 0x824a
+2024-12-10 02:06:00.125 - LOG: CLOSE_WAIT: Resend ACK packet 134

@@ -90,7 +90,9 @@
         "shared_mutex": "cpp",
         "iomanip": "cpp",
         "generator": "cpp",
-        "text_encoding": "cpp"
+        "text_encoding": "cpp",
+        "__node_handle": "cpp",
+        "*.inc": "cpp"
     },
     "cmake.sourceDirectory": "D:/CodeTable/CNet_coursework/third_repos/boost"
 }

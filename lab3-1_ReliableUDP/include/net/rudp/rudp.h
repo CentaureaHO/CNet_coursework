@@ -2,7 +2,6 @@
 #define __NET_RUDP_RUDP_H__
 
 #include <net/socket_defs.h>
-#include <net/nb_socket.h>
 #include <net/rudp/rudp_defs.h>
 #include <common/lock.h>
 #include <chrono>
@@ -12,73 +11,94 @@
 #include <map>
 #include <condition_variable>
 #include <mutex>
+#include <deque>
 
 void printRUDP(RUDP_P& p);
 
-struct PacketTimer
-{
-    RUDP_P                    packet;
-    std::chrono::microseconds timeout;
-    int                       timeout_factor;
-
-    template <typename P>
-    PacketTimer(P&& p, std::chrono::microseconds t, int f) : packet(std::forward<P>(p)), timeout(t), timeout_factor(f)
-    {}
-};
-
 class RUDP
 {
-  public:
-    using Callback = std::function<void(RUDP_P&)>;
+  protected:
+    RUDP_STATUS _statu;
+    int         _port;
+    SOCKET      _sockfd;
+    sockaddr_in _local_addr;
+    sockaddr_in _remote_addr;
 
-  private:
-    RUDP_STATUS _statu;        // 当前状态
-    sockaddr_in _local_addr;   // 本地地址
-    sockaddr_in _remote_addr;  // 远程地址
-    NBSocket    _nb_socket;    // 非阻塞套接字
-    uint16_t    _local_port;   // 本地端口
-    uint32_t    _connect_id;   // 连接ID
+    uint32_t _connect_id;
+    uint32_t _seq_num;
+    uint32_t _ack_num;
 
-    uint32_t _seq_num;  // 序列号
-    uint32_t _ack_num;  // 确认号
+    std::chrono::milliseconds _rtt;
 
-    std::chrono::microseconds _rtt;  // 往返时间
-
-    std::map<uint32_t, PacketTimer> _send_buffer;  // 发送缓冲区，停等时只能在其中为空时添加新包
-    ReWrLock                        _send_buffer_lock;
-    // std::condition_variable         _send_buffer_cv;      // 条件变量，用于同步
-    // std::mutex                      _send_buffer_cv_mtx;  // 互斥锁，配合条件变量使用
-
-    std::thread       _resend_thread;   // 重传线程
-    std::atomic<bool> _resending;       // 是否正在重传
-    std::thread       _receive_thread;  // 接收线程
-    std::atomic<bool> _receiving;       // 是否正在接收
+    std::atomic<bool> _receiving;
+    std::thread       _receive_thread;
 
   public:
-    RUDP(int local_port);
-    ~RUDP();
+    RUDP(int port);
+    virtual ~RUDP() = 0;
 
-  private:
-    void _resendLoop();
-    void _receiveHandler();
-    void clear_statu();
-
-  public:
     int getBoundPort() const;
 
+  protected:
+    virtual void clear_statu() = 0;
+
+  protected:
+    virtual void _receive_handler() = 0;
+};
+
+class RUDP_C : public RUDP
+{
   public:
-    void listen_listen();
-    void listen_syn_rcvd();
-    void listen_established(Callback cb);
-    void listen_fin_wait();
-    void listen_fin_rcvd();
-    void listen_close_wait();
-    void listen(Callback callback = printRUDP);
+    using entry = std::pair<RUDP_P, std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds>>;
+
+  private:
+    std::atomic<bool> _resending;
+    std::thread       _resend_thread;
+
+    std::map<uint32_t, entry> _send_buffer;
+    ReWrLock                  _send_buffer_lock;
+
+  public:
+    RUDP_C(int port);
+    virtual ~RUDP_C() override;
+
+  private:
+    virtual void clear_statu() override;
+    void         _resend_handler();
+    virtual void _receive_handler() override;
+    void         _wakeup_handler();
 
   public:
     bool connect(const char* remote_ip, int remote_port);
     bool disconnect();
     void send(const char* buffer, size_t buffer_size);
+};
+
+class RUDP_S : public RUDP
+{
+  public:
+    using callback = std::function<void(RUDP_P&)>;
+
+  private:
+    std::deque<RUDP_P> _recv_queue;
+    ReWrLock           _recv_queue_lock;
+
+  public:
+    RUDP_S(int port);
+    virtual ~RUDP_S() override;
+
+  private:
+    virtual void clear_statu() override;
+    virtual void _receive_handler() override;
+
+  private:
+    void _listen();
+    void _syn_rcvd();
+    void _established(callback cb);
+    void _fin_rcvd();
+
+  public:
+    void listen(callback cb = printRUDP);
 };
 
 #endif
