@@ -33,6 +33,11 @@ class RUDP
     uint32_t _ack_num;
 
     std::chrono::milliseconds _rtt;
+    std::chrono::milliseconds _dev_rtt;
+    double                    _alpha;
+    double                    _beta;
+    std::chrono::milliseconds _rto;
+    ReWrLock                  _rto_lock;
 
     std::atomic<bool> _receiving;
     std::thread       _receive_thread;

@@ -8,7 +8,7 @@
 #include <common/log.h>
 using namespace std;
 
-using ms       = chrono::milliseconds;
+using ms     = chrono::milliseconds;
 ms check_gap = ms(CHECK_GAP);
 
 void printRUDP(RUDP_P& p)
@@ -25,7 +25,11 @@ RUDP::RUDP(int local_port)
       _connect_id(0),
       _seq_num(0),
       _ack_num(0),
-      _rtt(GUESS_RTT),
+      _rtt(std::chrono::milliseconds(GUESS_RTT)),
+      _dev_rtt(std::chrono::milliseconds(GUESS_RTT / 2)),
+      _alpha(0.125),
+      _beta(0.25),
+      _rto(std::chrono::milliseconds(GUESS_RTT + 4 * (GUESS_RTT/2))), // 初始化RTO
       _receiving(false),
       _wakeup(false)
 {

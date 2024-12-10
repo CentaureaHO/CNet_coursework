@@ -73,6 +73,10 @@ void RUDP_S::_receive_handler(callback cb)
 
         --left_packet;
         RUDP_P& recv_packet = _recv_queue.front();
+        {
+            WriteGuard guard = _recv_queue_lock.write();
+            _recv_queue.pop_front();
+        }
 
         if (!checkCheckSum(recv_packet))
         {
@@ -136,10 +140,7 @@ void RUDP_S::_receive_handler(callback cb)
             (const struct sockaddr*)&_remote_addr,
             sizeof(sockaddr_in));
 
-        {
-            WriteGuard guard = _recv_queue_lock.write();
-            _recv_queue.pop_front();
-        }
+        memset(&recv_packet, 0, sizeof(RUDP_H));
     }
 }
 void RUDP_S::_wakeup_handler()
