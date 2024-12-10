@@ -1,14 +1,11 @@
 #ifndef __NET_RUDP_RUDP_DEFS_H__
 #define __NET_RUDP_RUDP_DEFS_H__
 
-#include <net/nb_socket.h>
 #include <stdint.h>
 #include <string>
 
 #define PACKET_SIZE 15000
 #define BODY_SIZE (PACKET_SIZE - sizeof(RUDP_H))
-
-#define SENDER_WINDOW_SIZE 20
 
 #define RUDP_STATU_LIST  \
     X(CLOSED, b, 0)      \
@@ -93,6 +90,7 @@ bool     checkCheckSum(RUDP_P& packet);
 #define CLR_FLAGS_H(rudp) (rudp.flags = 0x0000)
 
 std::string   statuStr(RUDP_STATUS statu);
+std::string   flagsToStr(const RUDP_P& p);
 std::ostream& operator<<(std::ostream& os, const RUDP_H& header);
 
 #endif

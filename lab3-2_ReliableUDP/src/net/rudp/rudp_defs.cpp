@@ -51,6 +51,16 @@ string statuStr(RUDP_STATUS statu)
     return "UNKNOWN";
 }
 
+std::string flagsToStr(const RUDP_P& p)
+{
+    std::string f;
+    if (CHK_SYN(p)) f += "SYN ";
+    if (CHK_ACK(p)) f += "ACK ";
+    if (CHK_FIN(p)) f += "FIN ";
+    if (f.empty()) f = "NONE";
+    return f;
+}
+
 ostream& operator<<(ostream& os, const RUDP_H& header)
 {
     os << "connect_id: " << header.connect_id << '\n'

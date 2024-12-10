@@ -1,12 +1,11 @@
 #include <bits/stdc++.h>
 #include <net/socket_defs.h>
-#include <net/nb_socket.h>
 #include <net/rudp/rudp_defs.h>
 #include <net/rudp/rudp.h>
 using namespace std;
 using namespace chrono;
 
-void sendFile(RUDP& client, const string& filePath)
+void sendFile(RUDP_C& client, const string& filePath)
 {
     ifstream file(filePath, ios::binary);
     if (!file.is_open())
@@ -66,7 +65,7 @@ int main()
         {5, "resources/small.txt"},
     };
 
-    RUDP client(7777);
+    RUDP_C client(7777);
 
     cout << "Client run at port " << client.getBoundPort() << endl;
 

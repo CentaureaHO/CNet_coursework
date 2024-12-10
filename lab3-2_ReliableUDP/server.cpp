@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #include <net/socket_defs.h>
-#include <net/nb_socket.h>
 #include <net/rudp/rudp_defs.h>
 #include <net/rudp/rudp.h>
 using namespace std;
@@ -45,7 +44,7 @@ void receiveFile(RUDP_P& packet, ofstream& outFile, bool& receivingFile)
 
 int main()
 {
-    RUDP server(8888);
+    RUDP_S server(8888);
 
     cout << "Server run at port " << server.getBoundPort() << endl;
 

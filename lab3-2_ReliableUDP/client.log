@@ -1,0 +1,634 @@
+2024-12-10 22:28:30.105 - LOG:  Start resend thread.
+2024-12-10 22:28:30.105 - LOG:  Enter connect mode, generate connect_id=2316608915
+2024-12-10 22:28:30.105 - LOG: [SYN_SENT] Send SYN packet to 127.0.0.1:8000. Change status to SYN_SENT.
+2024-12-10 22:28:30.132 - LOG: [SYN_SENT] Received SYN_ACK packet: seq=0, ack=1. Change status to ESTABLISHED.
+2024-12-10 22:28:30.132 - LOG:  Now established, send ACK packet.
+2024-12-10 22:28:30.132 - LOG:  Start receive thread.
+2024-12-10 22:28:30.147 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=1, ack=2, flags=ACK , data_len=0
+2024-12-10 22:28:30.147 - LOG: [ESTABLISHED] ACK received for seq=1. Removing from send buffer.
+2024-12-10 22:28:31.042 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=2, data_len=19, checksum=0xfd59
+2024-12-10 22:28:31.063 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=3, data_len=14980, checksum=0xfb52
+2024-12-10 22:28:31.078 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=4, data_len=14980, checksum=0x432c
+2024-12-10 22:28:31.093 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=5, data_len=14980, checksum=0x9e88
+2024-12-10 22:28:31.108 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=6, data_len=14980, checksum=0x8913
+2024-12-10 22:28:31.123 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=7, data_len=14980, checksum=0x6012
+2024-12-10 22:28:31.139 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=8, data_len=14980, checksum=0x65bd
+2024-12-10 22:28:31.153 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=9, data_len=14980, checksum=0x2c3b
+2024-12-10 22:28:31.168 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=10, data_len=14980, checksum=0x1874
+2024-12-10 22:28:31.183 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=11, data_len=14980, checksum=0x2a8f
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=2, ack=9, flags=ACK , data_len=0
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] ACK received for seq=2. Removing from send buffer.
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] ACK received for seq=3. Removing from send buffer.
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] ACK received for seq=4. Removing from send buffer.
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] ACK received for seq=5. Removing from send buffer.
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] ACK received for seq=6. Removing from send buffer.
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] ACK received for seq=7. Removing from send buffer.
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] ACK received for seq=8. Removing from send buffer.
+2024-12-10 22:28:31.187 - LOG: [ESTABLISHED] RTT sample: 95ms, updated RTT=55ms, DevRTT=30ms, RTO=175ms
+2024-12-10 22:28:31.198 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=12, data_len=14980, checksum=0xd037
+2024-12-10 22:28:31.213 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=13, data_len=14980, checksum=0xd5b6
+2024-12-10 22:28:31.229 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=14, data_len=14980, checksum=0x8091
+2024-12-10 22:28:31.244 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=15, data_len=14980, checksum=0x5788
+2024-12-10 22:28:31.258 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=16, data_len=14980, checksum=0x1746
+2024-12-10 22:28:31.274 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=17, data_len=14980, checksum=0x20c6
+2024-12-10 22:28:31.289 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=18, data_len=14980, checksum=0xea7e
+2024-12-10 22:28:31.292 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=3, ack=16, flags=ACK , data_len=0
+2024-12-10 22:28:31.292 - LOG: [ESTABLISHED] ACK received for seq=9. Removing from send buffer.
+2024-12-10 22:28:31.292 - LOG: [ESTABLISHED] ACK received for seq=10. Removing from send buffer.
+2024-12-10 22:28:31.292 - LOG: [ESTABLISHED] ACK received for seq=11. Removing from send buffer.
+2024-12-10 22:28:31.292 - LOG: [ESTABLISHED] ACK received for seq=12. Removing from send buffer.
+2024-12-10 22:28:31.293 - LOG: [ESTABLISHED] ACK received for seq=13. Removing from send buffer.
+2024-12-10 22:28:31.293 - LOG: [ESTABLISHED] ACK received for seq=14. Removing from send buffer.
+2024-12-10 22:28:31.293 - LOG: [ESTABLISHED] ACK received for seq=15. Removing from send buffer.
+2024-12-10 22:28:31.293 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=55ms, DevRTT=24ms, RTO=151ms
+2024-12-10 22:28:31.304 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=19, data_len=14980, checksum=0x2ec2
+2024-12-10 22:28:31.320 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=20, data_len=14980, checksum=0x7ef2
+2024-12-10 22:28:31.335 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=21, data_len=14980, checksum=0xfc5a
+2024-12-10 22:28:31.350 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=22, data_len=14980, checksum=0xee5f
+2024-12-10 22:28:31.365 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=23, data_len=14980, checksum=0x7765
+2024-12-10 22:28:31.380 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=24, data_len=14980, checksum=0xfd4e
+2024-12-10 22:28:31.395 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=25, data_len=14980, checksum=0x4e4c
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=4, ack=23, flags=ACK , data_len=0
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] ACK received for seq=16. Removing from send buffer.
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] ACK received for seq=17. Removing from send buffer.
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] ACK received for seq=18. Removing from send buffer.
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] ACK received for seq=19. Removing from send buffer.
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] ACK received for seq=20. Removing from send buffer.
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] ACK received for seq=21. Removing from send buffer.
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] ACK received for seq=22. Removing from send buffer.
+2024-12-10 22:28:31.399 - LOG: [ESTABLISHED] RTT sample: 80ms, updated RTT=58ms, DevRTT=24ms, RTO=154ms
+2024-12-10 22:28:31.410 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=26, data_len=14980, checksum=0x5ad3
+2024-12-10 22:28:31.425 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=27, data_len=14980, checksum=0x7ea4
+2024-12-10 22:28:31.440 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=28, data_len=14980, checksum=0x1e79
+2024-12-10 22:28:31.456 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=29, data_len=14980, checksum=0x4f9d
+2024-12-10 22:28:31.471 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=30, data_len=14980, checksum=0x8c68
+2024-12-10 22:28:31.486 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=31, data_len=14980, checksum=0x3dd0
+2024-12-10 22:28:31.501 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=32, data_len=14980, checksum=0xbad0
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=5, ack=30, flags=ACK , data_len=0
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] ACK received for seq=23. Removing from send buffer.
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] ACK received for seq=24. Removing from send buffer.
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] ACK received for seq=25. Removing from send buffer.
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] ACK received for seq=26. Removing from send buffer.
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] ACK received for seq=27. Removing from send buffer.
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] ACK received for seq=28. Removing from send buffer.
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] ACK received for seq=29. Removing from send buffer.
+2024-12-10 22:28:31.504 - LOG: [ESTABLISHED] RTT sample: 109ms, updated RTT=64ms, DevRTT=30ms, RTO=184ms
+2024-12-10 22:28:31.516 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=33, data_len=14980, checksum=0xf3a7
+2024-12-10 22:28:31.531 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=34, data_len=14980, checksum=0xd100
+2024-12-10 22:28:31.546 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=35, data_len=14980, checksum=0x4dde
+2024-12-10 22:28:31.562 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=36, data_len=14980, checksum=0x1acd
+2024-12-10 22:28:31.577 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=37, data_len=14980, checksum=0xe959
+2024-12-10 22:28:31.593 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=38, data_len=14980, checksum=0xd572
+2024-12-10 22:28:31.608 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=39, data_len=14980, checksum=0xfff2
+2024-12-10 22:28:31.623 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=40, data_len=14980, checksum=0xb0b8
+2024-12-10 22:28:31.639 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=41, data_len=14980, checksum=0xa994
+2024-12-10 22:28:31.654 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=42, data_len=14980, checksum=0x4f2e
+2024-12-10 22:28:31.669 - WARN: [ESTABLISHED] Timeout at seq=30, resend all unacked packets starting from base.
+2024-12-10 22:28:31.669 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=43, data_len=14980, checksum=0x2ac7
+2024-12-10 22:28:31.684 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=44, data_len=14980, checksum=0xd8c5
+2024-12-10 22:28:31.699 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=45, data_len=14980, checksum=0xc86e
+2024-12-10 22:28:31.714 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=46, data_len=14980, checksum=0xf9fe
+2024-12-10 22:28:31.729 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=47, data_len=14980, checksum=0x657c
+2024-12-10 22:28:31.744 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=48, data_len=14980, checksum=0xf4f0
+2024-12-10 22:28:31.760 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=49, data_len=14980, checksum=0x14a6
+2024-12-10 22:28:31.824 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=7, ack=32, flags=ACK , data_len=0
+2024-12-10 22:28:31.824 - LOG: [ESTABLISHED] ACK received for seq=30. Removing from send buffer.
+2024-12-10 22:28:31.824 - LOG: [ESTABLISHED] ACK received for seq=31. Removing from send buffer.
+2024-12-10 22:28:31.824 - LOG: [ESTABLISHED] RTT sample: 156ms, updated RTT=75ms, DevRTT=45ms, RTO=255ms
+2024-12-10 22:28:31.834 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=50, data_len=14980, checksum=0xf2ea
+2024-12-10 22:28:31.849 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=51, data_len=14980, checksum=0x77b7
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=9, ack=43, flags=ACK , data_len=0
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=32. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=33. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=34. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=35. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=36. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=37. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=38. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=39. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=40. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=41. Removing from send buffer.
+2024-12-10 22:28:31.858 - LOG: [ESTABLISHED] ACK received for seq=42. Removing from send buffer.
+2024-12-10 22:28:31.859 - LOG: [ESTABLISHED] RTT sample: 190ms, updated RTT=89ms, DevRTT=62ms, RTO=337ms
+2024-12-10 22:28:31.859 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=10, ack=43, flags=ACK , data_len=0
+2024-12-10 22:28:31.865 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=52, data_len=14980, checksum=0x1863
+2024-12-10 22:28:31.880 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=53, data_len=14980, checksum=0xcff2
+2024-12-10 22:28:31.895 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=54, data_len=14980, checksum=0xdc68
+2024-12-10 22:28:31.911 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=55, data_len=14980, checksum=0x4cbe
+2024-12-10 22:28:31.925 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=56, data_len=14980, checksum=0x78ad
+2024-12-10 22:28:31.941 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=57, data_len=14980, checksum=0xb64d
+2024-12-10 22:28:31.956 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=58, data_len=14980, checksum=0x1b0f
+2024-12-10 22:28:31.971 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=59, data_len=14980, checksum=0x4ff6
+2024-12-10 22:28:31.987 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=60, data_len=14980, checksum=0x9dc3
+2024-12-10 22:28:32.002 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=61, data_len=14980, checksum=0x4c8b
+2024-12-10 22:28:32.018 - WARN: [ESTABLISHED] Timeout at seq=43, resend all unacked packets starting from base.
+2024-12-10 22:28:32.018 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=62, data_len=14980, checksum=0xb21f
+2024-12-10 22:28:32.068 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=11, ack=43, flags=ACK , data_len=0
+2024-12-10 22:28:32.366 - WARN: [ESTABLISHED] Timeout at seq=43, resend all unacked packets starting from base.
+2024-12-10 22:28:32.476 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=12, ack=46, flags=ACK , data_len=0
+2024-12-10 22:28:32.476 - LOG: [ESTABLISHED] ACK received for seq=43. Removing from send buffer.
+2024-12-10 22:28:32.476 - LOG: [ESTABLISHED] ACK received for seq=44. Removing from send buffer.
+2024-12-10 22:28:32.476 - LOG: [ESTABLISHED] ACK received for seq=45. Removing from send buffer.
+2024-12-10 22:28:32.476 - LOG: [ESTABLISHED] RTT sample: 111ms, updated RTT=91ms, DevRTT=52ms, RTO=299ms
+2024-12-10 22:28:32.476 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=13, ack=46, flags=ACK , data_len=0
+2024-12-10 22:28:32.477 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=14, ack=48, flags=ACK , data_len=0
+2024-12-10 22:28:32.477 - LOG: [ESTABLISHED] ACK received for seq=46. Removing from send buffer.
+2024-12-10 22:28:32.477 - LOG: [ESTABLISHED] ACK received for seq=47. Removing from send buffer.
+2024-12-10 22:28:32.486 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=63, data_len=14980, checksum=0x662e
+2024-12-10 22:28:32.501 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=64, data_len=14980, checksum=0x51d3
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=15, ack=62, flags=ACK , data_len=0
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=48. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=49. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=50. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=51. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=52. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=53. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=54. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=55. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=56. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=57. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=58. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=59. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=60. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] ACK received for seq=61. Removing from send buffer.
+2024-12-10 22:28:32.506 - LOG: [ESTABLISHED] RTT sample: 141ms, updated RTT=97ms, DevRTT=52ms, RTO=305ms
+2024-12-10 22:28:32.516 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=65, data_len=14980, checksum=0xab6f
+2024-12-10 22:28:32.531 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=66, data_len=14980, checksum=0xfb6
+2024-12-10 22:28:32.546 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=67, data_len=14980, checksum=0x6821
+2024-12-10 22:28:32.561 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=68, data_len=14980, checksum=0x216c
+2024-12-10 22:28:32.577 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=69, data_len=14980, checksum=0x1365
+2024-12-10 22:28:32.592 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=70, data_len=14980, checksum=0x8347
+2024-12-10 22:28:32.607 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=71, data_len=14980, checksum=0x36ee
+2024-12-10 22:28:32.622 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=72, data_len=14980, checksum=0x24c6
+2024-12-10 22:28:32.637 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=73, data_len=14980, checksum=0xbe97
+2024-12-10 22:28:32.642 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=16, ack=62, flags=ACK , data_len=0
+2024-12-10 22:28:32.652 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=74, data_len=14980, checksum=0xacbd
+2024-12-10 22:28:32.667 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=75, data_len=14980, checksum=0xdd47
+2024-12-10 22:28:32.681 - WARN: [ESTABLISHED] Timeout at seq=62, resend all unacked packets starting from base.
+2024-12-10 22:28:32.682 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=76, data_len=14980, checksum=0x5f2
+2024-12-10 22:28:32.697 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=77, data_len=14980, checksum=0xc43d
+2024-12-10 22:28:32.712 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=78, data_len=14980, checksum=0x3282
+2024-12-10 22:28:32.726 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=79, data_len=14980, checksum=0x41a4
+2024-12-10 22:28:32.742 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=80, data_len=14980, checksum=0x9da2
+2024-12-10 22:28:32.756 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=81, data_len=14980, checksum=0x662a
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=17, ack=76, flags=ACK , data_len=0
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=62. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=63. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=64. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=65. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=66. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=67. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=68. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=69. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=70. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=71. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=72. Removing from send buffer.
+2024-12-10 22:28:32.853 - LOG: [ESTABLISHED] ACK received for seq=73. Removing from send buffer.
+2024-12-10 22:28:32.854 - LOG: [ESTABLISHED] ACK received for seq=74. Removing from send buffer.
+2024-12-10 22:28:32.854 - LOG: [ESTABLISHED] ACK received for seq=75. Removing from send buffer.
+2024-12-10 22:28:32.854 - LOG: [ESTABLISHED] RTT sample: 172ms, updated RTT=106ms, DevRTT=57ms, RTO=334ms
+2024-12-10 22:28:32.854 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=18, ack=76, flags=ACK , data_len=0
+2024-12-10 22:28:32.863 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=82, data_len=14980, checksum=0xf7b5
+2024-12-10 22:28:32.878 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=83, data_len=14980, checksum=0xe582
+2024-12-10 22:28:32.893 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=84, data_len=14980, checksum=0x4d73
+2024-12-10 22:28:32.908 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=85, data_len=14980, checksum=0x88b7
+2024-12-10 22:28:32.923 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=86, data_len=14980, checksum=0x1d99
+2024-12-10 22:28:32.939 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=87, data_len=14980, checksum=0xb0f0
+2024-12-10 22:28:32.954 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=88, data_len=14980, checksum=0xec08
+2024-12-10 22:28:32.969 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=89, data_len=14980, checksum=0x1efc
+2024-12-10 22:28:32.984 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=90, data_len=14980, checksum=0xbab3
+2024-12-10 22:28:32.999 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=91, data_len=14980, checksum=0xe2ac
+2024-12-10 22:28:33.014 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=92, data_len=14980, checksum=0x9213
+2024-12-10 22:28:33.029 - WARN: [ESTABLISHED] Timeout at seq=76, resend all unacked packets starting from base.
+2024-12-10 22:28:33.029 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=93, data_len=14980, checksum=0xbad
+2024-12-10 22:28:33.044 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=94, data_len=14980, checksum=0xb641
+2024-12-10 22:28:33.059 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=95, data_len=14980, checksum=0x829a
+2024-12-10 22:28:33.376 - WARN: [ESTABLISHED] Timeout at seq=76, resend all unacked packets starting from base.
+2024-12-10 22:28:33.516 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=20, ack=79, flags=ACK , data_len=0
+2024-12-10 22:28:33.516 - LOG: [ESTABLISHED] ACK received for seq=76. Removing from send buffer.
+2024-12-10 22:28:33.516 - LOG: [ESTABLISHED] ACK received for seq=77. Removing from send buffer.
+2024-12-10 22:28:33.516 - LOG: [ESTABLISHED] ACK received for seq=78. Removing from send buffer.
+2024-12-10 22:28:33.516 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=21, ack=79, flags=ACK , data_len=0
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=22, ack=93, flags=ACK , data_len=0
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=79. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=80. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=81. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=82. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=83. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=84. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=85. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=86. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=87. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=88. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=89. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=90. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=91. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] ACK received for seq=92. Removing from send buffer.
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] RTT sample: 142ms, updated RTT=110ms, DevRTT=52ms, RTO=318ms
+2024-12-10 22:28:33.517 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=23, ack=93, flags=ACK , data_len=0
+2024-12-10 22:28:33.525 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=96, data_len=14980, checksum=0x43c9
+2024-12-10 22:28:33.541 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=97, data_len=14980, checksum=0xe39c
+2024-12-10 22:28:33.546 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=24, ack=93, flags=ACK , data_len=0
+2024-12-10 22:28:33.556 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=98, data_len=14980, checksum=0x309
+2024-12-10 22:28:33.571 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=99, data_len=14980, checksum=0x3581
+2024-12-10 22:28:33.586 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=100, data_len=14980, checksum=0xe7d1
+2024-12-10 22:28:33.602 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=101, data_len=14980, checksum=0x3ffa
+2024-12-10 22:28:33.617 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=102, data_len=14980, checksum=0xa317
+2024-12-10 22:28:33.632 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=103, data_len=14980, checksum=0x7f73
+2024-12-10 22:28:33.647 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=104, data_len=14980, checksum=0x7142
+2024-12-10 22:28:33.662 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=105, data_len=14980, checksum=0x1240
+2024-12-10 22:28:33.677 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=106, data_len=14980, checksum=0x976f
+2024-12-10 22:28:33.692 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=107, data_len=14980, checksum=0xfc9c
+2024-12-10 22:28:33.707 - WARN: [ESTABLISHED] Timeout at seq=93, resend all unacked packets starting from base.
+2024-12-10 22:28:33.707 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=108, data_len=14980, checksum=0xe1cc
+2024-12-10 22:28:33.722 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=109, data_len=14980, checksum=0xd75c
+2024-12-10 22:28:33.737 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=110, data_len=14980, checksum=0x5e62
+2024-12-10 22:28:33.752 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=111, data_len=14980, checksum=0xa757
+2024-12-10 22:28:33.766 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=112, data_len=14980, checksum=0x7757
+2024-12-10 22:28:33.786 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=25, ack=93, flags=ACK , data_len=0
+2024-12-10 22:28:33.786 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=92, fast retransmit all unacked packets starting from base.
+2024-12-10 22:28:33.962 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=26, ack=94, flags=ACK , data_len=0
+2024-12-10 22:28:33.962 - LOG: [ESTABLISHED] ACK received for seq=93. Removing from send buffer.
+2024-12-10 22:28:33.977 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=113, data_len=14980, checksum=0x125
+2024-12-10 22:28:34.112 - WARN: [ESTABLISHED] Timeout at seq=94, resend all unacked packets starting from base.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=27, ack=108, flags=ACK , data_len=0
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=94. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=95. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=96. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=97. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=98. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=99. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=100. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=101. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=102. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=103. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=104. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=105. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=106. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] ACK received for seq=107. Removing from send buffer.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] RTT sample: 173ms, updated RTT=117ms, DevRTT=54ms, RTO=333ms
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=28, ack=108, flags=ACK , data_len=0
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=29, ack=108, flags=ACK , data_len=0
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=30, ack=108, flags=ACK , data_len=0
+2024-12-10 22:28:34.285 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=107, fast retransmit all unacked packets starting from base.
+2024-12-10 22:28:34.285 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=31, ack=108, flags=ACK , data_len=0
+2024-12-10 22:28:34.292 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=114, data_len=14980, checksum=0xf48c
+2024-12-10 22:28:34.307 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=115, data_len=14980, checksum=0x4634
+2024-12-10 22:28:34.323 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=116, data_len=14980, checksum=0xa606
+2024-12-10 22:28:34.338 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=117, data_len=14980, checksum=0x45c0
+2024-12-10 22:28:34.353 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=118, data_len=14980, checksum=0xb72a
+2024-12-10 22:28:34.368 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=119, data_len=14980, checksum=0x6568
+2024-12-10 22:28:34.383 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=120, data_len=14980, checksum=0xe683
+2024-12-10 22:28:34.398 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=121, data_len=14980, checksum=0xed9d
+2024-12-10 22:28:34.414 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=122, data_len=14980, checksum=0x10c7
+2024-12-10 22:28:34.429 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=123, data_len=14980, checksum=0x6e83
+2024-12-10 22:28:34.444 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=124, data_len=14980, checksum=0xbc4c
+2024-12-10 22:28:34.459 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=125, data_len=14980, checksum=0x3919
+2024-12-10 22:28:34.474 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=126, data_len=14813, checksum=0xc7ab
+2024-12-10 22:28:34.491 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=127, data_len=10, checksum=0x2d80
+2024-12-10 22:28:34.625 - WARN: [ESTABLISHED] Timeout at seq=108, resend all unacked packets starting from base.
+2024-12-10 22:28:34.648 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=33, ack=109, flags=ACK , data_len=0
+2024-12-10 22:28:34.648 - LOG: [ESTABLISHED] ACK received for seq=108. Removing from send buffer.
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=34, ack=109, flags=ACK , data_len=0
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=35, ack=115, flags=ACK , data_len=0
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] ACK received for seq=109. Removing from send buffer.
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] ACK received for seq=110. Removing from send buffer.
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] ACK received for seq=111. Removing from send buffer.
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] ACK received for seq=112. Removing from send buffer.
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] ACK received for seq=113. Removing from send buffer.
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] ACK received for seq=114. Removing from send buffer.
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] RTT sample: 176ms, updated RTT=124ms, DevRTT=55ms, RTO=344ms
+2024-12-10 22:28:34.801 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=36, ack=115, flags=ACK , data_len=0
+2024-12-10 22:28:34.806 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=37, ack=115, flags=ACK , data_len=0
+2024-12-10 22:28:34.973 - WARN: [ESTABLISHED] Timeout at seq=115, resend all unacked packets starting from base.
+2024-12-10 22:28:35.140 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=38, ack=117, flags=ACK , data_len=0
+2024-12-10 22:28:35.140 - LOG: [ESTABLISHED] ACK received for seq=115. Removing from send buffer.
+2024-12-10 22:28:35.140 - LOG: [ESTABLISHED] ACK received for seq=116. Removing from send buffer.
+2024-12-10 22:28:35.140 - LOG: [ESTABLISHED] RTT sample: 168ms, updated RTT=129ms, DevRTT=53ms, RTO=341ms
+2024-12-10 22:28:35.140 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=39, ack=119, flags=ACK , data_len=0
+2024-12-10 22:28:35.140 - LOG: [ESTABLISHED] ACK received for seq=117. Removing from send buffer.
+2024-12-10 22:28:35.140 - LOG: [ESTABLISHED] ACK received for seq=118. Removing from send buffer.
+2024-12-10 22:28:35.149 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=40, ack=121, flags=ACK , data_len=0
+2024-12-10 22:28:35.149 - LOG: [ESTABLISHED] ACK received for seq=119. Removing from send buffer.
+2024-12-10 22:28:35.149 - LOG: [ESTABLISHED] ACK received for seq=120. Removing from send buffer.
+2024-12-10 22:28:35.149 - LOG: [ESTABLISHED] RTT sample: 177ms, updated RTT=135ms, DevRTT=52ms, RTO=343ms
+2024-12-10 22:28:35.328 - WARN: [ESTABLISHED] Timeout at seq=121, resend all unacked packets starting from base.
+2024-12-10 22:28:35.503 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=41, ack=123, flags=ACK , data_len=0
+2024-12-10 22:28:35.503 - LOG: [ESTABLISHED] ACK received for seq=121. Removing from send buffer.
+2024-12-10 22:28:35.503 - LOG: [ESTABLISHED] ACK received for seq=122. Removing from send buffer.
+2024-12-10 22:28:35.503 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=42, ack=125, flags=ACK , data_len=0
+2024-12-10 22:28:35.503 - LOG: [ESTABLISHED] ACK received for seq=123. Removing from send buffer.
+2024-12-10 22:28:35.503 - LOG: [ESTABLISHED] ACK received for seq=124. Removing from send buffer.
+2024-12-10 22:28:35.510 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=43, ack=127, flags=ACK , data_len=0
+2024-12-10 22:28:35.510 - LOG: [ESTABLISHED] ACK received for seq=125. Removing from send buffer.
+2024-12-10 22:28:35.510 - LOG: [ESTABLISHED] ACK received for seq=126. Removing from send buffer.
+2024-12-10 22:28:35.510 - LOG: [ESTABLISHED] RTT sample: 182ms, updated RTT=140ms, DevRTT=51ms, RTO=344ms
+2024-12-10 22:28:35.675 - WARN: [ESTABLISHED] Timeout at seq=127, resend all unacked packets starting from base.
+2024-12-10 22:28:36.021 - WARN: [ESTABLISHED] Timeout at seq=127, resend all unacked packets starting from base.
+2024-12-10 22:28:36.052 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=44, ack=128, flags=ACK , data_len=0
+2024-12-10 22:28:36.052 - LOG: [ESTABLISHED] ACK received for seq=127. Removing from send buffer.
+2024-12-10 22:28:50.354 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=128, data_len=19, checksum=0xfcdb
+2024-12-10 22:28:50.366 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=129, data_len=14980, checksum=0xfad4
+2024-12-10 22:28:50.381 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=130, data_len=14980, checksum=0x42ae
+2024-12-10 22:28:50.396 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=131, data_len=14980, checksum=0x9e0a
+2024-12-10 22:28:50.411 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=132, data_len=14980, checksum=0x8895
+2024-12-10 22:28:50.426 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=133, data_len=14980, checksum=0x5f94
+2024-12-10 22:28:50.441 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=134, data_len=14980, checksum=0x653f
+2024-12-10 22:28:50.456 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=135, data_len=14980, checksum=0x2bbd
+2024-12-10 22:28:50.471 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=136, data_len=14980, checksum=0x17f6
+2024-12-10 22:28:50.486 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=137, data_len=14980, checksum=0x2a11
+2024-12-10 22:28:50.501 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=138, data_len=14980, checksum=0xcfb9
+2024-12-10 22:28:50.516 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=139, data_len=14980, checksum=0xd538
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=45, ack=135, flags=ACK , data_len=0
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] ACK received for seq=128. Removing from send buffer.
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] ACK received for seq=129. Removing from send buffer.
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] ACK received for seq=130. Removing from send buffer.
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] ACK received for seq=131. Removing from send buffer.
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] ACK received for seq=132. Removing from send buffer.
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] ACK received for seq=133. Removing from send buffer.
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] ACK received for seq=134. Removing from send buffer.
+2024-12-10 22:28:50.519 - LOG: [ESTABLISHED] RTT sample: 138ms, updated RTT=140ms, DevRTT=39ms, RTO=296ms
+2024-12-10 22:28:50.531 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=140, data_len=14980, checksum=0x8013
+2024-12-10 22:28:50.547 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=141, data_len=14980, checksum=0x570a
+2024-12-10 22:28:50.562 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=142, data_len=14980, checksum=0x16c8
+2024-12-10 22:28:50.577 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=143, data_len=14980, checksum=0x2048
+2024-12-10 22:28:50.596 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=144, data_len=14980, checksum=0xea00
+2024-12-10 22:28:50.611 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=145, data_len=14980, checksum=0x2e44
+2024-12-10 22:28:50.626 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=146, data_len=14980, checksum=0x7e74
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=46, ack=142, flags=ACK , data_len=0
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] ACK received for seq=135. Removing from send buffer.
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] ACK received for seq=136. Removing from send buffer.
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] ACK received for seq=137. Removing from send buffer.
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] ACK received for seq=138. Removing from send buffer.
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] ACK received for seq=139. Removing from send buffer.
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] ACK received for seq=140. Removing from send buffer.
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] ACK received for seq=141. Removing from send buffer.
+2024-12-10 22:28:50.629 - LOG: [ESTABLISHED] RTT sample: 98ms, updated RTT=135ms, DevRTT=39ms, RTO=291ms
+2024-12-10 22:28:50.641 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=147, data_len=14980, checksum=0xfbdc
+2024-12-10 22:28:50.656 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=148, data_len=14980, checksum=0xede1
+2024-12-10 22:28:50.671 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=149, data_len=14980, checksum=0x76e7
+2024-12-10 22:28:50.686 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=150, data_len=14980, checksum=0xfcd0
+2024-12-10 22:28:50.701 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=151, data_len=14980, checksum=0x4dce
+2024-12-10 22:28:50.716 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=152, data_len=14980, checksum=0x5a55
+2024-12-10 22:28:50.731 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=153, data_len=14980, checksum=0x7e26
+2024-12-10 22:28:50.734 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=47, ack=149, flags=ACK , data_len=0
+2024-12-10 22:28:50.734 - LOG: [ESTABLISHED] ACK received for seq=142. Removing from send buffer.
+2024-12-10 22:28:50.734 - LOG: [ESTABLISHED] ACK received for seq=143. Removing from send buffer.
+2024-12-10 22:28:50.734 - LOG: [ESTABLISHED] ACK received for seq=144. Removing from send buffer.
+2024-12-10 22:28:50.734 - LOG: [ESTABLISHED] ACK received for seq=145. Removing from send buffer.
+2024-12-10 22:28:50.734 - LOG: [ESTABLISHED] ACK received for seq=146. Removing from send buffer.
+2024-12-10 22:28:50.735 - LOG: [ESTABLISHED] ACK received for seq=147. Removing from send buffer.
+2024-12-10 22:28:50.735 - LOG: [ESTABLISHED] ACK received for seq=148. Removing from send buffer.
+2024-12-10 22:28:50.735 - LOG: [ESTABLISHED] RTT sample: 124ms, updated RTT=134ms, DevRTT=32ms, RTO=262ms
+2024-12-10 22:28:50.746 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=154, data_len=14980, checksum=0x1dfb
+2024-12-10 22:28:50.761 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=155, data_len=14980, checksum=0x4f1f
+2024-12-10 22:28:50.777 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=156, data_len=14980, checksum=0x8bea
+2024-12-10 22:28:50.792 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=157, data_len=14980, checksum=0x3d52
+2024-12-10 22:28:50.806 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=158, data_len=14980, checksum=0xba52
+2024-12-10 22:28:50.821 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=159, data_len=14980, checksum=0xf329
+2024-12-10 22:28:50.837 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=160, data_len=14980, checksum=0xd082
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=48, ack=156, flags=ACK , data_len=0
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] ACK received for seq=149. Removing from send buffer.
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] ACK received for seq=150. Removing from send buffer.
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] ACK received for seq=151. Removing from send buffer.
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] ACK received for seq=152. Removing from send buffer.
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] ACK received for seq=153. Removing from send buffer.
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] ACK received for seq=154. Removing from send buffer.
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] ACK received for seq=155. Removing from send buffer.
+2024-12-10 22:28:50.840 - LOG: [ESTABLISHED] RTT sample: 79ms, updated RTT=128ms, DevRTT=37ms, RTO=276ms
+2024-12-10 22:28:50.851 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=161, data_len=14980, checksum=0x4d60
+2024-12-10 22:28:50.867 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=162, data_len=14980, checksum=0x1a4f
+2024-12-10 22:28:50.883 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=163, data_len=14980, checksum=0xe8db
+2024-12-10 22:28:50.897 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=164, data_len=14980, checksum=0xd4f4
+2024-12-10 22:28:50.912 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=165, data_len=14980, checksum=0xff74
+2024-12-10 22:28:50.931 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=166, data_len=14980, checksum=0xb03a
+2024-12-10 22:28:50.946 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=167, data_len=14980, checksum=0xa916
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=49, ack=163, flags=ACK , data_len=0
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] ACK received for seq=156. Removing from send buffer.
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] ACK received for seq=157. Removing from send buffer.
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] ACK received for seq=158. Removing from send buffer.
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] ACK received for seq=159. Removing from send buffer.
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] ACK received for seq=160. Removing from send buffer.
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] ACK received for seq=161. Removing from send buffer.
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] ACK received for seq=162. Removing from send buffer.
+2024-12-10 22:28:50.949 - LOG: [ESTABLISHED] RTT sample: 113ms, updated RTT=127ms, DevRTT=32ms, RTO=255ms
+2024-12-10 22:28:50.961 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=168, data_len=14980, checksum=0x4eb0
+2024-12-10 22:28:50.976 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=169, data_len=14980, checksum=0x2a49
+2024-12-10 22:28:50.991 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=170, data_len=14980, checksum=0xd847
+2024-12-10 22:28:51.006 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=171, data_len=14980, checksum=0xc7f0
+2024-12-10 22:28:51.021 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=172, data_len=14980, checksum=0xf980
+2024-12-10 22:28:51.036 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=173, data_len=14980, checksum=0x64fe
+2024-12-10 22:28:51.051 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=174, data_len=14980, checksum=0xf472
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=50, ack=170, flags=ACK , data_len=0
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] ACK received for seq=163. Removing from send buffer.
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] ACK received for seq=164. Removing from send buffer.
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] ACK received for seq=165. Removing from send buffer.
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] ACK received for seq=166. Removing from send buffer.
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] ACK received for seq=167. Removing from send buffer.
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] ACK received for seq=168. Removing from send buffer.
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] ACK received for seq=169. Removing from send buffer.
+2024-12-10 22:28:51.054 - LOG: [ESTABLISHED] RTT sample: 142ms, updated RTT=128ms, DevRTT=28ms, RTO=240ms
+2024-12-10 22:28:51.066 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=175, data_len=14980, checksum=0x1428
+2024-12-10 22:28:51.081 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=176, data_len=14980, checksum=0xf26c
+2024-12-10 22:28:51.097 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=177, data_len=14980, checksum=0x7739
+2024-12-10 22:28:51.112 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=178, data_len=14980, checksum=0x17e5
+2024-12-10 22:28:51.127 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=179, data_len=14980, checksum=0xcf74
+2024-12-10 22:28:51.142 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=180, data_len=14980, checksum=0xdbea
+2024-12-10 22:28:51.157 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=181, data_len=14980, checksum=0x4c40
+2024-12-10 22:28:51.172 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=182, data_len=14980, checksum=0x782f
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=51, ack=177, flags=ACK , data_len=0
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] ACK received for seq=170. Removing from send buffer.
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] ACK received for seq=171. Removing from send buffer.
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] ACK received for seq=172. Removing from send buffer.
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] ACK received for seq=173. Removing from send buffer.
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] ACK received for seq=174. Removing from send buffer.
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] ACK received for seq=175. Removing from send buffer.
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] ACK received for seq=176. Removing from send buffer.
+2024-12-10 22:28:51.176 - LOG: [ESTABLISHED] RTT sample: 111ms, updated RTT=126ms, DevRTT=26ms, RTO=230ms
+2024-12-10 22:28:51.187 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=183, data_len=14980, checksum=0xb5cf
+2024-12-10 22:28:51.202 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=184, data_len=14980, checksum=0x1a91
+2024-12-10 22:28:51.217 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=185, data_len=14980, checksum=0x4f78
+2024-12-10 22:28:51.232 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=186, data_len=14980, checksum=0x9d45
+2024-12-10 22:28:51.247 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=187, data_len=14980, checksum=0x4c0d
+2024-12-10 22:28:51.262 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=188, data_len=14980, checksum=0xb1a1
+2024-12-10 22:28:51.277 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=189, data_len=14980, checksum=0x65b0
+2024-12-10 22:28:51.292 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=190, data_len=14980, checksum=0x5155
+2024-12-10 22:28:51.307 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=191, data_len=14980, checksum=0xaaf1
+2024-12-10 22:28:51.323 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=192, data_len=14980, checksum=0xf38
+2024-12-10 22:28:51.338 - WARN: [ESTABLISHED] Timeout at seq=177, resend all unacked packets starting from base.
+2024-12-10 22:28:51.338 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=193, data_len=14980, checksum=0x67a3
+2024-12-10 22:28:51.353 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=194, data_len=14980, checksum=0x20ee
+2024-12-10 22:28:51.368 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=195, data_len=14980, checksum=0x12e7
+2024-12-10 22:28:51.383 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=196, data_len=14980, checksum=0x82c9
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=53, ack=191, flags=ACK , data_len=0
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=177. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=178. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=179. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=180. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=181. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=182. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=183. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=184. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=185. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=186. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=187. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=188. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=189. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=190. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] RTT sample: 140ms, updated RTT=127ms, DevRTT=23ms, RTO=219ms
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=54, ack=193, flags=ACK , data_len=0
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=191. Removing from send buffer.
+2024-12-10 22:28:51.477 - LOG: [ESTABLISHED] ACK received for seq=192. Removing from send buffer.
+2024-12-10 22:28:51.488 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=197, data_len=14980, checksum=0x3670
+2024-12-10 22:28:51.503 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=198, data_len=14980, checksum=0x2448
+2024-12-10 22:28:51.518 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=199, data_len=14980, checksum=0xbe19
+2024-12-10 22:28:51.533 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=200, data_len=14980, checksum=0xac3f
+2024-12-10 22:28:51.548 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=201, data_len=14980, checksum=0xdcc9
+2024-12-10 22:28:51.563 - WARN: [ESTABLISHED] Timeout at seq=193, resend all unacked packets starting from base.
+2024-12-10 22:28:51.563 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=202, data_len=14980, checksum=0x574
+2024-12-10 22:28:51.578 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=203, data_len=14980, checksum=0xc3bf
+2024-12-10 22:28:51.593 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=204, data_len=14980, checksum=0x3204
+2024-12-10 22:28:51.608 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=205, data_len=14980, checksum=0x4126
+2024-12-10 22:28:51.623 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=206, data_len=14980, checksum=0x9d24
+2024-12-10 22:28:51.638 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=207, data_len=14980, checksum=0x65ac
+2024-12-10 22:28:51.653 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=208, data_len=14980, checksum=0xf737
+2024-12-10 22:28:51.668 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=209, data_len=14980, checksum=0xe504
+2024-12-10 22:28:51.684 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=210, data_len=14980, checksum=0x4cf5
+2024-12-10 22:28:51.699 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=211, data_len=14980, checksum=0x8839
+2024-12-10 22:28:51.715 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=212, data_len=14980, checksum=0x1d1b
+2024-12-10 22:28:51.791 - WARN: [ESTABLISHED] Timeout at seq=193, resend all unacked packets starting from base.
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=60, ack=202, flags=ACK , data_len=0
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] ACK received for seq=193. Removing from send buffer.
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] ACK received for seq=194. Removing from send buffer.
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] ACK received for seq=195. Removing from send buffer.
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] ACK received for seq=196. Removing from send buffer.
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] ACK received for seq=197. Removing from send buffer.
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] ACK received for seq=198. Removing from send buffer.
+2024-12-10 22:28:51.869 - LOG: [ESTABLISHED] ACK received for seq=199. Removing from send buffer.
+2024-12-10 22:28:51.870 - LOG: [ESTABLISHED] ACK received for seq=200. Removing from send buffer.
+2024-12-10 22:28:51.870 - LOG: [ESTABLISHED] ACK received for seq=201. Removing from send buffer.
+2024-12-10 22:28:51.870 - LOG: [ESTABLISHED] RTT sample: 79ms, updated RTT=121ms, DevRTT=29ms, RTO=237ms
+2024-12-10 22:28:51.870 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=61, ack=202, flags=ACK , data_len=0
+2024-12-10 22:28:51.870 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=62, ack=202, flags=ACK , data_len=0
+2024-12-10 22:28:51.870 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=63, ack=202, flags=ACK , data_len=0
+2024-12-10 22:28:51.870 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=201, fast retransmit all unacked packets starting from base.
+2024-12-10 22:28:51.881 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=213, data_len=14980, checksum=0xb072
+2024-12-10 22:28:51.896 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=214, data_len=14980, checksum=0xeb8a
+2024-12-10 22:28:51.911 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=215, data_len=14980, checksum=0x1e7e
+2024-12-10 22:28:51.926 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=216, data_len=14980, checksum=0xba35
+2024-12-10 22:28:51.942 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=217, data_len=14980, checksum=0xe22e
+2024-12-10 22:28:51.957 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=218, data_len=14980, checksum=0x9195
+2024-12-10 22:28:51.973 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=219, data_len=14980, checksum=0xb2f
+2024-12-10 22:28:51.988 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=220, data_len=14980, checksum=0xb5c3
+2024-12-10 22:28:52.003 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=221, data_len=14980, checksum=0x821c
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=70, ack=213, flags=ACK , data_len=0
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=202. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=203. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=204. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=205. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=206. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=207. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=208. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=209. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=210. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=211. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] ACK received for seq=212. Removing from send buffer.
+2024-12-10 22:28:52.096 - LOG: [ESTABLISHED] RTT sample: 226ms, updated RTT=134ms, DevRTT=48ms, RTO=326ms
+2024-12-10 22:28:52.108 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=222, data_len=14980, checksum=0x434b
+2024-12-10 22:28:52.123 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=223, data_len=14980, checksum=0xe31e
+2024-12-10 22:28:52.138 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=224, data_len=14980, checksum=0x28b
+2024-12-10 22:28:52.153 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=225, data_len=14980, checksum=0x3503
+2024-12-10 22:28:52.169 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=226, data_len=14980, checksum=0xe753
+2024-12-10 22:28:52.184 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=227, data_len=14980, checksum=0x3f7c
+2024-12-10 22:28:52.199 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=228, data_len=14980, checksum=0xa299
+2024-12-10 22:28:52.214 - WARN: [ESTABLISHED] Timeout at seq=213, resend all unacked packets starting from base.
+2024-12-10 22:28:52.214 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=229, data_len=14980, checksum=0x7ef5
+2024-12-10 22:28:52.229 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=230, data_len=14980, checksum=0x70c4
+2024-12-10 22:28:52.232 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=71, ack=213, flags=ACK , data_len=0
+2024-12-10 22:28:52.244 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=231, data_len=14980, checksum=0x11c2
+2024-12-10 22:28:52.259 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=232, data_len=14980, checksum=0x96f1
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=73, ack=216, flags=ACK , data_len=0
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=213. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=214. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=215. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] RTT sample: 124ms, updated RTT=133ms, DevRTT=39ms, RTO=289ms
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=74, ack=229, flags=ACK , data_len=0
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=216. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=217. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=218. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=219. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=220. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=221. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=222. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=223. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=224. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=225. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=226. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=227. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] ACK received for seq=228. Removing from send buffer.
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] RTT sample: 125ms, updated RTT=132ms, DevRTT=32ms, RTO=260ms
+2024-12-10 22:28:52.339 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=75, ack=229, flags=ACK , data_len=0
+2024-12-10 22:28:52.349 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=233, data_len=14980, checksum=0xfc1e
+2024-12-10 22:28:52.365 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=234, data_len=14980, checksum=0xe14e
+2024-12-10 22:28:52.381 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=235, data_len=14980, checksum=0xd6de
+2024-12-10 22:28:52.396 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=236, data_len=14980, checksum=0x5de4
+2024-12-10 22:28:52.411 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=237, data_len=14980, checksum=0xa6d9
+2024-12-10 22:28:52.426 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=238, data_len=14980, checksum=0x76d9
+2024-12-10 22:28:52.441 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=239, data_len=14980, checksum=0xa7
+2024-12-10 22:28:52.456 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=240, data_len=14980, checksum=0xf40e
+2024-12-10 22:28:52.471 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=241, data_len=14980, checksum=0x45b6
+2024-12-10 22:28:52.486 - WARN: [ESTABLISHED] Timeout at seq=229, resend all unacked packets starting from base.
+2024-12-10 22:28:52.486 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=242, data_len=14980, checksum=0xa588
+2024-12-10 22:28:52.501 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=243, data_len=14980, checksum=0x4542
+2024-12-10 22:28:52.516 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=244, data_len=14980, checksum=0xb6ac
+2024-12-10 22:28:52.532 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=245, data_len=14980, checksum=0x64ea
+2024-12-10 22:28:52.547 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=246, data_len=14980, checksum=0xe605
+2024-12-10 22:28:52.562 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=247, data_len=14980, checksum=0xed1f
+2024-12-10 22:28:52.577 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=248, data_len=14980, checksum=0x1049
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=77, ack=243, flags=ACK , data_len=0
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=229. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=230. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=231. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=232. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=233. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=234. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=235. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=236. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=237. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=238. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=239. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=240. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=241. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] ACK received for seq=242. Removing from send buffer.
+2024-12-10 22:28:52.658 - LOG: [ESTABLISHED] RTT sample: 171ms, updated RTT=136ms, DevRTT=33ms, RTO=268ms
+2024-12-10 22:28:52.668 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=249, data_len=14980, checksum=0x6e05
+2024-12-10 22:28:52.683 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=250, data_len=14980, checksum=0xbbce
+2024-12-10 22:28:52.699 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=251, data_len=14980, checksum=0x389b
+2024-12-10 22:28:52.714 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=252, data_len=14813, checksum=0xc72d
+2024-12-10 22:28:52.729 - LOG: [ESTABLISHED] Send packet: connect_id=2316608915, seq=253, data_len=10, checksum=0x2d02
+2024-12-10 22:28:52.763 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=78, ack=245, flags=ACK , data_len=0
+2024-12-10 22:28:52.763 - LOG: [ESTABLISHED] ACK received for seq=243. Removing from send buffer.
+2024-12-10 22:28:52.763 - LOG: [ESTABLISHED] ACK received for seq=244. Removing from send buffer.
+2024-12-10 22:28:52.804 - WARN: [ESTABLISHED] Timeout at seq=245, resend all unacked packets starting from base.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=79, ack=254, flags=ACK , data_len=0
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=245. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=246. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=247. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=248. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=249. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=250. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=251. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=252. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] ACK received for seq=253. Removing from send buffer.
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] RTT sample: 109ms, updated RTT=133ms, DevRTT=32ms, RTO=261ms
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=80, ack=254, flags=ACK , data_len=0
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=81, ack=254, flags=ACK , data_len=0
+2024-12-10 22:28:52.913 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=82, ack=254, flags=ACK , data_len=0
+2024-12-10 22:28:52.913 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=253, fast retransmit all unacked packets starting from base.
+2024-12-10 22:28:52.914 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=83, ack=254, flags=ACK , data_len=0
+2024-12-10 22:28:52.924 - LOG: [ESTABLISHED] Received packet: connect_id=2316608915, seq=84, ack=254, flags=ACK , data_len=0
+2024-12-10 22:29:25.339 - WARN: [ESTABLISHED] Received corrupted packet (wrong checksum). Dropping.
+2024-12-10 22:29:25.339 - LOG: [ESTABLISHED] Send FIN packet seq=254 to 127.0.0.1. Change status to FIN_WAIT.
+2024-12-10 22:29:25.373 - LOG: [FIN_WAIT] Received FIN_ACK packet seq=85
+2024-12-10 22:29:25.389 - LOG:  Change status to CLOSE_WAIT.
+2024-12-10 22:29:27.403 - LOG: [CLOSE_WAIT] Receive packet at CLOSE_WAIT: connect_id=1701536102, seq=85, ack=255, flags=ACK FIN . Resend ACK packet 255
