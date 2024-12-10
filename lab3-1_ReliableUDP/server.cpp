@@ -45,7 +45,7 @@ void receiveFile(RUDP_P& packet, ofstream& outFile, bool& receivingFile)
 
 int main()
 {
-    RUDP server(8888);
+    RUDP_S server(8888);
 
     cout << "Server run at port " << server.getBoundPort() << endl;
 

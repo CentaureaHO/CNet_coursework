@@ -13,6 +13,10 @@
 #include <mutex>
 #include <deque>
 
+#define GUESS_RTT 50
+#define CHECK_GAP 10  // check timeout every 10ms
+extern std::chrono::milliseconds check_gap;
+
 void printRUDP(RUDP_P& p);
 
 class RUDP
@@ -32,6 +36,8 @@ class RUDP
 
     std::atomic<bool> _receiving;
     std::thread       _receive_thread;
+    std::atomic<bool> _wakeup;
+    std::thread       _wakeup_thread;
 
   public:
     RUDP(int port);
@@ -43,7 +49,7 @@ class RUDP
     virtual void clear_statu() = 0;
 
   protected:
-    virtual void _receive_handler() = 0;
+    virtual void _wakeup_handler() = 0;
 };
 
 class RUDP_C : public RUDP
@@ -65,8 +71,8 @@ class RUDP_C : public RUDP
   private:
     virtual void clear_statu() override;
     void         _resend_handler();
-    virtual void _receive_handler() override;
-    void         _wakeup_handler();
+    void         _receive_handler();
+    virtual void _wakeup_handler() override;
 
   public:
     bool connect(const char* remote_ip, int remote_port);
@@ -89,7 +95,8 @@ class RUDP_S : public RUDP
 
   private:
     virtual void clear_statu() override;
-    virtual void _receive_handler() override;
+    void         _receive_handler(callback cb);
+    virtual void _wakeup_handler() override;
 
   private:
     void _listen();

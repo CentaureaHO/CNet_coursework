@@ -8,7 +8,8 @@
 #include <common/log.h>
 using namespace std;
 
-#define GUESS_RTT 50
+using ms       = chrono::milliseconds;
+ms check_gap = ms(CHECK_GAP);
 
 void printRUDP(RUDP_P& p)
 {
@@ -25,7 +26,8 @@ RUDP::RUDP(int local_port)
       _seq_num(0),
       _ack_num(0),
       _rtt(GUESS_RTT),
-      _receiving(false)
+      _receiving(false),
+      _wakeup(false)
 {
     _sockfd = socket(AF_INET, SOCK_DGRAM, 0);
 

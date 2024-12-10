@@ -1,0 +1,34 @@
+2024-12-10 12:08:03.065 - LOG: Enter listen mode, change statu to LISTEN.
+2024-12-10 12:08:04.954 - LOG: LISTEN: Received a SYN packet:
+connect_id: 1372817364
+seq_num: 0
+ack_num: 0
+data_len: 0
+flags: 0x1 (SYN)
+checksum: 0x2657
+2024-12-10 12:08:04.954 - LOG: LISTEN: Sent SYN_ACK packet to 127.0.0.1:8000
+2024-12-10 12:08:04.954 - LOG: Change statu to SYN_RCVD.
+2024-12-10 12:08:04.963 - LOG: SYN_RCVD: Received a ACK packet:
+connect_id: 1372817364
+seq_num: 1
+ack_num: 1
+data_len: 0
+flags: 0x3 (SYN, ACK)
+checksum: 0x2653
+2024-12-10 12:08:04.963 - LOG: Connection established, change statu to ESTABLISHED.
+2024-12-10 12:08:30.010 - LOG: ESTABLISHED: Received a FIN packet:
+connect_id: 1372817364
+seq_num: 524
+ack_num: 0
+data_len: 0
+flags: 0x4 (FIN)
+checksum: 0x2448
+2024-12-10 12:08:30.010 - LOG: Change statu to FIN_RCVD.
+2024-12-10 12:08:30.032 - LOG: FIN_RCVD: Received last ACK packet
+connect_id: 1372817364
+seq_num: 525
+ack_num: 525
+data_len: 0
+flags: 0x2 (ACK)
+checksum: 0x223c
+2024-12-10 12:08:30.032 - LOG: Change statu to CLOSED.

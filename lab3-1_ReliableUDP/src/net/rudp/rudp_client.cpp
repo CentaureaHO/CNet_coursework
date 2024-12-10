@@ -8,7 +8,6 @@
 #include <common/log.h>
 using namespace std;
 
-#define CHECK_GAP 10  // check timeout every 10ms
 #define SEND(rudp_packet)                                                                             \
     {                                                                                                 \
         sendto(_sockfd,                                                                               \
@@ -21,8 +20,7 @@ using namespace std;
             rudp_packet, chrono::time_point_cast<chrono::milliseconds>(chrono::steady_clock::now())}; \
     }
 
-using ms       = chrono::milliseconds;
-auto check_gap = ms(CHECK_GAP);
+using ms = chrono::milliseconds;
 
 namespace
 {
@@ -146,11 +144,14 @@ void RUDP_C::_wakeup_handler()
     loopback_addr.sin_family      = AF_INET;
     loopback_addr.sin_port        = htons(_port);
     loopback_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    string      fake              = "fake";
+    const char* fake_c            = fake.c_str();
+    int         len               = static_cast<int>(fake.length());
 
-    while (_resending)
+    while (_wakeup)
     {
-        this_thread::sleep_for(check_gap);
-        sendto(_sockfd, "", 0, 0, (const struct sockaddr*)&loopback_addr, sizeof(sockaddr_in));
+        this_thread::sleep_for(std::chrono::milliseconds(2000));
+        sendto(_sockfd, fake_c, len, 0, (const struct sockaddr*)&loopback_addr, sizeof(sockaddr_in));
     }
 }
 
@@ -235,9 +236,7 @@ bool RUDP_C::connect(const char* remote_ip, int remote_port)
 
     if (_statu != RUDP_STATUS::ESTABLISHED)
     {
-        // cout << "Failed to connect to " << remote_ip << ":" << remote_port << endl;
         CLOG_ERR("Failed to connect to ", remote_ip, ":", remote_port, ", turn back to CLOSED.");
-        // clear_statu();
         return false;
     }
 
@@ -271,6 +270,19 @@ bool RUDP_C::disconnect()
         }
         this_thread::sleep_for(check_gap);
     }
+
+    _receiving            = false;
+    SOCKET      send_sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    sockaddr_in loopback_addr;
+    ZeroMemory(&loopback_addr, sizeof(loopback_addr));
+    loopback_addr.sin_family      = AF_INET;
+    loopback_addr.sin_port        = htons(_port);            // 绑定的端口
+    loopback_addr.sin_addr.s_addr = inet_addr("127.0.0.1");  // 本地回环地址
+    string fake                   = "fake";
+    std::cout << "Sent interrupt packet to stop receiving." << std::endl;
+    sendto(send_sock, fake.c_str(), fake.length(), 0, (const struct sockaddr*)&loopback_addr, sizeof(sockaddr_in));
+    closesocket(send_sock);
+    if (_receive_thread.joinable()) { _receive_thread.join(); }
 
     RUDP_P fin_packet;
     fin_packet.header.connect_id = _connect_id;
@@ -317,38 +329,9 @@ bool RUDP_C::disconnect()
 
         CLOG(statuStr(_statu), ": Received FIN_ACK packet ", recv_buffer.header.seq_num);
 
-        {
-            WriteGuard guard = _send_buffer_lock.write();
-            _send_buffer.erase(recv_buffer.header.ack_num - 1);
-
-            _resending = false;
-            if (_resend_thread.joinable()) _resend_thread.join();
-            _receiving = false;
-            if (_receive_thread.joinable())
-            {
-                SOCKET send_sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-                if (send_sock != INVALID_SOCKET)
-                {
-                    sockaddr_in loopback_addr;
-                    ZeroMemory(&loopback_addr, sizeof(loopback_addr));
-                    loopback_addr.sin_family      = AF_INET;
-                    loopback_addr.sin_port        = htons(_port);            // 绑定的端口
-                    loopback_addr.sin_addr.s_addr = inet_addr("127.0.0.1");  // 本地回环地址
-
-                    string fake = "fake";
-
-                    sendto(send_sock,
-                        fake.c_str(),
-                        fake.length(),
-                        0,
-                        (const struct sockaddr*)&loopback_addr,
-                        sizeof(sockaddr_in));
-                    closesocket(send_sock);
-                    std::cout << "Sent interrupt packet to stop receiving." << std::endl;
-                }
-                _receive_thread.join();
-            }
-        }
+        _resending = false;
+        if (_resend_thread.joinable()) _resend_thread.join();
+        _send_buffer.erase(recv_buffer.header.ack_num - 1);
 
         CLR_FLAGS(fin_packet);
         fin_packet.header.seq_num = _seq_num++;
@@ -375,8 +358,8 @@ bool RUDP_C::disconnect()
     auto timeout    = std::chrono::milliseconds(2000);  // 2s超时
     auto start_time = chrono::high_resolution_clock::now();
     auto now        = chrono::high_resolution_clock::now();
-    _resending      = true;
-    _resend_thread  = thread(&RUDP_C::_wakeup_handler, this);
+    _wakeup         = true;
+    _wakeup_thread  = thread(&RUDP_C::_wakeup_handler, this);
 
     cout << "Wait for 2s to close connection." << endl;
     while (true)
@@ -397,8 +380,8 @@ bool RUDP_C::disconnect()
             sizeof(sockaddr_in));
     }
 
-    _resending = false;
-    if (_resend_thread.joinable()) _resend_thread.join();
+    _wakeup = false;
+    if (_wakeup_thread.joinable()) _wakeup_thread.join();
 
     return true;
 }
