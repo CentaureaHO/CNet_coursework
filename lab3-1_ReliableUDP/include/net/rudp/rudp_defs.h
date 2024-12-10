@@ -1,7 +1,6 @@
 #ifndef __NET_RUDP_RUDP_DEFS_H__
 #define __NET_RUDP_RUDP_DEFS_H__
 
-#include <net/nb_socket.h>
 #include <stdint.h>
 #include <string>
 
