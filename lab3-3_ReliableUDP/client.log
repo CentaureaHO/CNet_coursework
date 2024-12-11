@@ -1,0 +1,1595 @@
+2024-12-12 00:52:55.261 - LOG:  Start resend thread.
+2024-12-12 00:52:55.262 - LOG:  Enter connect mode, generate connect_id=1788240507
+2024-12-12 00:52:55.262 - LOG: [SYN_SENT] Send SYN packet to 127.0.0.1:5000. Change status to SYN_SENT.
+2024-12-12 00:52:55.297 - LOG: [SYN_SENT] Received SYN_ACK packet: seq=0, ack=1. Change status to ESTABLISHED.
+2024-12-12 00:52:55.298 - LOG:  Now established, send ACK packet.
+2024-12-12 00:52:55.298 - LOG:  Start receive thread.
+2024-12-12 00:52:55.342 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=1, ack=2, flags=ACK , data_len=0
+2024-12-12 00:52:55.342 - LOG: Slow Start: cwnd=2, ssthresh=64
+2024-12-12 00:52:55.362 - LOG: Enter Slow Start: cwnd=1, ssthresh=64
+2024-12-12 00:52:55.958 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=2, data_len=19, checksum=0x5fee
+2024-12-12 00:52:56.110 - WARN: Timeout: cwnd=1, ssthresh=2, enter Slow Start.
+2024-12-12 00:52:56.110 - WARN: [ESTABLISHED] Timeout at seq=2, resend all unacked packets starting from base.
+2024-12-12 00:52:56.110 - LOG: [ESTABLISHED] Resend packet seq=2
+2024-12-12 00:52:56.171 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=3, ack=3, flags=ACK , data_len=0
+2024-12-12 00:52:56.171 - LOG: Slow Start: cwnd=2, ssthresh=2
+2024-12-12 00:52:56.171 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:52:56.192 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=3, data_len=32747, checksum=0xacc7
+2024-12-12 00:52:56.192 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=4, data_len=32747, checksum=0x87cf
+2024-12-12 00:52:56.231 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:52:56.232 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=5, data_len=32747, checksum=0x1b96
+2024-12-12 00:52:56.254 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=4, ack=5, flags=ACK , data_len=0
+2024-12-12 00:52:56.274 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=6, data_len=32747, checksum=0x7cdf
+2024-12-12 00:52:56.274 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=7, data_len=32747, checksum=0x7117
+2024-12-12 00:52:56.284 - LOG: Congestion Avoidance increment: cwnd=4, ssthresh=2
+2024-12-12 00:52:56.284 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=5, ack=6, flags=ACK , data_len=0
+2024-12-12 00:52:56.284 - LOG: [ESTABLISHED] RTT sample: 52ms, updated RTT=50ms, DevRTT=20ms, RTO=130ms
+2024-12-12 00:52:56.293 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=8, data_len=32747, checksum=0x760e
+2024-12-12 00:52:56.294 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=9, data_len=32747, checksum=0x60be
+2024-12-12 00:52:56.342 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=2
+2024-12-12 00:52:56.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=10, data_len=32747, checksum=0xe802
+2024-12-12 00:52:56.352 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=6, ack=10, flags=ACK , data_len=0
+2024-12-12 00:52:56.372 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=11, data_len=32747, checksum=0x16e2
+2024-12-12 00:52:56.372 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=12, data_len=32747, checksum=0x1a09
+2024-12-12 00:52:56.372 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=13, data_len=32747, checksum=0x5c31
+2024-12-12 00:52:56.372 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=14, data_len=32747, checksum=0xd792
+2024-12-12 00:52:56.396 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=2
+2024-12-12 00:52:56.397 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=15, data_len=32747, checksum=0x6b43
+2024-12-12 00:52:56.426 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=7, ack=10, flags=ACK , data_len=0
+2024-12-12 00:52:56.426 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=8, ack=10, flags=ACK , data_len=0
+2024-12-12 00:52:56.426 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=9, ack=10, flags=ACK , data_len=0
+2024-12-12 00:52:56.426 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=9, fast retransmit.
+2024-12-12 00:52:56.426 - LOG: Enter Fast Recovery: cwnd=6, ssthresh=3
+2024-12-12 00:52:56.456 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=10, ack=10, flags=ACK , data_len=0
+2024-12-12 00:52:56.456 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=11, ack=10, flags=ACK , data_len=0
+2024-12-12 00:52:56.476 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=12, ack=16, flags=ACK , data_len=0
+2024-12-12 00:52:56.476 - LOG: [ESTABLISHED] RTT sample: 50ms, updated RTT=50ms, DevRTT=15ms, RTO=110ms
+2024-12-12 00:52:56.476 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=3, ssthresh=3
+2024-12-12 00:52:56.476 - LOG: Enter Congestion Avoidance: cwnd=3, ssthresh=3
+2024-12-12 00:52:56.476 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=13, ack=16, flags=ACK , data_len=0
+2024-12-12 00:52:56.476 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=14, ack=16, flags=ACK , data_len=0
+2024-12-12 00:52:56.476 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=15, ack=16, flags=ACK , data_len=0
+2024-12-12 00:52:56.476 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=15, fast retransmit.
+2024-12-12 00:52:56.476 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:52:56.502 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=16, data_len=32747, checksum=0xcac1
+2024-12-12 00:52:56.502 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=17, data_len=32747, checksum=0xe9f9
+2024-12-12 00:52:56.502 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=18, data_len=32747, checksum=0xe485
+2024-12-12 00:52:56.502 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=19, data_len=32747, checksum=0xd2db
+2024-12-12 00:52:56.502 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=20, data_len=32747, checksum=0x7823
+2024-12-12 00:52:56.558 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=16, ack=21, flags=ACK , data_len=0
+2024-12-12 00:52:56.558 - LOG: [ESTABLISHED] RTT sample: 56ms, updated RTT=50ms, DevRTT=13ms, RTO=102ms
+2024-12-12 00:52:56.558 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:52:56.558 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:52:56.570 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=21, data_len=32747, checksum=0xa5f2
+2024-12-12 00:52:56.570 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=22, data_len=32747, checksum=0xd6
+2024-12-12 00:52:56.616 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:52:56.616 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=23, data_len=32747, checksum=0x6a66
+2024-12-12 00:52:56.632 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=17, ack=23, flags=ACK , data_len=0
+2024-12-12 00:52:56.643 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=24, data_len=32747, checksum=0xa614
+2024-12-12 00:52:56.643 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=25, data_len=32747, checksum=0x126b
+2024-12-12 00:52:56.676 - LOG: Congestion Avoidance increment: cwnd=4, ssthresh=2
+2024-12-12 00:52:56.676 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=18, ack=24, flags=ACK , data_len=0
+2024-12-12 00:52:56.676 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=26, data_len=32747, checksum=0xba75
+2024-12-12 00:52:56.677 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=27, data_len=32747, checksum=0xdd18
+2024-12-12 00:52:56.707 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=19, ack=26, flags=ACK , data_len=0
+2024-12-12 00:52:56.707 - LOG: [ESTABLISHED] RTT sample: 64ms, updated RTT=51ms, DevRTT=13ms, RTO=103ms
+2024-12-12 00:52:56.723 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=28, data_len=32747, checksum=0x4be5
+2024-12-12 00:52:56.723 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=29, data_len=32747, checksum=0x5a61
+2024-12-12 00:52:56.738 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=20, ack=28, flags=ACK , data_len=0
+2024-12-12 00:52:56.738 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=2
+2024-12-12 00:52:56.754 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=30, data_len=32747, checksum=0x7005
+2024-12-12 00:52:56.754 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=31, data_len=32747, checksum=0x1c75
+2024-12-12 00:52:56.754 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=32, data_len=32747, checksum=0x97f4
+2024-12-12 00:52:56.783 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=21, ack=30, flags=ACK , data_len=0
+2024-12-12 00:52:56.794 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=2
+2024-12-12 00:52:56.794 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=33, data_len=32747, checksum=0x810f
+2024-12-12 00:52:56.795 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=34, data_len=32747, checksum=0xe3ba
+2024-12-12 00:52:56.795 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=35, data_len=32747, checksum=0x2adb
+2024-12-12 00:52:56.816 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=22, ack=33, flags=ACK , data_len=0
+2024-12-12 00:52:56.816 - LOG: [ESTABLISHED] RTT sample: 63ms, updated RTT=52ms, DevRTT=13ms, RTO=104ms
+2024-12-12 00:52:56.831 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=36, data_len=32747, checksum=0xaefa
+2024-12-12 00:52:56.831 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=37, data_len=32747, checksum=0xe7c6
+2024-12-12 00:52:56.831 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=38, data_len=32747, checksum=0xdcb4
+2024-12-12 00:52:56.846 - LOG: Congestion Avoidance increment: cwnd=7, ssthresh=2
+2024-12-12 00:52:56.861 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=23, ack=36, flags=ACK , data_len=0
+2024-12-12 00:52:56.861 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=39, data_len=32747, checksum=0xf191
+2024-12-12 00:52:56.861 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=53ms, DevRTT=13ms, RTO=105ms
+2024-12-12 00:52:56.861 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=40, data_len=32747, checksum=0x62d2
+2024-12-12 00:52:56.861 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=41, data_len=32747, checksum=0x30ec
+2024-12-12 00:52:56.861 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=42, data_len=32747, checksum=0x5a03
+2024-12-12 00:52:56.891 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=24, ack=39, flags=ACK , data_len=0
+2024-12-12 00:52:56.907 - LOG: Congestion Avoidance increment: cwnd=8, ssthresh=2
+2024-12-12 00:52:56.907 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=43, data_len=32747, checksum=0x5f26
+2024-12-12 00:52:56.907 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=44, data_len=32747, checksum=0x515f
+2024-12-12 00:52:56.907 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=45, data_len=32747, checksum=0x4884
+2024-12-12 00:52:56.907 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=46, data_len=32747, checksum=0x2364
+2024-12-12 00:52:56.921 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=25, ack=43, flags=ACK , data_len=0
+2024-12-12 00:52:56.921 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=53ms, DevRTT=12ms, RTO=101ms
+2024-12-12 00:52:56.937 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=47, data_len=32747, checksum=0x1df7
+2024-12-12 00:52:56.937 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=48, data_len=32747, checksum=0xd1fb
+2024-12-12 00:52:56.937 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=49, data_len=32747, checksum=0x2195
+2024-12-12 00:52:56.937 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=50, data_len=32747, checksum=0x56ea
+2024-12-12 00:52:56.967 - LOG: Congestion Avoidance increment: cwnd=9, ssthresh=2
+2024-12-12 00:52:56.967 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=51, data_len=32747, checksum=0xef25
+2024-12-12 00:52:56.967 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=26, ack=46, flags=ACK , data_len=0
+2024-12-12 00:52:56.967 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=53ms, DevRTT=11ms, RTO=97ms
+2024-12-12 00:52:56.968 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=28, ack=46, flags=ACK , data_len=0
+2024-12-12 00:52:56.968 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=52, data_len=32747, checksum=0xebe0
+2024-12-12 00:52:56.968 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=29, ack=46, flags=ACK , data_len=0
+2024-12-12 00:52:56.968 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=30, ack=46, flags=ACK , data_len=0
+2024-12-12 00:52:56.968 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=45, fast retransmit.
+2024-12-12 00:52:56.968 - LOG: Enter Fast Recovery: cwnd=7.5, ssthresh=4.5
+2024-12-12 00:52:56.968 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=53, data_len=32747, checksum=0x857b
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=31, ack=46, flags=ACK , data_len=0
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=33, ack=53, flags=ACK , data_len=0
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] RTT sample: 57ms, updated RTT=53ms, DevRTT=10ms, RTO=93ms
+2024-12-12 00:52:57.025 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=4.5, ssthresh=4.5
+2024-12-12 00:52:57.025 - LOG: Enter Congestion Avoidance: cwnd=4.5, ssthresh=4.5
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=34, ack=53, flags=ACK , data_len=0
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=35, ack=53, flags=ACK , data_len=0
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=36, ack=53, flags=ACK , data_len=0
+2024-12-12 00:52:57.025 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=52, fast retransmit.
+2024-12-12 00:52:57.025 - LOG: Enter Fast Recovery: cwnd=5.25, ssthresh=2.25
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=37, ack=53, flags=ACK , data_len=0
+2024-12-12 00:52:57.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=39, ack=54, flags=ACK , data_len=0
+2024-12-12 00:52:57.025 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2.25, ssthresh=2.25
+2024-12-12 00:52:57.025 - LOG: Enter Congestion Avoidance: cwnd=2.25, ssthresh=2.25
+2024-12-12 00:52:57.037 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=54, data_len=32747, checksum=0xa51d
+2024-12-12 00:52:57.037 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=55, data_len=32747, checksum=0x3a6e
+2024-12-12 00:52:57.067 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=40, ack=54, flags=ACK , data_len=0
+2024-12-12 00:52:57.082 - LOG: Congestion Avoidance increment: cwnd=3.25, ssthresh=2.25
+2024-12-12 00:52:57.082 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=41, ack=56, flags=ACK , data_len=0
+2024-12-12 00:52:57.082 - LOG: [ESTABLISHED] RTT sample: 45ms, updated RTT=52ms, DevRTT=10ms, RTO=92ms
+2024-12-12 00:52:57.098 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=56, data_len=32747, checksum=0x49b8
+2024-12-12 00:52:57.098 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=57, data_len=32747, checksum=0x859c
+2024-12-12 00:52:57.098 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=58, data_len=32747, checksum=0xb5fa
+2024-12-12 00:52:57.140 - LOG: Congestion Avoidance increment: cwnd=4.25, ssthresh=2.25
+2024-12-12 00:52:57.140 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=59, data_len=32747, checksum=0xbbc1
+2024-12-12 00:52:57.155 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=42, ack=59, flags=ACK , data_len=0
+2024-12-12 00:52:57.170 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=60, data_len=32747, checksum=0x8b22
+2024-12-12 00:52:57.170 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=61, data_len=32747, checksum=0x701
+2024-12-12 00:52:57.170 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=62, data_len=32747, checksum=0xc03b
+2024-12-12 00:52:57.194 - LOG: Congestion Avoidance increment: cwnd=5.25, ssthresh=2.25
+2024-12-12 00:52:57.210 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=43, ack=60, flags=ACK , data_len=0
+2024-12-12 00:52:57.210 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=63, data_len=32747, checksum=0xdeec
+2024-12-12 00:52:57.210 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=64, data_len=32747, checksum=0x99b0
+2024-12-12 00:52:57.226 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=44, ack=60, flags=ACK , data_len=0
+2024-12-12 00:52:57.226 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=45, ack=60, flags=ACK , data_len=0
+2024-12-12 00:52:57.257 - LOG: Congestion Avoidance increment: cwnd=6.25, ssthresh=2.25
+2024-12-12 00:52:57.257 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=46, ack=60, flags=ACK , data_len=0
+2024-12-12 00:52:57.257 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=59, fast retransmit.
+2024-12-12 00:52:57.257 - LOG: Enter Fast Recovery: cwnd=6.125, ssthresh=3.125
+2024-12-12 00:52:57.267 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=65, data_len=32747, checksum=0xdecf
+2024-12-12 00:52:57.310 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=47, ack=60, flags=ACK , data_len=0
+2024-12-12 00:52:57.310 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=48, ack=65, flags=ACK , data_len=0
+2024-12-12 00:52:57.310 - LOG: [ESTABLISHED] RTT sample: 53ms, updated RTT=52ms, DevRTT=8ms, RTO=84ms
+2024-12-12 00:52:57.310 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=3.125, ssthresh=3.125
+2024-12-12 00:52:57.310 - LOG: Enter Congestion Avoidance: cwnd=3.125, ssthresh=3.125
+2024-12-12 00:52:57.310 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=49, ack=65, flags=ACK , data_len=0
+2024-12-12 00:52:57.310 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=50, ack=65, flags=ACK , data_len=0
+2024-12-12 00:52:57.310 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=51, ack=65, flags=ACK , data_len=0
+2024-12-12 00:52:57.310 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=64, fast retransmit.
+2024-12-12 00:52:57.310 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:52:57.325 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=66, data_len=32747, checksum=0xb4f2
+2024-12-12 00:52:57.325 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=52, ack=66, flags=ACK , data_len=0
+2024-12-12 00:52:57.325 - LOG: [ESTABLISHED] RTT sample: 15ms, updated RTT=48ms, DevRTT=15ms, RTO=108ms
+2024-12-12 00:52:57.325 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:52:57.325 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:52:57.325 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=67, data_len=32747, checksum=0xec9a
+2024-12-12 00:52:57.351 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=53, ack=66, flags=ACK , data_len=0
+2024-12-12 00:52:57.362 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=54, ack=68, flags=ACK , data_len=0
+2024-12-12 00:52:57.381 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=68, data_len=32747, checksum=0x6ff0
+2024-12-12 00:52:57.382 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=69, data_len=32747, checksum=0x78e5
+2024-12-12 00:52:57.431 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:52:57.451 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=55, ack=70, flags=ACK , data_len=0
+2024-12-12 00:52:57.451 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=70, data_len=32747, checksum=0xab51
+2024-12-12 00:52:57.451 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=71, data_len=32747, checksum=0x6232
+2024-12-12 00:52:57.452 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=72, data_len=32747, checksum=0x3377
+2024-12-12 00:52:57.481 - LOG: Congestion Avoidance increment: cwnd=4, ssthresh=2
+2024-12-12 00:52:57.491 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=73, data_len=32747, checksum=0x6910
+2024-12-12 00:52:57.501 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=56, ack=73, flags=ACK , data_len=0
+2024-12-12 00:52:57.501 - LOG: [ESTABLISHED] RTT sample: 50ms, updated RTT=48ms, DevRTT=12ms, RTO=96ms
+2024-12-12 00:52:57.511 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=74, data_len=32747, checksum=0x8040
+2024-12-12 00:52:57.512 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=75, data_len=32747, checksum=0xb790
+2024-12-12 00:52:57.512 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=76, data_len=32747, checksum=0x987a
+2024-12-12 00:52:57.531 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=2
+2024-12-12 00:52:57.531 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=77, data_len=32747, checksum=0x4084
+2024-12-12 00:52:57.551 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=57, ack=74, flags=ACK , data_len=0
+2024-12-12 00:52:57.561 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=78, data_len=32747, checksum=0xd8bc
+2024-12-12 00:52:57.571 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=58, ack=77, flags=ACK , data_len=0
+2024-12-12 00:52:57.571 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=49ms, DevRTT=12ms, RTO=97ms
+2024-12-12 00:52:57.581 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=2
+2024-12-12 00:52:57.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=79, data_len=32747, checksum=0xb3bf
+2024-12-12 00:52:57.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=80, data_len=32747, checksum=0xe9c5
+2024-12-12 00:52:57.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=81, data_len=32747, checksum=0xe6d9
+2024-12-12 00:52:57.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=82, data_len=32747, checksum=0x2a59
+2024-12-12 00:52:57.591 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=59, ack=78, flags=ACK , data_len=0
+2024-12-12 00:52:57.601 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=83, data_len=32747, checksum=0x430b
+2024-12-12 00:52:57.622 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=60, ack=83, flags=ACK , data_len=0
+2024-12-12 00:52:57.622 - LOG: [ESTABLISHED] RTT sample: 41ms, updated RTT=48ms, DevRTT=11ms, RTO=92ms
+2024-12-12 00:52:57.631 - LOG: Congestion Avoidance increment: cwnd=7, ssthresh=2
+2024-12-12 00:52:57.642 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=84, data_len=32747, checksum=0x8b29
+2024-12-12 00:52:57.642 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=85, data_len=32747, checksum=0x32d
+2024-12-12 00:52:57.642 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=86, data_len=32747, checksum=0x5b8d
+2024-12-12 00:52:57.642 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=87, data_len=32747, checksum=0x4
+2024-12-12 00:52:57.642 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=88, data_len=32747, checksum=0xad9
+2024-12-12 00:52:57.643 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=89, data_len=32747, checksum=0xf4a5
+2024-12-12 00:52:57.672 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=61, ack=84, flags=ACK , data_len=0
+2024-12-12 00:52:57.681 - LOG: Congestion Avoidance increment: cwnd=8, ssthresh=2
+2024-12-12 00:52:57.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=90, data_len=32747, checksum=0xf074
+2024-12-12 00:52:57.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=91, data_len=32747, checksum=0x8c91
+2024-12-12 00:52:57.731 - LOG: Congestion Avoidance increment: cwnd=9, ssthresh=2
+2024-12-12 00:52:57.731 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=92, data_len=32747, checksum=0x27e6
+2024-12-12 00:52:57.742 - WARN: Timeout: cwnd=1, ssthresh=4.5, enter Slow Start.
+2024-12-12 00:52:57.762 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=63, ack=92, flags=ACK , data_len=0
+2024-12-12 00:52:57.781 - WARN: [ESTABLISHED] Timeout at seq=84, resend all unacked packets starting from base.
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=84
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=85
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=86
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=87
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=88
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=89
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=90
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=91
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Resend packet seq=92
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] RTT sample: 39ms, updated RTT=47ms, DevRTT=11ms, RTO=91ms
+2024-12-12 00:52:57.781 - LOG: Slow Start: cwnd=9, ssthresh=4.5
+2024-12-12 00:52:57.781 - LOG: Enter Congestion Avoidance: cwnd=9, ssthresh=4.5
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=64, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=93, data_len=32747, checksum=0xe862
+2024-12-12 00:52:57.781 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=94, data_len=32747, checksum=0xc1bd
+2024-12-12 00:52:57.782 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=95, data_len=32747, checksum=0xda77
+2024-12-12 00:52:57.782 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=96, data_len=32747, checksum=0x5fcf
+2024-12-12 00:52:57.782 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=97, data_len=32747, checksum=0xefd4
+2024-12-12 00:52:57.782 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=98, data_len=32747, checksum=0x431b
+2024-12-12 00:52:57.782 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=99, data_len=32747, checksum=0x9eb5
+2024-12-12 00:52:57.782 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=100, data_len=32747, checksum=0x4fa7
+2024-12-12 00:52:57.782 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=101, data_len=32747, checksum=0xc7ce
+2024-12-12 00:52:57.832 - LOG: Congestion Avoidance increment: cwnd=10, ssthresh=4.5
+2024-12-12 00:52:57.832 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=65, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.832 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=66, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.832 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=68, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.832 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=92, fast retransmit.
+2024-12-12 00:52:57.832 - LOG: Enter Fast Recovery: cwnd=8, ssthresh=5
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=69, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=70, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=71, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=72, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=73, ack=93, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=74, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] RTT sample: 50ms, updated RTT=47ms, DevRTT=9ms, RTO=83ms
+2024-12-12 00:52:57.882 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=5, ssthresh=5
+2024-12-12 00:52:57.882 - LOG: Enter Congestion Avoidance: cwnd=5, ssthresh=5
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=75, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=76, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=77, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=101, fast retransmit.
+2024-12-12 00:52:57.882 - LOG: Enter Fast Recovery: cwnd=5.5, ssthresh=2.5
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=78, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=79, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=80, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=81, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.882 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=82, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.902 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=102, data_len=32747, checksum=0xf2b0
+2024-12-12 00:52:57.902 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=103, data_len=32747, checksum=0x2cd7
+2024-12-12 00:52:57.902 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=104, data_len=32747, checksum=0xa306
+2024-12-12 00:52:57.902 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=105, data_len=32747, checksum=0x32f3
+2024-12-12 00:52:57.903 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=106, data_len=32747, checksum=0x337b
+2024-12-12 00:52:57.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=83, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=84, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=85, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:57.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=86, ack=102, flags=ACK , data_len=0
+2024-12-12 00:52:58.001 - WARN: Timeout: cwnd=1, ssthresh=2.75, enter Slow Start.
+2024-12-12 00:52:58.001 - WARN: [ESTABLISHED] Timeout at seq=102, resend all unacked packets starting from base.
+2024-12-12 00:52:58.001 - LOG: [ESTABLISHED] Resend packet seq=102
+2024-12-12 00:52:58.001 - LOG: [ESTABLISHED] Resend packet seq=103
+2024-12-12 00:52:58.001 - LOG: [ESTABLISHED] Resend packet seq=104
+2024-12-12 00:52:58.001 - LOG: [ESTABLISHED] Resend packet seq=105
+2024-12-12 00:52:58.001 - LOG: [ESTABLISHED] Resend packet seq=106
+2024-12-12 00:52:58.031 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=87, ack=107, flags=ACK , data_len=0
+2024-12-12 00:52:58.032 - LOG: [ESTABLISHED] RTT sample: 31ms, updated RTT=45ms, DevRTT=10ms, RTO=85ms
+2024-12-12 00:52:58.032 - LOG: Slow Start: cwnd=6, ssthresh=2.75
+2024-12-12 00:52:58.032 - LOG: Enter Congestion Avoidance: cwnd=6, ssthresh=2.75
+2024-12-12 00:52:58.032 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=88, ack=107, flags=ACK , data_len=0
+2024-12-12 00:52:58.032 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=89, ack=107, flags=ACK , data_len=0
+2024-12-12 00:52:58.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=107, data_len=32747, checksum=0x22ae
+2024-12-12 00:52:58.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=108, data_len=32747, checksum=0x2d47
+2024-12-12 00:52:58.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=109, data_len=32747, checksum=0xc604
+2024-12-12 00:52:58.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=110, data_len=32747, checksum=0xa665
+2024-12-12 00:52:58.043 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=111, data_len=32747, checksum=0x29
+2024-12-12 00:52:58.043 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=112, data_len=32747, checksum=0x39fb
+2024-12-12 00:52:58.082 - LOG: Congestion Avoidance increment: cwnd=7, ssthresh=2.75
+2024-12-12 00:52:58.102 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=90, ack=113, flags=ACK , data_len=0
+2024-12-12 00:52:58.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=113, data_len=32747, checksum=0x257
+2024-12-12 00:52:58.102 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=46ms, DevRTT=11ms, RTO=90ms
+2024-12-12 00:52:58.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=114, data_len=32747, checksum=0xd6bf
+2024-12-12 00:52:58.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=115, data_len=32747, checksum=0xcd79
+2024-12-12 00:52:58.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=116, data_len=32747, checksum=0xa51d
+2024-12-12 00:52:58.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=117, data_len=32747, checksum=0xc7d
+2024-12-12 00:52:58.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=118, data_len=32747, checksum=0x7918
+2024-12-12 00:52:58.104 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=119, data_len=32747, checksum=0xd142
+2024-12-12 00:52:58.132 - LOG: Congestion Avoidance increment: cwnd=8, ssthresh=2.75
+2024-12-12 00:52:58.132 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=120, data_len=32747, checksum=0x1cfe
+2024-12-12 00:52:58.161 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=91, ack=120, flags=ACK , data_len=0
+2024-12-12 00:52:58.161 - LOG: [ESTABLISHED] RTT sample: 58ms, updated RTT=47ms, DevRTT=11ms, RTO=91ms
+2024-12-12 00:52:58.171 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=121, data_len=32747, checksum=0xaf76
+2024-12-12 00:52:58.171 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=122, data_len=32747, checksum=0x2038
+2024-12-12 00:52:58.171 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=123, data_len=32747, checksum=0x103d
+2024-12-12 00:52:58.172 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=124, data_len=32747, checksum=0x70f0
+2024-12-12 00:52:58.172 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=125, data_len=32747, checksum=0x805b
+2024-12-12 00:52:58.172 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=126, data_len=32747, checksum=0x3a75
+2024-12-12 00:52:58.172 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=127, data_len=32747, checksum=0x515b
+2024-12-12 00:52:58.182 - LOG: Congestion Avoidance increment: cwnd=9, ssthresh=2.75
+2024-12-12 00:52:58.202 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=92, ack=121, flags=ACK , data_len=0
+2024-12-12 00:52:58.202 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=128, data_len=32747, checksum=0xf1a1
+2024-12-12 00:52:58.202 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=49ms, DevRTT=14ms, RTO=105ms
+2024-12-12 00:52:58.202 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=129, data_len=32747, checksum=0x6c0d
+2024-12-12 00:52:58.231 - LOG: Congestion Avoidance increment: cwnd=10, ssthresh=2.75
+2024-12-12 00:52:58.242 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=130, data_len=32747, checksum=0x684a
+2024-12-12 00:52:58.262 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=94, ack=130, flags=ACK , data_len=0
+2024-12-12 00:52:58.262 - LOG: [ESTABLISHED] RTT sample: 90ms, updated RTT=54ms, DevRTT=20ms, RTO=134ms
+2024-12-12 00:52:58.282 - LOG: Congestion Avoidance increment: cwnd=11, ssthresh=2.75
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=131, data_len=32747, checksum=0x48b9
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=132, data_len=32747, checksum=0x8168
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=133, data_len=32747, checksum=0x27ef
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=134, data_len=32747, checksum=0x575c
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=135, data_len=32747, checksum=0x88f
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=136, data_len=32747, checksum=0x9d95
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=137, data_len=32747, checksum=0x7933
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=138, data_len=32747, checksum=0x9785
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=139, data_len=32747, checksum=0x4faa
+2024-12-12 00:52:58.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=140, data_len=32747, checksum=0xf025
+2024-12-12 00:52:58.303 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=95, ack=131, flags=ACK , data_len=0
+2024-12-12 00:52:58.303 - LOG: [ESTABLISHED] RTT sample: 61ms, updated RTT=54ms, DevRTT=17ms, RTO=122ms
+2024-12-12 00:52:58.322 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=141, data_len=32747, checksum=0x6e27
+2024-12-12 00:52:58.341 - LOG: Congestion Avoidance increment: cwnd=12, ssthresh=2.75
+2024-12-12 00:52:58.351 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=96, ack=141, flags=ACK , data_len=0
+2024-12-12 00:52:58.351 - LOG: [ESTABLISHED] RTT sample: 69ms, updated RTT=55ms, DevRTT=17ms, RTO=123ms
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=142, data_len=32747, checksum=0x87b2
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=143, data_len=32747, checksum=0xd25d
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=144, data_len=32747, checksum=0x315b
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=145, data_len=32747, checksum=0x39e5
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=146, data_len=32747, checksum=0xc600
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=147, data_len=32747, checksum=0x4a43
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=148, data_len=32747, checksum=0xfa87
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=149, data_len=32747, checksum=0xfe1c
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=150, data_len=32747, checksum=0x416a
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=151, data_len=32747, checksum=0xaa5e
+2024-12-12 00:52:58.362 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=152, data_len=32747, checksum=0x2ac8
+2024-12-12 00:52:58.391 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=97, ack=142, flags=ACK , data_len=0
+2024-12-12 00:52:58.401 - LOG: Congestion Avoidance increment: cwnd=13, ssthresh=2.75
+2024-12-12 00:52:58.402 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=153, data_len=32747, checksum=0x4d0b
+2024-12-12 00:52:58.402 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=154, data_len=32747, checksum=0x62c7
+2024-12-12 00:52:58.432 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=98, ack=153, flags=ACK , data_len=0
+2024-12-12 00:52:58.432 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=56ms, DevRTT=17ms, RTO=124ms
+2024-12-12 00:52:58.452 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=155, data_len=32747, checksum=0xfcd0
+2024-12-12 00:52:58.452 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=156, data_len=32747, checksum=0x4fa7
+2024-12-12 00:52:58.452 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=157, data_len=32747, checksum=0x646a
+2024-12-12 00:52:58.452 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=158, data_len=32747, checksum=0x10e5
+2024-12-12 00:52:58.452 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=159, data_len=32747, checksum=0x5213
+2024-12-12 00:52:58.453 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=160, data_len=32747, checksum=0xec69
+2024-12-12 00:52:58.453 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=161, data_len=32747, checksum=0xa15b
+2024-12-12 00:52:58.453 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=162, data_len=32747, checksum=0x9a3f
+2024-12-12 00:52:58.453 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=163, data_len=32747, checksum=0x8fab
+2024-12-12 00:52:58.453 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=164, data_len=32747, checksum=0xbada
+2024-12-12 00:52:58.453 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=165, data_len=32747, checksum=0xc802
+2024-12-12 00:52:58.461 - LOG: Congestion Avoidance increment: cwnd=14, ssthresh=2.75
+2024-12-12 00:52:58.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=99, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.471 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=166, data_len=32747, checksum=0x809b
+2024-12-12 00:52:58.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=167, data_len=32747, checksum=0x317a
+2024-12-12 00:52:58.511 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=100, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.511 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=101, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.511 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=102, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.511 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=153, fast retransmit.
+2024-12-12 00:52:58.511 - LOG: Enter Fast Recovery: cwnd=10, ssthresh=7
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=103, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=104, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=105, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=106, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=107, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=108, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=109, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=110, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=111, ack=154, flags=ACK , data_len=0
+2024-12-12 00:52:58.561 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=112, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] RTT sample: 51ms, updated RTT=56ms, DevRTT=14ms, RTO=112ms
+2024-12-12 00:52:58.562 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=7, ssthresh=7
+2024-12-12 00:52:58.562 - LOG: Enter Congestion Avoidance: cwnd=7, ssthresh=7
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=113, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=115, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=116, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=167, fast retransmit.
+2024-12-12 00:52:58.562 - LOG: Enter Fast Recovery: cwnd=6.5, ssthresh=3.5
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=117, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=118, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=119, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=120, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=121, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.562 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=122, ack=168, flags=ACK , data_len=0
+2024-12-12 00:52:58.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=168, data_len=32747, checksum=0x3d5e
+2024-12-12 00:52:58.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=169, data_len=32747, checksum=0xd33d
+2024-12-12 00:52:58.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=170, data_len=32747, checksum=0xcfa5
+2024-12-12 00:52:58.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=171, data_len=32747, checksum=0xcf9a
+2024-12-12 00:52:58.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=172, data_len=32747, checksum=0xaaf3
+2024-12-12 00:52:58.581 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=173, data_len=32747, checksum=0x70dc
+2024-12-12 00:52:58.642 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=123, ack=174, flags=ACK , data_len=0
+2024-12-12 00:52:58.642 - LOG: [ESTABLISHED] RTT sample: 61ms, updated RTT=56ms, DevRTT=12ms, RTO=104ms
+2024-12-12 00:52:58.642 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=3.5, ssthresh=3.5
+2024-12-12 00:52:58.642 - LOG: Enter Congestion Avoidance: cwnd=3.5, ssthresh=3.5
+2024-12-12 00:52:58.652 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=174, data_len=32747, checksum=0xd993
+2024-12-12 00:52:58.652 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=175, data_len=32747, checksum=0xa713
+2024-12-12 00:52:58.652 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=176, data_len=32747, checksum=0x2652
+2024-12-12 00:52:58.701 - LOG: Congestion Avoidance increment: cwnd=4.5, ssthresh=3.5
+2024-12-12 00:52:58.701 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=177, data_len=32747, checksum=0xd965
+2024-12-12 00:52:58.712 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=124, ack=177, flags=ACK , data_len=0
+2024-12-12 00:52:58.712 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=56ms, DevRTT=10ms, RTO=96ms
+2024-12-12 00:52:58.732 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=178, data_len=32747, checksum=0xe3e5
+2024-12-12 00:52:58.732 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=179, data_len=32747, checksum=0xd84c
+2024-12-12 00:52:58.732 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=180, data_len=32747, checksum=0xf841
+2024-12-12 00:52:58.761 - LOG: Congestion Avoidance increment: cwnd=5.5, ssthresh=3.5
+2024-12-12 00:52:58.762 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=125, ack=178, flags=ACK , data_len=0
+2024-12-12 00:52:58.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=181, data_len=32747, checksum=0x1984
+2024-12-12 00:52:58.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=182, data_len=32747, checksum=0xf52a
+2024-12-12 00:52:58.802 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=126, ack=181, flags=ACK , data_len=0
+2024-12-12 00:52:58.802 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=57ms, DevRTT=11ms, RTO=101ms
+2024-12-12 00:52:58.821 - LOG: Congestion Avoidance increment: cwnd=6.5, ssthresh=3.5
+2024-12-12 00:52:58.822 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=183, data_len=32747, checksum=0x1aa1
+2024-12-12 00:52:58.822 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=184, data_len=32747, checksum=0xb2ea
+2024-12-12 00:52:58.822 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=185, data_len=32747, checksum=0x9fd5
+2024-12-12 00:52:58.822 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=186, data_len=32747, checksum=0xced9
+2024-12-12 00:52:58.832 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=127, ack=183, flags=ACK , data_len=0
+2024-12-12 00:52:58.842 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=187, data_len=32747, checksum=0x84db
+2024-12-12 00:52:58.842 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=188, data_len=32747, checksum=0x1020
+2024-12-12 00:52:58.882 - LOG: Congestion Avoidance increment: cwnd=7.5, ssthresh=3.5
+2024-12-12 00:52:58.882 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=189, data_len=32747, checksum=0x39b5
+2024-12-12 00:52:58.892 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=128, ack=189, flags=ACK , data_len=0
+2024-12-12 00:52:58.892 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=58ms, DevRTT=11ms, RTO=102ms
+2024-12-12 00:52:58.902 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=190, data_len=32747, checksum=0xf24f
+2024-12-12 00:52:58.902 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=191, data_len=32747, checksum=0xa4ad
+2024-12-12 00:52:58.903 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=192, data_len=32747, checksum=0xd70
+2024-12-12 00:52:58.903 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=193, data_len=32747, checksum=0xd27c
+2024-12-12 00:52:58.903 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=194, data_len=32747, checksum=0x314e
+2024-12-12 00:52:58.903 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=195, data_len=32747, checksum=0x87bc
+2024-12-12 00:52:58.942 - LOG: Congestion Avoidance increment: cwnd=8.5, ssthresh=3.5
+2024-12-12 00:52:58.952 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=129, ack=196, flags=ACK , data_len=0
+2024-12-12 00:52:58.952 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=57ms, DevRTT=11ms, RTO=101ms
+2024-12-12 00:52:58.962 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=196, data_len=32747, checksum=0xb626
+2024-12-12 00:52:58.962 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=197, data_len=32747, checksum=0xcc40
+2024-12-12 00:52:58.962 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=198, data_len=32747, checksum=0x3ae7
+2024-12-12 00:52:58.963 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=199, data_len=32747, checksum=0x87a8
+2024-12-12 00:52:58.963 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=200, data_len=32747, checksum=0x9421
+2024-12-12 00:52:58.963 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=201, data_len=32747, checksum=0x8149
+2024-12-12 00:52:58.963 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=202, data_len=32747, checksum=0xe19
+2024-12-12 00:52:58.963 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=203, data_len=32747, checksum=0x132f
+2024-12-12 00:52:59.002 - LOG: Congestion Avoidance increment: cwnd=9.5, ssthresh=3.5
+2024-12-12 00:52:59.021 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=204, data_len=32747, checksum=0x6796
+2024-12-12 00:52:59.032 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=130, ack=204, flags=ACK , data_len=0
+2024-12-12 00:52:59.032 - LOG: [ESTABLISHED] RTT sample: 69ms, updated RTT=58ms, DevRTT=11ms, RTO=102ms
+2024-12-12 00:52:59.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=205, data_len=32747, checksum=0x783b
+2024-12-12 00:52:59.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=206, data_len=32747, checksum=0x3cb6
+2024-12-12 00:52:59.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=207, data_len=32747, checksum=0x7527
+2024-12-12 00:52:59.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=208, data_len=32747, checksum=0x8c51
+2024-12-12 00:52:59.042 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=209, data_len=32747, checksum=0xba89
+2024-12-12 00:52:59.043 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=210, data_len=32747, checksum=0x5df6
+2024-12-12 00:52:59.043 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=211, data_len=32747, checksum=0xb9be
+2024-12-12 00:52:59.043 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=212, data_len=32747, checksum=0xea
+2024-12-12 00:52:59.061 - LOG: Congestion Avoidance increment: cwnd=10.5, ssthresh=3.5
+2024-12-12 00:52:59.062 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=213, data_len=32747, checksum=0xa368
+2024-12-12 00:52:59.082 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=131, ack=205, flags=ACK , data_len=0
+2024-12-12 00:52:59.092 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=132, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.092 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=57ms, DevRTT=11ms, RTO=101ms
+2024-12-12 00:52:59.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=214, data_len=32747, checksum=0xfa15
+2024-12-12 00:52:59.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=215, data_len=32747, checksum=0x890
+2024-12-12 00:52:59.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=216, data_len=32747, checksum=0x58ca
+2024-12-12 00:52:59.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=217, data_len=32747, checksum=0x38d8
+2024-12-12 00:52:59.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=218, data_len=32747, checksum=0x588a
+2024-12-12 00:52:59.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=219, data_len=32747, checksum=0xd468
+2024-12-12 00:52:59.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=220, data_len=32747, checksum=0x741d
+2024-12-12 00:52:59.112 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=133, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.121 - LOG: Congestion Avoidance increment: cwnd=11.5, ssthresh=3.5
+2024-12-12 00:52:59.121 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=221, data_len=32747, checksum=0x5b98
+2024-12-12 00:52:59.142 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=134, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.142 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=136, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.142 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=210, fast retransmit.
+2024-12-12 00:52:59.142 - LOG: Enter Fast Recovery: cwnd=8.75, ssthresh=5.75
+2024-12-12 00:52:59.192 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=137, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.192 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=138, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.192 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=139, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.192 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=140, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.192 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=141, ack=211, flags=ACK , data_len=0
+2024-12-12 00:52:59.192 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=142, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] RTT sample: 51ms, updated RTT=57ms, DevRTT=10ms, RTO=97ms
+2024-12-12 00:52:59.193 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=5.75, ssthresh=5.75
+2024-12-12 00:52:59.193 - LOG: Enter Congestion Avoidance: cwnd=5.75, ssthresh=5.75
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=143, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=144, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=145, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=221, fast retransmit.
+2024-12-12 00:52:59.193 - LOG: Enter Fast Recovery: cwnd=5.875, ssthresh=2.875
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=146, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=147, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=148, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=149, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.193 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=150, ack=222, flags=ACK , data_len=0
+2024-12-12 00:52:59.206 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=222, data_len=32747, checksum=0xbb12
+2024-12-12 00:52:59.207 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=223, data_len=32747, checksum=0x5917
+2024-12-12 00:52:59.207 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=224, data_len=32747, checksum=0x32f0
+2024-12-12 00:52:59.207 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=225, data_len=32747, checksum=0xe75f
+2024-12-12 00:52:59.207 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=226, data_len=32747, checksum=0x3957
+2024-12-12 00:52:59.282 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=151, ack=227, flags=ACK , data_len=0
+2024-12-12 00:52:59.282 - LOG: [ESTABLISHED] RTT sample: 75ms, updated RTT=59ms, DevRTT=12ms, RTO=107ms
+2024-12-12 00:52:59.282 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2.875, ssthresh=2.875
+2024-12-12 00:52:59.282 - LOG: Enter Congestion Avoidance: cwnd=2.875, ssthresh=2.875
+2024-12-12 00:52:59.301 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=227, data_len=32747, checksum=0xd8f8
+2024-12-12 00:52:59.301 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=228, data_len=32747, checksum=0xad47
+2024-12-12 00:52:59.350 - LOG: Congestion Avoidance increment: cwnd=3.875, ssthresh=2.875
+2024-12-12 00:52:59.360 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=229, data_len=32747, checksum=0x455
+2024-12-12 00:52:59.371 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=152, ack=229, flags=ACK , data_len=0
+2024-12-12 00:52:59.382 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=230, data_len=32747, checksum=0xd9d0
+2024-12-12 00:52:59.382 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=231, data_len=32747, checksum=0x7db0
+2024-12-12 00:52:59.411 - LOG: Congestion Avoidance increment: cwnd=4.875, ssthresh=2.875
+2024-12-12 00:52:59.411 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=153, ack=230, flags=ACK , data_len=0
+2024-12-12 00:52:59.421 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=232, data_len=32747, checksum=0x7946
+2024-12-12 00:52:59.421 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=233, data_len=32747, checksum=0x31ee
+2024-12-12 00:52:59.432 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=154, ack=231, flags=ACK , data_len=0
+2024-12-12 00:52:59.432 - LOG: [ESTABLISHED] RTT sample: 50ms, updated RTT=58ms, DevRTT=12ms, RTO=106ms
+2024-12-12 00:52:59.452 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=234, data_len=32747, checksum=0x4963
+2024-12-12 00:52:59.452 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=155, ack=232, flags=ACK , data_len=0
+2024-12-12 00:52:59.472 - LOG: Congestion Avoidance increment: cwnd=5.875, ssthresh=2.875
+2024-12-12 00:52:59.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=235, data_len=32747, checksum=0x79c5
+2024-12-12 00:52:59.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=236, data_len=32747, checksum=0x940d
+2024-12-12 00:52:59.482 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=156, ack=234, flags=ACK , data_len=0
+2024-12-12 00:52:59.492 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=237, data_len=32747, checksum=0xc1e1
+2024-12-12 00:52:59.492 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=238, data_len=32747, checksum=0xb656
+2024-12-12 00:52:59.511 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=157, ack=235, flags=ACK , data_len=0
+2024-12-12 00:52:59.531 - LOG: Congestion Avoidance increment: cwnd=6.875, ssthresh=2.875
+2024-12-12 00:52:59.531 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=158, ack=239, flags=ACK , data_len=0
+2024-12-12 00:52:59.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=239, data_len=32747, checksum=0x238c
+2024-12-12 00:52:59.532 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=58ms, DevRTT=10ms, RTO=98ms
+2024-12-12 00:52:59.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=240, data_len=32747, checksum=0xb795
+2024-12-12 00:52:59.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=241, data_len=32747, checksum=0xf9b5
+2024-12-12 00:52:59.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=242, data_len=32747, checksum=0x297d
+2024-12-12 00:52:59.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=243, data_len=32747, checksum=0x8d6e
+2024-12-12 00:52:59.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=244, data_len=32747, checksum=0x6538
+2024-12-12 00:52:59.591 - LOG: Congestion Avoidance increment: cwnd=7.875, ssthresh=2.875
+2024-12-12 00:52:59.591 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=159, ack=240, flags=ACK , data_len=0
+2024-12-12 00:52:59.592 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=245, data_len=32747, checksum=0x1ad
+2024-12-12 00:52:59.592 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=246, data_len=32747, checksum=0xb157
+2024-12-12 00:52:59.602 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=160, ack=245, flags=ACK , data_len=0
+2024-12-12 00:52:59.602 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=59ms, DevRTT=10ms, RTO=99ms
+2024-12-12 00:52:59.611 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=247, data_len=32747, checksum=0xb554
+2024-12-12 00:52:59.611 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=248, data_len=32747, checksum=0x5b0a
+2024-12-12 00:52:59.611 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=249, data_len=32747, checksum=0x9758
+2024-12-12 00:52:59.611 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=250, data_len=32747, checksum=0xb1c3
+2024-12-12 00:52:59.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=251, data_len=32747, checksum=0xf824
+2024-12-12 00:52:59.662 - LOG: Congestion Avoidance increment: cwnd=8.875, ssthresh=2.875
+2024-12-12 00:52:59.662 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=161, ack=247, flags=ACK , data_len=0
+2024-12-12 00:52:59.662 - LOG: [ESTABLISHED] RTT sample: 71ms, updated RTT=60ms, DevRTT=10ms, RTO=100ms
+2024-12-12 00:52:59.677 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=252, data_len=32747, checksum=0x5ccd
+2024-12-12 00:52:59.677 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=162, ack=252, flags=ACK , data_len=0
+2024-12-12 00:52:59.677 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=60ms, DevRTT=9ms, RTO=96ms
+2024-12-12 00:52:59.677 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=253, data_len=32747, checksum=0xd7f9
+2024-12-12 00:52:59.677 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=254, data_len=32747, checksum=0x920
+2024-12-12 00:52:59.678 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=255, data_len=32747, checksum=0x44bd
+2024-12-12 00:52:59.678 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=256, data_len=32747, checksum=0xe58
+2024-12-12 00:52:59.678 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=257, data_len=32747, checksum=0x599f
+2024-12-12 00:52:59.678 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=258, data_len=32747, checksum=0x4f0
+2024-12-12 00:52:59.678 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=259, data_len=32747, checksum=0x5c41
+2024-12-12 00:52:59.731 - LOG: Congestion Avoidance increment: cwnd=9.875, ssthresh=2.875
+2024-12-12 00:52:59.731 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=260, data_len=32747, checksum=0x3f59
+2024-12-12 00:52:59.747 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=163, ack=260, flags=ACK , data_len=0
+2024-12-12 00:52:59.747 - LOG: [ESTABLISHED] RTT sample: 69ms, updated RTT=61ms, DevRTT=9ms, RTO=97ms
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=261, data_len=32747, checksum=0xae2e
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=262, data_len=32747, checksum=0x808c
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=263, data_len=32747, checksum=0x5937
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=264, data_len=32747, checksum=0xa59d
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=265, data_len=32747, checksum=0x834f
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=266, data_len=32747, checksum=0x78d2
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=267, data_len=32747, checksum=0x9826
+2024-12-12 00:52:59.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=268, data_len=32747, checksum=0xb9a6
+2024-12-12 00:52:59.804 - LOG: Congestion Avoidance increment: cwnd=10.875, ssthresh=2.875
+2024-12-12 00:52:59.804 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=164, ack=261, flags=ACK , data_len=0
+2024-12-12 00:52:59.804 - LOG: [ESTABLISHED] RTT sample: 73ms, updated RTT=62ms, DevRTT=9ms, RTO=98ms
+2024-12-12 00:52:59.818 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=269, data_len=32747, checksum=0x11a8
+2024-12-12 00:52:59.819 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=270, data_len=32747, checksum=0x8c7
+2024-12-12 00:52:59.834 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=165, ack=269, flags=ACK , data_len=0
+2024-12-12 00:52:59.834 - LOG: [ESTABLISHED] RTT sample: 62ms, updated RTT=62ms, DevRTT=7ms, RTO=90ms
+2024-12-12 00:52:59.849 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=271, data_len=32747, checksum=0x77ae
+2024-12-12 00:52:59.849 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=272, data_len=32747, checksum=0x60f1
+2024-12-12 00:52:59.849 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=273, data_len=32747, checksum=0xcd3d
+2024-12-12 00:52:59.849 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=274, data_len=32747, checksum=0x8746
+2024-12-12 00:52:59.849 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=275, data_len=32747, checksum=0xe607
+2024-12-12 00:52:59.849 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=276, data_len=32747, checksum=0x4332
+2024-12-12 00:52:59.850 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=277, data_len=32747, checksum=0xf114
+2024-12-12 00:52:59.850 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=278, data_len=32747, checksum=0xd9c3
+2024-12-12 00:52:59.871 - LOG: Congestion Avoidance increment: cwnd=11.875, ssthresh=2.875
+2024-12-12 00:52:59.872 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=279, data_len=32747, checksum=0xbbf6
+2024-12-12 00:52:59.892 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=166, ack=271, flags=ACK , data_len=0
+2024-12-12 00:52:59.892 - LOG: [ESTABLISHED] RTT sample: 73ms, updated RTT=63ms, DevRTT=8ms, RTO=95ms
+2024-12-12 00:52:59.912 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=280, data_len=32747, checksum=0x6b88
+2024-12-12 00:52:59.912 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=281, data_len=32747, checksum=0xc0df
+2024-12-12 00:52:59.927 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=167, ack=280, flags=ACK , data_len=0
+2024-12-12 00:52:59.927 - LOG: [ESTABLISHED] RTT sample: 78ms, updated RTT=64ms, DevRTT=9ms, RTO=100ms
+2024-12-12 00:52:59.942 - LOG: Congestion Avoidance increment: cwnd=12.875, ssthresh=2.875
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=282, data_len=32747, checksum=0xd299
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=283, data_len=32747, checksum=0x3f87
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=284, data_len=32747, checksum=0x3b23
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=285, data_len=32747, checksum=0xf0c1
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=286, data_len=32747, checksum=0x1b7c
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=287, data_len=32747, checksum=0x123a
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=288, data_len=32747, checksum=0x3523
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=289, data_len=32747, checksum=0xe08a
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=290, data_len=32747, checksum=0x3777
+2024-12-12 00:52:59.943 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=291, data_len=32747, checksum=0x4665
+2024-12-12 00:52:59.978 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=168, ack=282, flags=ACK , data_len=0
+2024-12-12 00:52:59.978 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=64ms, DevRTT=8ms, RTO=96ms
+2024-12-12 00:52:59.993 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=292, data_len=32747, checksum=0xe0bf
+2024-12-12 00:52:59.993 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=293, data_len=32747, checksum=0xfe1d
+2024-12-12 00:53:00.008 - LOG: Congestion Avoidance increment: cwnd=13.875, ssthresh=2.875
+2024-12-12 00:53:00.008 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=294, data_len=32747, checksum=0x1173
+2024-12-12 00:53:00.009 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=169, ack=292, flags=ACK , data_len=0
+2024-12-12 00:53:00.009 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=64ms, DevRTT=7ms, RTO=92ms
+2024-12-12 00:53:00.024 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=295, data_len=32747, checksum=0xaa0c
+2024-12-12 00:53:00.024 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=296, data_len=32747, checksum=0x5a63
+2024-12-12 00:53:00.024 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=297, data_len=32747, checksum=0x5e62
+2024-12-12 00:53:00.024 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=298, data_len=32747, checksum=0x2abc
+2024-12-12 00:53:00.024 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=299, data_len=32747, checksum=0x946c
+2024-12-12 00:53:00.024 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=300, data_len=32747, checksum=0xe5f1
+2024-12-12 00:53:00.024 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=301, data_len=32747, checksum=0x8c62
+2024-12-12 00:53:00.025 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=302, data_len=32747, checksum=0xff73
+2024-12-12 00:53:00.025 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=303, data_len=32747, checksum=0x1b1a
+2024-12-12 00:53:00.025 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=304, data_len=32747, checksum=0x4a5d
+2024-12-12 00:53:00.041 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=170, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.057 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=171, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.057 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=305, data_len=32747, checksum=0xd319
+2024-12-12 00:53:00.057 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=172, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.057 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=173, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.057 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=292, fast retransmit.
+2024-12-12 00:53:00.058 - LOG: Enter Fast Recovery: cwnd=9.9375, ssthresh=6.9375
+2024-12-12 00:53:00.078 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=174, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.078 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=175, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.078 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=176, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.078 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=177, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.078 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=178, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.078 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=179, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.122 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=180, ack=293, flags=ACK , data_len=0
+2024-12-12 00:53:00.122 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=181, ack=296, flags=ACK , data_len=0
+2024-12-12 00:53:00.122 - LOG: [ESTABLISHED] RTT sample: 65ms, updated RTT=64ms, DevRTT=6ms, RTO=88ms
+2024-12-12 00:53:00.122 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=6.9375, ssthresh=6.9375
+2024-12-12 00:53:00.122 - LOG: Enter Congestion Avoidance: cwnd=6.9375, ssthresh=6.9375
+2024-12-12 00:53:00.122 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=182, ack=296, flags=ACK , data_len=0
+2024-12-12 00:53:00.122 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=183, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.123 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=64ms, DevRTT=5ms, RTO=84ms
+2024-12-12 00:53:00.123 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=184, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.123 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=185, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.123 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=186, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.123 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=305, fast retransmit.
+2024-12-12 00:53:00.123 - LOG: Enter Fast Recovery: cwnd=6.46875, ssthresh=3.46875
+2024-12-12 00:53:00.137 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=306, data_len=32747, checksum=0xefe
+2024-12-12 00:53:00.137 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=307, data_len=32747, checksum=0xd883
+2024-12-12 00:53:00.137 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=308, data_len=32747, checksum=0xc216
+2024-12-12 00:53:00.138 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=309, data_len=32747, checksum=0x40c1
+2024-12-12 00:53:00.138 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=310, data_len=32747, checksum=0x4a19
+2024-12-12 00:53:00.138 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=311, data_len=32747, checksum=0xd141
+2024-12-12 00:53:00.202 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=187, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.202 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=188, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.202 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=189, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.202 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=191, ack=306, flags=ACK , data_len=0
+2024-12-12 00:53:00.202 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=192, ack=312, flags=ACK , data_len=0
+2024-12-12 00:53:00.202 - LOG: [ESTABLISHED] RTT sample: 64ms, updated RTT=64ms, DevRTT=4ms, RTO=80ms
+2024-12-12 00:53:00.202 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=3.46875, ssthresh=3.46875
+2024-12-12 00:53:00.202 - LOG: Enter Congestion Avoidance: cwnd=3.46875, ssthresh=3.46875
+2024-12-12 00:53:00.217 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=312, data_len=32747, checksum=0xdff4
+2024-12-12 00:53:00.217 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=313, data_len=32747, checksum=0xce31
+2024-12-12 00:53:00.217 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=314, data_len=32747, checksum=0x986b
+2024-12-12 00:53:00.272 - LOG: Congestion Avoidance increment: cwnd=4.46875, ssthresh=3.46875
+2024-12-12 00:53:00.292 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=315, data_len=32747, checksum=0x4857
+2024-12-12 00:53:00.292 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=193, ack=315, flags=ACK , data_len=0
+2024-12-12 00:53:00.307 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=316, data_len=32747, checksum=0x8e8
+2024-12-12 00:53:00.307 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=317, data_len=32747, checksum=0x30a7
+2024-12-12 00:53:00.307 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=318, data_len=32747, checksum=0xea56
+2024-12-12 00:53:00.351 - LOG: Congestion Avoidance increment: cwnd=5.46875, ssthresh=3.46875
+2024-12-12 00:53:00.369 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=194, ack=319, flags=ACK , data_len=0
+2024-12-12 00:53:00.369 - LOG: [ESTABLISHED] RTT sample: 78ms, updated RTT=65ms, DevRTT=6ms, RTO=89ms
+2024-12-12 00:53:00.369 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=319, data_len=32747, checksum=0xd355
+2024-12-12 00:53:00.369 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=320, data_len=32747, checksum=0x65cd
+2024-12-12 00:53:00.369 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=321, data_len=32747, checksum=0x9984
+2024-12-12 00:53:00.369 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=322, data_len=32747, checksum=0x548c
+2024-12-12 00:53:00.369 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=323, data_len=32747, checksum=0x25e7
+2024-12-12 00:53:00.421 - LOG: Congestion Avoidance increment: cwnd=6.46875, ssthresh=3.46875
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=195, ack=324, flags=ACK , data_len=0
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=324, data_len=32747, checksum=0x6688
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] RTT sample: 68ms, updated RTT=65ms, DevRTT=6ms, RTO=89ms
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=325, data_len=32747, checksum=0x8803
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=326, data_len=32747, checksum=0x6b93
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=327, data_len=32747, checksum=0xa7dc
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=328, data_len=32747, checksum=0xd771
+2024-12-12 00:53:00.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=329, data_len=32747, checksum=0x3519
+2024-12-12 00:53:00.491 - LOG: Congestion Avoidance increment: cwnd=7.46875, ssthresh=3.46875
+2024-12-12 00:53:00.512 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=330, data_len=32747, checksum=0x39f9
+2024-12-12 00:53:00.512 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=196, ack=330, flags=ACK , data_len=0
+2024-12-12 00:53:00.512 - LOG: [ESTABLISHED] RTT sample: 75ms, updated RTT=66ms, DevRTT=7ms, RTO=94ms
+2024-12-12 00:53:00.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=331, data_len=32747, checksum=0x4fc4
+2024-12-12 00:53:00.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=332, data_len=32747, checksum=0xf1ee
+2024-12-12 00:53:00.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=333, data_len=32747, checksum=0x5d57
+2024-12-12 00:53:00.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=334, data_len=32747, checksum=0xd22e
+2024-12-12 00:53:00.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=335, data_len=32747, checksum=0x5041
+2024-12-12 00:53:00.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=336, data_len=32747, checksum=0x4156
+2024-12-12 00:53:00.572 - LOG: Congestion Avoidance increment: cwnd=8.46875, ssthresh=3.46875
+2024-12-12 00:53:00.572 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=337, data_len=32747, checksum=0x8f1
+2024-12-12 00:53:00.592 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=197, ack=337, flags=ACK , data_len=0
+2024-12-12 00:53:00.592 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=66ms, DevRTT=7ms, RTO=94ms
+2024-12-12 00:53:00.611 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=338, data_len=32747, checksum=0x6592
+2024-12-12 00:53:00.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=339, data_len=32747, checksum=0x780
+2024-12-12 00:53:00.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=340, data_len=32747, checksum=0xac32
+2024-12-12 00:53:00.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=341, data_len=32747, checksum=0x81ed
+2024-12-12 00:53:00.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=342, data_len=32747, checksum=0xf87e
+2024-12-12 00:53:00.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=343, data_len=32747, checksum=0x2f8f
+2024-12-12 00:53:00.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=344, data_len=32747, checksum=0x22b9
+2024-12-12 00:53:00.651 - LOG: Congestion Avoidance increment: cwnd=9.46875, ssthresh=3.46875
+2024-12-12 00:53:00.652 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=198, ack=338, flags=ACK , data_len=0
+2024-12-12 00:53:00.672 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=345, data_len=32747, checksum=0xbdeb
+2024-12-12 00:53:00.672 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=346, data_len=32747, checksum=0x96
+2024-12-12 00:53:00.692 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=199, ack=345, flags=ACK , data_len=0
+2024-12-12 00:53:00.692 - LOG: [ESTABLISHED] RTT sample: 80ms, updated RTT=67ms, DevRTT=8ms, RTO=99ms
+2024-12-12 00:53:00.712 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=347, data_len=32747, checksum=0x27ec
+2024-12-12 00:53:00.712 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=348, data_len=32747, checksum=0x771e
+2024-12-12 00:53:00.712 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=349, data_len=32747, checksum=0xd7e2
+2024-12-12 00:53:00.712 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=350, data_len=32747, checksum=0x107e
+2024-12-12 00:53:00.713 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=351, data_len=32747, checksum=0xb046
+2024-12-12 00:53:00.713 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=352, data_len=32747, checksum=0x87a2
+2024-12-12 00:53:00.713 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=353, data_len=32747, checksum=0xcc59
+2024-12-12 00:53:00.732 - LOG: Congestion Avoidance increment: cwnd=10.4688, ssthresh=3.46875
+2024-12-12 00:53:00.732 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=354, data_len=32747, checksum=0xb720
+2024-12-12 00:53:00.752 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=200, ack=347, flags=ACK , data_len=0
+2024-12-12 00:53:00.752 - LOG: [ESTABLISHED] RTT sample: 80ms, updated RTT=68ms, DevRTT=9ms, RTO=104ms
+2024-12-12 00:53:00.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=355, data_len=32747, checksum=0x84e6
+2024-12-12 00:53:00.772 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=356, data_len=32747, checksum=0xebcd
+2024-12-12 00:53:00.792 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=201, ack=355, flags=ACK , data_len=0
+2024-12-12 00:53:00.792 - LOG: [ESTABLISHED] RTT sample: 80ms, updated RTT=69ms, DevRTT=9ms, RTO=105ms
+2024-12-12 00:53:00.812 - LOG: Congestion Avoidance increment: cwnd=11.4688, ssthresh=3.46875
+2024-12-12 00:53:00.812 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=357, data_len=32747, checksum=0xb888
+2024-12-12 00:53:00.812 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=358, data_len=32747, checksum=0x8f94
+2024-12-12 00:53:00.813 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=359, data_len=32747, checksum=0x5146
+2024-12-12 00:53:00.813 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=360, data_len=32747, checksum=0x2874
+2024-12-12 00:53:00.813 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=361, data_len=32747, checksum=0xfbac
+2024-12-12 00:53:00.813 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=362, data_len=32747, checksum=0xbb0a
+2024-12-12 00:53:00.813 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=363, data_len=32747, checksum=0x3221
+2024-12-12 00:53:00.814 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=364, data_len=32747, checksum=0xfe07
+2024-12-12 00:53:00.814 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=365, data_len=32747, checksum=0xa8a1
+2024-12-12 00:53:00.852 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=202, ack=357, flags=ACK , data_len=0
+2024-12-12 00:53:00.852 - LOG: [ESTABLISHED] RTT sample: 80ms, updated RTT=70ms, DevRTT=9ms, RTO=106ms
+2024-12-12 00:53:00.879 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=366, data_len=32747, checksum=0x4e6
+2024-12-12 00:53:00.879 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=203, ack=366, flags=ACK , data_len=0
+2024-12-12 00:53:00.880 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=367, data_len=32747, checksum=0xc78a
+2024-12-12 00:53:00.880 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=70ms, DevRTT=8ms, RTO=102ms
+2024-12-12 00:53:00.880 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=368, data_len=16339, checksum=0xb3b7
+2024-12-12 00:53:00.880 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=369, data_len=10, checksum=0x8f24
+2024-12-12 00:53:00.901 - LOG: Congestion Avoidance increment: cwnd=12.4688, ssthresh=3.46875
+2024-12-12 00:53:00.944 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=204, ack=370, flags=ACK , data_len=0
+2024-12-12 00:54:42.646 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=370, data_len=19, checksum=0x5e7e
+2024-12-12 00:54:42.646 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=371, data_len=32747, checksum=0xab57
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=372, data_len=32747, checksum=0x865f
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=373, data_len=32747, checksum=0x1a26
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=374, data_len=32747, checksum=0x7b6f
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=375, data_len=32747, checksum=0x6fa7
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=376, data_len=32747, checksum=0x749e
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=377, data_len=32747, checksum=0x5f4e
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=378, data_len=32747, checksum=0xe692
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=379, data_len=32747, checksum=0x1572
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=380, data_len=32747, checksum=0x1899
+2024-12-12 00:54:42.647 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=381, data_len=32747, checksum=0x5ac1
+2024-12-12 00:54:42.667 - LOG: Congestion Avoidance increment: cwnd=13.4688, ssthresh=3.46875
+2024-12-12 00:54:42.667 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=382, data_len=32747, checksum=0xd622
+2024-12-12 00:54:42.717 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=205, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.717 - LOG: [ESTABLISHED] RTT sample: 71ms, updated RTT=70ms, DevRTT=7ms, RTO=98ms
+2024-12-12 00:54:42.717 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=206, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.717 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=207, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.717 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=208, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.717 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=370, fast retransmit.
+2024-12-12 00:54:42.717 - LOG: Enter Fast Recovery: cwnd=9.73438, ssthresh=6.73438
+2024-12-12 00:54:42.740 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=209, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.740 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=210, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.740 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=211, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.740 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=212, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.740 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=213, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.740 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=214, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.740 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=215, ack=371, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=216, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] RTT sample: 48ms, updated RTT=68ms, DevRTT=10ms, RTO=108ms
+2024-12-12 00:54:42.765 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=6.73438, ssthresh=6.73438
+2024-12-12 00:54:42.765 - LOG: Enter Congestion Avoidance: cwnd=6.73438, ssthresh=6.73438
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=217, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=218, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=219, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=382, fast retransmit.
+2024-12-12 00:54:42.765 - LOG: Enter Fast Recovery: cwnd=6.36719, ssthresh=3.36719
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=220, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=221, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=222, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=223, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=224, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=225, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.765 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=226, ack=383, flags=ACK , data_len=0
+2024-12-12 00:54:42.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=383, data_len=32747, checksum=0x69d3
+2024-12-12 00:54:42.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=384, data_len=32747, checksum=0xc951
+2024-12-12 00:54:42.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=385, data_len=32747, checksum=0xe889
+2024-12-12 00:54:42.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=386, data_len=32747, checksum=0xe315
+2024-12-12 00:54:42.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=387, data_len=32747, checksum=0xd16b
+2024-12-12 00:54:42.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=388, data_len=32747, checksum=0x76b3
+2024-12-12 00:54:42.843 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=227, ack=389, flags=ACK , data_len=0
+2024-12-12 00:54:42.843 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=68ms, DevRTT=8ms, RTO=100ms
+2024-12-12 00:54:42.843 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=3.36719, ssthresh=3.36719
+2024-12-12 00:54:42.843 - LOG: Enter Congestion Avoidance: cwnd=3.36719, ssthresh=3.36719
+2024-12-12 00:54:42.862 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=389, data_len=32747, checksum=0xa482
+2024-12-12 00:54:42.862 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=390, data_len=32747, checksum=0xff65
+2024-12-12 00:54:42.862 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=391, data_len=32747, checksum=0x68f6
+2024-12-12 00:54:42.921 - LOG: Congestion Avoidance increment: cwnd=4.36719, ssthresh=3.36719
+2024-12-12 00:54:42.932 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=392, data_len=32747, checksum=0xa4a4
+2024-12-12 00:54:42.932 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=228, ack=392, flags=ACK , data_len=0
+2024-12-12 00:54:42.932 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=68ms, DevRTT=7ms, RTO=96ms
+2024-12-12 00:54:42.952 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=393, data_len=32747, checksum=0x10fb
+2024-12-12 00:54:42.952 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=394, data_len=32747, checksum=0xb905
+2024-12-12 00:54:42.952 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=395, data_len=32747, checksum=0xdba8
+2024-12-12 00:54:42.991 - LOG: Congestion Avoidance increment: cwnd=5.36719, ssthresh=3.36719
+2024-12-12 00:54:43.001 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=396, data_len=32747, checksum=0x4a75
+2024-12-12 00:54:43.011 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=229, ack=396, flags=ACK , data_len=0
+2024-12-12 00:54:43.011 - LOG: [ESTABLISHED] RTT sample: 59ms, updated RTT=67ms, DevRTT=7ms, RTO=95ms
+2024-12-12 00:54:43.021 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=397, data_len=32747, checksum=0x58f1
+2024-12-12 00:54:43.022 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=398, data_len=32747, checksum=0x6e95
+2024-12-12 00:54:43.022 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=399, data_len=32747, checksum=0x1b05
+2024-12-12 00:54:43.022 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=400, data_len=32747, checksum=0x9684
+2024-12-12 00:54:43.061 - LOG: Congestion Avoidance increment: cwnd=6.36719, ssthresh=3.36719
+2024-12-12 00:54:43.072 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=401, data_len=32747, checksum=0x7f9f
+2024-12-12 00:54:43.072 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=230, ack=397, flags=ACK , data_len=0
+2024-12-12 00:54:43.072 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=402, data_len=32747, checksum=0xe24a
+2024-12-12 00:54:43.092 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=231, ack=401, flags=ACK , data_len=0
+2024-12-12 00:54:43.092 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=67ms, DevRTT=6ms, RTO=91ms
+2024-12-12 00:54:43.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=403, data_len=32747, checksum=0x296b
+2024-12-12 00:54:43.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=404, data_len=32747, checksum=0xad8a
+2024-12-12 00:54:43.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=405, data_len=32747, checksum=0xe656
+2024-12-12 00:54:43.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=406, data_len=32747, checksum=0xdb44
+2024-12-12 00:54:43.131 - LOG: Congestion Avoidance increment: cwnd=7.36719, ssthresh=3.36719
+2024-12-12 00:54:43.132 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=407, data_len=32747, checksum=0xf021
+2024-12-12 00:54:43.141 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=232, ack=403, flags=ACK , data_len=0
+2024-12-12 00:54:43.151 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=408, data_len=32747, checksum=0x6162
+2024-12-12 00:54:43.152 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=409, data_len=32747, checksum=0x2f7c
+2024-12-12 00:54:43.176 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=233, ack=407, flags=ACK , data_len=0
+2024-12-12 00:54:43.176 - LOG: [ESTABLISHED] RTT sample: 74ms, updated RTT=67ms, DevRTT=6ms, RTO=91ms
+2024-12-12 00:54:43.191 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=410, data_len=32747, checksum=0x5893
+2024-12-12 00:54:43.191 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=234, ack=410, flags=ACK , data_len=0
+2024-12-12 00:54:43.191 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=411, data_len=32747, checksum=0x5db6
+2024-12-12 00:54:43.192 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=412, data_len=32747, checksum=0x4fef
+2024-12-12 00:54:43.192 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=413, data_len=32747, checksum=0x4714
+2024-12-12 00:54:43.192 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=414, data_len=32747, checksum=0x21f4
+2024-12-12 00:54:43.193 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=415, data_len=32747, checksum=0x1c87
+2024-12-12 00:54:43.193 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=416, data_len=32747, checksum=0xd08b
+2024-12-12 00:54:43.201 - LOG: Congestion Avoidance increment: cwnd=8.36719, ssthresh=3.36719
+2024-12-12 00:54:43.211 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=417, data_len=32747, checksum=0x2025
+2024-12-12 00:54:43.261 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=235, ack=418, flags=ACK , data_len=0
+2024-12-12 00:54:43.261 - LOG: [ESTABLISHED] RTT sample: 68ms, updated RTT=67ms, DevRTT=5ms, RTO=87ms
+2024-12-12 00:54:43.271 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=418, data_len=32747, checksum=0x557a
+2024-12-12 00:54:43.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=419, data_len=32747, checksum=0xedb5
+2024-12-12 00:54:43.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=420, data_len=32747, checksum=0xea70
+2024-12-12 00:54:43.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=421, data_len=32747, checksum=0x840b
+2024-12-12 00:54:43.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=422, data_len=32747, checksum=0xa3ad
+2024-12-12 00:54:43.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=423, data_len=32747, checksum=0x38fe
+2024-12-12 00:54:43.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=424, data_len=32747, checksum=0x4848
+2024-12-12 00:54:43.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=425, data_len=32747, checksum=0x842c
+2024-12-12 00:54:43.331 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=236, ack=423, flags=ACK , data_len=0
+2024-12-12 00:54:43.331 - LOG: [ESTABLISHED] RTT sample: 59ms, updated RTT=66ms, DevRTT=5ms, RTO=86ms
+2024-12-12 00:54:43.331 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=237, ack=423, flags=ACK , data_len=0
+2024-12-12 00:54:43.341 - LOG: Congestion Avoidance increment: cwnd=9.36719, ssthresh=3.36719
+2024-12-12 00:54:43.351 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=426, data_len=32747, checksum=0xb48a
+2024-12-12 00:54:43.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=427, data_len=32747, checksum=0xba51
+2024-12-12 00:54:43.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=428, data_len=32747, checksum=0x89b2
+2024-12-12 00:54:43.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=429, data_len=32747, checksum=0x591
+2024-12-12 00:54:43.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=430, data_len=32747, checksum=0xbecb
+2024-12-12 00:54:43.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=431, data_len=32747, checksum=0xdd7c
+2024-12-12 00:54:43.371 - WARN: Timeout: cwnd=1, ssthresh=4.68359, enter Slow Start.
+2024-12-12 00:54:43.401 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=238, ack=423, flags=ACK , data_len=0
+2024-12-12 00:54:43.412 - WARN: [ESTABLISHED] Timeout at seq=423, resend all unacked packets starting from base.
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=423
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=424
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=425
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=426
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=427
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=428
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=429
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=430
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Resend packet seq=431
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=240, ack=423, flags=ACK , data_len=0
+2024-12-12 00:54:43.412 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=422, fast retransmit.
+2024-12-12 00:54:43.412 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=241, ack=423, flags=ACK , data_len=0
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=242, ack=423, flags=ACK , data_len=0
+2024-12-12 00:54:43.412 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=243, ack=423, flags=ACK , data_len=0
+2024-12-12 00:54:43.461 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=244, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.461 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=64ms, DevRTT=8ms, RTO=96ms
+2024-12-12 00:54:43.461 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:43.461 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:43.461 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=245, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.461 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=246, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.461 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=247, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=431, fast retransmit.
+2024-12-12 00:54:43.462 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=248, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=250, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=251, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=252, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=253, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=254, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=255, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=256, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=257, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=258, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=259, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.462 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=260, ack=432, flags=ACK , data_len=0
+2024-12-12 00:54:43.471 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=432, data_len=32747, checksum=0x9840
+2024-12-12 00:54:43.471 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=433, data_len=32747, checksum=0xdd5f
+2024-12-12 00:54:43.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=434, data_len=32747, checksum=0xb382
+2024-12-12 00:54:43.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=435, data_len=32747, checksum=0xeb2a
+2024-12-12 00:54:43.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=436, data_len=32747, checksum=0x6e80
+2024-12-12 00:54:43.541 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=261, ack=437, flags=ACK , data_len=0
+2024-12-12 00:54:43.541 - LOG: [ESTABLISHED] RTT sample: 69ms, updated RTT=64ms, DevRTT=8ms, RTO=96ms
+2024-12-12 00:54:43.541 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:43.541 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:43.551 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=437, data_len=32747, checksum=0x7775
+2024-12-12 00:54:43.552 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=438, data_len=32747, checksum=0xa9e1
+2024-12-12 00:54:43.611 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:54:43.621 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=439, data_len=32747, checksum=0x60c2
+2024-12-12 00:54:43.622 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=262, ack=438, flags=ACK , data_len=0
+2024-12-12 00:54:43.641 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=440, data_len=32747, checksum=0x3207
+2024-12-12 00:54:43.651 - WARN: Timeout: cwnd=1, ssthresh=2, enter Slow Start.
+2024-12-12 00:54:43.671 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=263, ack=438, flags=ACK , data_len=0
+2024-12-12 00:54:43.681 - WARN: [ESTABLISHED] Timeout at seq=438, resend all unacked packets starting from base.
+2024-12-12 00:54:43.681 - LOG: [ESTABLISHED] Resend packet seq=438
+2024-12-12 00:54:43.682 - LOG: [ESTABLISHED] Resend packet seq=439
+2024-12-12 00:54:43.682 - LOG: [ESTABLISHED] Resend packet seq=440
+2024-12-12 00:54:43.682 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=264, ack=438, flags=ACK , data_len=0
+2024-12-12 00:54:43.731 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=265, ack=441, flags=ACK , data_len=0
+2024-12-12 00:54:43.731 - LOG: [ESTABLISHED] RTT sample: 80ms, updated RTT=66ms, DevRTT=10ms, RTO=106ms
+2024-12-12 00:54:43.731 - LOG: Slow Start: cwnd=4, ssthresh=2
+2024-12-12 00:54:43.731 - LOG: Enter Congestion Avoidance: cwnd=4, ssthresh=2
+2024-12-12 00:54:43.732 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=266, ack=441, flags=ACK , data_len=0
+2024-12-12 00:54:43.741 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=441, data_len=32747, checksum=0x67a0
+2024-12-12 00:54:43.741 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=442, data_len=32747, checksum=0x7ed0
+2024-12-12 00:54:43.741 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=443, data_len=32747, checksum=0xb620
+2024-12-12 00:54:43.741 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=444, data_len=32747, checksum=0x970a
+2024-12-12 00:54:43.801 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=2
+2024-12-12 00:54:43.807 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=445, data_len=32747, checksum=0x3f14
+2024-12-12 00:54:43.807 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=267, ack=445, flags=ACK , data_len=0
+2024-12-12 00:54:43.807 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=446, data_len=32747, checksum=0xd74c
+2024-12-12 00:54:43.807 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=447, data_len=32747, checksum=0xb24f
+2024-12-12 00:54:43.807 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=448, data_len=32747, checksum=0xe855
+2024-12-12 00:54:43.807 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=449, data_len=32747, checksum=0xe569
+2024-12-12 00:54:43.871 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=2
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=268, ack=450, flags=ACK , data_len=0
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=450, data_len=32747, checksum=0x28e9
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] RTT sample: 74ms, updated RTT=67ms, DevRTT=10ms, RTO=107ms
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=451, data_len=32747, checksum=0x419b
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=452, data_len=32747, checksum=0x89b9
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=453, data_len=32747, checksum=0x1bd
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=454, data_len=32747, checksum=0x5a1d
+2024-12-12 00:54:43.881 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=455, data_len=32747, checksum=0xfe93
+2024-12-12 00:54:43.931 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=269, ack=450, flags=ACK , data_len=0
+2024-12-12 00:54:43.931 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=270, ack=450, flags=ACK , data_len=0
+2024-12-12 00:54:43.931 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=271, ack=450, flags=ACK , data_len=0
+2024-12-12 00:54:43.931 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=449, fast retransmit.
+2024-12-12 00:54:43.931 - LOG: Enter Fast Recovery: cwnd=6, ssthresh=3
+2024-12-12 00:54:43.941 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=272, ack=450, flags=ACK , data_len=0
+2024-12-12 00:54:43.941 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=273, ack=450, flags=ACK , data_len=0
+2024-12-12 00:54:43.981 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=274, ack=456, flags=ACK , data_len=0
+2024-12-12 00:54:43.981 - LOG: [ESTABLISHED] RTT sample: 50ms, updated RTT=65ms, DevRTT=11ms, RTO=109ms
+2024-12-12 00:54:43.981 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=3, ssthresh=3
+2024-12-12 00:54:43.982 - LOG: Enter Congestion Avoidance: cwnd=3, ssthresh=3
+2024-12-12 00:54:43.982 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=275, ack=456, flags=ACK , data_len=0
+2024-12-12 00:54:43.982 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=276, ack=456, flags=ACK , data_len=0
+2024-12-12 00:54:43.982 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=277, ack=456, flags=ACK , data_len=0
+2024-12-12 00:54:43.982 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=455, fast retransmit.
+2024-12-12 00:54:43.982 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:44.001 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=456, data_len=32747, checksum=0x969
+2024-12-12 00:54:44.001 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=457, data_len=32747, checksum=0xf335
+2024-12-12 00:54:44.001 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=458, data_len=32747, checksum=0xef04
+2024-12-12 00:54:44.001 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=459, data_len=32747, checksum=0x8b21
+2024-12-12 00:54:44.002 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=460, data_len=32747, checksum=0x2676
+2024-12-12 00:54:44.061 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=278, ack=461, flags=ACK , data_len=0
+2024-12-12 00:54:44.061 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=65ms, DevRTT=10ms, RTO=105ms
+2024-12-12 00:54:44.061 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:44.061 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:44.081 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=461, data_len=32747, checksum=0xe6f2
+2024-12-12 00:54:44.082 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=462, data_len=32747, checksum=0xc04d
+2024-12-12 00:54:44.131 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:54:44.141 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=463, data_len=32747, checksum=0xd907
+2024-12-12 00:54:44.161 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=279, ack=463, flags=ACK , data_len=0
+2024-12-12 00:54:44.182 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=464, data_len=32747, checksum=0x5e5f
+2024-12-12 00:54:44.182 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=465, data_len=32747, checksum=0xee64
+2024-12-12 00:54:44.201 - LOG: Congestion Avoidance increment: cwnd=4, ssthresh=2
+2024-12-12 00:54:44.212 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=280, ack=464, flags=ACK , data_len=0
+2024-12-12 00:54:44.212 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=466, data_len=32747, checksum=0x41ab
+2024-12-12 00:54:44.212 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=467, data_len=32747, checksum=0x9d45
+2024-12-12 00:54:44.247 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=281, ack=466, flags=ACK , data_len=0
+2024-12-12 00:54:44.247 - LOG: [ESTABLISHED] RTT sample: 65ms, updated RTT=65ms, DevRTT=8ms, RTO=97ms
+2024-12-12 00:54:44.259 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=468, data_len=32747, checksum=0x4e37
+2024-12-12 00:54:44.259 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=469, data_len=32747, checksum=0xc65e
+2024-12-12 00:54:44.266 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=2
+2024-12-12 00:54:44.273 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=282, ack=468, flags=ACK , data_len=0
+2024-12-12 00:54:44.273 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=470, data_len=32747, checksum=0xf140
+2024-12-12 00:54:44.274 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=471, data_len=32747, checksum=0x2b67
+2024-12-12 00:54:44.274 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=472, data_len=32747, checksum=0xa196
+2024-12-12 00:54:44.311 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=283, ack=473, flags=ACK , data_len=0
+2024-12-12 00:54:44.311 - LOG: [ESTABLISHED] RTT sample: 38ms, updated RTT=62ms, DevRTT=12ms, RTO=110ms
+2024-12-12 00:54:44.328 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=473, data_len=32747, checksum=0x3183
+2024-12-12 00:54:44.328 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=474, data_len=32747, checksum=0x320b
+2024-12-12 00:54:44.328 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=475, data_len=32747, checksum=0x213e
+2024-12-12 00:54:44.328 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=476, data_len=32747, checksum=0x2bd7
+2024-12-12 00:54:44.328 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=477, data_len=32747, checksum=0xc494
+2024-12-12 00:54:44.334 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=2
+2024-12-12 00:54:44.340 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=478, data_len=32747, checksum=0xa4f5
+2024-12-12 00:54:44.376 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=284, ack=479, flags=ACK , data_len=0
+2024-12-12 00:54:44.377 - LOG: [ESTABLISHED] RTT sample: 48ms, updated RTT=61ms, DevRTT=12ms, RTO=109ms
+2024-12-12 00:54:44.388 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=479, data_len=32747, checksum=0xfeb8
+2024-12-12 00:54:44.389 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=480, data_len=32747, checksum=0x388b
+2024-12-12 00:54:44.389 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=481, data_len=32747, checksum=0xe7
+2024-12-12 00:54:44.389 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=482, data_len=32747, checksum=0xd54f
+2024-12-12 00:54:44.389 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=483, data_len=32747, checksum=0xcc09
+2024-12-12 00:54:44.389 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=484, data_len=32747, checksum=0xa3ad
+2024-12-12 00:54:44.401 - LOG: Congestion Avoidance increment: cwnd=7, ssthresh=2
+2024-12-12 00:54:44.401 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=485, data_len=32747, checksum=0xb0d
+2024-12-12 00:54:44.425 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=285, ack=483, flags=ACK , data_len=0
+2024-12-12 00:54:44.425 - LOG: [ESTABLISHED] RTT sample: 36ms, updated RTT=58ms, DevRTT=15ms, RTO=118ms
+2024-12-12 00:54:44.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=486, data_len=32747, checksum=0x77a8
+2024-12-12 00:54:44.437 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=286, ack=483, flags=ACK , data_len=0
+2024-12-12 00:54:44.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=487, data_len=32747, checksum=0xcfd2
+2024-12-12 00:54:44.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=488, data_len=32747, checksum=0x1b8e
+2024-12-12 00:54:44.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=489, data_len=32747, checksum=0xae06
+2024-12-12 00:54:44.467 - LOG: Congestion Avoidance increment: cwnd=8, ssthresh=2
+2024-12-12 00:54:44.487 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=287, ack=483, flags=ACK , data_len=0
+2024-12-12 00:54:44.487 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=288, ack=483, flags=ACK , data_len=0
+2024-12-12 00:54:44.487 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=490, data_len=32747, checksum=0x1ec8
+2024-12-12 00:54:44.487 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=482, fast retransmit.
+2024-12-12 00:54:44.487 - LOG: Enter Fast Recovery: cwnd=7, ssthresh=4
+2024-12-12 00:54:44.532 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=289, ack=483, flags=ACK , data_len=0
+2024-12-12 00:54:44.532 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=290, ack=483, flags=ACK , data_len=0
+2024-12-12 00:54:44.532 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=291, ack=483, flags=ACK , data_len=0
+2024-12-12 00:54:44.532 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=292, ack=491, flags=ACK , data_len=0
+2024-12-12 00:54:44.532 - LOG: [ESTABLISHED] RTT sample: 45ms, updated RTT=57ms, DevRTT=15ms, RTO=117ms
+2024-12-12 00:54:44.532 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=4, ssthresh=4
+2024-12-12 00:54:44.532 - LOG: Enter Congestion Avoidance: cwnd=4, ssthresh=4
+2024-12-12 00:54:44.532 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=293, ack=491, flags=ACK , data_len=0
+2024-12-12 00:54:44.532 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=294, ack=491, flags=ACK , data_len=0
+2024-12-12 00:54:44.541 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=491, data_len=32747, checksum=0xecd
+2024-12-12 00:54:44.541 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=492, data_len=32747, checksum=0x6f80
+2024-12-12 00:54:44.542 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=493, data_len=32747, checksum=0x7eeb
+2024-12-12 00:54:44.542 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=494, data_len=32747, checksum=0x3905
+2024-12-12 00:54:44.591 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=4
+2024-12-12 00:54:44.601 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=295, ack=495, flags=ACK , data_len=0
+2024-12-12 00:54:44.611 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=495, data_len=32747, checksum=0x4feb
+2024-12-12 00:54:44.611 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=496, data_len=32747, checksum=0xf031
+2024-12-12 00:54:44.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=497, data_len=32747, checksum=0x6a9d
+2024-12-12 00:54:44.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=498, data_len=32747, checksum=0x66da
+2024-12-12 00:54:44.612 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=499, data_len=32747, checksum=0x4749
+2024-12-12 00:54:44.651 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=4
+2024-12-12 00:54:44.661 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=500, data_len=32747, checksum=0x7ff8
+2024-12-12 00:54:44.696 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=296, ack=500, flags=ACK , data_len=0
+2024-12-12 00:54:44.696 - LOG: [ESTABLISHED] RTT sample: 85ms, updated RTT=60ms, DevRTT=18ms, RTO=132ms
+2024-12-12 00:54:44.710 - LOG: Congestion Avoidance increment: cwnd=7, ssthresh=4
+2024-12-12 00:54:44.710 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=501, data_len=32747, checksum=0x267f
+2024-12-12 00:54:44.710 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=502, data_len=32747, checksum=0x55ec
+2024-12-12 00:54:44.710 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=503, data_len=32747, checksum=0x71f
+2024-12-12 00:54:44.710 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=504, data_len=32747, checksum=0x9c25
+2024-12-12 00:54:44.710 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=505, data_len=32747, checksum=0x77c3
+2024-12-12 00:54:44.710 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=506, data_len=32747, checksum=0x9615
+2024-12-12 00:54:44.727 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=297, ack=501, flags=ACK , data_len=0
+2024-12-12 00:54:44.727 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=60ms, DevRTT=15ms, RTO=120ms
+2024-12-12 00:54:44.740 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=507, data_len=32747, checksum=0x4e3a
+2024-12-12 00:54:44.764 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=298, ack=507, flags=ACK , data_len=0
+2024-12-12 00:54:44.764 - LOG: [ESTABLISHED] RTT sample: 54ms, updated RTT=60ms, DevRTT=13ms, RTO=112ms
+2024-12-12 00:54:44.770 - LOG: Congestion Avoidance increment: cwnd=8, ssthresh=4
+2024-12-12 00:54:44.776 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=508, data_len=32747, checksum=0xeeb5
+2024-12-12 00:54:44.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=509, data_len=32747, checksum=0x6cb7
+2024-12-12 00:54:44.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=510, data_len=32747, checksum=0x8642
+2024-12-12 00:54:44.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=511, data_len=32747, checksum=0xd0ed
+2024-12-12 00:54:44.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=512, data_len=32747, checksum=0x2feb
+2024-12-12 00:54:44.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=513, data_len=32747, checksum=0x3875
+2024-12-12 00:54:44.777 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=514, data_len=32747, checksum=0xc490
+2024-12-12 00:54:44.782 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=299, ack=508, flags=ACK , data_len=0
+2024-12-12 00:54:44.789 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=515, data_len=32747, checksum=0x48d3
+2024-12-12 00:54:44.819 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=300, ack=515, flags=ACK , data_len=0
+2024-12-12 00:54:44.819 - LOG: [ESTABLISHED] RTT sample: 42ms, updated RTT=58ms, DevRTT=14ms, RTO=114ms
+2024-12-12 00:54:44.825 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=516, data_len=32747, checksum=0xf917
+2024-12-12 00:54:44.825 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=517, data_len=32747, checksum=0xfcac
+2024-12-12 00:54:44.825 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=518, data_len=32747, checksum=0x3ffa
+2024-12-12 00:54:44.825 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=519, data_len=32747, checksum=0xa8ee
+2024-12-12 00:54:44.825 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=520, data_len=32747, checksum=0x2958
+2024-12-12 00:54:44.825 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=521, data_len=32747, checksum=0x4b9b
+2024-12-12 00:54:44.825 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=522, data_len=32747, checksum=0x6157
+2024-12-12 00:54:44.833 - LOG: Congestion Avoidance increment: cwnd=9, ssthresh=4
+2024-12-12 00:54:44.840 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=301, ack=516, flags=ACK , data_len=0
+2024-12-12 00:54:44.840 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=523, data_len=32747, checksum=0xfb60
+2024-12-12 00:54:44.840 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=524, data_len=32747, checksum=0x4e37
+2024-12-12 00:54:44.840 - LOG: [ESTABLISHED] RTT sample: 51ms, updated RTT=58ms, DevRTT=13ms, RTO=110ms
+2024-12-12 00:54:44.884 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=302, ack=525, flags=ACK , data_len=0
+2024-12-12 00:54:44.884 - LOG: [ESTABLISHED] RTT sample: 59ms, updated RTT=58ms, DevRTT=10ms, RTO=98ms
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=525, data_len=32747, checksum=0x62fa
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=526, data_len=32747, checksum=0xf75
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=527, data_len=32747, checksum=0x50a3
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=528, data_len=32747, checksum=0xeaf9
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=529, data_len=32747, checksum=0x9feb
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=530, data_len=32747, checksum=0x98cf
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=531, data_len=32747, checksum=0x8e3b
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=532, data_len=32747, checksum=0xb96a
+2024-12-12 00:54:44.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=533, data_len=32747, checksum=0xc692
+2024-12-12 00:54:44.940 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=303, ack=534, flags=ACK , data_len=0
+2024-12-12 00:54:44.940 - LOG: [ESTABLISHED] RTT sample: 42ms, updated RTT=56ms, DevRTT=11ms, RTO=100ms
+2024-12-12 00:54:44.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=534, data_len=32747, checksum=0x7f2b
+2024-12-12 00:54:44.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=535, data_len=32747, checksum=0x300a
+2024-12-12 00:54:44.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=536, data_len=32747, checksum=0x3bee
+2024-12-12 00:54:44.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=537, data_len=32747, checksum=0xd1cd
+2024-12-12 00:54:44.947 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=538, data_len=32747, checksum=0xce35
+2024-12-12 00:54:44.947 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=539, data_len=32747, checksum=0xce2a
+2024-12-12 00:54:44.947 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=540, data_len=32747, checksum=0xa983
+2024-12-12 00:54:44.947 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=541, data_len=32747, checksum=0x6f6c
+2024-12-12 00:54:44.947 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=542, data_len=32747, checksum=0xd823
+2024-12-12 00:54:44.952 - LOG: Congestion Avoidance increment: cwnd=10, ssthresh=4
+2024-12-12 00:54:44.958 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=543, data_len=32747, checksum=0xa5a3
+2024-12-12 00:54:44.995 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=304, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:44.995 - LOG: [ESTABLISHED] RTT sample: 48ms, updated RTT=55ms, DevRTT=11ms, RTO=99ms
+2024-12-12 00:54:45.013 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=544, data_len=32747, checksum=0x24e2
+2024-12-12 00:54:45.013 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=545, data_len=32747, checksum=0xd7f5
+2024-12-12 00:54:45.013 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=546, data_len=32747, checksum=0xe275
+2024-12-12 00:54:45.013 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=547, data_len=32747, checksum=0xd6dc
+2024-12-12 00:54:45.013 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=548, data_len=32747, checksum=0xf6d1
+2024-12-12 00:54:45.013 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=549, data_len=32747, checksum=0x1814
+2024-12-12 00:54:45.014 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=550, data_len=32747, checksum=0xf3ba
+2024-12-12 00:54:45.014 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=551, data_len=32747, checksum=0x1931
+2024-12-12 00:54:45.014 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=552, data_len=32747, checksum=0xb17a
+2024-12-12 00:54:45.014 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=553, data_len=32747, checksum=0x9e65
+2024-12-12 00:54:45.071 - LOG: Congestion Avoidance increment: cwnd=11, ssthresh=4
+2024-12-12 00:54:45.071 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=305, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.071 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=306, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.071 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=307, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.071 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=543, fast retransmit.
+2024-12-12 00:54:45.072 - LOG: Enter Fast Recovery: cwnd=8.5, ssthresh=5.5
+2024-12-12 00:54:45.131 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=308, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.131 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=309, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.131 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=310, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.131 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=311, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.131 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=312, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.131 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=313, ack=544, flags=ACK , data_len=0
+2024-12-12 00:54:45.131 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=314, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] RTT sample: 61ms, updated RTT=55ms, DevRTT=10ms, RTO=95ms
+2024-12-12 00:54:45.132 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=5.5, ssthresh=5.5
+2024-12-12 00:54:45.132 - LOG: Enter Congestion Avoidance: cwnd=5.5, ssthresh=5.5
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=315, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=316, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=317, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=553, fast retransmit.
+2024-12-12 00:54:45.132 - LOG: Enter Fast Recovery: cwnd=5.75, ssthresh=2.75
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=318, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=319, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=320, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=321, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.132 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=322, ack=554, flags=ACK , data_len=0
+2024-12-12 00:54:45.142 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=554, data_len=32747, checksum=0xcd69
+2024-12-12 00:54:45.142 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=555, data_len=32747, checksum=0x836b
+2024-12-12 00:54:45.142 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=556, data_len=32747, checksum=0xeb0
+2024-12-12 00:54:45.142 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=557, data_len=32747, checksum=0x3845
+2024-12-12 00:54:45.142 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=558, data_len=32747, checksum=0xf0df
+2024-12-12 00:54:45.211 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=323, ack=559, flags=ACK , data_len=0
+2024-12-12 00:54:45.212 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=56ms, DevRTT=11ms, RTO=100ms
+2024-12-12 00:54:45.212 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2.75, ssthresh=2.75
+2024-12-12 00:54:45.212 - LOG: Enter Congestion Avoidance: cwnd=2.75, ssthresh=2.75
+2024-12-12 00:54:45.231 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=559, data_len=32747, checksum=0xa33d
+2024-12-12 00:54:45.232 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=560, data_len=32747, checksum=0xc00
+2024-12-12 00:54:45.271 - LOG: Congestion Avoidance increment: cwnd=3.75, ssthresh=2.75
+2024-12-12 00:54:45.282 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=561, data_len=32747, checksum=0xd10c
+2024-12-12 00:54:45.302 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=324, ack=561, flags=ACK , data_len=0
+2024-12-12 00:54:45.302 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=57ms, DevRTT=11ms, RTO=101ms
+2024-12-12 00:54:45.322 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=562, data_len=32747, checksum=0x2fde
+2024-12-12 00:54:45.322 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=563, data_len=32747, checksum=0x864c
+2024-12-12 00:54:45.331 - LOG: Congestion Avoidance increment: cwnd=4.75, ssthresh=2.75
+2024-12-12 00:54:45.342 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=564, data_len=32747, checksum=0xb4b6
+2024-12-12 00:54:45.361 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=325, ack=562, flags=ACK , data_len=0
+2024-12-12 00:54:45.381 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=565, data_len=32747, checksum=0xcad0
+2024-12-12 00:54:45.391 - LOG: Congestion Avoidance increment: cwnd=5.75, ssthresh=2.75
+2024-12-12 00:54:45.392 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=326, ack=565, flags=ACK , data_len=0
+2024-12-12 00:54:45.401 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=566, data_len=32747, checksum=0x3977
+2024-12-12 00:54:45.401 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=567, data_len=32747, checksum=0x8638
+2024-12-12 00:54:45.402 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=568, data_len=32747, checksum=0x92b1
+2024-12-12 00:54:45.402 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=569, data_len=32747, checksum=0x7fd9
+2024-12-12 00:54:45.452 - LOG: Congestion Avoidance increment: cwnd=6.75, ssthresh=2.75
+2024-12-12 00:54:45.452 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=327, ack=570, flags=ACK , data_len=0
+2024-12-12 00:54:45.452 - LOG: [ESTABLISHED] RTT sample: 71ms, updated RTT=58ms, DevRTT=11ms, RTO=102ms
+2024-12-12 00:54:45.471 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=570, data_len=32747, checksum=0xca9
+2024-12-12 00:54:45.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=571, data_len=32747, checksum=0x11bf
+2024-12-12 00:54:45.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=572, data_len=32747, checksum=0x6626
+2024-12-12 00:54:45.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=573, data_len=32747, checksum=0x76cb
+2024-12-12 00:54:45.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=574, data_len=32747, checksum=0x3b46
+2024-12-12 00:54:45.472 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=575, data_len=32747, checksum=0x73b7
+2024-12-12 00:54:45.511 - LOG: Congestion Avoidance increment: cwnd=7.75, ssthresh=2.75
+2024-12-12 00:54:45.511 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=576, data_len=32747, checksum=0x8ae1
+2024-12-12 00:54:45.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=328, ack=573, flags=ACK , data_len=0
+2024-12-12 00:54:45.522 - LOG: [ESTABLISHED] RTT sample: 51ms, updated RTT=58ms, DevRTT=10ms, RTO=98ms
+2024-12-12 00:54:45.522 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=329, ack=573, flags=ACK , data_len=0
+2024-12-12 00:54:45.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=577, data_len=32747, checksum=0xb919
+2024-12-12 00:54:45.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=578, data_len=32747, checksum=0x5c86
+2024-12-12 00:54:45.532 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=579, data_len=32747, checksum=0xb84e
+2024-12-12 00:54:45.547 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=330, ack=573, flags=ACK , data_len=0
+2024-12-12 00:54:45.571 - LOG: Congestion Avoidance increment: cwnd=8.75, ssthresh=2.75
+2024-12-12 00:54:45.581 - WARN: Timeout: cwnd=1, ssthresh=4.375, enter Slow Start.
+2024-12-12 00:54:45.581 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=331, ack=573, flags=ACK , data_len=0
+2024-12-12 00:54:45.631 - WARN: [ESTABLISHED] Timeout at seq=573, resend all unacked packets starting from base.
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Resend packet seq=573
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Resend packet seq=574
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Resend packet seq=575
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Resend packet seq=576
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Resend packet seq=577
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Resend packet seq=578
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Resend packet seq=579
+2024-12-12 00:54:45.631 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=580, data_len=32747, checksum=0xff79
+2024-12-12 00:54:45.632 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=572, fast retransmit.
+2024-12-12 00:54:45.632 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:45.632 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=332, ack=573, flags=ACK , data_len=0
+2024-12-12 00:54:45.632 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=333, ack=573, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=335, ack=580, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=59ms, DevRTT=10ms, RTO=99ms
+2024-12-12 00:54:45.702 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:45.702 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=336, ack=580, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=337, ack=580, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=338, ack=580, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=579, fast retransmit.
+2024-12-12 00:54:45.702 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=340, ack=581, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:45.702 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=341, ack=581, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=342, ack=581, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=343, ack=581, flags=ACK , data_len=0
+2024-12-12 00:54:45.702 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=580, fast retransmit.
+2024-12-12 00:54:45.702 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:45.721 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=581, data_len=32747, checksum=0xa1f8
+2024-12-12 00:54:45.722 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=582, data_len=32747, checksum=0xf8a5
+2024-12-12 00:54:45.722 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=583, data_len=32747, checksum=0x720
+2024-12-12 00:54:45.722 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=584, data_len=32747, checksum=0x575a
+2024-12-12 00:54:45.722 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=585, data_len=32747, checksum=0x3768
+2024-12-12 00:54:45.771 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=344, ack=581, flags=ACK , data_len=0
+2024-12-12 00:54:45.791 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=345, ack=586, flags=ACK , data_len=0
+2024-12-12 00:54:45.792 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=60ms, DevRTT=10ms, RTO=100ms
+2024-12-12 00:54:45.792 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:45.792 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:45.812 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=586, data_len=32747, checksum=0x571a
+2024-12-12 00:54:45.812 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=587, data_len=32747, checksum=0xd2f8
+2024-12-12 00:54:45.872 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:54:45.872 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=588, data_len=32747, checksum=0x72ad
+2024-12-12 00:54:45.891 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=346, ack=588, flags=ACK , data_len=0
+2024-12-12 00:54:45.907 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=589, data_len=32747, checksum=0x5a28
+2024-12-12 00:54:45.907 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=590, data_len=32747, checksum=0xb9a2
+2024-12-12 00:54:45.941 - LOG: Congestion Avoidance increment: cwnd=4, ssthresh=2
+2024-12-12 00:54:45.941 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=347, ack=589, flags=ACK , data_len=0
+2024-12-12 00:54:45.941 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=591, data_len=32747, checksum=0x57a7
+2024-12-12 00:54:45.942 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=592, data_len=32747, checksum=0x3180
+2024-12-12 00:54:45.977 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=348, ack=591, flags=ACK , data_len=0
+2024-12-12 00:54:45.977 - LOG: [ESTABLISHED] RTT sample: 70ms, updated RTT=61ms, DevRTT=10ms, RTO=101ms
+2024-12-12 00:54:45.997 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=593, data_len=32747, checksum=0xe5ef
+2024-12-12 00:54:45.997 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=594, data_len=32747, checksum=0x37e7
+2024-12-12 00:54:46.016 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=2
+2024-12-12 00:54:46.017 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=349, ack=593, flags=ACK , data_len=0
+2024-12-12 00:54:46.017 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=595, data_len=32747, checksum=0xd788
+2024-12-12 00:54:46.017 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=596, data_len=32747, checksum=0xabd7
+2024-12-12 00:54:46.017 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=597, data_len=32747, checksum=0x2e5
+2024-12-12 00:54:46.051 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=350, ack=595, flags=ACK , data_len=0
+2024-12-12 00:54:46.072 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=598, data_len=32747, checksum=0xd860
+2024-12-12 00:54:46.072 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=599, data_len=32747, checksum=0x7c40
+2024-12-12 00:54:46.080 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=2
+2024-12-12 00:54:46.101 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=600, data_len=32747, checksum=0x77d6
+2024-12-12 00:54:46.102 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=351, ack=598, flags=ACK , data_len=0
+2024-12-12 00:54:46.102 - LOG: [ESTABLISHED] RTT sample: 85ms, updated RTT=64ms, DevRTT=13ms, RTO=116ms
+2024-12-12 00:54:46.119 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=601, data_len=32747, checksum=0x307e
+2024-12-12 00:54:46.119 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=602, data_len=32747, checksum=0x47f3
+2024-12-12 00:54:46.119 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=603, data_len=32747, checksum=0x7855
+2024-12-12 00:54:46.141 - LOG: Congestion Avoidance increment: cwnd=7, ssthresh=2
+2024-12-12 00:54:46.141 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=604, data_len=32747, checksum=0x929d
+2024-12-12 00:54:46.157 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=352, ack=601, flags=ACK , data_len=0
+2024-12-12 00:54:46.157 - LOG: [ESTABLISHED] RTT sample: 56ms, updated RTT=63ms, DevRTT=12ms, RTO=111ms
+2024-12-12 00:54:46.172 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=605, data_len=32747, checksum=0xc071
+2024-12-12 00:54:46.172 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=606, data_len=32747, checksum=0xb4e6
+2024-12-12 00:54:46.173 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=607, data_len=32747, checksum=0x221c
+2024-12-12 00:54:46.188 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=353, ack=605, flags=ACK , data_len=0
+2024-12-12 00:54:46.202 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=608, data_len=32747, checksum=0xb625
+2024-12-12 00:54:46.203 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=609, data_len=32747, checksum=0xf845
+2024-12-12 00:54:46.203 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=610, data_len=32747, checksum=0x280d
+2024-12-12 00:54:46.203 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=611, data_len=32747, checksum=0x8bfe
+2024-12-12 00:54:46.219 - LOG: Congestion Avoidance increment: cwnd=8, ssthresh=2
+2024-12-12 00:54:46.219 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=612, data_len=32747, checksum=0x63c8
+2024-12-12 00:54:46.237 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=354, ack=608, flags=ACK , data_len=0
+2024-12-12 00:54:46.237 - LOG: [ESTABLISHED] RTT sample: 65ms, updated RTT=63ms, DevRTT=10ms, RTO=103ms
+2024-12-12 00:54:46.252 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=613, data_len=32747, checksum=0x3d
+2024-12-12 00:54:46.252 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=614, data_len=32747, checksum=0xafe7
+2024-12-12 00:54:46.252 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=615, data_len=32747, checksum=0xb3e4
+2024-12-12 00:54:46.272 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=355, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.272 - LOG: [ESTABLISHED] RTT sample: 69ms, updated RTT=63ms, DevRTT=9ms, RTO=99ms
+2024-12-12 00:54:46.291 - LOG: Congestion Avoidance increment: cwnd=9, ssthresh=2
+2024-12-12 00:54:46.291 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=616, data_len=32747, checksum=0x599a
+2024-12-12 00:54:46.292 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=617, data_len=32747, checksum=0x95e8
+2024-12-12 00:54:46.292 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=618, data_len=32747, checksum=0xb053
+2024-12-12 00:54:46.292 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=619, data_len=32747, checksum=0xf6b4
+2024-12-12 00:54:46.292 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=620, data_len=32747, checksum=0x5b5d
+2024-12-12 00:54:46.312 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=356, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.312 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=357, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.312 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=358, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.312 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=611, fast retransmit.
+2024-12-12 00:54:46.312 - LOG: Enter Fast Recovery: cwnd=7.5, ssthresh=4.5
+2024-12-12 00:54:46.361 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=359, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.361 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=360, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.361 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=361, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.361 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=362, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.361 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=363, ack=612, flags=ACK , data_len=0
+2024-12-12 00:54:46.361 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=364, ack=621, flags=ACK , data_len=0
+2024-12-12 00:54:46.361 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=62ms, DevRTT=10ms, RTO=102ms
+2024-12-12 00:54:46.362 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=4.5, ssthresh=4.5
+2024-12-12 00:54:46.362 - LOG: Enter Congestion Avoidance: cwnd=4.5, ssthresh=4.5
+2024-12-12 00:54:46.362 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=365, ack=621, flags=ACK , data_len=0
+2024-12-12 00:54:46.362 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=366, ack=621, flags=ACK , data_len=0
+2024-12-12 00:54:46.382 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=621, data_len=32747, checksum=0xd689
+2024-12-12 00:54:46.382 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=622, data_len=32747, checksum=0x7b0
+2024-12-12 00:54:46.382 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=623, data_len=32747, checksum=0x434d
+2024-12-12 00:54:46.382 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=624, data_len=32747, checksum=0xce8
+2024-12-12 00:54:46.437 - LOG: Congestion Avoidance increment: cwnd=5.5, ssthresh=4.5
+2024-12-12 00:54:46.437 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=625, data_len=32747, checksum=0x582f
+2024-12-12 00:54:46.457 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=367, ack=625, flags=ACK , data_len=0
+2024-12-12 00:54:46.477 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=626, data_len=32747, checksum=0x380
+2024-12-12 00:54:46.477 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=627, data_len=32747, checksum=0x5ad1
+2024-12-12 00:54:46.478 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=628, data_len=32747, checksum=0x3de9
+2024-12-12 00:54:46.478 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=629, data_len=32747, checksum=0xacbe
+2024-12-12 00:54:46.501 - LOG: Congestion Avoidance increment: cwnd=6.5, ssthresh=4.5
+2024-12-12 00:54:46.519 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=368, ack=626, flags=ACK , data_len=0
+2024-12-12 00:54:46.519 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=630, data_len=32747, checksum=0x7f1c
+2024-12-12 00:54:46.519 - LOG: [ESTABLISHED] RTT sample: 82ms, updated RTT=64ms, DevRTT=12ms, RTO=112ms
+2024-12-12 00:54:46.520 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=631, data_len=32747, checksum=0x57c7
+2024-12-12 00:54:46.552 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=369, ack=630, flags=ACK , data_len=0
+2024-12-12 00:54:46.572 - LOG: Congestion Avoidance increment: cwnd=7.5, ssthresh=4.5
+2024-12-12 00:54:46.572 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=632, data_len=32747, checksum=0xa42d
+2024-12-12 00:54:46.573 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=633, data_len=32747, checksum=0x81df
+2024-12-12 00:54:46.573 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=634, data_len=32747, checksum=0x7762
+2024-12-12 00:54:46.573 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=635, data_len=32747, checksum=0x96b6
+2024-12-12 00:54:46.573 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=636, data_len=32747, checksum=0xb836
+2024-12-12 00:54:46.585 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=370, ack=632, flags=ACK , data_len=0
+2024-12-12 00:54:46.585 - LOG: [ESTABLISHED] RTT sample: 66ms, updated RTT=64ms, DevRTT=10ms, RTO=104ms
+2024-12-12 00:54:46.595 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=637, data_len=32747, checksum=0x1038
+2024-12-12 00:54:46.595 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=638, data_len=32747, checksum=0x757
+2024-12-12 00:54:46.618 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=371, ack=637, flags=ACK , data_len=0
+2024-12-12 00:54:46.618 - LOG: [ESTABLISHED] RTT sample: 45ms, updated RTT=62ms, DevRTT=12ms, RTO=110ms
+2024-12-12 00:54:46.628 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=639, data_len=32747, checksum=0x763e
+2024-12-12 00:54:46.628 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=640, data_len=32747, checksum=0x5f81
+2024-12-12 00:54:46.628 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=641, data_len=32747, checksum=0xcbcd
+2024-12-12 00:54:46.628 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=642, data_len=32747, checksum=0x85d6
+2024-12-12 00:54:46.628 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=643, data_len=32747, checksum=0xe497
+2024-12-12 00:54:46.637 - LOG: Congestion Avoidance increment: cwnd=8.5, ssthresh=4.5
+2024-12-12 00:54:46.643 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=644, data_len=32747, checksum=0x41c2
+2024-12-12 00:54:46.673 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=373, ack=644, flags=ACK , data_len=0
+2024-12-12 00:54:46.673 - LOG: [ESTABLISHED] RTT sample: 45ms, updated RTT=60ms, DevRTT=13ms, RTO=112ms
+2024-12-12 00:54:46.691 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=645, data_len=32747, checksum=0xefa4
+2024-12-12 00:54:46.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=646, data_len=32747, checksum=0xd853
+2024-12-12 00:54:46.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=647, data_len=32747, checksum=0xba86
+2024-12-12 00:54:46.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=648, data_len=32747, checksum=0x6a18
+2024-12-12 00:54:46.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=649, data_len=32747, checksum=0xbf6f
+2024-12-12 00:54:46.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=650, data_len=32747, checksum=0xd129
+2024-12-12 00:54:46.692 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=651, data_len=32747, checksum=0x3e17
+2024-12-12 00:54:46.701 - LOG: Congestion Avoidance increment: cwnd=9.5, ssthresh=4.5
+2024-12-12 00:54:46.719 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=652, data_len=32747, checksum=0x39b3
+2024-12-12 00:54:46.761 - WARN: Timeout: cwnd=1, ssthresh=4.75, enter Slow Start.
+2024-12-12 00:54:46.782 - WARN: [ESTABLISHED] Timeout at seq=644, resend all unacked packets starting from base.
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=375, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=644
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=645
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=646
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=647
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=648
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=649
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=650
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=651
+2024-12-12 00:54:46.782 - LOG: [ESTABLISHED] Resend packet seq=652
+2024-12-12 00:54:46.783 - LOG: [ESTABLISHED] RTT sample: 22ms, updated RTT=56ms, DevRTT=19ms, RTO=132ms
+2024-12-12 00:54:46.783 - LOG: Slow Start: cwnd=10, ssthresh=4.75
+2024-12-12 00:54:46.783 - LOG: Enter Congestion Avoidance: cwnd=10, ssthresh=4.75
+2024-12-12 00:54:46.783 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=653, data_len=32747, checksum=0xef51
+2024-12-12 00:54:46.783 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=654, data_len=32747, checksum=0x1a0c
+2024-12-12 00:54:46.783 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=655, data_len=32747, checksum=0x10ca
+2024-12-12 00:54:46.784 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=656, data_len=32747, checksum=0x33b3
+2024-12-12 00:54:46.784 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=657, data_len=32747, checksum=0xdf1a
+2024-12-12 00:54:46.784 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=658, data_len=32747, checksum=0x3607
+2024-12-12 00:54:46.784 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=659, data_len=32747, checksum=0x44f5
+2024-12-12 00:54:46.784 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=660, data_len=32747, checksum=0xdf4f
+2024-12-12 00:54:46.785 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=661, data_len=32747, checksum=0xfcad
+2024-12-12 00:54:46.785 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=662, data_len=32747, checksum=0x1003
+2024-12-12 00:54:46.842 - LOG: Congestion Avoidance increment: cwnd=11, ssthresh=4.75
+2024-12-12 00:54:46.842 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=376, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.842 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=377, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.842 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=378, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.842 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=652, fast retransmit.
+2024-12-12 00:54:46.842 - LOG: Enter Fast Recovery: cwnd=8.5, ssthresh=5.5
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=379, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=380, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=381, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=382, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=383, ack=653, flags=ACK , data_len=0
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=384, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] RTT sample: 60ms, updated RTT=56ms, DevRTT=16ms, RTO=120ms
+2024-12-12 00:54:46.902 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=5.5, ssthresh=5.5
+2024-12-12 00:54:46.902 - LOG: Enter Congestion Avoidance: cwnd=5.5, ssthresh=5.5
+2024-12-12 00:54:46.902 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=385, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.903 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=386, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.903 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=387, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.903 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=658, fast retransmit.
+2024-12-12 00:54:46.903 - LOG: Enter Fast Recovery: cwnd=5.75, ssthresh=2.75
+2024-12-12 00:54:46.919 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=663, data_len=32747, checksum=0xa89c
+2024-12-12 00:54:46.961 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=388, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.961 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=389, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=390, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=391, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=392, ack=659, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=393, ack=663, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] RTT sample: 59ms, updated RTT=56ms, DevRTT=13ms, RTO=108ms
+2024-12-12 00:54:46.962 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2.75, ssthresh=2.75
+2024-12-12 00:54:46.962 - LOG: Enter Congestion Avoidance: cwnd=2.75, ssthresh=2.75
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=394, ack=663, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=395, ack=663, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=396, ack=663, flags=ACK , data_len=0
+2024-12-12 00:54:46.962 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=662, fast retransmit.
+2024-12-12 00:54:46.962 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:46.963 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=397, ack=663, flags=ACK , data_len=0
+2024-12-12 00:54:46.982 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=664, data_len=32747, checksum=0x58f3
+2024-12-12 00:54:46.982 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=665, data_len=32747, checksum=0x5cf2
+2024-12-12 00:54:46.982 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=666, data_len=32747, checksum=0x294c
+2024-12-12 00:54:46.982 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=667, data_len=32747, checksum=0x92fc
+2024-12-12 00:54:47.033 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=398, ack=668, flags=ACK , data_len=0
+2024-12-12 00:54:47.033 - LOG: [ESTABLISHED] RTT sample: 51ms, updated RTT=56ms, DevRTT=11ms, RTO=100ms
+2024-12-12 00:54:47.033 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:47.033 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:47.043 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=668, data_len=32747, checksum=0xe481
+2024-12-12 00:54:47.043 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=669, data_len=32747, checksum=0x8af2
+2024-12-12 00:54:47.090 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:54:47.091 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=399, ack=670, flags=ACK , data_len=0
+2024-12-12 00:54:47.102 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=670, data_len=32747, checksum=0xfe03
+2024-12-12 00:54:47.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=671, data_len=32747, checksum=0x19aa
+2024-12-12 00:54:47.103 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=672, data_len=32747, checksum=0x48ed
+2024-12-12 00:54:47.161 - LOG: Congestion Avoidance increment: cwnd=4, ssthresh=2
+2024-12-12 00:54:47.176 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=673, data_len=32747, checksum=0xd1a9
+2024-12-12 00:54:47.212 - WARN: Timeout: cwnd=1, ssthresh=2, enter Slow Start.
+2024-12-12 00:54:47.232 - WARN: [ESTABLISHED] Timeout at seq=670, resend all unacked packets starting from base.
+2024-12-12 00:54:47.233 - LOG: [ESTABLISHED] Resend packet seq=670
+2024-12-12 00:54:47.233 - LOG: [ESTABLISHED] Resend packet seq=671
+2024-12-12 00:54:47.233 - LOG: [ESTABLISHED] Resend packet seq=672
+2024-12-12 00:54:47.233 - LOG: [ESTABLISHED] Resend packet seq=673
+2024-12-12 00:54:47.251 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=401, ack=674, flags=ACK , data_len=0
+2024-12-12 00:54:47.252 - LOG: [ESTABLISHED] RTT sample: 39ms, updated RTT=54ms, DevRTT=12ms, RTO=102ms
+2024-12-12 00:54:47.252 - LOG: Slow Start: cwnd=5, ssthresh=2
+2024-12-12 00:54:47.252 - LOG: Enter Congestion Avoidance: cwnd=5, ssthresh=2
+2024-12-12 00:54:47.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=674, data_len=32747, checksum=0xd8e
+2024-12-12 00:54:47.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=675, data_len=32747, checksum=0xd713
+2024-12-12 00:54:47.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=676, data_len=32747, checksum=0xc0a6
+2024-12-12 00:54:47.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=677, data_len=32747, checksum=0x3f51
+2024-12-12 00:54:47.272 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=678, data_len=32747, checksum=0x48a9
+2024-12-12 00:54:47.292 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=402, ack=674, flags=ACK , data_len=0
+2024-12-12 00:54:47.292 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=403, ack=674, flags=ACK , data_len=0
+2024-12-12 00:54:47.292 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=404, ack=674, flags=ACK , data_len=0
+2024-12-12 00:54:47.292 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=673, fast retransmit.
+2024-12-12 00:54:47.292 - LOG: Enter Fast Recovery: cwnd=5.5, ssthresh=2.5
+2024-12-12 00:54:47.312 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=405, ack=674, flags=ACK , data_len=0
+2024-12-12 00:54:47.332 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=406, ack=679, flags=ACK , data_len=0
+2024-12-12 00:54:47.333 - LOG: [ESTABLISHED] RTT sample: 41ms, updated RTT=53ms, DevRTT=12ms, RTO=101ms
+2024-12-12 00:54:47.333 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2.5, ssthresh=2.5
+2024-12-12 00:54:47.333 - LOG: Enter Congestion Avoidance: cwnd=2.5, ssthresh=2.5
+2024-12-12 00:54:47.333 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=407, ack=679, flags=ACK , data_len=0
+2024-12-12 00:54:47.333 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=408, ack=679, flags=ACK , data_len=0
+2024-12-12 00:54:47.333 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=409, ack=679, flags=ACK , data_len=0
+2024-12-12 00:54:47.333 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=678, fast retransmit.
+2024-12-12 00:54:47.333 - LOG: Enter Fast Recovery: cwnd=5, ssthresh=2
+2024-12-12 00:54:47.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=679, data_len=32747, checksum=0xcfd1
+2024-12-12 00:54:47.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=680, data_len=32747, checksum=0xde84
+2024-12-12 00:54:47.352 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=681, data_len=32747, checksum=0xccc1
+2024-12-12 00:54:47.353 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=682, data_len=32747, checksum=0x96fb
+2024-12-12 00:54:47.353 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=683, data_len=32747, checksum=0x46e7
+2024-12-12 00:54:47.432 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=410, ack=684, flags=ACK , data_len=0
+2024-12-12 00:54:47.432 - LOG: [ESTABLISHED] RTT sample: 80ms, updated RTT=56ms, DevRTT=15ms, RTO=116ms
+2024-12-12 00:54:47.432 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:47.432 - LOG: Enter Congestion Avoidance: cwnd=2, ssthresh=2
+2024-12-12 00:54:47.449 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=684, data_len=32747, checksum=0x778
+2024-12-12 00:54:47.449 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=685, data_len=32747, checksum=0x2f37
+2024-12-12 00:54:47.491 - LOG: Congestion Avoidance increment: cwnd=3, ssthresh=2
+2024-12-12 00:54:47.497 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=411, ack=686, flags=ACK , data_len=0
+2024-12-12 00:54:47.497 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=686, data_len=32747, checksum=0xe8e6
+2024-12-12 00:54:47.497 - LOG: [ESTABLISHED] RTT sample: 48ms, updated RTT=55ms, DevRTT=14ms, RTO=111ms
+2024-12-12 00:54:47.497 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=687, data_len=32747, checksum=0xd1e5
+2024-12-12 00:54:47.497 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=688, data_len=32747, checksum=0x645d
+2024-12-12 00:54:47.546 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=412, ack=689, flags=ACK , data_len=0
+2024-12-12 00:54:47.558 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=689, data_len=32747, checksum=0x9814
+2024-12-12 00:54:47.558 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=690, data_len=32747, checksum=0x531c
+2024-12-12 00:54:47.558 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=691, data_len=32747, checksum=0x2477
+2024-12-12 00:54:47.611 - LOG: Congestion Avoidance increment: cwnd=4, ssthresh=2
+2024-12-12 00:54:47.611 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=413, ack=692, flags=ACK , data_len=0
+2024-12-12 00:54:47.611 - LOG: [ESTABLISHED] RTT sample: 53ms, updated RTT=55ms, DevRTT=11ms, RTO=99ms
+2024-12-12 00:54:47.626 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=692, data_len=32747, checksum=0x6518
+2024-12-12 00:54:47.626 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=693, data_len=32747, checksum=0x8693
+2024-12-12 00:54:47.626 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=694, data_len=32747, checksum=0x6a23
+2024-12-12 00:54:47.626 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=695, data_len=32747, checksum=0xa66c
+2024-12-12 00:54:47.670 - LOG: Congestion Avoidance increment: cwnd=5, ssthresh=2
+2024-12-12 00:54:47.673 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=414, ack=696, flags=ACK , data_len=0
+2024-12-12 00:54:47.673 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=696, data_len=32747, checksum=0xd601
+2024-12-12 00:54:47.673 - LOG: [ESTABLISHED] RTT sample: 47ms, updated RTT=54ms, DevRTT=11ms, RTO=98ms
+2024-12-12 00:54:47.673 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=697, data_len=32747, checksum=0x33a9
+2024-12-12 00:54:47.674 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=698, data_len=32747, checksum=0x3889
+2024-12-12 00:54:47.674 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=699, data_len=32747, checksum=0x4e54
+2024-12-12 00:54:47.674 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=700, data_len=32747, checksum=0xf07e
+2024-12-12 00:54:47.722 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=415, ack=701, flags=ACK , data_len=0
+2024-12-12 00:54:47.722 - LOG: [ESTABLISHED] RTT sample: 48ms, updated RTT=54ms, DevRTT=10ms, RTO=94ms
+2024-12-12 00:54:47.734 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=701, data_len=32747, checksum=0x5be7
+2024-12-12 00:54:47.735 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=702, data_len=32747, checksum=0xd0be
+2024-12-12 00:54:47.735 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=703, data_len=32747, checksum=0x4ed1
+2024-12-12 00:54:47.735 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=704, data_len=32747, checksum=0x3fe6
+2024-12-12 00:54:47.735 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=705, data_len=32747, checksum=0x781
+2024-12-12 00:54:47.777 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=416, ack=706, flags=ACK , data_len=0
+2024-12-12 00:54:47.777 - LOG: [ESTABLISHED] RTT sample: 42ms, updated RTT=53ms, DevRTT=10ms, RTO=93ms
+2024-12-12 00:54:47.789 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=706, data_len=32747, checksum=0x6422
+2024-12-12 00:54:47.789 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=707, data_len=32747, checksum=0x610
+2024-12-12 00:54:47.789 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=708, data_len=32747, checksum=0xaac2
+2024-12-12 00:54:47.789 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=709, data_len=32747, checksum=0x807d
+2024-12-12 00:54:47.789 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=710, data_len=32747, checksum=0xf70e
+2024-12-12 00:54:47.838 - LOG: Congestion Avoidance increment: cwnd=6, ssthresh=2
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=417, ack=711, flags=ACK , data_len=0
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=711, data_len=32747, checksum=0x2e1f
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=53ms, DevRTT=9ms, RTO=89ms
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=712, data_len=32747, checksum=0x2149
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=713, data_len=32747, checksum=0xbc7b
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=714, data_len=32747, checksum=0xff25
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=715, data_len=32747, checksum=0x267c
+2024-12-12 00:54:47.838 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=716, data_len=32747, checksum=0x75ae
+2024-12-12 00:54:47.886 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=418, ack=717, flags=ACK , data_len=0
+2024-12-12 00:54:47.886 - LOG: [ESTABLISHED] RTT sample: 48ms, updated RTT=53ms, DevRTT=8ms, RTO=85ms
+2024-12-12 00:54:47.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=717, data_len=32747, checksum=0xd672
+2024-12-12 00:54:47.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=718, data_len=32747, checksum=0xf0e
+2024-12-12 00:54:47.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=719, data_len=32747, checksum=0xaed6
+2024-12-12 00:54:47.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=720, data_len=32747, checksum=0x8632
+2024-12-12 00:54:47.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=721, data_len=32747, checksum=0xcae9
+2024-12-12 00:54:47.898 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=722, data_len=32747, checksum=0xb5b0
+2024-12-12 00:54:47.934 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=420, ack=720, flags=ACK , data_len=0
+2024-12-12 00:54:47.946 - LOG: Congestion Avoidance increment: cwnd=7, ssthresh=2
+2024-12-12 00:54:47.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=723, data_len=32747, checksum=0x8376
+2024-12-12 00:54:47.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=724, data_len=32747, checksum=0xea5d
+2024-12-12 00:54:47.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=725, data_len=32747, checksum=0xb718
+2024-12-12 00:54:47.946 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=726, data_len=32747, checksum=0x8e24
+2024-12-12 00:54:47.982 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=422, ack=720, flags=ACK , data_len=0
+2024-12-12 00:54:47.982 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=423, ack=720, flags=ACK , data_len=0
+2024-12-12 00:54:47.982 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=424, ack=720, flags=ACK , data_len=0
+2024-12-12 00:54:47.982 - WARN: [ESTABLISHED] 3 duplicate ACKs detected for ack_seq=719, fast retransmit.
+2024-12-12 00:54:47.983 - LOG: Enter Fast Recovery: cwnd=6.5, ssthresh=3.5
+2024-12-12 00:54:48.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=426, ack=727, flags=ACK , data_len=0
+2024-12-12 00:54:48.025 - LOG: [ESTABLISHED] RTT sample: 43ms, updated RTT=52ms, DevRTT=8ms, RTO=84ms
+2024-12-12 00:54:48.025 - LOG: Exit Fast Recovery, into Congestion Avoidance: cwnd=3.5, ssthresh=3.5
+2024-12-12 00:54:48.025 - LOG: Enter Congestion Avoidance: cwnd=3.5, ssthresh=3.5
+2024-12-12 00:54:48.025 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=427, ack=727, flags=ACK , data_len=0
+2024-12-12 00:54:48.031 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=727, data_len=32747, checksum=0x4fd6
+2024-12-12 00:54:48.031 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=728, data_len=32747, checksum=0x2704
+2024-12-12 00:54:48.031 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=729, data_len=32747, checksum=0xfa3c
+2024-12-12 00:54:48.074 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=428, ack=730, flags=ACK , data_len=0
+2024-12-12 00:54:48.079 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=730, data_len=32747, checksum=0xb99a
+2024-12-12 00:54:48.079 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=731, data_len=32747, checksum=0x30b1
+2024-12-12 00:54:48.080 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=732, data_len=32747, checksum=0xfc97
+2024-12-12 00:54:48.128 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=429, ack=733, flags=ACK , data_len=0
+2024-12-12 00:54:48.128 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=52ms, DevRTT=7ms, RTO=80ms
+2024-12-12 00:54:48.140 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=733, data_len=32747, checksum=0xa731
+2024-12-12 00:54:48.140 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=734, data_len=32747, checksum=0x376
+2024-12-12 00:54:48.140 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=735, data_len=32747, checksum=0xc61a
+2024-12-12 00:54:48.189 - LOG: Congestion Avoidance increment: cwnd=4.5, ssthresh=3.5
+2024-12-12 00:54:48.189 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=430, ack=736, flags=ACK , data_len=0
+2024-12-12 00:54:48.189 - LOG: [ESTABLISHED] RTT sample: 49ms, updated RTT=52ms, DevRTT=6ms, RTO=76ms
+2024-12-12 00:54:48.207 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=736, data_len=16339, checksum=0xb247
+2024-12-12 00:54:48.207 - LOG: [ESTABLISHED] Send packet: connect_id=1788240507, seq=737, data_len=10, checksum=0x8db4
+2024-12-12 00:54:48.243 - LOG: Congestion Avoidance increment: cwnd=5.5, ssthresh=3.5
+2024-12-12 00:54:48.275 - LOG: [ESTABLISHED] Received packet: connect_id=1788240507, seq=431, ack=738, flags=ACK , data_len=0
+2024-12-12 00:54:50.795 - LOG: [ESTABLISHED] Send FIN packet seq=738 to 127.0.0.1. Change status to FIN_WAIT.
+2024-12-12 00:54:50.825 - LOG: [FIN_WAIT] Received FIN_ACK packet seq=432
+2024-12-12 00:54:50.837 - LOG:  Change status to CLOSE_WAIT.
+2024-12-12 00:54:52.840 - LOG: [CLOSE_WAIT] Receive packet at CLOSE_WAIT: connect_id=1701536102, seq=432, ack=739, flags=ACK FIN . Resend ACK packet 739

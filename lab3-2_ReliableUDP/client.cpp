@@ -69,7 +69,7 @@ int main()
 
     cout << "Client run at port " << client.getBoundPort() << endl;
 
-    client.connect("127.0.0.1", 8000);
+    client.connect("127.0.0.1", 5000);
 
     // sendFile(client, "resources/small.txt");
     int i = 0;

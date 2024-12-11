@@ -8,7 +8,6 @@
 #include <common/log.h>
 using namespace std;
 
-#define SEND_GAP 10  // 模拟网络状况，让发送有一定延迟
 #define SEND(rudp_packet)                                                                             \
     {                                                                                                 \
         sendto(_sockfd,                                                                               \
@@ -21,8 +20,7 @@ using namespace std;
             rudp_packet, chrono::time_point_cast<chrono::milliseconds>(chrono::steady_clock::now())}; \
     }
 
-using ms    = chrono::milliseconds;
-ms send_gap = ms(SEND_GAP);
+using ms = chrono::milliseconds;
 
 namespace
 {
@@ -112,6 +110,7 @@ void RUDP_C::_resend_handler()
                                 (const struct sockaddr*)&_remote_addr,
                                 sizeof(sockaddr_in));
                             t = now_ms;  // 更新发送时间
+                            CLOG("[", statuStr(_statu), "] Resend packet seq=", seq_num);
                         }
                     }
                 }
@@ -131,10 +130,14 @@ void RUDP_C::_receive_handler()
     uint32_t last_ack_seq  = 0;
     int      dup_ack_count = 0;
 
+    auto last_fast_retransmit = chrono::steady_clock::now();
+    auto now                  = chrono::steady_clock::now();
+
     while (_receiving)
     {
         recvfrom(_sockfd, (char*)&recv_buffer, sizeof(RUDP_P), 0, (struct sockaddr*)&tmp_addr, &addr_len);
 
+        now = chrono::steady_clock::now();
         if (!checkCheckSum(recv_buffer))
         {
             CLOG_WARN("[", statuStr(_statu), "] Received corrupted packet (wrong checksum). Dropping.");
@@ -171,8 +174,9 @@ void RUDP_C::_receive_handler()
 
         if (acked_seq == last_ack_seq)
         {
+            /*
             dup_ack_count++;
-            if (dup_ack_count >= 3 && dup_ack_count % 3 == 0)
+            if (dup_ack_count >= 3 && dup_ack_count % 3 == 0 && (now - last_fast_retransmit > _rto))
             {
                 CLOG_WARN("[",
                     statuStr(_statu),
@@ -193,12 +197,14 @@ void RUDP_C::_receive_handler()
                         sizeof(sockaddr_in));
                     t = now_ms;
                 }
-            }
+                last_fast_retransmit = now;
+            } */
         }
         else
         {
             dup_ack_count = 0;
             last_ack_seq  = acked_seq;
+            CLOG("[", statuStr(_statu), "] Received ACK packet for seq=", acked_seq, ", erase all packets before it.");
         }
 
         bool                      do_rtt_update = false;
@@ -218,7 +224,7 @@ void RUDP_C::_receive_handler()
                         do_rtt_update  = true;
                     }
 
-                    CLOG("[", statuStr(_statu), "] ACK received for seq=", _base, ". Removing from send buffer.");
+                    // CLOG("[", statuStr(_statu), "] ACK received for seq=", _base, ". Removing from send buffer.");
                     _send_buffer.erase(it);
                 }
                 ++_base;
@@ -563,6 +569,4 @@ void RUDP_C::send(const char* buffer, size_t buffer_size)
         ", checksum=0x",
         hex,
         packet.header.checksum);
-
-    this_thread::sleep_for(send_gap);
 }

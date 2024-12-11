@@ -10,6 +10,8 @@ utils/*
 !utils/lib/
 utils/include/*
 utils/lib/*
+*/download/*
+!*/download/.gitkeep
 
 */npm_proj/*
 !*/npm_proj/package.json

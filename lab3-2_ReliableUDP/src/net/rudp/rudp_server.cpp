@@ -58,27 +58,86 @@ void RUDP_S::clear_statu()
 void RUDP_S::_receive_handler(callback cb)
 {
     size_t left_packet = 0;
+    size_t cnt         = 0;
     RUDP_P send_buffer;
 
-    // 乱序缓存：key为seq_num，value为包
-    std::map<uint32_t, RUDP_P> oOO_buffer;
-    ReWrLock                   oOO_lock;
-    size_t                     ooo_count   = 0;
-    size_t                     ordered_cnt = 0;
+    map<uint32_t, RUDP_P> oOO_buffer;
+    ReWrLock              oOO_lock;
 
-    auto send_ack = [&](uint32_t ack_num) {
-        send_buffer.header.connect_id = _connect_id;
-        send_buffer.header.seq_num    = _seq_num++;
-        send_buffer.header.ack_num    = ack_num;
-        SET_ACK(send_buffer);
-        genCheckSum(send_buffer);
-        sendto(_sockfd,
-            (const char*)&send_buffer,
-            lenInByte(send_buffer),
-            0,
-            (const struct sockaddr*)&_remote_addr,
-            sizeof(sockaddr_in));
-        SLOG("[", statuStr(_statu), "] Send ACK: ack_num=", ack_num);
+    // 延迟ACK相关变量
+    mutex                ack_mutex;
+    condition_variable   ack_cv;
+    bool                 ack_timer_running = false;
+    bool                 ack_needed        = false;
+    thread               ack_thread;
+    bool                 stop_ack_thread = false;
+    chrono::milliseconds ack_delay(10);  // 10ms延迟ACK时间
+    uint32_t             last_answered_ack = 0;
+    uint32_t             ack_times         = 0;
+
+    auto ack_sender = [&]() {
+        unique_lock<mutex> lk(ack_mutex);
+        while (!stop_ack_thread)
+        {
+            if (!ack_needed)
+            {
+                // 没有需要发送的ACK，等待有新的ACK需要发送
+                ack_cv.wait(lk, [&]() { return ack_needed || stop_ack_thread; });
+            }
+            else
+            {
+                // 已有需要发送的ACK，开始延迟计时
+                auto deadline   = chrono::steady_clock::now() + ack_delay;
+                bool no_new_ack = ack_cv.wait_until(lk, deadline, [&]() { return !ack_needed || stop_ack_thread; });
+                // no_new_ack == false 表示超时了，没有新的包推动ack_needed清空
+                if (!stop_ack_thread && ack_needed)
+                {
+                    // 超时未有新包到来，发送ACK
+                    ack_needed = false;
+                    // 发送ACK包
+                    RUDP_P send_buffer;
+                    send_buffer.header.connect_id = _connect_id;
+                    send_buffer.header.seq_num    = _seq_num++;
+                    send_buffer.header.ack_num    = _ack_num;
+                    SET_ACK(send_buffer);
+                    genCheckSum(send_buffer);
+                    sendto(_sockfd,
+                        (const char*)&send_buffer,
+                        lenInByte(send_buffer),
+                        0,
+                        (const struct sockaddr*)&_remote_addr,
+                        sizeof(sockaddr_in));
+                    SLOG("[", statuStr(_statu), "] Delayed ACK sent: ack_num=", _ack_num);
+                }
+            }
+        }
+    };
+    ack_thread = thread(ack_sender);
+
+    auto trigger_ack = [&](bool immediate = false) {
+        lock_guard<mutex> lk(ack_mutex);
+        if (immediate)
+        {
+            ack_needed = false;
+            RUDP_P send_buffer;
+            send_buffer.header.connect_id = _connect_id;
+            send_buffer.header.seq_num    = _seq_num++;
+            send_buffer.header.ack_num    = _ack_num;
+            SET_ACK(send_buffer);
+            genCheckSum(send_buffer);
+            sendto(_sockfd,
+                (const char*)&send_buffer,
+                lenInByte(send_buffer),
+                0,
+                (const struct sockaddr*)&_remote_addr,
+                sizeof(sockaddr_in));
+            SLOG("[", statuStr(_statu), "] Immediate ACK sent: ack_num=", _ack_num);
+        }
+        else if (!ack_needed)
+        {
+            ack_needed = true;
+            ack_cv.notify_all();
+        }
     };
 
     auto deliver_in_order = [&]() {
@@ -98,7 +157,7 @@ void RUDP_S::_receive_handler(callback cb)
                 cb(packet);
                 oOO_buffer.erase(it);
                 ++_ack_num;
-                ++ordered_cnt;
+                ++cnt;
             }
             else
                 break;
@@ -158,7 +217,7 @@ void RUDP_S::_receive_handler(callback cb)
             ", data_len=",
             recv_packet.header.data_len);
 
-        // 处理FIN包（优先）
+        // FIN处理
         if (CHK_FIN(recv_packet))
         {
             SLOG("[",
@@ -188,20 +247,18 @@ void RUDP_S::_receive_handler(callback cb)
 
         if (seq_num < _ack_num)
         {
-            // 已确认过的老包
+            // 老包，立即ACK
             SLOG("[",
                 statuStr(_statu),
                 "] Received old packet seq=",
                 seq_num,
                 " (current ack_num=",
                 _ack_num,
-                "), resend ACK");
-            send_ack(_ack_num);
-            ordered_cnt = 0;
+                "), resend ACK immediately");
+            trigger_ack(true);
         }
         else if (seq_num == _ack_num)
         {
-            // 刚好是期望的下一个按序包
             SLOG("[",
                 statuStr(_statu),
                 "] Received in-order packet seq=",
@@ -210,47 +267,35 @@ void RUDP_S::_receive_handler(callback cb)
                 _ack_num + 1);
             cb(recv_packet);
             ++_ack_num;
-            ++ordered_cnt;
             deliver_in_order();
-            if (ordered_cnt >= 7)
-            {
-                send_ack(_ack_num);
-                ordered_cnt = 0;
-            }
+            trigger_ack(false);
         }
         else
         {
-            // seq_num > _ack_num，为乱序包，缓存起来
             {
                 WriteGuard guard(oOO_lock.write());
                 oOO_buffer.insert({seq_num, recv_packet});
             }
 
-            if (++ooo_count % 10 == 0)
-            {
-                send_ack(_ack_num);
-                ordered_cnt = 0;
-                SLOG("[",
-                    statuStr(_statu),
-                    "] Received out-of-order packet seq=",
-                    seq_num,
-                    " (expecting ",
-                    _ack_num,
-                    "), sending ACK=",
-                    _ack_num);
-            }
-            else
-                SLOG("[",
-                    statuStr(_statu),
-                    "] Received out-of-order packet seq=",
-                    seq_num,
-                    " (expecting ",
-                    _ack_num,
-                    "), waiting for missing packets.");
+            SLOG("[",
+                statuStr(_statu),
+                "] Received out-of-order packet seq=",
+                seq_num,
+                " (expecting ",
+                _ack_num,
+                "), immediate ACK to signal sender.");
+            trigger_ack(true);
         }
 
         memset(&recv_packet, 0, sizeof(RUDP_H));
     }
+
+    {
+        lock_guard<mutex> lk(ack_mutex);
+        stop_ack_thread = true;
+        ack_cv.notify_all();
+    }
+    ack_thread.join();
 }
 
 void RUDP_S::_wakeup_handler()
